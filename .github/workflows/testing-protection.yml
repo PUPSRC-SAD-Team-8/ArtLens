@@ -1,0 +1,19 @@
+name: "Check 'testing' Pushes"
+
+on:
+  pull_request:
+    branches:
+      - testing
+  push:
+    branches:
+      - testing
+
+jobs:
+  check_branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/testing' && (github.actor != 'C-Ivan-Bandilla' && github.actor != 'Hello-Ivan')
+        run: |
+          echo "ERROR: You are not authorized to push to the 'testing' branch."
+          exit 1

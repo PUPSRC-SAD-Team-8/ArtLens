@@ -1,0 +1,5 @@
+# .gitignore
+# .github/
+# .gitignore.default
+# .gitignore.development
+# release.config.js

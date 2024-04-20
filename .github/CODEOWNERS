@@ -1,0 +1,8 @@
+# CODEOWNERS file
+* @joshuaarceo1 @Natsirt016  # Default owners for all other files
+
+# Explicitly specify owners for specific files
+!/.gitignore @C-Ivan-Bandilla
+!/.gitignore.default @C-Ivan-Bandilla
+!/.gitignore.development @C-Ivan-Bandilla
+!/release.config.js @C-Ivan-Bandilla

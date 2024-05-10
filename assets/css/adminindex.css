@@ -1,0 +1,36 @@
+.input1{
+    background-color: #eee;
+    border: 1px solid lightgray;
+    margin: 8px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    min-width: 200px;
+    max-width: 400px;
+    outline: none;
+    }
+
+    .btn2 {
+        position: relative;
+        display: inline-block;
+        width: auto;
+        padding: 12px 30px;
+        font-size: var(--text-regular);
+        font-weight: var(--font-weight-regular);
+        background-color: #4169E1;
+        color: white;
+        border-radius: 10px;
+        letter-spacing: 1.1px;
+        transition: var(--animate);
+        text-align: center;
+        text-transform: capitalize;
+        border: 1px solid var(--color-first);
+        cursor: pointer;
+        margin-top: 10%;
+        margin-left: 35%;
+        text-decoration: none;
+        border: solid 1px white;
+      }
+
+      

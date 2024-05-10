@@ -1,0 +1,75 @@
+.btn1{
+  padding: 10px ;
+  background-color:white !important;
+  color: #4169E1;
+  border-radius: 5px;
+}
+
+.homebtn:hover{
+  background-color: #4169E1;
+  border-color: white;
+  color: white;
+}
+
+.head {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #4169E1 !important;
+}
+
+body {
+    padding-top: 40px; /* Adjust body padding to accommodate fixed header */
+}
+
+.titleh {
+    color: white;
+    
+}
+
+.grid-box {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd; /* Optional: Add border */
+  text-align: center; /* Center the content horizontally */
+  width: 250px;
+  height: auto; /* Set a fixed height for the container */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack child elements vertically */
+  border-radius: 10px;
+}
+
+.grid-box img {
+  width: 100%; /* Ensure image width covers the container */
+  height: auto; /* Allow the height to adjust automatically */
+  max-height: 220px; /* Set a maximum height for the images */
+  min-height: 220px; /* Set a maximum height for the images */
+  object-fit: cover; /* Cover the entire container without stretching */
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+  color: #000; /* Black text color */
+  padding: 10px;
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Style the link */
+.box-link {
+  display: block;
+  color: inherit; /* Inherit the text color */
+  text-decoration: none; /* Remove underline */
+}
+
+.box-link:hover {
+  text-decoration: none;
+}
+
+/* Custom CSS to reduce gap between columns */
+.row.no-gutters [class^="col-"] {
+  padding-right: 5px;
+  padding-left: 5px; 
+}
+

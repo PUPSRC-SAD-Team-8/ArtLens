@@ -1,0 +1,44 @@
+body {
+    overflow-x: scroll;
+}
+.clickable-row {
+    cursor: pointer !important;
+}
+
+.clickable-row:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-container {
+    max-height: 300px; /* Adjust the height as needed */
+    overflow-y: auto;
+}
+
+.btn2 {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    padding: 12px 30px;
+    font-size: var(--text-regular);
+    font-weight: var(--font-weight-regular);
+    background-color: #4169E1;
+    color: white;
+    border-radius: 10px;
+    letter-spacing: 1.1px;
+    transition: var(--animate);
+    text-align: center;
+    text-transform: capitalize;
+    border: 1px solid var(--color-first);
+    cursor: pointer;
+    margin-top: 10%;
+    margin-left: 35%;
+    text-decoration: none;
+    border: solid 1px white;
+  }
+  
+  .btn2:hover {
+    background-color: white;
+    color: #4169E1;
+    border: solid 1px #4169E1;
+    box-shadow: none;
+  }

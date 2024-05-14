@@ -29,7 +29,7 @@ if (isset($_SESSION['userid'])) {
                     <br>
                 <img src="assets/images/image.png" class="img-fluid" style="width: 70px;" alt="logo">
                 <div class="sidebar-logo">
-                    <h4 style="color: #4169E1;"><b>ArtLens</b></h4>
+                    <h4 style="color: #4169E1;"><b>ArtLenss</b></h4>
                     <hr>
                 </div>
             </center>

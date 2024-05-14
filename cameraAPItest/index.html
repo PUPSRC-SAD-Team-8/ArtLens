@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Capture</title>
+</head>
+<body>
+<video id="video" width="640" height="480" autoplay></video>
+<button id="capture-btn">Capture Image</button>
+<canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+<script>
+// Get video element
+const video = document.getElementById('video');
+
+// Get canvas element
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
+
+// Get capture button
+const captureButton = document.getElementById('capture-btn');
+
+// Access webcam
+navigator.mediaDevices.getUserMedia({ video: true })
+  .then(stream => {
+    // Assign the video stream to the video element
+    video.srcObject = stream;
+  })
+  .catch(error => {
+    console.error('Error accessing webcam:', error);
+  });
+
+// Function to capture image
+function captureImage() {
+  // Draw the current frame of the video onto the canvas
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  
+  // Convert the canvas content to a data URL representing the image
+  const imageDataURL = canvas.toDataURL('image/png');
+  
+  // Do something with the captured image data URL
+  console.log('Captured image data:', imageDataURL);
+}
+
+// Add click event listener to the capture button
+captureButton.addEventListener('click', captureImage);
+</script>
+</body>
+</html>

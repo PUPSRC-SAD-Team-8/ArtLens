@@ -16,6 +16,7 @@ if (isset($_SESSION['userid'])) {
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
     <title>Artlens</title>
 </head>
 
@@ -23,83 +24,12 @@ if (isset($_SESSION['userid'])) {
     <div class="wrapper">
         <!-- Sidebar -->
         <aside id="sidebar" style="position: relative;">
-            <div class="h-100">
-                <center>
-                    <br>
-                <img src="assets/images/image.png" class="img-fluid" style="width: 70px;" alt="logo">
-                <div class="sidebar-logo">
-                    <h4 style="color: #4169E1;"><b>ArtLens</b></h4>
-                    <hr>
-                </div>
-            </center>
-                <!-- Sidebar Navigation -->
-                <ul class="sidebar-nav">
-                    <li class="sidebar-item">
-                        <a href="adminindex.php" class="sidebar-link mx-2 ">
-                            <i class="fa-regular fa-address-card pe-2"></i>
-                            Manage Account
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="adminartwork.php" class="sidebar-link mx-2">
-                            <i class="fa-solid fa-palette pe-2"></i>
-                            Artworks
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="adminannouncements.php" class="sidebar-link mx-2 ">
-                            <i class="fa-solid fa-bullhorn pe-2"></i>
-                            Announcements
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="adminquiz.php" class="sidebar-link mx-2 active">
-                            <i class="fa-regular fa-newspaper pe-2"></i>
-                            Quiz
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="adminbooking.php" class="sidebar-link mx-2 ">
-                            <i class="fa-solid fa-book-open pe-2"></i>
-                            Booking
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="adminvisitorlog.php" class="sidebar-link mx-2 ">
-                            <i class="fa-solid fa-person pe-2"></i>
-                            Visitor Log
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="logout.php" class="sidebar-link mx-2" style="margin-top: 30%; color: red;" >
-                            <i class="fa-solid fa-right-from-bracket pe-2"></i>
-                             Logout
-                        </a>
-                    </li>
-                </ul>
-                <!-- Footer -->
-
-            </div>
+            <?php include('sidebar.php'); ?>
         </aside>
-        
+
         <!-- Main Component -->
         <div class="main">
-            <nav class="navbar navbar-expand px-3 border-bottom" style="background-color: white;">
-                <button class="btn btn-white" type="button" style="background-color: white; color: #4169E1;">
-                    <span class="fa-solid fa-bars" style="font-size: 20px;"></i></span>
-                </button>
-                <!--<div class="mx-auto text-center">
-                    <span style="font-size: larger;"><b>Rizal Shrine</b></span>
-                </div>-->
-                    <div class="ms-auto" style="margin-right: 15px; margin-top: 8px;">
-                    <a href="#" class="position-relative d-inline-block">
-                        <i class="fas fa-bell fa-lg"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            9+ 
-                        </span>
-                    </a>
-                </div>
-            </nav>
+        <?php include('header.php'); ?>
             
             <!--MAIN MAIN MAIN-->
             <main class="content px-3 py-2">

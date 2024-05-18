@@ -26,6 +26,7 @@ if (isset($_SESSION['id'])) {
     <nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <h1 style="color: white; font-family: 'Arial Grook', sans-serif; "><b>ArtLens</b></h1>
+            <a class="nav-link admin-login-mobile btn1 adminlogbtn" onclick="document.getElementById('myModal').style.display='flex'">Admin Login</a>
         </div>
     </nav>
 

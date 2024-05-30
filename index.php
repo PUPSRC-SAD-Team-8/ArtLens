@@ -1,17 +1,16 @@
 <?php
 session_start();
-include('connection.php');
+include ('connection.php');
 
 $displayModal = isset($_SESSION['msg']);
 
-if (isset($_SESSION['id'])) {
+if(isset($_SESSION['id'])){
     header('location:index.php');
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,83 +18,90 @@ if (isset($_SESSION['id'])) {
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/indexstyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.0/air-datepicker.min.css" rel="stylesheet" />
-</head>
+    <style>
 
+
+        .close2 {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close2:hover,
+        .close2:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-toggle {
+            margin: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+        .btn-toggle.form {
+    background-color: #4169E1; /* Set default background color for the form button */
+    padding: 5px 50px 5px 50px;
+    text-decoration: none;
+    border-radius: 5px;
+    
+
+}
+
+.btn-toggle.status {
+    background-color: white; /* Set default background color for the status button */
+    padding: 5px 50px 5px 50px;
+    text-decoration: none;
+    border-radius: 5px;
+
+}
+/* Ensure buttons are displayed inline */
+#toggleButtons {
+    display: flex;
+}
+
+/* Adjust margin between buttons */
+.btn-toggle {
+    margin: 0;
+    border: 1px solid #4169E1;
+}
+
+
+    </style>
+</head>
 <body>
     <nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <h1 style="color: white; font-family: 'Arial Grook', sans-serif; "><b>ArtLens</b></h1>
+            <h1 style="color: white; font-family: 'Arial Grook', sans-serif;"><b>ArtLens</b></h1>
         </div>
     </nav>
 
     <!-- Login Modal -->
-    <div id="myModal" class="modal" style="<?php if ($displayModal) echo 'display: flex; ' ?>">
-        <div class="modal-content">
-            <span class="close3 " onclick="document.getElementById('myModal').style.display='none'" style="position: absolute; top: 1px; right: 20px; ">&times;</span> <!-- Adjust position as needed -->
-            <br><br><br>
-            <center><b>
-                    <h3 style="font-size: 150%; font-family: sans-serif; color: #4169E1;">ARTLENS
-                </b></h3>
-                <br>
-                <p style="margin: 0px 15% 0px 15%;">Journey Through the Heart of Rizal: Where History Comes to Life</p>
-            </center>
-            <br>
-            <?php
-            if (isset($_SESSION['msg'])) {
-                echo $_SESSION['msg'];
-                unset($_SESSION['msg']);
-            }
-            ?><br>
-            <form action="login.php" method="POST">
-
-                <input class="form-control input1" style="background-color: #eee;" type="email" name="uname" placeholder="Email" required>
-                <div class="input-group">
-                    <input class="form-control input1" type="password" style="background-color: #eee;" name="pass" id="pass" placeholder="Password" required>
-                    <div class="input-group-append">
-                        <button class="form-control shadow-none" type="button" id="togglePassword">Show</button>
-                    </div>
-                </div>
-                <div class="forgot-pass" style="margin-top: 1%; float: right;">
-                    <a href="forgotpassword.php">Forgot Password?</a>
-                </div>
-                <div class="d-flex justify-content-center mt-5">
-                    <button type="submit" name="submit" class="btn3">Login</button>
-                </div>
-
-            </form>
-
-        </div>
-    </div>
-
     <div class="first-page d-flex justify-content-center align-items-center">
         <div class="container con1">
             <div class="row align-items-center">
                 <div class="col-md-6 order-md-2 text-center imgrizaldiv">
-                    <img src="assets/images/rizal.png" class="img-fluid imgrizal" alt="Rizal Image" style="position: relative; z-index: 1;">
+                    <img src="assets/images/lgs.png" class="img-fluid imgrizal" alt="Rizal Image" style="position: relative; z-index: 1;">
                 </div>
                 <div class="col-md-6 order-md-1" style="position: relative; z-index: 2;">
                     <h1><b>Rizal Shrine</b></h1>
                     <p style="color: grey;">The Rizal Shrine in Calamba (Filipino: Museo ni José Rizal Calamba) is a reproduction of the original two-story, Spanish-colonial style house in Calamba, Laguna where José Rizal was born on June 19, 1861. The house is designated as a National Shrine (Level 1) by the National Historical Commission of the Philippines.</p>
                     <a href="visitorindex.php" class="cssbuttons-io-button" style="position: relative; z-index: 3; text-decoration: none; width: 45%; min-width: 260px; max-width: 260px;">
-                        Explore the Museum
-                        <div class="icon">
-                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
-                            </svg>
-                        </div>
-                    </a>
+                      Explore the Museum
+                      <div class="icon">
+                          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M0 0h24v24H0z" fill="none"></path>
+                              <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                          </svg>
+                      </div>
+                  </a>                
                 </div>
             </div>
         </div>
     </div>
-    <div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="footerblue" style="margin-top: -20%; position: relative; z-index: 0;">
-            <path fill="#4169E1" fill-opacity="1" d="M0,256L120,261.3C240,267,480,277,720,234.7C960,192,1200,96,1320,48L1440,0L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
-        </svg>
-    </div>
-
 
     <br><br><br><br><br>
     <div class="container text-center">
@@ -148,27 +154,54 @@ if (isset($_SESSION['id'])) {
                 <div id="myModal1" class="modal1">
                     <div class="modal-content1">
                         <span class="close2 float-end mb-3" onclick="document.getElementById('myModal1').style.display='none'">&times;</span>
-                        <h3 class="mt-2">Booking Form</h3>
+                        <h3 id="modalTitle" class="mt-2">Booking Form</h3>
                         <hr>
-                        <form id="bookingForm" action="booking.php" method="POST">
-                            <input class="form-control" name="onam" type="text" placeholder="Organization Name" required>
-                            <input class="form-control" name="emal" type="email" placeholder="Email" required>
-                            <input class="form-control" name="monu" type="tel" placeholder="Mobile Number" required>
-                            <div class="row">
-                                <div class="col">
-                                    <input class="form-control" name="numa" type="number" placeholder="Number of Male" required>
+    
+                        <div id="toggleButtons" class="d-flex justify-content-center mb-3">
+                            <a type="button" class="btn-toggle form" onclick="showForm()">Form</a>
+                            <a type="button" class="btn-toggle status" onclick="showStatus()">Status</a>
+                        </div>
+
+                        <!-- Booking Form -->
+                        <div id="formContent">
+                            <form id="bookingForm" action="booking.php" method="POST">
+                                <input class="form-control" name="onam" type="text" placeholder="Organization Name" required>
+                                <input class="form-control" name="emal" type="email" placeholder="Email" required>
+                                <input class="form-control" name="monu" type="tel" placeholder="Mobile Number" required>
+                                <div class="row">
+                                    <div class="col">
+                                        <input class="form-control" name="numa" type="number" placeholder="Number of Male" required>
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control" name="nufe" type="number" placeholder="Number of Female" required>
+                                    </div>
                                 </div>
-                                <div class="col">
-                                    <input class="form-control" name="nufe" type="number" placeholder="Number of Female" required>
+                                <input class="form-control" name="dati" type="datetime-local" placeholder="Date and Time" required>
+                                <input class="form-control" name="bstatus" type="text" placeholder="Status" required>
+                                
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button type="submit" name="submit" class="btn3" style="width: 100%;">Book</button>
                                 </div>
-                            </div>
-                            <input class="form-control" id="dati" type="text" placeholder="Date and Time" required readonly>
-                            <input name="dati" type="text" placeholder="Date and Time" required hidden>
-                            <input class="form-control" name="othe" type="text" placeholder="Other">
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" name="submit" class="btn3">Book</button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
+
+                        <!-- Status Content -->
+                        <div id="statusContent" class="hidden">
+                            <form id="statusForm" action="#" method="POST">
+                                <input class="form-control" name="contact_email" type="text" placeholder="Search by Email" required>
+                                <div id="imageContainer" style="margin-top: 10px; background-color: #FFFFFF; border-radius: 10px;">
+                                    <!-- Add image with default message -->
+                                    <center><img src="assets/images/status.png" alt="No information" id="noInfoImage"></center>
+                                    <!-- Container for displaying message -->
+                                    <div id="statusMessage" class="mt-3" style="margin: 10px; color: white;"></div>
+                                </div>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button type="button" onclick="checkStatus()" class="btn3" style="width: 100%;">Search Status</button>
+                                </div>
+                            </form>
+                        </div>
+
+
                     </div>
                 </div>
                 <button class="btn kulay" onclick="document.getElementById('myModal2').style.display='flex'">Visit the Museum</button>
@@ -186,13 +219,11 @@ if (isset($_SESSION['id'])) {
                                 <label for="male">Male</label>
                                 <input type="radio" id="female" name="gen" value="Female" required>
                                 <label for="female">Female</label>
-                                <input type="radio" id="other" name="gen" value="Other" required>
-                                <label for="other">Other</label>
                             </div>
                             <input class="form-control" name='email1' type="email" placeholder="Email" required>
-                            <input class="form-control" name='monu1' type="tel" placeholder="Mobile Number" required>
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" name="submit" class="btn3">Submit</button>
+                            <input class="form-control" name='monu1' type="number" placeholder="Mobile Number" required>
+                            <div class="d-flex justify-content-center mt-3">
+                                <button type="submit" name="submit" class="btn3" style="width: 100%;">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -209,11 +240,11 @@ if (isset($_SESSION['id'])) {
             <div class="col-md-6 order-md-1">
                 <h3>Art Discovery with Our Innovative Recognition System</h3>
                 <p>Experience art in a whole new way at the Rizal Shrine with our cutting-edge art recognition system. Using advanced technology, our system allows visitors to interact with artworks in a dynamic and engaging manner. Simply point your smartphone or tablet at a piece of art, and watch as detailed information, artist biographies, and historical context come to life before your eyes. Dive deeper into the stories behind each masterpiece and gain a deeper appreciation for the artistic contributions that honor Dr. Jose Rizal's legacy. Explore our galleries with a fresh perspective and uncover hidden treasures waiting to be discovered through our innovative art recognition system.</p>
-                <button type="button" class="btn kulay" onclick="location.href='visitorartrecog.php';">Try our Image Recognition</button>
+                <button class="btn kulay">Try our Image Recognition</button>
             </div>
         </div>
     </div>
-
+    
     <br><br><br><br><br>
     <footer class="footer">
         <div class="container">
@@ -224,66 +255,69 @@ if (isset($_SESSION['id'])) {
     <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="assets/js/input-validator.js"></script>
-    <script type="module" src="assets/js/visitor-index.js" defer></script>
+    
+    <script>
+        var modal = document.getElementById("myModal1");
+        var span = document.getElementsByClassName("close2")[0];
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function showForm() {
+            document.getElementById("formContent").classList.remove("hidden");
+            document.getElementById("statusContent").classList.add("hidden");
+            document.getElementById("modalTitle").textContent = "Booking Form";
+            document.querySelector(".btn-toggle.form").style.backgroundColor = "#4169E1";
+            document.querySelector(".btn-toggle.form").style.color = "white"; // Set text color to white
+            document.querySelector(".btn-toggle.status").style.backgroundColor = "white";
+            document.querySelector(".btn-toggle.status").style.color = "black"; // Set text color to black
+        }
+
+        function showStatus() {
+            document.getElementById("formContent").classList.add("hidden");
+            document.getElementById("statusContent").classList.remove("hidden");
+            document.getElementById("modalTitle").textContent = "Booking Status";
+            document.querySelector(".btn-toggle.form").style.backgroundColor = "white";
+            document.querySelector(".btn-toggle.form").style.color = "black"; // Set text color to black
+            document.querySelector(".btn-toggle.status").style.backgroundColor = "#4169E1";
+            document.querySelector(".btn-toggle.status").style.color = "white"; // Set text color to white
+        }
+
+        // Set default text color
+        document.querySelector(".btn-toggle.form").style.color = "white"; // Default text color for form button
+        document.querySelector(".btn-toggle.status").style.color = "black"; // Default text color for status button
+
+
+            </script>
+            <script>
+            function checkStatus() {
+            // Retrieve the reference number
+            var referenceNumber = document.querySelector('#statusContent input[name="contact_email"]').value;
+
+            // AJAX request to send the reference number to check_status.php
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "check_status.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Handle the response from check_status.php
+                    document.getElementById('statusMessage').innerHTML = xhr.responseText;
+                    // Hide the image when search is made
+                    document.getElementById('noInfoImage').style.display = 'none';
+                    // Change the background color to blue
+                    document.getElementById('imageContainer').style.backgroundColor = '#4169E1';
+                }
+            };
+            xhr.send("contact_email=" + referenceNumber); // Send the reference number as POST data
+        }
+</script>
 
 </body>
-
 </html>
-
-<script>
-    var modal = document.getElementById("myModal");
-    var btn = document.getElementById("loginBtn");
-    var span = document.getElementsByClassName("close1")[0];
-
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-    var loginForm = document.getElementById("loginForm");
-    var errorMessage = document.getElementById("errorMessage");
-
-    loginForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-
-
-        if (username === "correct_username" && password === "correct_password") {
-
-            console.log("Login successful");
-
-
-            modal.style.display = "none";
-        } else {
-            errorMessage.textContent = "Wrong username or password.";
-            modal.style.display = "block";
-        }
-    });
-</script>
-<script>
-    // JavaScript to toggle password visibility
-    const togglePasswordBtn = document.getElementById("togglePassword");
-    const passwordField = document.getElementById("pass");
-
-    togglePasswordBtn.addEventListener("click", function() {
-        if (passwordField.type === "password") {
-            passwordField.type = "text";
-            togglePasswordBtn.textContent = "Hide";
-        } else {
-            passwordField.type = "password";
-            togglePasswordBtn.textContent = "Show";
-        }
-    });
-</script>

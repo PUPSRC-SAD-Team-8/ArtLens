@@ -1,0 +1,43 @@
+.active-link {
+    color: white;
+    background-color: #4169E1;
+    padding: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.containerbig {
+    width: 60%;
+    padding-bottom: 50px;
+}
+
+.formsize {
+    max-width: 350px;
+    min-width: 350px;
+}
+
+@media only screen and (max-width: 600px) {
+    .containerbig {
+        width: 100%;
+    }
+
+    .formsize {
+        max-width: 100%;
+        min-width: 100%;
+    }
+}
+
+.question {
+    position: relative;
+}
+
+.delete-question-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    color: red;
+    font-size: 1.5rem;
+    cursor: pointer;
+}

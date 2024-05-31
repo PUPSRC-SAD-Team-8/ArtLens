@@ -3,7 +3,6 @@ session_start();
 include ('connection.php');
 
 if (isset($_SESSION['userid'])) {
- 
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +19,7 @@ if (isset($_SESSION['userid'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
 
     <title>Artlens</title>
 </head>
@@ -28,81 +28,12 @@ if (isset($_SESSION['userid'])) {
     <div class="wrapper">
         <!-- Sidebar -->
         <aside id="sidebar" style="position: relative;">
-            <div class="h-100">
-                <center>
-                    <br>
-                <img src="assets/images/image.png" class="img-fluid" style="width: 70px;" alt="logo">
-                <div class="sidebar-logo">
-                    <h4 style="color: #4169E1;"><b>ArtLens</b></h4>
-                    <hr>
-                </div>
-            </center>
-                <!-- Sidebar Navigation -->
-                <ul class="sidebar-nav">
-                    <li class="sidebar-item">
-                        <a href="adminindex.php" class="sidebar-link mx-2">
-                            <i class="fa-regular fa-address-card pe-2"></i>
-                            Manage Account
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="adminartwork.php" class="sidebar-link mx-2 ">
-                            <i class="fa-solid fa-palette pe-2"></i>
-                            Artworks
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="adminannouncements.php" class="sidebar-link mx-2 ">
-                            <i class="fa-solid fa-bullhorn pe-2"></i>
-                            Announcements
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="adminquiz.php" class="sidebar-link mx-2 ">
-                            <i class="fa-regular fa-newspaper pe-2"></i>
-                            Quiz
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="adminbooking.php" class="sidebar-link mx-2 active">
-                            <i class="fa-solid fa-book-open pe-2"></i>
-                            Booking
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="adminvisitorlog.php" class="sidebar-link mx-2 ">
-                            <i class="fa-solid fa-person pe-2"></i>
-                            Visitor Log
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="logout.php" class="sidebar-link mx-2" style="margin-top: 30%; color: red;" >
-                            <i class="fa-solid fa-right-from-bracket pe-2"></i>
-                             Logout
-                        </a>
-                    </li> 
-                </ul>
-                <!-- Footer -->
-
-            </div>
+            <?php include('sidebar.php'); ?>
         </aside>
         
         <!-- Main Component -->
-        <div class="main" >
-            <nav class="navbar navbar-expand px-3 border-bottom" style="background-color: white;">
-                <button class="btn btn-white" type="button" style="background-color: white; color: #4169E1;">
-                    <span class="fa-solid fa-bars" style="font-size: 20px;"></i></span>
-                </button>
-                
-                <div class="ms-auto" style="margin-right: 15px; margin-top: 8px;">
-                    <a href="#" class="position-relative d-inline-block">
-                        <i class="fas fa-bell fa-lg"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            9+ 
-                        </span>
-                    </a>
-                </div>
-            </nav>
+        <div class="main">
+            <?php include('header.php'); ?>
             
             <!--MAIN MAIN MAIN-->
             <main class="content px-3 py-2" style="overflow-x: auto;">
@@ -110,8 +41,8 @@ if (isset($_SESSION['userid'])) {
                     <div class="d-flex justify-content-end mt-3">
                         <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white;">Add Booking</button>
                     </div>
-                    <div style="max-height: 400px; ">
-                        <table id="myTable" class="table table-striped table-bordered"  style="background-color: #ffffff;">
+                    <div style="max-height: 400px;">
+                        <table id="myTable" class="table table-striped table-bordered" style="background-color: #ffffff;">
                             <thead style="background-color: #4169E1; color: white;">
                                 <tr>
                                     <th>ID</th>
@@ -119,6 +50,7 @@ if (isset($_SESSION['userid'])) {
                                     <th>Email</th>
                                     <th>Mobile Number</th>
                                     <th>Total</th>
+                                    <th>Date and Time</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -136,12 +68,13 @@ if (isset($_SESSION['userid'])) {
                                         // Determine row class based on row number for alternating colors
                                         $row_class = ($row_num % 2 == 0) ? "even-row" : "odd-row";
                                         
-                                        echo "<tr class='clickable-row $row_class' data-info='" . $row["booking_id"] . "|" . $row["organization_name"] . "|" . $row["contact_email"] . "|" . $row["contact_number"] . "|" . ($row["num_male"] + $row["num_male"])  . "|" . $row["book_status"] . "'>";
+                                        echo "<tr class='clickable-row $row_class' data-info='" . $row["booking_id"] . "|" . $row["organization_name"] . "|" . $row["contact_email"] . "|" . $row["contact_number"] . "|" . ($row["num_male"] + $row["num_female"]) . "|" . $row["book_datetime"] . "|" . $row["book_status"] . "'>";
                                         echo "<td>" . $row["booking_id"] . "</td>";
                                         echo "<td>" . $row["organization_name"] . "</td>";
                                         echo "<td>" . $row["contact_email"] . "</td>";
                                         echo "<td>" . $row["contact_number"] . "</td>";
                                         echo "<td>" . ($row["num_male"] + $row["num_female"]) . "</td>";
+                                        echo "<td>" . $row["book_datetime"] . "</td>";
                                         echo "<td>" . $row["book_status"] . "</td>";
                                         echo "</tr>";
                                     }
@@ -159,8 +92,8 @@ if (isset($_SESSION['userid'])) {
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                            <h5 class="modal-title" id="infoModalLabel">Booking Form</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h5 class="modal-title" id="infoModalLabel">Booking Form</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form id="infoForm" action="bookingad.php" method="POST">
@@ -174,30 +107,31 @@ if (isset($_SESSION['userid'])) {
                                     </div>
                                     <div class="mb-3">
                                         <label for="mnumberInput" class="form-label">Mobile Number</label>
-                                        <input type="number" class="form-control" id="mnumberInput" name="monu" required>
+                                        <input type="text" class="form-control" id="mnumberInput" name="monu" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="nummInput" class="form-label">Number of Male</label>
-                                        <input type="number" class="form-control" id="nummInput" name="nufe" required>
+                                        <label for="nummaleInput" class="form-label">Number of Male</label>
+                                        <input type="number" class="form-control" id="nummaleInput" name="numa" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="nummInput" class="form-label">Number of Female</label>
-                                        <input type="number" class="form-control" id="nummInput" name="numa" required>
+                                        <label for="numfemaleInput" class="form-label">Number of Female</label>
+                                        <input type="number" class="form-control" id="numfemaleInput" name="nufe" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="dateInput" class="form-label">Date and Time</label>
                                         <input type="datetime-local" class="form-control" id="dateInput" name="dati" required>
                                     </div>
-
+                                    <!-- Add a hidden input field for book_status with default value "Pending" -->
+                                    <input type="hidden" name="status" value="Pending">
                                     <button type="submit" name="submit" class="btn float-end" style="background-color: #4169E1; color: #ffffff;">Submit</button>
                                 </form>
-                            </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
 
+
+                <!-- Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -206,27 +140,79 @@ if (isset($_SESSION['userid'])) {
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <p>ID: <span id="modal-id"></span></p>
-                                <p>Organization Name: <span id="modal-name"></span></p>
-                                <p>Email: <span id="modal-email"></span></p>
-                                <p>Mobile Number: <span id="modal-mobile"></span></p>
-                                <p>Total: <span id="modal-total"></span></p>
-                                <p>Status: <span id="modal-status"></span></p>
-                                <div class="float-end" style="margin-bottom: 10px;"> <!-- Add margin-bottom for gap -->
-                                <button class="btn btn-primary">Edit</button>
-                                <span style="margin-left: 10px;"> <!-- Add margin-left for gap -->
-                                <button class="btn" style="background-color: green; color: white;">Save Changes</button>
-                                </span>
+                                <form id="editForm" action="bookingad.php" method="POST">
+                                    <input type="hidden" id="modal-id" name="booking_id">
+                                    <div class="mb-3">
+                                        <label for="modal-name" class="form-label">Organization Name</label>
+                                        <input type="text" class="form-control" id="modal-name" name="organization_name" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modal-email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="modal-email" name="email" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modal-mobile" class="form-label">Mobile Number</label>
+                                        <input type="text" class="form-control" id="modal-mobile" name="mobile_number" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modal-total" class="form-label">Total</label>
+                                        <input type="text" class="form-control" id="modal-total" name="total" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modal-date-time" class="form-label">Date and Time</label>
+                                        <input type="datetime-local" class="form-control" id="modal-date-time" name="date_time" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modal-status" class="form-label">Status</label>
+                                        <select id="modal-status" class="form-select" name="status" readonly>
+                                            <option value="Pending">Pending</option>
+                                            <option value="Confirmed">Confirmed</option>
+                                            <option value="Cancelled">Cancelled</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="float-end" style="margin-bottom: 10px;">
+                                        <button id="edit-button" type="button" class="btn btn-primary">Edit</button>
+                                        <button id="save-button" type="submit" class="btn" style="background-color: green; color: white; display: none;">Save Changes</button>
+                                    </div>
+                                </form>
                             </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
-            
                 <script>
                     $(document).ready(function () {
                         $('#add-row').click(function () {
                             $('#infoModal').modal('show');
+                        });
+
+                        $('#myTable').DataTable();
+
+                        $('.clickable-row').click(function () {
+                            var rowData = $(this).data('info').split('|');
+                            $('#modal-id').val(rowData[0]);
+                            $('#modal-name').val(rowData[1]);
+                            $('#modal-email').val(rowData[2]);
+                            $('#modal-mobile').val(rowData[3]);
+                            $('#modal-total').val(rowData[4]);
+                            $('#modal-date-time').val(rowData[5]);
+                            $('#modal-status').val(rowData[6]);
+                            $('#myModal').modal('show');
+                        });
+
+                        $('#edit-button').click(function () {
+                            $('#modal-name, #modal-email, #modal-mobile, #modal-total, #modal-date-time, #modal-status').prop('readonly', false);
+                            $('#modal-status').prop('disabled', false); // Enable select element
+                            $(this).hide();
+                            $('#save-button').show();
+                        });
+
+                        $('#save-button').click(function () {
+                            $('#modal-name, #modal-email, #modal-mobile, #modal-total, #modal-date-time, #modal-status').prop('readonly', true);
+                            $('#modal-status').prop('disabled', true); // Disable select element
+                            $('#edit-button').show();
+                            $('#save-button').hide();
                         });
                     });
                 </script>
@@ -243,34 +229,11 @@ if (isset($_SESSION['userid'])) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-
-        // Attach click event handler directly to table rows
-        $('.clickable-row').click(function () {
-            var rowData = $(this).data('info').split('|');
-            $('#modal-id').text(rowData[0]);
-            $('#modal-name').text(rowData[1]);
-            $('#modal-email').text(rowData[2]);
-            $('#modal-mobile').text(rowData[3]);
-            $('#modal-total').text(rowData[4]);
-            $('#modal-status').text(rowData[5]);
-            $('#myModal').modal('show');
-        });
-    });
-</script>
 
 <?php
-}else{
-    
-   header ("Location: index.php");
-   die();
+} else {
+    header("Location: index.php");
+    die();
 }
 ?>
+

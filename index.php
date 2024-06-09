@@ -18,58 +18,81 @@ if(isset($_SESSION['id'])){
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/indexstyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="assets/js/indexdrag.js" defer></script>
     <style>
+        .wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        
 
-
-        .close2 {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
+        }
+        .wrapper i{
+        top: 50%;
+        height: 44px;
+        width: 44px;
+        color: #343F4F;
+        cursor: pointer;
+        font-size: 1.15rem ;
+        position: absolute ;
+        text-align: center ;
+        line-height: 44px ;
+        background: #fff ;
+        border-radius: 50% ;
+        transform: translateY(-50%) ;
+        transition: transform 0.1s linear ;
+        }
+        .wrapper i:active{
+        transform: translateY(-50%) scale(0.9);
+        }
+        .wrapper i:hover{
+        background: #f2f2f2;
+        }
+        .wrapper i:first-child{
+        left: -22px;
+        display: none;
+        }
+        .wrapper i:last-child{
+        right: -22px;
+        }
+        .wrapper .carousel{
+        font-size: 0px;
+        cursor: pointer;
+        overflow: hidden;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        }
+        .carousel.dragging{
+        cursor: grab;
+        scroll-behavior: auto;
+        }
+        .carousel.dragging img{
+        pointer-events: none;
+        }
+        .carousel img{
+        height: 340px;
+        object-fit: cover;
+        user-select: none;
+        margin-left: 14px;
+        width: calc(100% / 3);
+        }
+        .carousel img:first-child{
+        margin-left: 0px;
         }
 
-        .close2:hover,
-        .close2:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
+        @media screen and (max-width: 900px) {
+        .carousel img{
+            width: calc(100% / 2);
+        }
         }
 
-        .btn-toggle {
-            margin: 10px;
+        @media screen and (max-width: 550px) {
+        .carousel img{
+            width: 100%;
         }
-
-        .hidden {
-            display: none;
         }
-        .btn-toggle.form {
-    background-color: #4169E1; /* Set default background color for the form button */
-    padding: 5px 50px 5px 50px;
-    text-decoration: none;
-    border-radius: 5px;
-    
-
-}
-
-.btn-toggle.status {
-    background-color: white; /* Set default background color for the status button */
-    padding: 5px 50px 5px 50px;
-    text-decoration: none;
-    border-radius: 5px;
-
-}
-/* Ensure buttons are displayed inline */
-#toggleButtons {
-    display: flex;
-}
-
-/* Adjust margin between buttons */
-.btn-toggle {
-    margin: 0;
-    border: 1px solid #4169E1;
-}
-
-
     </style>
 </head>
 <body>
@@ -87,8 +110,19 @@ if(isset($_SESSION['id'])){
                     <img src="assets/images/lgs.png" class="img-fluid imgrizal" alt="Rizal Image" style="position: relative; z-index: 1;">
                 </div>
                 <div class="col-md-6 order-md-1" style="position: relative; z-index: 2;">
-                    <h1><b>Rizal Shrine</b></h1>
+                    <h1 style="color: #4169E1;"><b>Rizal Shrine</b></h1>
                     <p style="color: grey;">The Rizal Shrine in Calamba (Filipino: Museo ni José Rizal Calamba) is a reproduction of the original two-story, Spanish-colonial style house in Calamba, Laguna where José Rizal was born on June 19, 1861. The house is designated as a National Shrine (Level 1) by the National Historical Commission of the Philippines.</p>
+                    <div class="container mb-3 mt-5">
+                        <div class="row">
+                            <div class="col-lg-4" style="display: flex; align-items: start ;justify-content: start; margin-left: 0;">
+                                <h3>Now Open</h3>
+                            </div>
+                            <div class="col-lg-5" style="display: flex;align-items: center;justify-content: center;">
+                                <p>Open Tuesday - Sunday<br> 9:00 AM to 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <a href="visitorindex.php" class="cssbuttons-io-button" style="position: relative; z-index: 3; text-decoration: none; width: 45%; min-width: 260px; max-width: 260px;">
                       Explore the Museum
                       <div class="icon">
@@ -104,43 +138,38 @@ if(isset($_SESSION['id'])){
     </div>
 
     <br><br><br><br><br>
-    <div class="container text-center">
-        <div class="title">
-            <h1>Announcements</h1>
-        </div>
-        <div class="description">
-            <p>Stay tuned for updates, behind-the-scenes peeks, and exclusive events surrounding this exciting announcement. We can't wait to share this journey with you!</p>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-4 mb-3">
-                <div class="box">
-                    <img src="assets/images/sched.png" alt="Placeholder Image">
-                    <div class="content">
-                        <h3>Schedule</h3>
-                        <p>Opens Tuesday to Sunday</p>
-                    </div>
+
+            <div class="container text-center">
+                <div class="title">
+                    <h1>Announcements</h1>
                 </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="box">
-                    <img src="assets/images/sched.png" alt="Placeholder Image">
-                    <div class="content">
-                        <h3>Events</h3>
-                        <p>Join us as we celebrate the beauty of History.</p>
-                    </div>
+                <div class="description">
+                    <p>Stay tuned for updates, behind-the-scenes peeks, and exclusive events surrounding this exciting announcement. We can't wait to share this journey with you!</p>
                 </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="box">
-                    <img src="assets/images/sched.png" alt="Placeholder Image">
-                    <div class="content">
-                        <h3>Schedule</h3>
-                        <p>Opens Tuesday to Sunday</p>
+                <div class="wrapper">
+                    <i id="left" class="fa-solid fa-angle-left" style="z-index: 1111; border: solid 1px #4169E1; background-color: #4169E1; color: white; margin-left: 25px;"></i>
+                    <div class="carousel">
+                        <img src="images/advisory.jpg" alt="img" draggable="false">
+                        <img src="images/advisory.jpg" alt="img" draggable="false">
+                        <img src="images/advisory.jpg" alt="img" draggable="false">
+                        <img src="images/advisory.jpg" alt="img" draggable="false">
+                        <img src="images/advisory.jpg" alt="img" draggable="false">
+                        <img src="images/advisory.jpg" alt="img" draggable="false">
                     </div>
-                </div>
+                    <i id="right" class="fa-solid fa-angle-right" style="border: solid 1px #4169E1; background-color: #4169E1; color: white; margin-right: 25px;"></i>
+                    </div>
             </div>
-        </div>
-    </div>
+  
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
     <br><br><br><br><br>
     <div class="container">
         <div class="row align-items-center">
@@ -180,7 +209,7 @@ if(isset($_SESSION['id'])){
                                 <input class="form-control" name="bstatus" type="text" placeholder="Status" required>
                                 
                                 <div class="d-flex justify-content-center mt-3">
-                                    <button type="submit" name="submit" class="btn3" style="width: 100%;">Book</button>
+                                    <button type="submit" name="submit" class="btn3 mt-3" style="width: 100%;">Book</button>
                                 </div>
                             </form>
                         </div>
@@ -206,24 +235,94 @@ if(isset($_SESSION['id'])){
                 </div>
                 <button class="btn kulay" onclick="document.getElementById('myModal2').style.display='flex'">Visit the Museum</button>
                 <div id="myModal2" class="modal2">
-                    <div class="modal-content2">
-                        <span class="close2 float-end mb-3" onclick="document.getElementById('myModal2').style.display='none'">&times;</span>
+                    <div class="modal-content2 p-4">
+                        <span class="close3 float-end mb-3" onclick="document.getElementById('myModal2').style.display='none'">&times;</span>
                         <h3 class="mt-2">Log Form</h3>
                         <hr>
                         <form id="logForm" action="log.php" method="POST">
-                            <input class="form-control" name='fn' type="text" placeholder="First Name" required>
-                            <input class="form-control" name='ln' type="text" placeholder="Last Name" required>
-                            <input class="form-control" name='mo' type="text" placeholder="MI(Optional)" required>
-                            <div class="gender">Gender:
-                                <input type="radio" id="male" name="gen" value="Male" required>
-                                <label for="male">Male</label>
-                                <input type="radio" id="female" name="gen" value="Female" required>
-                                <label for="female">Female</label>
+                            <div class="mb-4">
+                                <label for="modal-status" class="form-label">Type</label>
+                                <select id="modal-status" class="form-select" name="status" onchange="toggleFields()">
+                                    <option value="Individual">Individual</option>
+                                    <option value="Organization">Organization</option>
+                                </select>
                             </div>
-                            <input class="form-control" name='email1' type="email" placeholder="Email" required>
-                            <input class="form-control" name='monu1' type="number" placeholder="Mobile Number" required>
+                            <div class="mb-3 organization">
+                                <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." required>
+                            </div>
+                            <div class="mb-3 organization">
+                                <input class="form-control" id="names" name="names" type="text" placeholder="Name" required>
+                            </div>
+                            <div class="mb-3 organization">
+                                <input class="form-control" id="address" name="address" type="text" placeholder="Address" required>
+                            </div>
+                            <div class="mb-3 individual">
+                                <input class="form-control" id="fn" name="fn" type="text" placeholder="First Name" required>
+                            </div>
+                            <div class="mb-3 individual">
+                                <input class="form-control" id="ln" name="ln" type="text" placeholder="Last Name" required>
+                            </div>
+                            <div class="mb-3 individual">
+                                <input class="form-control" id="mo" name="mo" type="text" placeholder="MI(Optional)">
+                            </div>
+                            <div class="mb-3 individual">
+                                <label class="form-label d-block">Gender</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="male" name="gen" value="Male" required>
+                                    <label class="form-check-label" for="male">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="female" name="gen" value="Female" required>
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                            </div>
+                            <div class="mb-3 individual">
+                                <input class="form-control" id="email" name="email1" type="email" placeholder="Email" required>
+                            </div>
+                            <div class="mb-3 individual">
+                                <input class="form-control" id="mobile" name="monu1" type="number" placeholder="Mobile Number" required>
+                            </div>
+                            <div class="mb-3 organization">
+                                <input class="form-control" id="nationality" name="nationality" type="text" placeholder="Nationality" required>
+                            </div>
+                            <div class="row mb-3 organization">
+                                <div class="col">
+                                    <input class="form-control" id="numma" name="numma" type="number" placeholder="Number of Male" required>
+                                </div>
+                                <div class="col">
+                                    <input class="form-control" id="numfe" name="numfe" type="number" placeholder="Number of Female" required>
+                                </div>
+                            </div>
+                            <label for="numstudents" class="form-label organization">Number of Students</label>
+                            <div class="mb-3 organization">
+                                <input class="form-control" name="gs" type="number" placeholder="Grade School" required>
+                            </div>
+                            <div class="mb-3 organization">
+                                <input class="form-control" name="hs" type="number" placeholder="High School" required>
+                            </div>
+                            <div class="mb-3 organization">
+                                <input class="form-control" name="cls" type="number" placeholder="College/Grad School" required>
+                            </div>
+                            <label class="form-label organization">PWD</label>
+                            <div class="mb-3 organization">
+                                <input class="form-control" name="pwd" type="number" placeholder="PWD" required>
+                            </div>
+                            <label class="form-label organization">Number of Guests Based on Age Bracket</label>
+                            <div class="mb-3 organization">
+                                <input class="form-control" name="17below" type="number" placeholder="17 years old below" required>
+                            </div>
+                            <div class="mb-3 organization">
+                                <input class="form-control" name="19-30" type="number" placeholder="19-30 years old" required>
+                            </div>
+                            <div class="mb-3 organization">
+                                <input class="form-control" name="31-59" type="number" placeholder="31-59 years old" required>
+                            </div>
+                            <div class="mb-3 organization">
+                                <input class="form-control" name="60above" type="number" placeholder="60 years old above" required>
+                            </div>
+                            
                             <div class="d-flex justify-content-center mt-3">
-                                <button type="submit" name="submit" class="btn3" style="width: 100%;">Submit</button>
+                                <button type="submit" name="submit" class="btn btn3 w-100 mt-3">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -318,6 +417,34 @@ if(isset($_SESSION['id'])){
             xhr.send("contact_email=" + referenceNumber); // Send the reference number as POST data
         }
 </script>
+<script>
+function toggleFields() {
+    var status = document.getElementById('modal-status').value;
+    var organizationFields = document.querySelectorAll('.organization');
+    var individualFields = document.querySelectorAll('.individual');
+
+    if (status === 'Organization') {
+        organizationFields.forEach(function(field) {
+            field.classList.remove('hidden');
+        });
+        individualFields.forEach(function(field) {
+            field.classList.add('hidden');
+        });
+    } else {
+        organizationFields.forEach(function(field) {
+            field.classList.add('hidden');
+        });
+        individualFields.forEach(function(field) {
+            field.classList.remove('hidden');
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    toggleFields(); // Ensure the fields are toggled correctly on page load
+});
+</script>
+
 
 </body>
 </html>

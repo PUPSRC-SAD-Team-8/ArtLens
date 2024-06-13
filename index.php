@@ -112,12 +112,13 @@ if(isset($_SESSION['id'])){
                 <div class="col-md-6 order-md-1" style="position: relative; z-index: 2;">
                     <h1 style="color: #4169E1;"><b>Rizal Shrine</b></h1>
                     <p style="color: grey;">The Rizal Shrine in Calamba (Filipino: Museo ni José Rizal Calamba) is a reproduction of the original two-story, Spanish-colonial style house in Calamba, Laguna where José Rizal was born on June 19, 1861. The house is designated as a National Shrine (Level 1) by the National Historical Commission of the Philippines.</p>
-                    <div class="container mb-3 mt-5">
+                    <div class="container mb-4 mt-5">
+                    <div class="vertical-line"></div>
                         <div class="row">
                             <div class="col-lg-4" style="display: flex; align-items: start ;justify-content: start; margin-left: 0;">
                                 <h3>Now Open</h3>
                             </div>
-                            <div class="col-lg-5" style="display: flex;align-items: center;justify-content: center;">
+                            <div class="col-lg-5" style="display: flex;align-items: center;justify-content: start; position: absolut; margin-top: -7px; margin-left: 0;">  
                                 <p>Open Tuesday - Sunday<br> 9:00 AM to 4:00 PM</p>
                             </div>
                         </div>
@@ -159,15 +160,6 @@ if(isset($_SESSION['id'])){
                     <i id="right" class="fa-solid fa-angle-right" style="border: solid 1px #4169E1; background-color: #4169E1; color: white; margin-right: 25px;"></i>
                     </div>
             </div>
-  
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
 
     <br><br><br><br><br>
@@ -347,11 +339,28 @@ if(isset($_SESSION['id'])){
     
     <br><br><br><br><br>
     <footer class="footer">
-        <div class="container">
-            <p>Museo ni Jose Rizal, Calamba, Laguna</p>
-            <p>J. P. Rizal St., Cor. F. Mercado St., Brgy. 6 Poblacion, Calamba, Philippines</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <p><b>Museo ni Jose Rizal, Calamba, Laguna</b></p>
+                <p>J. P. Rizal St., Cor. F. Mercado St., Brgy. 6 Poblacion, Calamba, Philippines</p>
+            </div>
+            <div class="col-md">
+                <p><b>Quick Links</b></p>
+                <center>
+                <a type="button" href="aboutus.php">About us</a>
+                <br>
+                <a type="button" href="faqs.php">Frequently asked Questions</a></center>
+            </div>
+            <div class="col-md">
+                <p><b>Contact Us:</b></p>
+                <p>NHCP - Museo ni Jose Rizal, Calamba</p>
+                <p>mjrc@nhcp.gov.ph</p>
+                <p>(049) 834 1599</p>
+            </div>
         </div>
-    </footer>
+    </div>
+</footer>
     <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

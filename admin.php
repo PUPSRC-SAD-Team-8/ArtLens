@@ -73,28 +73,35 @@ if (isset($_SESSION['id'])) {
         <div class="container con1">
             <div class="row align-items-center">
                 <div class="col-md-6 order-md-2 text-center imgrizaldiv">
-                    <img src="assets/images/rizal.png" class="img-fluid imgrizal" alt="Rizal Image" style="position: relative; z-index: 1;">
+                    <img src="assets/images/lgs.png" class="img-fluid imgrizal" alt="Rizal Image" style="position: relative; z-index: 1;">
                 </div>
                 <div class="col-md-6 order-md-1" style="position: relative; z-index: 2;">
-                    <h1><b>Rizal Shrine</b></h1>
+                    <h1 style="color: #4169E1;"><b>Rizal Shrine</b></h1>
                     <p style="color: grey;">The Rizal Shrine in Calamba (Filipino: Museo ni José Rizal Calamba) is a reproduction of the original two-story, Spanish-colonial style house in Calamba, Laguna where José Rizal was born on June 19, 1861. The house is designated as a National Shrine (Level 1) by the National Historical Commission of the Philippines.</p>
-                    <a href="visitorindex.php" class="cssbuttons-io-button" style="position: relative; z-index: 3; text-decoration: none; width: 45%; min-width: 260px; max-width: 260px;">
-                        Explore the Museum
-                        <div class="icon">
-                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
-                            </svg>
+                    <div class="container mb-4 mt-5">
+                    <div class="vertical-line"></div>
+                        <div class="row">
+                            <div class="col-lg-4" style="display: flex; align-items: start ;justify-content: start; margin-left: 0;">
+                                <h3>Now Open</h3>
+                            </div>
+                            <div class="col-lg-5" style="display: flex;align-items: center;justify-content: start; position: absolut; margin-top: -7px; margin-left: 0;">  
+                                <p>Open Tuesday - Sunday<br> 9:00 AM to 4:00 PM</p>
+                            </div>
                         </div>
-                    </a>
+                    </div>
+
+                    <a href="visitorindex.php" class="cssbuttons-io-button" style="position: relative; z-index: 3; text-decoration: none; width: 45%; min-width: 260px; max-width: 260px;">
+                      Explore the Museum
+                      <div class="icon">
+                          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M0 0h24v24H0z" fill="none"></path>
+                              <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                          </svg>
+                      </div>
+                  </a>                
                 </div>
             </div>
         </div>
-    </div>
-    <div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="footerblue" style="margin-top: -20%; position: relative; z-index: 0;">
-            <path fill="#4169E1" fill-opacity="1" d="M0,256L120,261.3C240,267,480,277,720,234.7C960,192,1200,96,1320,48L1440,0L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
-        </svg>
     </div>
 
 

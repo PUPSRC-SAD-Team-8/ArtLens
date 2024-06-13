@@ -188,7 +188,8 @@ if(isset($_SESSION['id'])){
     
                         <div id="toggleButtons" class="d-flex justify-content-center mb-3">
                             <a type="button" class="btn-toggle form" onclick="showForm()">Form</a>
-                            <a type="button" class="btn-toggle status" onclick="showStatus()">Status</a>
+                            <a type="button" class="btn-toggle status" 
+                            onclick="showStatus()">Status</a>
                         </div>
 
                         <!-- Booking Form -->
@@ -206,7 +207,7 @@ if(isset($_SESSION['id'])){
                                     </div>
                                 </div>
                                 <input class="form-control" name="dati" type="datetime-local" placeholder="Date and Time" required>
-                                <input class="form-control" name="bstatus" type="text" placeholder="Status" required>
+                                
                                 
                                 <div class="d-flex justify-content-center mt-3">
                                     <button type="submit" name="submit" class="btn3 mt-3" style="width: 100%;">Book</button>
@@ -239,28 +240,28 @@ if(isset($_SESSION['id'])){
                         <span class="close3 float-end mb-3" onclick="document.getElementById('myModal2').style.display='none'">&times;</span>
                         <h3 class="mt-2">Log Form</h3>
                         <hr>
-                        <form id="logForm" action="log.php" method="POST">
+                        <form id="logForm" action="log.php" method="POST" enctype="multipart/form-data">
                             <div class="mb-4">
                                 <label for="modal-status" class="form-label">Type</label>
                                 <select id="modal-status" class="form-select" name="status" onchange="toggleFields()">
-                                    <option value="Individual">Individual</option>
-                                    <option value="Organization">Organization</option>
+                                    <option name="status" value="Individual">Individual</option>
+                                    <option name="status" value="Organization">Organization</option>
                                 </select>
                             </div>
                             <div class="mb-3 organization">
-                                <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." required>
+                                <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." >
                             </div>
                             <div class="mb-3 organization">
-                                <input class="form-control" id="names" name="names" type="text" placeholder="Name" required>
+                                <input class="form-control" id="names" name="names" type="text" placeholder="Name" >
                             </div>
                             <div class="mb-3 organization">
-                                <input class="form-control" id="address" name="address" type="text" placeholder="Address" required>
+                                <input class="form-control" id="address" name="address" type="text" placeholder="Address" >
                             </div>
                             <div class="mb-3 individual">
-                                <input class="form-control" id="fn" name="fn" type="text" placeholder="First Name" required>
+                                <input class="form-control" id="fn" name="fn" type="text" placeholder="First Name" >
                             </div>
                             <div class="mb-3 individual">
-                                <input class="form-control" id="ln" name="ln" type="text" placeholder="Last Name" required>
+                                <input class="form-control" id="ln" name="ln" type="text" placeholder="Last Name" >
                             </div>
                             <div class="mb-3 individual">
                                 <input class="form-control" id="mo" name="mo" type="text" placeholder="MI(Optional)">
@@ -268,57 +269,57 @@ if(isset($_SESSION['id'])){
                             <div class="mb-3 individual">
                                 <label class="form-label d-block">Gender</label>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="male" name="gen" value="Male" required>
+                                    <input class="form-check-input" type="radio" id="male" name="gen" value="Male" >
                                     <label class="form-check-label" for="male">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="female" name="gen" value="Female" required>
+                                    <input class="form-check-input" type="radio" id="female" name="gen" value="Female" >
                                     <label class="form-check-label" for="female">Female</label>
                                 </div>
                             </div>
                             <div class="mb-3 individual">
-                                <input class="form-control" id="email" name="email1" type="email" placeholder="Email" required>
+                                <input class="form-control" id="email" name="email1" type="email" placeholder="Email" >
                             </div>
                             <div class="mb-3 individual">
-                                <input class="form-control" id="mobile" name="monu1" type="number" placeholder="Mobile Number" required>
+                                <input class="form-control" id="mobile" name="monu1" type="number" placeholder="Mobile Number" >
                             </div>
                             <div class="mb-3 organization">
-                                <input class="form-control" id="nationality" name="nationality" type="text" placeholder="Nationality" required>
+                                <input class="form-control" id="nationality" name="nationality" type="text" placeholder="Nationality" >
                             </div>
                             <div class="row mb-3 organization">
                                 <div class="col">
-                                    <input class="form-control" id="numma" name="numma" type="number" placeholder="Number of Male" required>
+                                    <input class="form-control" id="numma" name="numma" type="number" placeholder="Number of Male" >
                                 </div>
                                 <div class="col">
-                                    <input class="form-control" id="numfe" name="numfe" type="number" placeholder="Number of Female" required>
+                                    <input class="form-control" id="numfe" name="numfe" type="number" placeholder="Number of Female" >
                                 </div>
                             </div>
                             <label for="numstudents" class="form-label organization">Number of Students</label>
                             <div class="mb-3 organization">
-                                <input class="form-control" name="gs" type="number" placeholder="Grade School" required>
+                                <input class="form-control" name="gs" type="number" placeholder="Grade School" >
                             </div>
                             <div class="mb-3 organization">
-                                <input class="form-control" name="hs" type="number" placeholder="High School" required>
+                                <input class="form-control" name="hs" type="number" placeholder="High School" >
                             </div>
                             <div class="mb-3 organization">
-                                <input class="form-control" name="cls" type="number" placeholder="College/Grad School" required>
+                                <input class="form-control" name="cls" type="number" placeholder="College/Grad School" >
                             </div>
                             <label class="form-label organization">PWD</label>
                             <div class="mb-3 organization">
-                                <input class="form-control" name="pwd" type="number" placeholder="PWD" required>
+                                <input class="form-control" name="pwd" type="number" placeholder="PWD" >
                             </div>
                             <label class="form-label organization">Number of Guests Based on Age Bracket</label>
                             <div class="mb-3 organization">
-                                <input class="form-control" name="17below" type="number" placeholder="17 years old below" required>
+                                <input class="form-control" name="17below" type="number" placeholder="17 years old below" >
                             </div>
                             <div class="mb-3 organization">
-                                <input class="form-control" name="19-30" type="number" placeholder="19-30 years old" required>
+                                <input class="form-control" name="1930below" type="number" placeholder="19-30 years old" >
                             </div>
                             <div class="mb-3 organization">
-                                <input class="form-control" name="31-59" type="number" placeholder="31-59 years old" required>
+                                <input class="form-control" name="3159below" type="number" placeholder="31-59 years old" >
                             </div>
                             <div class="mb-3 organization">
-                                <input class="form-control" name="60above" type="number" placeholder="60 years old above" required>
+                                <input class="form-control" name="60above" type="number" placeholder="60 years old above" >
                             </div>
                             
                             <div class="d-flex justify-content-center mt-3">
@@ -424,18 +425,24 @@ function toggleFields() {
     var individualFields = document.querySelectorAll('.individual');
 
     if (status === 'Organization') {
+        individualFields.forEach(element => element.removeAttribute('required'));
         organizationFields.forEach(function(field) {
             field.classList.remove('hidden');
+             field.required = true;
         });
         individualFields.forEach(function(field) {
             field.classList.add('hidden');
+            field.required = false;
         });
     } else {
+        organizationFields.forEach(element => element.removeAttribute('required'));
         organizationFields.forEach(function(field) {
             field.classList.add('hidden');
+            field.required = false;
         });
         individualFields.forEach(function(field) {
             field.classList.remove('hidden');
+            field.required = true;
         });
     }
 }

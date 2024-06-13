@@ -83,6 +83,46 @@ if (isset($_SESSION['userid'])) {
                         <br><br>
                     </div>
 
+                <!-- New Table -->
+                    <div class="table-container" style="max-height: 400px; ">
+                        <table id="myTable" class="table table-striped table-bordered"  style="background-color: #ffffff;">
+                            <thead style="background-color: #4169E1; color: white;">
+                                <tr>
+                                    <th>C.N. Bus No.</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Total</th>
+                                    <th>Nationality</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            include('connection.php');
+                            $sql = "SELECT * FROM visitor_org";
+                            $result = $conn->query($sql);
+
+                            if ($result->num_rows > 0) {
+                                $row_count = 0; // Initialize row count variable
+                                while($row = $result->fetch_assoc()) {
+                                    $row_count++; // Increment row count for each row
+                                    $row_class = ($row_count % 2 == 0) ? "even-row" : "odd-row";
+                                    echo "<tr class='clickable-row $row_class' data-info='" .  "|" . $row["visitor_org_cn_no"] . "|" . $row["visitor_org_name"] . "|" . $row["visitor_org_add"] . "|" . $row["visitor_org_natl"] . "|" . $row["visitor_org_male"] . "|" . $row["visitor_org_female"] . "|" . $row["visitor_org_gschool"] . "|" . $row["visitor_org_hschool"] . "|" . $row["visitor_org_college"] . "|" . $row["visitor_org_pwd"] . "|" . $row["visitor_org_17blow"] .  $row["visitor_org_1930old"] . $row["visitor_org_3159old"] . $row["visitor_org_60old"] ."' style='cursor: pointer;'>";
+                                    
+                                    echo "<td>" . $row["visitor_org_cn_no"] . "</td>";
+                                    echo "<td>" . $row["visitor_org_name"] . "</td>";
+                                    echo "<td>" . $row["visitor_org_add"] . "</td>";
+                                    echo "<td>" . ($row["visitor_org_male"] + $row["visitor_org_female"]) . "</td>";
+                                    echo "<td>" . $row["visitor_org_natl"] . "</td>";
+                                    echo "</tr>";
+                                }
+                            } 
+                            ?>
+                            </tbody>
+                        </table>
+                        <br>
+                        <br><br>
+                    </div>
                 <!-- Modal -->
                 <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
                     <div class="modal-dialog">

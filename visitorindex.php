@@ -41,11 +41,12 @@
             background-color:white !important;
             color: #4169E1;
             border-radius: 5px;
+            text-decoration: none;
         }
 
         .btn1:hover{
-            background-color: #4169E1;
-            border-color: #4169E1;
+            background-color: #4169E1 !important;
+            border: 1px solid white !important;
             color: white;
         }
     </style>
@@ -54,11 +55,11 @@
     <nav class="head navbar navbar-expand-lg navbar-expand-md navbar-dark bg-primary">
         <div class="container" >
             <h1 style="color: white; font-family: 'Arial Grook', sans-serif; "><b >ArtLens</b></h1>
-            <a class="nav-link admin-login-mobile btn1 homebtn" href="index.php">Home</a>
+            <a class="btn1" href="index.php">Home</a>
         </div>
     </nav>
-    <div class="container" style="margin-top: 44px;">
-        <div class="row justify-content-center">
+    <div class="container mb-5" style="margin-top: 44px;">
+        <div class="row">
             <?php
                 include('connection.php');
                 $sql = "SELECT * FROM artwork";

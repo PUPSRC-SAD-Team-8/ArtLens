@@ -70,7 +70,7 @@ if (isset($_SESSION['userid'])) {
                 <main class="content px-3 py-2">
                     <!-- Artwork Boxes -->
                     <div class="container">
-                        <div class="row justify-content-center">
+                        <div class="row">
                             <?php
                             include('connection.php');
                             $sql = "SELECT * FROM artwork";

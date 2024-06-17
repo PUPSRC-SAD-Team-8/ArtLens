@@ -38,13 +38,14 @@ if (isset($_SESSION['userid'])) {
                         <div class="container mt-5 containerbig">
                             <h1 class="mb-4">Quiz Form</h1>
                             <form id="quizForm" action="processquiz.php" method="post" enctype="multipart/form-data">
-                                <div id="questionsContainer">
-                                    <div class="question mb-4">
-                                        <h4 class="question-number">Question 1<button type="button" class="delete-question-btn">&times;</button></h4>
-                                        <div class="form-group">
+                            <div class="form-group">
                                             <label for="quizTitle">Quiz Title</label>
                                             <input type="text" class="form-control" name="quizTitle" placeholder="Enter Quiz Title" required>
                                         </div>
+                                <div id="questionsContainer">
+                                    <div class="question mb-4 mt-3">
+                                        <h4 class="question-number">Question 1<button type="button" class="delete-question-btn">&times;</button></h4>
+                                        
                                         <div class="form-group mt-3">
                                             <label for="question">Question</label>
                                             <input type="text" class="form-control" name="questions[]" placeholder="Enter your question" required>

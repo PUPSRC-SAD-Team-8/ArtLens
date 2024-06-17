@@ -3,3 +3,9 @@
 # .gitignore.default
 # .gitignore.development
 # release.config.js
+/bin/
+/Libs/
+/.settings/
+/.classpath
+.svn/
+.cache/

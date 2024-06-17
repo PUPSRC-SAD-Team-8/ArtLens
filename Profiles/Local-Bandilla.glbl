@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>Local-Bandilla</name>
+   <tag></tag>
+   <defaultProfile>false</defaultProfile>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'http://localhost/SAD/ArtLens/'</initValue>
+      <name>appBaseLink</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>['admin@gmail.com']</initValue>
+      <name>ValidUsernameCredentials</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>['@Helloword']</initValue>
+      <name>ValidPasswordCredentials</name>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

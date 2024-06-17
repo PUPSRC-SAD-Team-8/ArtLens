@@ -1,0 +1,9 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Testing Login For Two Browsers,Firefox 128.0,,,18-06-2024 01:39:43,18-06-2024 01:40:43,1m - 0.455s,FAILED
+,,,,,,,
+Test Cases/Common_TestCases/Login_All_Valid,Firefox 128.0,,,18-06-2024 01:40:37,18-06-2024 01:40:43,6.289s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,18-06-2024 01:40:37,18-06-2024 01:40:41,4.366s,PASSED
+try,Firefox 128.0,,,18-06-2024 01:40:41,18-06-2024 01:40:42,0.241s,FAILED
+catch (Exception e),Firefox 128.0,,,18-06-2024 01:40:42,18-06-2024 01:40:42,0.004s,FAILED
+Finally,Firefox 128.0,,,18-06-2024 01:40:42,18-06-2024 01:40:43,1.637s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,18-06-2024 01:40:43,18-06-2024 01:40:43,0.000s,PASSED

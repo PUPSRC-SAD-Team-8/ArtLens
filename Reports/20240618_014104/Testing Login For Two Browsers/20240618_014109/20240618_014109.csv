@@ -1,0 +1,9 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Testing Login For Two Browsers,Edge Chromium 126,,,18-06-2024 01:41:26,18-06-2024 01:41:52,25.961s,FAILED
+,,,,,,,
+Test Cases/Common_TestCases/Login_All_Valid,Edge Chromium 126,,,18-06-2024 01:41:48,18-06-2024 01:41:52,3.926s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,18-06-2024 01:41:48,18-06-2024 01:41:51,3.298s,PASSED
+try,Edge Chromium 126,,,18-06-2024 01:41:51,18-06-2024 01:41:51,0.248s,FAILED
+catch (Exception e),Edge Chromium 126,,,18-06-2024 01:41:51,18-06-2024 01:41:51,0.004s,FAILED
+Finally,Edge Chromium 126,,,18-06-2024 01:41:51,18-06-2024 01:41:52,0.301s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,18-06-2024 01:41:52,18-06-2024 01:41:52,0.004s,PASSED

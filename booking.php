@@ -20,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare SQL statement
-    $stmt = $conn->prepare("INSERT INTO booking (organization_name, contact_email, contact_number, num_male, num_female, book_datetime) 
-                            VALUES (?, ?, ?, ?, ?, ?)");
-    
+    $stmt = $conn->prepare("INSERT INTO booking (organization_name, contact_email, contact_number, num_male, num_female, book_datetime, book_status) 
+                            VALUES (?, ?, ?, ?, ?, ?, 'Pending')");
+
     // Bind parameters
     $stmt->bind_param("ssssss", $org_name, $email, $phone_number, $num_male, $num_female, $date_time);
 

@@ -12,7 +12,7 @@ if (isset($_SESSION['userid'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artlens</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="assets/css/sidebar.css">
     <link rel="stylesheet" href="assets/css/adminartwork.css">
@@ -34,18 +34,40 @@ if (isset($_SESSION['userid'])) {
             <main class="content px-3 py-2">
                 <div id="artModal" class="modal fade">
                     <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <span class="close ms-auto" data-bs-dismiss="modal" style="margin-right: 10px; margin-top: 5px;">&times;</span>
-                            <center><h3>Add Artwork</h3></center>
-                            <form class="add-form" enctype="multipart/form-data" action="submitartwork.php" method="POST" style="padding: 20px;">
-                                <input type="file" id="image-upload" name="image" class="form-control mb-3" accept="image/*">
-                                <input class="form-control input1 mb-3" type="text" placeholder="Title" name="title">
-                                <input class="form-control input1 mb-3" type="text" placeholder="Artist" name="artist">
-                                <input class="form-control input1 mb-3" type="text" placeholder="Year" name="year">
-                                <input class="form-control input1 mb-3" type="text" placeholder="Medium" name="medium">
-                                <textarea class="form-control input1 mb-3" type="text" placeholder="Description" name="description"></textarea>
-                                <button type="submit" class="btn btn-primary float-end">Add Artwork</button>
-                            </form>
+                        <div class="modal-content" style="height: 700px;">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addArtworkModalLabel">Add Artwork</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" style="overflow-y: auto;">
+                                <form class="add-form" enctype="multipart/form-data" action="submitartwork.php" method="POST">
+                                    <div class="mb-3">
+                                        <label for="image-upload" class="form-label">Upload Image</label>
+                                        <input type="file" id="image-upload" name="image" class="form-control" accept="image/*">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="titleInput" class="form-label">Title</label>
+                                        <input class="form-control" type="text" id="titleInput" name="title" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="artistInput" class="form-label">Artist</label>
+                                        <input class="form-control" type="text" id="artistInput" name="artist" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="yearInput" class="form-label">Year</label>
+                                        <input class="form-control" type="text" id="yearInput" name="year" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="mediumInput" class="form-label">Medium</label>
+                                        <input class="form-control" type="text" id="mediumInput" name="medium" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="descriptionInput" class="form-label">Description</label>
+                                        <textarea class="form-control" id="descriptionInput" name="description" rows="3" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn float-end homebtn">Add Artwork</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,12 +123,13 @@ if (isset($_SESSION['userid'])) {
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modal-title"></h5>
+                                    <h5 class="modal-title">Artwork Details</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <center><img id="modal-image" class="img-fluid" alt="Artwork Image"></center>
                                     <br>
+                                    <p><b>Title: </b><span id="modal-title"></span></p>
                                     <p><b>Artist: </b><span id="modal-artist"></span></p>
                                     <p><b>Year: </b><span id="modal-year"></span></p>
                                     <p><b>Medium: </b><span id="modal-medium"></span></p>

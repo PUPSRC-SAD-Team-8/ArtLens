@@ -670,4 +670,11 @@ border: 1px solid #4169E1;
   margin-left: 70px !important;
 }
 
-
+.input-error {
+  border-color: red !important;
+}
+.error-message {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 0.25em;
+}

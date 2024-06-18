@@ -61,9 +61,11 @@
 .img-box:hover .overlay {
   height: 110% !important;
 }
+
 .overlay.active {
-  height: 110% !important;
+  height: 110%;
 }
+
 
 .text {
   color: white !important;

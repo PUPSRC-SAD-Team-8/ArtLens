@@ -181,7 +181,7 @@ if(isset($_SESSION['id'])){
                                     </div>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" name="dati" type="datetime-local" placeholder="Date and Time" required>
+                                    <input class="form-control" name="dati" id="dati" type="datetime-local" placeholder="Date and Time" required>
                                     <label>Date and Time</label>
                                 </div>
                                 <div class="d-flex justify-content-center mt-3">
@@ -341,7 +341,9 @@ if(isset($_SESSION['id'])){
                             </div>
                         </form>
                     </div>
-                </div> <!--End Log Form-->
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -392,6 +394,8 @@ if(isset($_SESSION['id'])){
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/input-validator.js"></script>
     <script src="assets/js/carscript.js"></script>
+    <script src="assets/js/bookvalidation.js"></script>
+    <script src="assets/js/logformvalidation.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
 // Get all cards
@@ -494,201 +498,6 @@ cards.forEach(card => {
 
 
 <!--Form Individual or Organization-->
-<script>
-    function toggleFields() {
-        var status = document.getElementById('modal-status').value;
-        var organizationFields = document.querySelectorAll('.organization');
-        var individualFields = document.querySelectorAll('.individual');
-
-        if (status === 'Organization') {
-            individualFields.forEach(function (field) {
-                field.classList.add('hidden');
-                field.removeAttribute('required');
-            });
-            organizationFields.forEach(function (field) {
-                field.classList.remove('hidden');
-                field.required = true;
-            });
-        } else {
-            organizationFields.forEach(function (field) {
-                field.classList.add('hidden');
-                field.removeAttribute('required');
-            });
-            individualFields.forEach(function (field) {
-                field.classList.remove('hidden');
-                field.required = true;
-            });
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', (event) => {
-        toggleFields(); // Ensure the fields are toggled correctly on page load
-    });
-</script>
-
-
-<!--Booking Validation-->
-<script>
-        function setMinDateTime() {
-            let now = new Date();
-            now.setDate(now.getDate() + 1);  // Set date to tomorrow
-            let minDateTime = now.toISOString().slice(0, 16);  // Format date as YYYY-MM-DDTHH:MM
-            document.getElementsByName("dati")[0].setAttribute("min", minDateTime);
-        }
-
-        function validateForm() {
-            let form = document.forms["bookingForm"];
-            let mobile = form["monu"].value;
-            let numMale = parseInt(form["numa"].value, 10);
-            let numFemale = parseInt(form["nufe"].value, 10);
-
-            let mobilePattern = /^\d{11}$/;
-
-            if (!mobilePattern.test(mobile)) {
-                alert("Please enter a valid 11-digit mobile number.");
-                return false;
-            }
-
-            if (!Number.isInteger(numMale) || numMale < 0 || numMale > 50) {
-                alert("Number of males must be a non-negative integer and not more than 50.");
-                return false;
-            }
-
-            if (!Number.isInteger(numFemale) || numFemale < 0 || numFemale > 50) {
-                alert("Number of females must be a non-negative integer and not more than 50.");
-                return false;
-            }
-
-            return true;
-        }
-
-        function preventInvalidInput(e) {
-            const invalidChars = ['-', 'e', '+', '.'];
-            if (invalidChars.includes(e.key)) {
-                e.preventDefault();
-            }
-        }
-
-        function restrictMobileInput(e) {
-            const allowedKeys = [
-                'Backspace', 'ArrowLeft', 'ArrowRight', 'Delete', 'Tab'
-            ];
-            if (allowedKeys.includes(e.key)) {
-                return;
-            }
-            if (e.key < '0' || e.key > '9' || e.target.value.length >= 11) {
-                e.preventDefault();
-            }
-        }
-
-        window.onload = function() {
-            setMinDateTime();
-            document.getElementsByName("numa")[0].addEventListener("keydown", preventInvalidInput);
-            document.getElementsByName("nufe")[0].addEventListener("keydown", preventInvalidInput);
-            document.getElementsByName("monu")[0].addEventListener("keydown", restrictMobileInput);
-        };
-
-        function handleSubmit(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Show loading spinner and hide button text
-        document.getElementById('submitText').style.display = 'none';
-        document.getElementById('loadingSpinner').classList.remove('visually-hidden');
-
-        // Collect form data
-        var formData = new FormData(document.getElementById('bookingForm'));
-
-        // Send form data via AJAX
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'booking.php', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    // AJAX request successful, handle response
-                    var response = xhr.responseText.trim();
-                    if (response === 'success') {
-                        // Show success alert after a short delay (e.g., 2 seconds)
-                        setTimeout(function() {
-                            document.getElementById('alertMessage').classList.remove('d-none');
-                            // Reset form fields
-                            document.getElementById('bookingForm').reset();
-                        }, 2000); // Adjust delay as needed
-                    } else {
-                        // Show error message (optional)
-                        console.error('Error: ' + response);
-                        // Handle error scenario as needed
-                    }
-                } else {
-                    // AJAX request failed
-                    console.error('Error: ' + xhr.status);
-                    // Handle error scenario as needed
-                }
-
-                // Reset button text and hide loading spinner
-                setTimeout(function() {
-                    document.getElementById('submitText').style.display = 'inline';
-                    document.getElementById('loadingSpinner').classList.add('visually-hidden');
-                }, 2000); // Adjust delay as needed
-            }
-        };
-        xhr.onerror = function() {
-            // Handle AJAX errors
-            console.error('Error: AJAX request failed');
-            // Reset button text and hide loading spinner on error
-            document.getElementById('submitText').style.display = 'inline';
-            document.getElementById('loadingSpinner').classList.add('visually-hidden');
-        };
-        xhr.send(formData);
-    }
-
-    function dismissAlert() {
-        document.getElementById('alertMessage').classList.add('d-none');
-    }
-
-    function checkEmail() {
-        var email = document.getElementById('emal').value.trim();
-        if (email === '') {
-            document.getElementById('emailStatus').innerHTML = '';
-            return; // If email field is empty, do nothing
-        }
-
-        // Send AJAX request to check if email exists
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'check_email.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    // AJAX request successful, handle response
-                    var response = xhr.responseText.trim();
-                    var emailStatusDiv = document.getElementById('emailStatus');
-                    if (response === 'exists_future') {
-                        // Email exists and has future bookings
-                        emailStatusDiv.innerHTML = '<span style="color: red;">This email already has a future booking.</span>';
-                        document.getElementById('bookingForm').querySelector('button[type="submit"]').disabled = true; // Disable submit button
-                    } else if (response === 'exists_past') {
-                        // Email exists but past bookings are allowed
-                    } else if (response === 'not_exists') {
-                        // Email does not exist
-                    } else {
-                        console.error('Error: Unexpected response');
-                        emailStatusDiv.innerHTML = ''; // Clear email status
-                        document.getElementById('bookingForm').querySelector('button[type="submit"]').disabled = false; // Enable submit button
-                    }
-                } else {
-                    // AJAX request failed
-                    console.error('Error: ' + xhr.status);
-                }
-            }
-        };
-        xhr.onerror = function() {
-            // Handle AJAX errors
-            console.error('Error: AJAX request failed');
-        };
-        xhr.send('email=' + encodeURIComponent(email));
-    }
-
-</script>
 
 
 </body>

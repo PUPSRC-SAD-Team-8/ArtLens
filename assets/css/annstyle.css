@@ -1,0 +1,76 @@
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+.container1 {
+  max-width: 1400px !important;
+  width: 100% !important;
+}
+.slide-container {
+  margin: 0 30px !important;
+  overflow: hidden !important;
+}
+.card {
+  background: #fff !important;
+  border-radius: 8px !important;
+}
+.card .image-box {
+  height: 300px !important;
+}
+.card .image-box img {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+
+.swiper-navBtn {
+  color: white !important;
+  height: 50px !important;
+  width: 50px !important;
+  transform: translateY(-40%) !important;
+  background: #4169E1 !important;
+  border-radius: 50% !important;
+}
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  font-size: 24px !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #333 !important;
+}
+
+.image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.overlay {
+  position: absolute !important;
+  bottom: -15px !important;
+  left: 0 !important;
+  right: 0 !important;
+  background-color: #4169E1 !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  height: 0 !important;
+  transition: .5s ease !important;
+}
+
+.img-box:hover .overlay {
+  height: 110% !important;
+}
+.overlay.active {
+  height: 110% !important;
+}
+
+.text {
+  color: white !important;
+  font-size: 20px !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  text-align: center !important;
+}

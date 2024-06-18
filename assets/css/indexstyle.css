@@ -4,7 +4,7 @@
 }
 
 .first-page {
-  background-color: #f3f8ec;
+  background-color: #F8F9FA;;
   padding: 20px;
   border-radius: 10px;
   height: 700px;
@@ -150,7 +150,7 @@ body {
 }
 
 .kulay {
-padding: 15px 10px 15px 10px ;
+padding: 15px 40px 15px 40px ;
 background-color: #4169E1 ;
 color: white;
 border-radius: 5px;
@@ -654,3 +654,20 @@ border: 1px solid #4169E1;
       height: 80px;
   }
   }
+
+.clickft{
+  text-decoration: none !important; 
+  color: inherit !important;
+}
+
+.clickft:hover {
+  color: blue !important;
+}
+
+.tetleft {
+  text-decoration: none !important; 
+  text-align: left !important; 
+  margin-left: 70px !important;
+}
+
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>login_all_valid_email_case_incorrect</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>617b40e8-27b8-459b-b221-e58fac472ba9</testCaseGuid>
+</TestCaseEntity>

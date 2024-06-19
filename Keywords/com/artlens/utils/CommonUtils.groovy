@@ -31,15 +31,19 @@ public class CommonUtils {
 	 * @param pageName the name of the page to be opened (appended to the base link)
 	 */
 	static void openWebPage(String pageName) {
-	    String fullUrl = "${GlobalVariable.appBaseLink}${pageName}"
-	    boolean isAccessible = WebUI.verifyLinksAccessible([fullUrl])
-	    
-	    // Navigate to the URL only if it is accessible
-	    if (isAccessible) {
-	        WebUI.navigateToUrl(fullUrl)
-	    } else {
-	        WebUI.comment("The URL ${fullUrl} is not accessible.")
-	    }
-	}
+		String fullUrl = "${GlobalVariable.appBaseLink}${pageName}"
+		boolean isAccessible = WebUI.verifyLinksAccessible([fullUrl])
 
+		// Navigate to the URL only if it is accessible
+		if (isAccessible) {
+			WebUI.navigateToUrl(fullUrl)
+		} else {
+			WebUI.comment("The URL ${fullUrl} is not accessible.")
+		}
+	}
+	
+	static boolean containsClass(TestObject element, String className) {
+	    String classes = WebUI.getAttribute(element, 'class')
+	    return classes.contains(className)
+	}
 }

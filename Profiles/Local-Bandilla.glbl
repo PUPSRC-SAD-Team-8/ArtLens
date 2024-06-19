@@ -3,7 +3,7 @@
    <description></description>
    <name>Local-Bandilla</name>
    <tag></tag>
-   <defaultProfile>false</defaultProfile>
+   <defaultProfile>true</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
       <initValue>'http://localhost/SAD/ArtLens/'</initValue>
@@ -18,5 +18,10 @@
       <description></description>
       <initValue>['@Helloword']</initValue>
       <name>ValidPasswordCredentials</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>0</initValue>
+      <name>userIndex</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

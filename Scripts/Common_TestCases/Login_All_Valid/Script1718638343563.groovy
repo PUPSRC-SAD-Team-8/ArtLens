@@ -20,9 +20,11 @@ import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import com.artlens.utils.AdminUtils as AdminUtils
 
 try {
+	Number userIndex = GlobalVariable.userIndex
+	
 	WebUI.callTestCase(findTestCase('admin/landing_page/header_bar_visible'), [:], FailureHandling.STOP_ON_FAILURE)
 	
-	AdminUtils.adminLogin(GlobalVariable.ValidUsernameCredentials[0], GlobalVariable.ValidPasswordCredentials[0])
+	AdminUtils.adminLogin(GlobalVariable.ValidUsernameCredentials[userIndex], GlobalVariable.ValidPasswordCredentials[userIndex])
 	
 	String currentUrl = WebUI.getUrl()
 	
@@ -41,6 +43,6 @@ catch (Exception e) {
 	KeywordUtil.markFailed('An error occurred: ' + e.message)
 }
 finally {
-	WebUI.closeBrowser()
+//	WebUI.closeBrowser()
 }
 

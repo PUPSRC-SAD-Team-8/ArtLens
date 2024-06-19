@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>login_username_space_only</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>61f6e7aa-7cf5-4953-ac40-a8192001f82a</testCaseGuid>
+</TestCaseEntity>

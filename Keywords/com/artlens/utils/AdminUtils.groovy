@@ -20,9 +20,20 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
 import internal.GlobalVariable
 
+@FunctionalInterface
+public interface Callback {
+	void execute();
+}
+
 public class AdminUtils extends CommonUtils {
+
 	@Keyword
-	static void adminLogin(String username, String password) {
+	public static void adminLogin(String username, String password) {
+		adminLogin(username, password, null);
+	}
+
+	@Keyword
+	public static void adminLogin(String username, String password, Callback callback) {
 
 		WebUI.click(findTestObject('Object Repository/admin/landing_page/a_Admin Login'))
 
@@ -30,12 +41,24 @@ public class AdminUtils extends CommonUtils {
 		WebUI.verifyElementPresent(findTestObject('Object Repository/admin/landing_page/a_Admin Login'), 0)
 		WebUI.verifyElementVisible(findTestObject('Object Repository/admin/landing_page/a_Admin Login'), FailureHandling.STOP_ON_FAILURE)
 
-		WebUI.setText(findTestObject('Object Repository/admin/landing_page/input_ARTLENS_uname'), username)
+		if (username != null) {
+			WebUI.setText(findTestObject('Object Repository/admin/landing_page/input_ARTLENS_uname'), username)
+		} else {
+			WebUI.clearText(findTestObject('Object Repository/admin/landing_page/input_ARTLENS_uname'))
+		}
 
 		// Click the Show button to reveal the password input field
 		WebUI.click(findTestObject('Object Repository/admin/landing_page/button_Show'))
 
-		WebUI.setText(findTestObject('Object Repository/admin/landing_page/input_ARTLENS_pass_1'), password)
+		if (password != null) {
+			WebUI.setText(findTestObject('Object Repository/admin/landing_page/input_ARTLENS_pass_1'), password)
+		} else {
+			WebUI.clearText(findTestObject('Object Repository/admin/landing_page/input_ARTLENS_pass_1'))
+		}
+
+		if (callback != null) {
+			callback.execute();
+		}
 
 		// Verify that the Login button is present and visible
 		WebUI.verifyElementPresent(findTestObject('Object Repository/admin/landing_page/button_Login'), 0)

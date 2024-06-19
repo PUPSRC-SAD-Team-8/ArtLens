@@ -18,6 +18,22 @@ if (isset($_SESSION['userid'])) {
     <link rel="stylesheet" href="assets/css/adminartwork.css">
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
+    <style> 
+        .homebtn{
+  padding: 10px !important;
+  background-color: #4169E1 !important;
+  color: white !important;
+  border-radius: 5px !important;
+  text-decoration: none !important;
+  width: 100%;
+}
+
+.homebtn:hover{
+  background-color: white !important; 
+  border: 1px solid #4169E1 !important;
+  color: #4169E1 !important;
+}
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -65,7 +81,7 @@ if (isset($_SESSION['userid'])) {
                                         <label for="descriptionInput" class="form-label">Description</label>
                                         <textarea class="form-control" id="descriptionInput" name="description" rows="3" required></textarea>
                                     </div>
-                                    <button type="submit" class="btn float-end homebtn">Add Artwork</button>
+                                    <button type="submit" class="btn homebtn">Add Artwork</button>
                                 </form>
                             </div>
                         </div>

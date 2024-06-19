@@ -38,6 +38,7 @@ if (isset($_SESSION['userid'])) {
             
             <!--MAIN MAIN MAIN-->
             <main class="content px-4 py-3">
+                <div class="container">
             <div class="accordion" id="accordionPanelsStayOpenExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
@@ -139,6 +140,7 @@ if ($result->num_rows > 0) {
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
             </main>
         </div>

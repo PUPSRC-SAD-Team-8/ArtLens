@@ -24,8 +24,45 @@ if(isset($_SESSION['id'])){
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/annstyle.css" />
+    <style>
+    /* CSS for the loading spinner */
+.loading-spinner1 {
+    display: none; /* Initially hidden */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F8F9FA; /* Semi-transparent white background */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-spinner1 .spinner1 {
+    width: 100px;
+    height: 100px;
+    border: 10px solid #4169E1; /* Blue color */
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+</style>
+
 </head>
 <body>
+<div class="loading-spinner1" id="loadingSpinner1">
+    <div class="spinner1"></div>
+</div>
+
+
     <nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <h1 style="color: white; font-family: 'Arial Grook', sans-serif;"><b>ArtLens</b></h1>
@@ -89,7 +126,7 @@ if(isset($_SESSION['id'])){
                         $cards .= '<div class="card swiper-slide">
                                     <div class="img-box" style="height: 350px;">
                                         <img src="' . $row["image_path"] . '" alt="" class="image" />
-                                        <div class="overlay">
+                                        <div class="overlay" style="margin-bottom: -10px;">
                                             <div class="text"><h2>' . $row["title"] . '</h2>
                                                 <p>' . $row["description"] . '</p>
                                             </div>
@@ -226,114 +263,110 @@ if(isset($_SESSION['id'])){
                         <form id="logForm" action="log.php" method="POST" enctype="multipart/form-data">
                             <div class="mb-4">
                                 <label for="modal-status" class="form-label">Type</label>
-                                <select id="modal-status" class="form-select" name="status" onchange="toggleFields()" required>
-                                    <option value="Individual">Individual</option>
-                                    <option value="Organization">Organization</option>
+                                <select id="modal-status" class="form-select" name="status" onchange="toggleFields()">
+                                    <option name="status" value="Individual">Individual</option>
+                                    <option name="status" value="Organization">Organization</option>
                                 </select>
                             </div>
 
-                            <!-- Fields for Organization -->
-                            <div id="organizationFields" class="organization">
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." required>
-                                    <label for="busno">C.N. Bus No.</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="names" name="names" type="text" placeholder="Name" required>
-                                    <label for="names">Name</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="address" name="address" type="text" placeholder="Address" required>
-                                    <label for="address">Address</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="nationality" name="nationality" type="text" placeholder="Nationality" required>
-                                    <label for="nationality">Nationality</label>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" name="numma" type="number" placeholder="Number of Males" required min="0" max="50">
-                                            <label>Number of Males</label>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" name="numfe" type="number" placeholder="Number of Females" required min="0" max="50">
-                                            <label>Number of Females</label>
-                                        </div>
+                            <!-- Organization Fields -->
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." maxlength="50">
+                                <label for="busno">C.N. Bus No.</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="names" name="names" type="text" placeholder="Name" maxlength="50">
+                                <label for="names">Name</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="address" name="address" type="text" placeholder="Address" maxlength="50">
+                                <label for="address">Address</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="nationality" name="nationality" type="text" placeholder="Nationality" maxlength="50">
+                                <label for="nationality">Nationality</label>
+                            </div>
+                            <div class="row mb-3 organization">
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input class="form-control" id="numma" name="numma" type="number" placeholder="Number of Male" min="0" max="50">
+                                        <label for="numma">Number of Male</label>
                                     </div>
                                 </div>
-                                <p class="mt-3">Number of Students</p>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="gs" type="number" placeholder="Grade School" required>
-                                    <label for="gs">Grade School</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="hs" type="number" placeholder="High School" required>
-                                    <label for="hs">High School</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="cls" type="number" placeholder="College/Grad School" required>
-                                    <label for="cls">College/Grad School</label>
-                                </div>
-                                <p style="margin-top: 35px;">Number of PWD</p>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="pwd" type="number" placeholder="PWD" required>
-                                    <label for="pwd">PWD</label>
-                                </div>
-                                <p style="margin-top: 35px;">Number of Guests Based on Age Bracket</p>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="17below" type="number" placeholder="17 years old below" required>
-                                    <label for="17below">17 years old below</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="1930below" type="number" placeholder="19-30 years old" required>
-                                    <label for="1930below">19-30 years old</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="3159below" type="number" placeholder="31-59 years old" required>
-                                    <label for="3159below">31-59 years old</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="60above" type="number" placeholder="60 years old above" required>
-                                    <label for="60above">60 years old above</label>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input class="form-control" id="numfe" name="numfe" type="number" placeholder="Number of Female" min="0" max="50">
+                                        <label for="numfe">Number of Female</label>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="mt-3 organization">Number of Students</p>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="gs" name="gs" type="number" placeholder="Grade School" min="0" max="50">
+                                <label for="gs">Grade School</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="hs" name="hs" type="number" placeholder="High School" min="0" max="50">
+                                <label for="hs">High School</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="cls" name="cls" type="number" placeholder="College/Grad School" min="0" max="50">
+                                <label for="cls">College/Grad School</label>
+                            </div>
+                            <p class="mt-3 organization">PWD</p>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="pwd" name="pwd" type="number" placeholder="PWD" min="0" max="50">
+                                <label for="pwd">PWD</label>
+                            </div>
+                            <p class="mt-3 organization">Number of Guests Based on Age Bracket</p>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="17below" name="17below" type="number" placeholder="17 years old below" min="0" max="50">
+                                <label for="17below">17 years old below</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="1930beloe" name="1930below" type="number" placeholder="19-30 years old" min="0" max="50">
+                                <label for="1930below">19-30 years old</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="3159below" name="3159below" type="number" placeholder="31-59 years old" min="0" max="50">
+                                <label for="3159below">31-59 years old</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="60above" name="60above" type="number" placeholder="60 years old above" min="0" max="50">
+                                <label for="60above">60 years old above</label>
+                            </div>
 
-                            <!-- Fields for Individual -->
-                            <div id="individualFields" class="individual hidden">
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="fn" name="fn" type="text" placeholder="First Name" required>
-                                    <label for="fn">First Name</label>
+                            <!-- Individual Fields -->
+                            <div class="form-floating mb-3 individual">
+                                <input class="form-control" id="fn" name="fn" type="text" placeholder="First Name" maxlength="50">
+                                <label for="fn">First Name</label>
+                            </div>
+                            <div class="form-floating mb-3 individual">
+                                <input class="form-control" id="ln" name="ln" type="text" placeholder="Last Name" maxlength="50">
+                                <label for="ln">Last Name</label>
+                            </div>
+                            <div class="form-floating mb-3 individual">
+                                <input class="form-control" id="mo" name="mo" type="text" placeholder="MI(Optional)" maxlength="1">
+                                <label for="mo">MI(Optional)</label>
+                            </div>
+                            <div class="mb-3 individual">
+                                <label class="form-label d-block">Gender</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="male" name="gen" value="Male" >
+                                    <label class="form-check-label" for="male">Male</label>
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="ln" name="ln" type="text" placeholder="Last Name" required>
-                                    <label for="ln">Last Name</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="female" name="gen" value="Female" >
+                                    <label class="form-check-label" for="female">Female</label>
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="mo" name="mo" type="text" placeholder="MI(Optional)">
-                                    <label for="mo">MI(Optional)</label>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label d-block">Gender</label>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="male" name="gen" value="Male" required>
-                                        <label class="form-check-label" for="male">Male</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="female" name="gen" value="Female" required>
-                                        <label class="form-check-label" for="female">Female</label>
-                                    </div>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="email" name="email1" type="email" placeholder="Email" required>
-                                    <label for="email">Email</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="mobile" name="monu1" type="number" placeholder="Mobile Number" required>
-                                    <label for="mobile">Mobile Number</label>
-                                </div>
+                            </div>
+                            <div class="form-floating mb-3 individual">
+                                <input class="form-control" id="email" name="email1" type="email" placeholder="Email" maxlength="50">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="form-floating mb-3 individual">
+                                <input class="form-control" id="mobile1" name="monu1" type="number" placeholder="Mobile Number" pattern="[0-9]{11}" title="Please enter an 11-digit mobile number." maxlength="11">
+                                <label for="mobile">Mobile Number</label>
                             </div>
 
                             <div class="d-flex justify-content-center mt-3">
@@ -395,7 +428,6 @@ if(isset($_SESSION['id'])){
     <script src="assets/js/input-validator.js"></script>
     <script src="assets/js/carscript.js"></script>
     <script src="assets/js/bookvalidation.js"></script>
-    <script src="assets/js/logformvalidation.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
 // Get all cards
@@ -499,6 +531,50 @@ cards.forEach(card => {
 
 <!--Form Individual or Organization-->
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Show loading spinner
+        document.getElementById('loadingSpinner1').style.display = 'flex';
+
+        // Hide loading spinner after 3 seconds
+        setTimeout(function() {
+            document.getElementById('loadingSpinner1').style.display = 'none';
+        }, 1500); // 3000 milliseconds = 3 seconds
+    });
+</script>
+<script>
+function toggleFields() {
+    var status = document.getElementById('modal-status').value;
+    var organizationFields = document.querySelectorAll('.organization');
+    var individualFields = document.querySelectorAll('.individual');
+
+    if (status === 'Organization') {
+        individualFields.forEach(element => element.removeAttribute('required'));
+        organizationFields.forEach(function(field) {
+            field.classList.remove('hidden');
+             field.required = true;
+        });
+        individualFields.forEach(function(field) {
+            field.classList.add('hidden');
+            field.required = false;
+        });
+    } else {
+        organizationFields.forEach(element => element.removeAttribute('required'));
+        organizationFields.forEach(function(field) {
+            field.classList.add('hidden');
+            field.required = false;
+        });
+        individualFields.forEach(function(field) {
+            field.classList.remove('hidden');
+            field.required = true;
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    toggleFields(); // Ensure the fields are toggled correctly on page load
+});
+</script>
 
 </body>
 </html>

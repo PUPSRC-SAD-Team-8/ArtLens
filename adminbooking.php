@@ -200,22 +200,37 @@ if (isset($_SESSION['userid'])) {
                             $('#modal-status').val(rowData[6]);
                             $('#myModal').modal('show');
                         });
-
-                        $('#edit-button').click(function () {
-                            $('#modal-name, #modal-email, #modal-mobile, #modal-total, #modal-date-time, #modal-status').prop('readonly', false);
-                            $('#modal-status').prop('disabled', false); // Enable select element
-                            $(this).hide();
-                            $('#save-button').show();
-                        });
-
-                        $('#save-button').click(function () {
-                            $('#modal-name, #modal-email, #modal-mobile, #modal-total, #modal-date-time, #modal-status').prop('readonly', true);
-                            $('#modal-status').prop('disabled', true); // Disable select element
-                            $('#edit-button').show();
-                            $('#save-button').hide();
-                        });
                     });
                 </script>
+             <script>
+            $(document).ready(function () {
+                // Function to enable editing mode
+                $('#edit-button').click(function () {
+                    // Enable input fields and dropdown for editing
+                    $('#modal-status').prop('disabled', false); // Enable select element
+                    $(this).hide(); // Hide edit button
+                    $('#save-button').show(); // Show save changes button
+                });
+
+                // Function to save changes
+                $('#save-button').click(function () {
+                    // Disable input fields and dropdown after saving changes
+                    $('#modal-name, #modal-email, #modal-mobile, #modal-total, #modal-date-time').prop('readonly', true);
+                    $('#modal-status').prop('disabled', true); // Disable select element
+                    $('#edit-button').show(); // Show edit button
+                    $(this).hide(); // Hide save changes button
+
+                    // Submit the form with updated status
+                    $('#editForm').submit(); // This will submit the form to bookingad.php
+                });
+
+                // Initial setup: disable the status dropdown and hide the save button
+                $('#modal-status').prop('disabled', true);
+                $('#save-button').hide();
+
+                
+            });
+            </script>
             </main>
         </div>
         <!--END MAIN-->

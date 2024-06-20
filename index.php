@@ -1,16 +1,17 @@
 <?php
 session_start();
-include ('connection.php');
+include('connection.php');
 
 $displayModal = isset($_SESSION['msg']);
 
-if(isset($_SESSION['id'])){
+if (isset($_SESSION['id'])) {
     header('location:index.php');
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,8 +25,53 @@ if(isset($_SESSION['id'])){
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/annstyle.css" />
+    <style>
+        /* CSS for the loading spinner */
+        .loading-spinner1 {
+            display: none;
+            /* Initially hidden */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F8F9FA;
+            /* Semi-transparent white background */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-spinner1 .spinner1 {
+            width: 100px;
+            height: 100px;
+            border: 10px solid #4169E1;
+            /* Blue color */
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
 </head>
+
 <body>
+    <div class="loading-spinner1" id="loadingSpinner1">
+        <div class="spinner1"></div>
+    </div>
+
+
     <nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <h1 style="color: white; font-family: 'Arial Grook', sans-serif;"><b>ArtLens</b></h1>
@@ -43,26 +89,26 @@ if(isset($_SESSION['id'])){
                     <h1 style="color: #4169E1;"><b>Rizal Shrine</b></h1>
                     <p style="color: grey;">The Rizal Shrine in Calamba (Filipino: Museo ni José Rizal Calamba) is a reproduction of the original two-story, Spanish-colonial style house in Calamba, Laguna where José Rizal was born on June 19, 1861. The house is designated as a National Shrine (Level 1) by the National Historical Commission of the Philippines.</p>
                     <div class="container mb-4 mt-5">
-                    <div class="vertical-line"></div>
+                        <div class="vertical-line"></div>
                         <div class="row">
                             <div class="col-lg-4" style="display: flex; align-items: start ;justify-content: start; margin-left: 0;">
                                 <h3>Now Open</h3>
                             </div>
-                            <div class="col-lg-5" style="display: flex;align-items: center;justify-content: start; position: absolut; margin-top: -7px; margin-left: 0;">  
+                            <div class="col-lg-5" style="display: flex;align-items: center;justify-content: start; position: absolut; margin-top: -7px; margin-left: 0;">
                                 <p>Open Tuesday - Sunday<br> 9:00 AM to 4:00 PM</p>
                             </div>
                         </div>
                     </div>
 
                     <a href="visitorindex.php" class="cssbuttons-io-button" style="position: relative; z-index: 3; text-decoration: none; width: 45%; min-width: 260px; max-width: 260px;">
-                      Explore the Museum
-                      <div class="icon">
-                          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M0 0h24v24H0z" fill="none"></path>
-                              <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
-                          </svg>
-                      </div>
-                  </a>                
+                        Explore the Museum
+                        <div class="icon">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -70,36 +116,36 @@ if(isset($_SESSION['id'])){
 
     <br><br><br><br><br>
 
-            <div class="container text-center">
-                <div class="title">
-                    <h1>Announcements</h1>
-                </div>
-                <div class="description">
-                    <p>Stay tuned for updates, behind-the-scenes peeks, and exclusive events surrounding this exciting announcement. We can't wait to share this journey with you!</p>
-                </div>
-                <?php
-                // Display submissions
-                $sql = "SELECT image_path, title, description FROM submissions ORDER BY id DESC";
-                $result = $conn->query($sql);
+    <div class="container text-center">
+        <div class="title">
+            <h1>Announcements</h1>
+        </div>
+        <div class="description">
+            <p>Stay tuned for updates, behind-the-scenes peeks, and exclusive events surrounding this exciting announcement. We can't wait to share this journey with you!</p>
+        </div>
+        <?php
+        // Display submissions
+        $sql = "SELECT image_path, title, description FROM submissions ORDER BY id DESC";
+        $result = $conn->query($sql);
 
-                $cards = "";
+        $cards = "";
 
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $cards .= '<div class="card swiper-slide">
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $cards .= '<div class="card swiper-slide">
                                     <div class="img-box" style="height: 350px;">
                                         <img src="' . $row["image_path"] . '" alt="" class="image" />
-                                        <div class="overlay">
+                                        <div class="overlay" style="margin-bottom: -10px;">
                                             <div class="text"><h2>' . $row["title"] . '</h2>
                                                 <p>' . $row["description"] . '</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>';
-                    }
-                } else {
-                    // Display "No updates today" if there are no submissions
-                    $cards = '<div class="card swiper-slide">
+            }
+        } else {
+            // Display "No updates today" if there are no submissions
+            $cards = '<div class="card swiper-slide">
                                 <div class="img-box" style="height: 350px; border: 1px solid #4169E1;">
                                     <div class="text-center" style="margin:10px;">
                                         <h2 style="margin-top: 20px;">No updates today</h2>
@@ -110,20 +156,19 @@ if(isset($_SESSION['id'])){
                                     </div>
                                 </div>
                             </div>';
-
-                }
-                ?>
-                <div class="container1 swiper">
-                    <div class="slide-container">
-                        <div class="card-wrapper swiper-wrapper">
-                            <?php echo $cards; ?>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next swiper-navBtn"></div>
-                    <div class="swiper-button-prev swiper-navBtn"></div>
-                    <div class="swiper-pagination"></div>
+        }
+        ?>
+        <div class="container1 swiper">
+            <div class="slide-container">
+                <div class="card-wrapper swiper-wrapper">
+                    <?php echo $cards; ?>
                 </div>
             </div>
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
     <br><br><br><br><br>
     <div class="container">
         <div class="row align-items-center">
@@ -139,11 +184,10 @@ if(isset($_SESSION['id'])){
                         <span class="close2 float-end mb-3" onclick="document.getElementById('myModal1').style.display='none'">&times;</span>
                         <h3 id="modalTitle" class="mt-2">Booking Form</h3>
                         <hr>
-    
+
                         <div id="toggleButtons" class="d-flex justify-content-center mb-3">
                             <a type="button" class="btn-toggle form" onclick="showForm()">Form</a>
-                            <a type="button" class="btn-toggle status" 
-                            onclick="showStatus()">Status</a>
+                            <a type="button" class="btn-toggle status" onclick="showStatus()">Status</a>
                         </div>
 
                         <!-- Booking Form -->
@@ -181,7 +225,7 @@ if(isset($_SESSION['id'])){
                                     </div>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" name="dati" type="datetime-local" placeholder="Date and Time" required>
+                                    <input class="form-control" name="dati" id="dati" type="datetime-local" placeholder="Date and Time" required>
                                     <label>Date and Time</label>
                                 </div>
                                 <div class="d-flex justify-content-center mt-3">
@@ -232,108 +276,104 @@ if(isset($_SESSION['id'])){
                                 </select>
                             </div>
 
-                            <!-- Fields for Organization -->
-                            <div id="organizationFields" class="organization">
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." required>
-                                    <label for="busno">C.N. Bus No.</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="names" name="names" type="text" placeholder="Name" required>
-                                    <label for="names">Name</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="address" name="address" type="text" placeholder="Address" required>
-                                    <label for="address">Address</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="nationality" name="nationality" type="text" placeholder="Nationality" required>
-                                    <label for="nationality">Nationality</label>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" name="numma" type="number" placeholder="Number of Males" required min="0" max="50">
-                                            <label>Number of Males</label>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" name="numfe" type="number" placeholder="Number of Females" required min="0" max="50">
-                                            <label>Number of Females</label>
-                                        </div>
+                            <!-- Organization Fields -->
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." maxlength="50">
+                                <label for="busno">C.N. Bus No.</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="names" name="names" type="text" placeholder="Name" maxlength="50">
+                                <label for="names">Name</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="address" name="address" type="text" placeholder="Address" maxlength="50">
+                                <label for="address">Address</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="nationality" name="nationality" type="text" placeholder="Nationality" maxlength="50">
+                                <label for="nationality">Nationality</label>
+                            </div>
+                            <div class="row mb-3 organization">
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input class="form-control" id="numma" name="numma" type="number" placeholder="Number of Male" min="0" max="50">
+                                        <label for="numma">Number of Male</label>
                                     </div>
                                 </div>
-                                <p class="mt-3">Number of Students</p>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="gs" type="number" placeholder="Grade School" required>
-                                    <label for="gs">Grade School</label>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input class="form-control" id="numfe" name="numfe" type="number" placeholder="Number of Female" min="0" max="50">
+                                        <label for="numfe">Number of Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-3 organization">Number of Students</p>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="gs" name="gs" type="number" placeholder="Grade School" min="0" max="50">
+                                <label for="gs">Grade School</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="hs" name="hs" type="number" placeholder="High School" min="0" max="50">
+                                <label for="hs">High School</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="cls" name="cls" type="number" placeholder="College/Grad School" min="0" max="50">
+                                <label for="cls">College/Grad School</label>
+                            </div>
+                            <p class="mt-3 organization">PWD</p>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="pwd" name="pwd" type="number" placeholder="PWD" min="0" max="50">
+                                <label for="pwd">PWD</label>
+                            </div>
+                            <p class="mt-3 organization">Number of Guests Based on Age Bracket</p>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="17below" name="17below" type="number" placeholder="17 years old below" min="0" max="50">
+                                <label for="17below">17 years old below</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="1930beloe" name="1930below" type="number" placeholder="19-30 years old" min="0" max="50">
+                                <label for="1930below">19-30 years old</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="3159below" name="3159below" type="number" placeholder="31-59 years old" min="0" max="50">
+                                <label for="3159below">31-59 years old</label>
+                            </div>
+                            <div class="form-floating mb-3 organization">
+                                <input class="form-control" id="60above" name="60above" type="number" placeholder="60 years old above" min="0" max="50">
+                                <label for="60above">60 years old above</label>
+                            </div>
+
+                            <!-- Individual Fields -->
+                            <div class="form-floating mb-3 individual">
+                                <input class="form-control" id="fn" name="fn" type="text" placeholder="First Name" maxlength="50">
+                                <label for="fn">First Name</label>
+                            </div>
+                            <div class="form-floating mb-3 individual">
+                                <input class="form-control" id="ln" name="ln" type="text" placeholder="Last Name" maxlength="50">
+                                <label for="ln">Last Name</label>
+                            </div>
+                            <div class="form-floating mb-3 individual">
+                                <input class="form-control" id="mo" name="mo" type="text" placeholder="MI(Optional)" maxlength="1">
+                                <label for="mo">MI(Optional)</label>
+                            </div>
+                            <div class="mb-3 individual">
+                                <label class="form-label d-block">Gender</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" id="male" name="gen" value="Male">
+                                    <label class="form-check-label" for="male">Male</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" name="hs" type="number" placeholder="High School" required>
                                     <label for="hs">High School</label>
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="cls" type="number" placeholder="College/Grad School" required>
-                                    <label for="cls">College/Grad School</label>
-                                </div>
-                                <p style="margin-top: 35px;">Number of PWD</p>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="pwd" type="number" placeholder="PWD" required>
-                                    <label for="pwd">PWD</label>
-                                </div>
-                                <p style="margin-top: 35px;">Number of Guests Based on Age Bracket</p>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="17below" type="number" placeholder="17 years old below" required>
-                                    <label for="17below">17 years old below</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="1930below" type="number" placeholder="19-30 years old" required>
-                                    <label for="1930below">19-30 years old</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="3159below" type="number" placeholder="31-59 years old" required>
-                                    <label for="3159below">31-59 years old</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" name="60above" type="number" placeholder="60 years old above" required>
-                                    <label for="60above">60 years old above</label>
-                                </div>
                             </div>
-
-                            <!-- Fields for Individual -->
-                            <div id="individualFields" class="individual hidden">
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="fn" name="fn" type="text" placeholder="First Name" required>
-                                    <label for="fn">First Name</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="ln" name="ln" type="text" placeholder="Last Name" required>
-                                    <label for="ln">Last Name</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="mo" name="mo" type="text" placeholder="MI(Optional)">
-                                    <label for="mo">MI(Optional)</label>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label d-block">Gender</label>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="male" name="gen" value="Male" required>
-                                        <label class="form-check-label" for="male">Male</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="female" name="gen" value="Female" required>
-                                        <label class="form-check-label" for="female">Female</label>
-                                    </div>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="email" name="email1" type="email" placeholder="Email" required>
-                                    <label for="email">Email</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="mobile" name="monu1" type="number" placeholder="Mobile Number" required>
-                                    <label for="mobile">Mobile Number</label>
-                                </div>
+                            <div class="form-floating mb-3 individual">
+                                <input class="form-control" id="email" name="email1" type="email" placeholder="Email" maxlength="50">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="form-floating mb-3 individual">
+                                <input class="form-control" id="mobile1" name="monu1" type="number" placeholder="Mobile Number" pattern="[0-9]{11}" title="Please enter an 11-digit mobile number." maxlength="11">
+                                <label for="mobile">Mobile Number</label>
                             </div>
 
                             <div class="d-flex justify-content-center mt-3">
@@ -341,7 +381,9 @@ if(isset($_SESSION['id'])){
                             </div>
                         </form>
                     </div>
-                </div> <!--End Log Form-->
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -358,33 +400,39 @@ if(isset($_SESSION['id'])){
             </div>
         </div>
     </div>
-    
+
     <br><br><br><br><br>
     <footer class="footer" style="background-color: #F8F9FA;">
-    <div class="container mb-3"  style="color: var(--bs-secondary-color);">
-        <div class="row">
-            <div class="col-md mt-3">
-                <p><b>Museo ni Jose Rizal, Calamba, Laguna</b></p>
-                <center><hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;"></center>
-                <p class="tetleft"><a href="https://www.google.com/maps/search/?api=1&query=J.+P.+Rizal+St.,+Cor.+F.+Mercado+St.,+Brgy.+6+Poblacion,+Calamba,+Philippines" class="clickft"><i class="bi bi-geo-alt-fill"></i>&emsp;J. P. Rizal St., Cor. F. Mercado St., Brgy. 6 <span style="margin-left: 30px;">Poblacion, Calamba, Philippines</span></a></p>
-            </div>
-            <div class="col-md mt-3">
-                <p><b>Quick Links</b></p>
-                <center><hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;"></center>
-                <a type="button" href="aboutus.php" class="tetleft clickft">About us</a>
-                <br>
-                <a type="button" href="faqs.php" class="tetleft clickft">Frequently asked Questions</a>
-            </div>
-            <div class="col-md mt-3">
-                <p><b>Contact Us:</b></p>
-                <center><hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;"></center>
-                <p class="tetleft"><a href="https://www.facebook.com/museonijoserizalcalamba" class="clickft"><i class="bi bi-facebook"></i>&emsp;NHCP - Museo ni Jose Rizal, Calamba</a></p>
-                <p class="tetleft"><a href="mailto:mjrc@nhcp.gov.ph" class="clickft"><i class="bi bi-envelope-at-fill"></i>&emsp;mjrc@nhcp.gov.ph</a></p>
-                <p class="tetleft"><a href="tel:+63498341599" class="clickft"><i class="bi bi-telephone-fill"></i>&emsp;(049) 834 1599</a></p>
+        <div class="container mb-3" style="color: var(--bs-secondary-color);">
+            <div class="row">
+                <div class="col-md mt-3">
+                    <p><b>Museo ni Jose Rizal, Calamba, Laguna</b></p>
+                    <center>
+                        <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
+                    </center>
+                    <p class="tetleft"><a href="https://www.google.com/maps/search/?api=1&query=J.+P.+Rizal+St.,+Cor.+F.+Mercado+St.,+Brgy.+6+Poblacion,+Calamba,+Philippines" class="clickft"><i class="bi bi-geo-alt-fill"></i>&emsp;J. P. Rizal St., Cor. F. Mercado St., Brgy. 6 <span style="margin-left: 30px;">Poblacion, Calamba, Philippines</span></a></p>
+                </div>
+                <div class="col-md mt-3">
+                    <p><b>Quick Links</b></p>
+                    <center>
+                        <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
+                    </center>
+                    <a type="button" href="aboutus.php" class="tetleft clickft">About us</a>
+                    <br>
+                    <a type="button" href="faqs.php" class="tetleft clickft">Frequently asked Questions</a>
+                </div>
+                <div class="col-md mt-3">
+                    <p><b>Contact Us:</b></p>
+                    <center>
+                        <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
+                    </center>
+                    <p class="tetleft"><a href="https://www.facebook.com/museonijoserizalcalamba" class="clickft"><i class="bi bi-facebook"></i>&emsp;NHCP - Museo ni Jose Rizal, Calamba</a></p>
+                    <p class="tetleft"><a href="mailto:mjrc@nhcp.gov.ph" class="clickft"><i class="bi bi-envelope-at-fill"></i>&emsp;mjrc@nhcp.gov.ph</a></p>
+                    <p class="tetleft"><a href="tel:+63498341599" class="clickft"><i class="bi bi-telephone-fill"></i>&emsp;(049) 834 1599</a></p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -392,40 +440,41 @@ if(isset($_SESSION['id'])){
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/input-validator.js"></script>
     <script src="assets/js/carscript.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-// Get all cards
-const cards = document.querySelectorAll('.card');
+    <script src="assets/js/bookvalidation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all cards
+            const cards = document.querySelectorAll('.card');
 
-// Function to toggle overlay
-function toggleOverlay(card) {
-    const overlay = card.querySelector('.overlay');
-    if (overlay.classList.contains('active')) {
-        overlay.classList.remove('active');
-    } else {
-        // Close any other open overlay
-        cards.forEach(card => {
-            card.querySelector('.overlay').classList.remove('active');
+            // Function to toggle overlay
+            function toggleOverlay(card) {
+                const overlay = card.querySelector('.overlay');
+                if (overlay.classList.contains('active')) {
+                    overlay.classList.remove('active');
+                } else {
+                    // Close any other open overlay
+                    cards.forEach(card => {
+                        card.querySelector('.overlay').classList.remove('active');
+                    });
+                    // Open the clicked overlay
+                    overlay.classList.add('active');
+                }
+            }
+
+            // Add click event listener to each card
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    toggleOverlay(this);
+                });
+
+                // Add touchstart event listener for mobile devices
+                card.addEventListener('touchstart', function(e) {
+                    e.preventDefault(); // Prevent default touch behavior
+                    toggleOverlay(this);
+                });
+            });
         });
-        // Open the clicked overlay
-        overlay.classList.add('active');
-    }
-}
-
-// Add click event listener to each card
-cards.forEach(card => {
-    card.addEventListener('click', function() {
-        toggleOverlay(this);
-    });
-
-    // Add touchstart event listener for mobile devices
-    card.addEventListener('touchstart', function(e) {
-        e.preventDefault(); // Prevent default touch behavior
-        toggleOverlay(this);
-    });
-});
-});
-</script>
+    </script>
 
     <script>
         var modal = document.getElementById("myModal1");
@@ -464,13 +513,11 @@ cards.forEach(card => {
         // Set default text color
         document.querySelector(".btn-toggle.form").style.color = "white"; // Default text color for form button
         document.querySelector(".btn-toggle.status").style.color = "black"; // Default text color for status button
+    </script>
 
 
-            </script>
-
-
-            <script>
-            function checkStatus() {
+    <script>
+        function checkStatus() {
             // Retrieve the reference number
             var referenceNumber = document.querySelector('#statusContent input[name="contact_email"]').value;
 
@@ -490,206 +537,54 @@ cards.forEach(card => {
             };
             xhr.send("contact_email=" + referenceNumber); // Send the reference number as POST data
         }
-</script>
+    </script>
 
 
-<!--Form Individual or Organization-->
-<script>
-    function toggleFields() {
-        var status = document.getElementById('modal-status').value;
-        var organizationFields = document.querySelectorAll('.organization');
-        var individualFields = document.querySelectorAll('.individual');
+    <!--Form Individual or Organization-->
 
-        if (status === 'Organization') {
-            individualFields.forEach(function (field) {
-                field.classList.add('hidden');
-                field.removeAttribute('required');
-            });
-            organizationFields.forEach(function (field) {
-                field.classList.remove('hidden');
-                field.required = true;
-            });
-        } else {
-            organizationFields.forEach(function (field) {
-                field.classList.add('hidden');
-                field.removeAttribute('required');
-            });
-            individualFields.forEach(function (field) {
-                field.classList.remove('hidden');
-                field.required = true;
-            });
-        }
-    }
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show loading spinner
+            document.getElementById('loadingSpinner1').style.display = 'flex';
 
-    document.addEventListener('DOMContentLoaded', (event) => {
-        toggleFields(); // Ensure the fields are toggled correctly on page load
-    });
-</script>
+            // Hide loading spinner after 3 seconds
+            setTimeout(function() {
+                document.getElementById('loadingSpinner1').style.display = 'none';
+            }, 1500); // 3000 milliseconds = 3 seconds
+        });
+    </script>
+    <script>
+        function toggleFields() {
+            var status = document.getElementById('modal-status').value;
+            var organizationFields = document.querySelectorAll('.organization');
+            var individualFields = document.querySelectorAll('.individual');
 
-
-<!--Booking Validation-->
-<script>
-        function setMinDateTime() {
-            let now = new Date();
-            now.setDate(now.getDate() + 1);  // Set date to tomorrow
-            let minDateTime = now.toISOString().slice(0, 16);  // Format date as YYYY-MM-DDTHH:MM
-            document.getElementsByName("dati")[0].setAttribute("min", minDateTime);
-        }
-
-        function validateForm() {
-            let form = document.forms["bookingForm"];
-            let mobile = form["monu"].value;
-            let numMale = parseInt(form["numa"].value, 10);
-            let numFemale = parseInt(form["nufe"].value, 10);
-
-            let mobilePattern = /^\d{11}$/;
-
-            if (!mobilePattern.test(mobile)) {
-                alert("Please enter a valid 11-digit mobile number.");
-                return false;
-            }
-
-            if (!Number.isInteger(numMale) || numMale < 0 || numMale > 50) {
-                alert("Number of males must be a non-negative integer and not more than 50.");
-                return false;
-            }
-
-            if (!Number.isInteger(numFemale) || numFemale < 0 || numFemale > 50) {
-                alert("Number of females must be a non-negative integer and not more than 50.");
-                return false;
-            }
-
-            return true;
-        }
-
-        function preventInvalidInput(e) {
-            const invalidChars = ['-', 'e', '+', '.'];
-            if (invalidChars.includes(e.key)) {
-                e.preventDefault();
+            if (status === 'Organization') {
+                individualFields.forEach(function(field) {
+                    field.classList.add('hidden');
+                    field.removeAttribute('required');
+                });
+                organizationFields.forEach(function(field) {
+                    field.classList.remove('hidden');
+                    field.required = true;
+                });
+            } else {
+                organizationFields.forEach(function(field) {
+                    field.classList.add('hidden');
+                    field.removeAttribute('required');
+                });
+                individualFields.forEach(function(field) {
+                    field.classList.remove('hidden');
+                    field.required = true;
+                });
             }
         }
 
-        function restrictMobileInput(e) {
-            const allowedKeys = [
-                'Backspace', 'ArrowLeft', 'ArrowRight', 'Delete', 'Tab'
-            ];
-            if (allowedKeys.includes(e.key)) {
-                return;
-            }
-            if (e.key < '0' || e.key > '9' || e.target.value.length >= 11) {
-                e.preventDefault();
-            }
-        }
-
-        window.onload = function() {
-            setMinDateTime();
-            document.getElementsByName("numa")[0].addEventListener("keydown", preventInvalidInput);
-            document.getElementsByName("nufe")[0].addEventListener("keydown", preventInvalidInput);
-            document.getElementsByName("monu")[0].addEventListener("keydown", restrictMobileInput);
-        };
-
-        function handleSubmit(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Show loading spinner and hide button text
-        document.getElementById('submitText').style.display = 'none';
-        document.getElementById('loadingSpinner').classList.remove('visually-hidden');
-
-        // Collect form data
-        var formData = new FormData(document.getElementById('bookingForm'));
-
-        // Send form data via AJAX
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'booking.php', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    // AJAX request successful, handle response
-                    var response = xhr.responseText.trim();
-                    if (response === 'success') {
-                        // Show success alert after a short delay (e.g., 2 seconds)
-                        setTimeout(function() {
-                            document.getElementById('alertMessage').classList.remove('d-none');
-                            // Reset form fields
-                            document.getElementById('bookingForm').reset();
-                        }, 2000); // Adjust delay as needed
-                    } else {
-                        // Show error message (optional)
-                        console.error('Error: ' + response);
-                        // Handle error scenario as needed
-                    }
-                } else {
-                    // AJAX request failed
-                    console.error('Error: ' + xhr.status);
-                    // Handle error scenario as needed
-                }
-
-                // Reset button text and hide loading spinner
-                setTimeout(function() {
-                    document.getElementById('submitText').style.display = 'inline';
-                    document.getElementById('loadingSpinner').classList.add('visually-hidden');
-                }, 2000); // Adjust delay as needed
-            }
-        };
-        xhr.onerror = function() {
-            // Handle AJAX errors
-            console.error('Error: AJAX request failed');
-            // Reset button text and hide loading spinner on error
-            document.getElementById('submitText').style.display = 'inline';
-            document.getElementById('loadingSpinner').classList.add('visually-hidden');
-        };
-        xhr.send(formData);
-    }
-
-    function dismissAlert() {
-        document.getElementById('alertMessage').classList.add('d-none');
-    }
-
-    function checkEmail() {
-        var email = document.getElementById('emal').value.trim();
-        if (email === '') {
-            document.getElementById('emailStatus').innerHTML = '';
-            return; // If email field is empty, do nothing
-        }
-
-        // Send AJAX request to check if email exists
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'check_email.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    // AJAX request successful, handle response
-                    var response = xhr.responseText.trim();
-                    var emailStatusDiv = document.getElementById('emailStatus');
-                    if (response === 'exists_future') {
-                        // Email exists and has future bookings
-                        emailStatusDiv.innerHTML = '<span style="color: red;">This email already has a future booking.</span>';
-                        document.getElementById('bookingForm').querySelector('button[type="submit"]').disabled = true; // Disable submit button
-                    } else if (response === 'exists_past') {
-                        // Email exists but past bookings are allowed
-                    } else if (response === 'not_exists') {
-                        // Email does not exist
-                    } else {
-                        console.error('Error: Unexpected response');
-                        emailStatusDiv.innerHTML = ''; // Clear email status
-                        document.getElementById('bookingForm').querySelector('button[type="submit"]').disabled = false; // Enable submit button
-                    }
-                } else {
-                    // AJAX request failed
-                    console.error('Error: ' + xhr.status);
-                }
-            }
-        };
-        xhr.onerror = function() {
-            // Handle AJAX errors
-            console.error('Error: AJAX request failed');
-        };
-        xhr.send('email=' + encodeURIComponent(email));
-    }
-
-</script>
-
+        document.addEventListener('DOMContentLoaded', (event) => {
+            toggleFields(); // Ensure the fields are toggled correctly on page load
+        });
+    </script>
 
 </body>
+
 </html>

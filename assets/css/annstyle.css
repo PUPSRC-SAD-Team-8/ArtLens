@@ -61,12 +61,12 @@
 .img-box:hover .overlay {
   height: 110% !important;
 }
-
 .overlay.active {
   height: 110%;
 }
-
-
+.overlay.active {
+  height: 110% !important;
+}
 .text {
   color: white !important;
   font-size: 20px !important;

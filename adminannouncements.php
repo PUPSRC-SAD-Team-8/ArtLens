@@ -15,12 +15,11 @@ if (isset($_SESSION['userid'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/sidebar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
-       <!-- Swiper CSS -->
-       <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
-
-<!-- CSS -->
-<link rel="stylesheet" href="assets/css/annstyle.css" />
-<link rel="stylesheet" href="assets/css/adminannouncement.css" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/annstyle.css" />
+    <link rel="stylesheet" href="assets/css/adminannouncement.css" />
     <title>Artlens</title>
 </head>
 
@@ -65,57 +64,114 @@ if (isset($_SESSION['userid'])) {
                         </form></center>
                                 <hr>
                                 <?php
-// Display submissions
-$sql = "SELECT image_path, title, description FROM submissions ORDER BY id DESC";
-$result = $conn->query($sql);
+                                // Display submissions
+                                $sql = "SELECT image_path, title, description FROM submissions ORDER BY id DESC";
+                                $result = $conn->query($sql);
 
-$cards = "";
+                                $cards = "";
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $cards .= '<div class="card swiper-slide">
-                    <div class="img-box" style="height: 350px; position: relative;"> <!-- Added position: relative; -->
-                        <div style="position: absolute; top: 10px; right: 10px; z-index: 10;"> <!-- Edit button -->
-                            <button>Edit</button>
-                        </div>
-                        <img src="' . $row["image_path"] . '" alt="" class="image" />
-                        <div class="overlay">
-                            <div class="text">
-                                <h2>' . $row["title"] . '</h2>
-                                <p>' . $row["description"] . '</p>
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        $cards .= '<div class="card swiper-slide">
+                                                    <div class="img-box" style="height: 350px; position: relative;"> <!-- Added position: relative; -->
+                                                        <div style="position: absolute; top: 10px; right: 10px; z-index: 10;"> <!-- Edit button -->
+                                                            <button>Edit</button>
+                                                        </div>
+                                                        <img src="' . $row["image_path"] . '" alt="" class="image" />
+                                                        <div class="overlay">
+                                                            <div class="text">
+                                                                <h2>' . $row["title"] . '</h2>
+                                                                <p>' . $row["description"] . '</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>';
+                                    }
+                                } else {
+                                    // Display "No updates today" if there are no submissions
+                                    $cards = '<div class="card swiper-slide">
+                                                <div class="img-box" style="height: 350px; border: 1px solid #4169E1;">
+                                                    <div class="text-center" style="margin:10px;">
+                                                        <h2>No updates today</h2>
+                                                        <p>There are no announcements at this time. Please check back later for updates.</p>
+                                                        <center>
+                                                            <img src="assets/images/void.png" style="max-width: 60%; max-height: 60%; height: auto; width: auto;">
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                            </div>';
+                                }
+                                ?>
+                                <div class="container1 swiper">
+                                    <div class="slide-container">
+                                        <div class="card-wrapper swiper-wrapper">
+                                            <?php echo $cards; ?>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-button-next swiper-navBtn"></div>
+                                    <div class="swiper-button-prev swiper-navBtn"></div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                    <div class="accordion-body">
+                    <form action="submit_form.php" method="post" enctype="multipart/form-data">
+                                <label for="image">Image:</label>
+                                <input type="file" id="image" name="image" accept="image/*" required />
+                                <br>
+                                <label for="title">Title:</label>
+                                <input type="text" id="title" name="title" required />
+                                <br>
+                                <label for="description">Description:</label>
+                                <textarea id="description" name="description" rows="4" required></textarea>
+                                <br>
+                                <button type="submit">Submit</button>
+                            </form>
+                            <?php
+                            // Display submissions
+                            $sql = "SELECT image_path, title, description FROM submissions ORDER BY id DESC";
+                            $result = $conn->query($sql);
+
+                            $cards = "";
+
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    $cards .= '<div class="card swiper-slide">
+                                                <div class="img-box" style="height: 350px;">
+                                                    <img src="' . $row["image_path"] . '" alt="" class="image" />
+                                                    <div class="overlay">
+                                                        <div class="text"><h2>' . $row["title"] . '</h2>
+                                                            <p>' . $row["description"] . '</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>';
+                                }
+                            } else {
+                                // Display "No updates today" if there are no submissions
+                                $cards = '<div class="card swiper-slide">
+                                            <div class="img-box" style="height: 350px; border: 1px solid #4169E1;">
+                                                <div class="text-center" style="margin:10px;">
+                                                    <h2>No updates today</h2>
+                                                    <p>There are no announcements at this time. Please check back later for updates.</p>
+                                                    <center>
+                                                        <img src="assets/images/void.png" style="max-width: 60%; max-height: 60%; height: auto; width: auto;">
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>';
+                            }
+                            ?>
+                            <div class="container1 swiper">
+                                <div class="slide-container">
+                                    <div class="card-wrapper swiper-wrapper">
+                                        <?php echo $cards; ?>
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next swiper-navBtn"></div>
+                                <div class="swiper-button-prev swiper-navBtn"></div>
+                                <div class="swiper-pagination"></div>
                             </div>
                         </div>
                     </div>
-                </div>';
-    }
-} else {
-    // Display "No updates today" if there are no submissions
-    $cards = '<div class="card swiper-slide">
-                <div class="img-box" style="height: 350px; border: 1px solid #4169E1;">
-                    <div class="text-center" style="margin:10px;">
-                        <h2>No updates today</h2>
-                        <p>There are no announcements at this time. Please check back later for updates.</p>
-                        <center>
-                            <img src="assets/images/void.png" style="max-width: 60%; max-height: 60%; height: auto; width: auto;">
-                        </center>
-                    </div>
-                </div>
-            </div>';
-}
-?>
-<div class="container1 swiper">
-    <div class="slide-container">
-        <div class="card-wrapper swiper-wrapper">
-            <?php echo $cards; ?>
-        </div>
-    </div>
-    <div class="swiper-button-next swiper-navBtn"></div>
-    <div class="swiper-button-prev swiper-navBtn"></div>
-    <div class="swiper-pagination"></div>
-</div>
-
-                            </div>
-                        </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">

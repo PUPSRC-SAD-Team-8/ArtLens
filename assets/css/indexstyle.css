@@ -141,6 +141,7 @@ body {
   background-color:white ;
   color: #4169E1;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .adminlogbtn:hover{
@@ -234,11 +235,11 @@ color: #4169E1;
 
 .modal-content {
   background-color: #fefefe;
-  padding: 20px;
+  padding: 20px 40px;
   border: 1px solid #888;
   max-width: 450px;
-  min-width: 350px;
-  height: auto;
+  min-width: 450px;
+  height: 500px;
   background: linear-gradient(to top, white 90%, #4169E1 10%);
   border-radius: 5%;
   
@@ -422,16 +423,12 @@ border: 1px solid lightgray;
     overflow-y: auto;
   }
   .close3 {
-    color: #888;
+    color: black;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
     float: right;
   }
-  .close3:hover {
-    color: black;
-  }
-
  
   .gender {
     margin-bottom: 10px;
@@ -514,6 +511,7 @@ border: 1px solid lightgray;
   
 }
 .footer p {
+  margin-top: 15px;
   text-align: center;
   margin-bottom: 0;
 }
@@ -669,6 +667,7 @@ border: 1px solid #4169E1;
   text-align: left !important; 
   margin-left: 70px !important;
 }
+
 .input-error {
   border-color: red !important;
 }
@@ -676,4 +675,32 @@ border: 1px solid #4169E1;
   color: red;
   font-size: 0.875em;
   margin-top: 0.25em;
+}
+   /* CSS for the loading spinner */
+   .loading-spinner1 {
+    display: none; /* Initially hidden */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F8F9FA; /* Semi-transparent white background */
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-spinner1 .spinner1 {
+    width: 100px;
+    height: 100px;
+    border: 10px solid #4169E1; /* Blue color */
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

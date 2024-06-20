@@ -14,7 +14,6 @@
     <style>
         .info_box{
     width: 540px;
-    max-width: 400px;
     background: #fff;
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
@@ -24,7 +23,6 @@
 }
 .quiz_box{
     width: 550px;
-    max-width: 400px;
     background: #fff;
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);

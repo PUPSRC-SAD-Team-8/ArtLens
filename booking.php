@@ -20,6 +20,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare SQL statement
+    $stmt = $conn->prepare("INSERT INTO booking (organization_name, contact_email, contact_number, num_male, num_female, book_datetime, book_status) 
+                            VALUES (?, ?, ?, ?, ?, ?, 'Pending')");
+
+    // Bind parameters
+    $stmt->bind_param("ssssss", $org_name, $email, $phone_number, $num_male, $num_female, $date_time);
+
+    // Execute the query
+    if ($stmt->execute()) {
+        echo 'success';
+    } else {
+        echo 'Error executing statement: ' . $stmt->error;
+    }
+    }
+
+    // Prepare SQL statement
     $stmt = $conn->prepare("INSERT INTO booking (organization_name, contact_email, contact_number, num_male, num_female, book_datetime) 
                             VALUES (?, ?, ?, ?, ?, ?)");
     
@@ -32,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo 'Error executing statement: ' . $stmt->error;
     }
-
     // Close statement and connection
     $stmt->close();
     $conn->close();

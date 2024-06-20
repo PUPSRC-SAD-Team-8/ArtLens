@@ -40,14 +40,16 @@ if (isset($_SESSION['userid'])) {
             <!--MAIN MAIN MAIN-->
             <main class="content px-3 py-2" style="overflow-x: auto;">
                 <div class="container">
-                    <div class="d-flex justify-content-end mt-3">
-                        <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white;">Add Log</button>
-                    </div>
+                    
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                    <h3>Individual</h3>
+                    <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white;">Add Log</button>
+                </div>
                     <div class="table-container" style="max-height: 400px; ">
                         <table id="myTable" class="table table-striped table-bordered"  style="background-color: #ffffff;">
                             <thead style="background-color: #4169E1; color: white;">
                                 <tr>
-                                    <th>ID</th>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Gender</th>
                                     <th>Mobile Number</th>
@@ -84,6 +86,7 @@ if (isset($_SESSION['userid'])) {
                     </div>
 
                 <!-- New Table -->
+                <h3>Ogranization</h3>
                     <div class="table-container" style="max-height: 400px; ">
                         <table id="myTable" class="table table-striped table-bordered"  style="background-color: #ffffff;">
                             <thead style="background-color: #4169E1; color: white;">

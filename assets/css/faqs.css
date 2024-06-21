@@ -1,0 +1,18 @@
+.head {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #4169E1 !important;
+  }
+
+  .container-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .backbtn {
+    background-color: #4169E1;
+  }

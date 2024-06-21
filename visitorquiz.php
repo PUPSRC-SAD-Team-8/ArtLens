@@ -1,48 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArtLens</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/css/visitorquiz.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
-    <style>
-        html, body {
-            overflow-x: hidden;
-            max-width: 100%;
-        }
+    <!-- FontAweome CDN Link for Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        .white-container {
-            background-color: white;
-            border-radius: 30px;
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            height: 65vh;
-            transform: translateX(-50%);
-            z-index: 1;
-            width: 87%; 
-            padding: 20px; 
-        }
-        .blue-container {
-            background-color: #4169E1;
-            padding-top: 20px;
-            position: relative;
-            height: 115vh;
-        }
-        @media (max-width: 780px) {
-            .white-container {
-                width: 100%;
-            }
-        }
-        .rectangle {
-            min-width: 300px;
-            max-width: 400px;
-            height: 60px; /* Adjust height as needed */
-            margin-bottom: 10px; /* Adjust margin as needed */
-            border-radius: 5px; /* Adjust border radius as needed */
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+        .info_box{
+    width: 540px;
+    background: #fff;
+    border-radius: 5px;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.quiz_box{
+    width: 550px;
+    background: #fff;
+    border-radius: 5px;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
     </style>
 </head>
 <body>
@@ -52,62 +39,87 @@
             <a class="btn1" href="visitorindex.php" style="text-decoration: none;">Back</a>
         </div>
     </nav>
-    <div class="row justify-content-center">
+    <div class="blue-container">
+        <br><br>
         <div class="container">
-            <div class="blue-container">
-                <br><br>
-                <div class="container">
-                    <center><h1 style="color: white; font-family: 'Arial Grook', sans-serif;"><b>Rizal Shrine</b></h1>
-                    <br>
-                    <p style="color: white; font-size: 20px;">Welcome to the Museum Quiz! Get ready to test your knowledge and explore art, history, and culture!</p>
-                    <br><br>
-                    <a class="btn1" href="index.php" style="font-size: 30px; text-decoration: none; padding: 15px;">Start Quiz</a>
-                    </center>
-                </div>
-            </div>
-        </div>
-        <div class="container white-container ">
-            <center><h3>Quiz Leaderboard</h3></center>
-            <!-- Add three rectangles here -->
-            <div class="row mt-3">
-                <div class="col-12 d-flex justify-content-center">
-                    <div class="rectangle" style="border: 2px solid gold; text-align: center; display: flex; justify-content: center; align-items: center;">
-                        <div style="display: inline-block; width: 40%; text-align: left;">
-                            <p style="display: inline; margin-left: 15px; margin-top: 10px;">1. John Doe</p>
-                        </div>
-                        <div style="display: inline-block; width: 40%; text-align: right;">
-                            <p style="display: inline; margin-right: 15px; margin-top: 10px;">40 Points</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center">
-                    <div class="rectangle" style="border: 2px solid silver; text-align: center; display: flex; justify-content: center; align-items: center;">
-                        <div style="display: inline-block; width: 40%; text-align: left;">
-                            <p style="display: inline; margin-left: 15px; margin-top: 10px;">2. Juan Cruz</p>
-                        </div>
-                        <div style="display: inline-block; width: 40%; text-align: right;">
-                            <p style="display: inline; margin-right: 15px; margin-top: 10px;">40 Points</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center">
-                    <div class="rectangle" style="border: 2px solid brown; text-align: center; display: flex; justify-content: center; align-items: center;">
-                        <div style="display: inline-block; width: 40%; text-align: left;">
-                            <p style="display: inline; margin-left: 15px; margin-top: 10px;">3. Gamer123</p>
-                        </div>
-                        <div style="display: inline-block; width: 40%; text-align: right;">
-                            <p style="display: inline; margin-right: 15px; margin-top: 10px;">40 Points</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <center><h1 style="color: white; font-family: 'Arial Grook', sans-serif;"><b>Rizal Shrine</b></h1>
+            <br>
+            <p style="color: white; font-size: 20px;">Welcome to the Museum Quiz! Get ready to test your knowledge and explore art, history, and culture!</p>
+            <div class="start_btn" style="font-size: 30px; text-decoration: none; padding: 15px;"><button style="border: 0px;">Start Quiz</button></div>    
+        </center>
+            
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- start Quiz button -->
+    <center><h1 style="color: white; font-family: 'Arial Grook', sans-serif;"><b>Rizal Shrine</b></h1>
+        <br>
+        <p style="color: white; font-size: 20px;">Welcome to the Museum Quiz! Get ready to test your knowledge and explore art, history, and culture!</p></center>
+    
+
+    <!-- Info Box -->
+    <div class="info_box" style="min-width: 10px !important;">
+        <div class="info-title"><span>Some Rules of this Quiz</span></div>
+        <div class="info-list">
+            <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
+
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">ArtLens Quiz</div>
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">15</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+                <!-- Here I've inserted question from JavaScript -->
+            </div>
+            <div class="option_list">
+                <!-- Here I've inserted options from JavaScript -->
+            </div>
+        </section>
+
+        <!-- footer of Quiz Box -->
+        <footer>
+            <div class="total_que">
+                <!-- Here I've inserted Question Count Number from JavaScript -->
+            </div>
+            <button class="next_btn">Next Que</button>
+        </footer>
+    </div>
+
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
+
+    <!-- Inside this JavaScript file I've inserted Questions and Options only -->
+    <script src="js1/questions.js"></script>
+
+    <!-- Inside this JavaScript file I've coded all Quiz Codes -->
+    <script src="js1/script.js"></script>
+
 </body>
 </html>

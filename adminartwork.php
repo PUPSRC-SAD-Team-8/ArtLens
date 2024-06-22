@@ -1,10 +1,10 @@
 <?php
 session_start();
-include ('connection.php');
+include('connection.php');
 
 if (isset($_SESSION['userid'])) {
- 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,20 +19,19 @@ if (isset($_SESSION['userid'])) {
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
     <style> 
-        .homebtn{
-  padding: 10px !important;
-  background-color: #4169E1 !important;
-  color: white !important;
-  border-radius: 5px !important;
-  text-decoration: none !important;
-  width: 100%;
-}
-
-.homebtn:hover{
-  background-color: white !important; 
-  border: 1px solid #4169E1 !important;
-  color: #4169E1 !important;
-}
+        .homebtn {
+            padding: 10px !important;
+            background-color: #4169E1 !important;
+            color: white !important;
+            border-radius: 5px !important;
+            text-decoration: none !important;
+            width: 100%;
+        }
+        .homebtn:hover {
+            background-color: white !important; 
+            border: 1px solid #4169E1 !important;
+            color: #4169E1 !important;
+        }
     </style>
 </head>
 <body>
@@ -44,7 +43,7 @@ if (isset($_SESSION['userid'])) {
 
         <!-- Main Component -->
         <div class="main">
-        <?php include('header.php'); ?>
+            <?php include('header.php'); ?>
 
             <!-- Main Content -->
             <main class="content px-3 py-2">
@@ -89,51 +88,49 @@ if (isset($_SESSION['userid'])) {
                 </div>
 
                 <!-- Add Button -->
-                <div class="mx-auto mt-3">
-                    <div class="d-flex justify-content-between">
-                        <form class="form-inline mx-auto">
+                <div class="container">
+                    <div class="row justify-content-end mt-3">
+                        <div class="col-md-6 col-lg-4">
                             <div class="input-group">
-                                <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="min-width: 400px;">
-                                <div class="input-group-append">
-                                    <button class="btn" style="background-color: #4169E1; color: white;" type="submit">Search</button>
-                                </div>
+                                <input class="form-control" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+                                <button id="sort-button" class="btn btn-secondary ms-2" data-sort="asc"><i class="bi bi-sort-alpha-up"></i></button>
+                                <button id="add-box" class="btn btn-primary ms-2">Add Artwork</button>
                             </div>
-                        </form>
-                        <button id="add-box" class="btn btn-primary" style="background-color: #4169E1; color: white; margin-right:25px;">Add Artwork</button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Artwork Boxes -->
-                <!-- Main Content -->
-                <main class="content px-3 py-2">
                     <!-- Artwork Boxes -->
-                    <div class="container">
-                        <div class="row">
+                    <div class="container mt-3">
+                        <div class="row" id="artworkContainer">
                             <?php
-                            include('connection.php');
+                            // Modify SQL query to fetch artworks without default ordering
                             $sql = "SELECT * FROM artwork";
+
                             $result = $conn->query($sql);
 
                             if ($result->num_rows > 0) {
-                                $row_num = 0; // Initialize row number counter
                                 while ($row = $result->fetch_assoc()) {
-                                    $row_num++; // Increment row number for each iteration
-                                    // Determine row class based on row number for alternating colors
-                                    $row_class = ($row_num % 2 == 0) ? "even-row" : "odd-row";
-
-                                    // Generate HTML for each artwork box
                                     echo "<div class='col-lg-3 col-md-4 col-sm-6 col-6 grid-container mt-3'>";
-                                    echo "<div class='card' data-toggle='modal' data-target='#cardModal' data-title='" . $row["artwork_name"] . "' data-image='" . $row["artwork_img"] . "' data-artist='" . $row["artwork_artist"] . "'  data-year='" . $row["artwork_year"] . "'  data-medium='" . $row["artwork_medium"] . "'  data-desc='" . $row["artwork_description"] . "' >";
+                                    echo "<div class='card artwork-card' data-bs-toggle='modal' data-bs-target='#cardModal' 
+                                            data-title='" . $row["artwork_name"] . "' 
+                                            data-image='" . $row["artwork_img"] . "' 
+                                            data-artist='" . $row["artwork_artist"] . "'  
+                                            data-year='" . $row["artwork_year"] . "'  
+                                            data-medium='" . $row["artwork_medium"] . "'  
+                                            data-desc='" . $row["artwork_description"] . "'>";
                                     echo "<img src='" . $row["artwork_img"] . "' class='card-img-top image' height='200' width='150' alt='Artwork Image'>";
                                     echo "<div class='card-title text-center'>" . $row["artwork_name"] . "</div>";
                                     echo "</div>";
                                     echo "</div>";
                                 }
+                            } else {
+                                echo "<div class='col-12 text-center mt-3'>No artworks found.</div>";
                             }
                             ?>
                         </div>
                     </div>
 
+                    <!-- Card Modal -->
                     <!-- Card Modal -->
                     <div id="cardModal" class="modal fade">
                         <div class="modal-dialog modal-dialog-centered">
@@ -145,67 +142,146 @@ if (isset($_SESSION['userid'])) {
                                 <div class="modal-body">
                                     <center><img id="modal-image" class="img-fluid" alt="Artwork Image"></center>
                                     <br>
-                                    <p><b>Title: </b><span id="modal-title"></span></p>
-                                    <p><b>Artist: </b><span id="modal-artist"></span></p>
-                                    <p><b>Year: </b><span id="modal-year"></span></p>
-                                    <p><b>Medium: </b><span id="modal-medium"></span></p>
-                                    <p><b>Description: </b><span id="modal-description"></span></p>
+                                    <form id="editArtworkForm">
+                                        <div class="mb-3">
+                                            <label for="modal-title-input" class="form-label">Title</label>
+                                            <input type="text" class="form-control" id="modal-title-input" name="modal-title">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="modal-artist-input" class="form-label">Artist</label>
+                                            <input type="text" class="form-control" id="modal-artist-input" name="modal-artist">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="modal-year-input" class="form-label">Year</label>
+                                            <input type="text" class="form-control" id="modal-year-input" name="modal-year">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="modal-medium-input" class="form-label">Medium</label>
+                                            <input type="text" class="form-control" id="modal-medium-input" name="modal-medium">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="modal-description-input" class="form-label">Description</label>
+                                            <textarea class="form-control" id="modal-description-input" name="modal-description" rows="3"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" id="saveChangesBtn">Save changes</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </main>
 
+                </div>
 
-    <!-- Bootstrap JS and jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+                <!-- Bootstrap JS and jQuery -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    
-</body>
+                <script src="script.js"></script>
+                <script>
+                $(document).ready(function() {
+                    var originalArtworks = []; // Array to store original artworks order
+
+                    // Fetch initial artworks order
+                    $('#artworkContainer').children('.col-lg-3, .col-md-4, .col-sm-6, .col-6').each(function() {
+                        originalArtworks.push($(this));
+                    });
+
+                    // Sorting button click event
+                    $('#sort-button').click(function() {
+                        var sortDirection = $(this).data('sort');
+
+                        // Toggle sorting direction
+                        if (sortDirection === 'asc') {
+                            $(this).data('sort', 'desc').html('<i class="bi bi-sort-alpha-up"></i>').css('background-color', '#4169E1');
+                            sortArtworks('asc');
+                        } else if (sortDirection === 'desc') {
+                            $(this).data('sort', 'original').html('<i class="bi bi-sort-alpha-down"></i>').css('background-color', '#4169E1');
+                            sortArtworks('desc');
+                        } else {
+                            $(this).data('sort', 'asc').html('<i class="bi bi-sort-alpha-up"></i>').css('background-color', ''); // Reset to default background
+                            sortArtworks('original');
+                        }
+                    });
+
+                    // Function to sort artworks based on title
+                    function sortArtworks(direction) {
+                        var artworks;
+
+                        if (direction === 'original') {
+                            artworks = originalArtworks;
+                        } else {
+                            artworks = $('#artworkContainer').children('.col-lg-3, .col-md-4, .col-sm-6, .col-6').get();
+
+                            artworks.sort(function(a, b) {
+                                var titleA = $(a).find('.card-title').text().toUpperCase();
+                                var titleB = $(b).find('.card-title').text().toUpperCase();
+
+                                if (direction === 'asc') {
+                                    return (titleA < titleB) ? -1 : (titleA > titleB) ? 1 : 0;
+                                } else {
+                                    return (titleA > titleB) ? -1 : (titleA < titleB) ? 1 : 0;
+                                }
+                            });
+                        }
+
+                        $.each(artworks, function(index, element) {
+                            $('#artworkContainer').append(element);
+                        });
+                    }
+
+                    // Other script for modal and search functionality remains the same
+                    $('#add-box').click(function() {
+                        $('#artModal').modal('show');
+                    });
+
+                    // Function to handle live search
+                    $('#searchInput').on('input', function() {
+                        var searchText = $(this).val().toLowerCase();
+                        filterArtworks(searchText);
+                    });
+
+                    // Function to filter artworks based on search text
+                    function filterArtworks(searchText) {
+                        var artworks = $('#artworkContainer').children();
+                        artworks.each(function() {
+                            var artworkName = $(this).find('.card-title').text().toLowerCase();
+                            if (artworkName.includes(searchText)) {
+                                $(this).show();
+                            } else {
+                                $(this).hide();
+                            }
+                        });
+                    }
+
+                    // Handling artwork card click to show modal with details
+                    $('#artworkContainer').on('click', '.artwork-card', function() {
+                        var title = $(this).data('title');
+                        var image = $(this).data('image');
+                        var artist = $(this).data('artist');
+                        var year = $(this).data('year');
+                        var medium = $(this).data('medium');
+                        var description = $(this).data('desc');
+
+                        $('#modal-image').attr('src', image);
+                        $('#modal-title').text(title);
+                        $('#modal-artist').text(artist);
+                        $('#modal-year').text(year);
+                        $('#modal-medium').text(medium);
+                        $('#modal-description').text(description);
+
+                        // Show the modal
+                        $('#cardModal').modal('show');
+                    });
+                });
+            </script>
+    </body>
 </html>
-<script>$(document).ready(function() {
-    $('#add-box').click(function() {
-        // Show the modal
-        $('#artModal').modal('show');
-    });
-});</script>
-<script>
-$(document).ready(function() {
-    // Add click event listener to artwork box
-    $('.card').click(function() {
-        // Extract artwork information
-        var title = $(this).data('title');
-        var image = $(this).data('image');
-        var description = $(this).data('desc');
-        var artist = $(this).data('artist');
-        var medium = $(this).data('medium');
-        var year = $(this).data('year');
-console.log(title ,year ,image ,description ,artist, medium);
-        // Populate modal with artwork information
-        $('#modal-title').text(title);
-        $('#modal-image').attr('src', image);
-        $('#modal-artist').text(artist);
-        $('#modal-year').text(year);
-        $('#modal-medium').text(medium);
-        $('#modal-description').text(description);
-
-        // Show the modal
-        $('#cardModal').modal('show');
-    });
-
-    $('#add-box').click(function() {
-        // Show the modal
-        $('#artModal').modal('show');
-    });
-});
-</script>
-
 <?php
-}else{
-    
-   header ("Location: index.php");
-   die();
-}
+    } else {
+        header("Location: index.php");
+        die();
+    }
 ?>

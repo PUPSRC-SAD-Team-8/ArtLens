@@ -7,6 +7,7 @@ $displayModal = isset($_SESSION['msg']);
 if(isset($_SESSION['id'])){
     header('location:index.php');
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -464,6 +465,19 @@ if(isset($_SESSION['id'])){
     <script src="assets/js/input-validator.js"></script>
     <script src="assets/js/carscript.js"></script>
     <script src="assets/js/bookvalidation.js"></script>
+    <script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#pass');
+
+    togglePassword.addEventListener('click', function () {
+        // Toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        
+        // Change the button text based on the type
+        this.textContent = type === 'password' ? 'Show' : 'Hide';
+    });
+</script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
 // Get all cards

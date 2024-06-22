@@ -1,3 +1,61 @@
+var modal = document.getElementById("myModal1");
+        var span = document.getElementsByClassName("close2")[0];
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function showForm() {
+            document.getElementById("formContent").classList.remove("hidden");
+            document.getElementById("statusContent").classList.add("hidden");
+            document.getElementById("modalTitle").textContent = "Booking Form";
+            document.querySelector(".btn-toggle.form").style.backgroundColor = "#4169E1";
+            document.querySelector(".btn-toggle.form").style.color = "white"; // Set text color to white
+            document.querySelector(".btn-toggle.status").style.backgroundColor = "white";
+            document.querySelector(".btn-toggle.status").style.color = "black"; // Set text color to black
+        }
+
+        function showStatus() {
+            document.getElementById("formContent").classList.add("hidden");
+            document.getElementById("statusContent").classList.remove("hidden");
+            document.getElementById("modalTitle").textContent = "Booking Status";
+            document.querySelector(".btn-toggle.form").style.backgroundColor = "white";
+            document.querySelector(".btn-toggle.form").style.color = "black"; // Set text color to black
+            document.querySelector(".btn-toggle.status").style.backgroundColor = "#4169E1";
+            document.querySelector(".btn-toggle.status").style.color = "white"; // Set text color to white
+        }
+
+        // Set default text color
+        document.querySelector(".btn-toggle.form").style.color = "white"; // Default text color for form button
+        document.querySelector(".btn-toggle.status").style.color = "black"; // Default text color for status button
+
+        function checkStatus() {
+            // Retrieve the reference number
+            var referenceNumber = document.querySelector('#statusContent input[name="contact_email"]').value;
+
+            // AJAX request to send the reference number to check_status.php
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "check_status.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Handle the response from check_status.php
+                    document.getElementById('statusMessage').innerHTML = xhr.responseText;
+                    // Hide the image when search is made
+                    document.getElementById('noInfoImage').style.display = 'none';
+                    // Change the background color to blue
+                    document.getElementById('imageContainer').style.backgroundColor = '#4169E1';
+                }
+            };
+            xhr.send("contact_email=" + referenceNumber); // Send the reference number as POST data
+        }
+        
 function setMinDateTime() {
     let now = new Date();
     now.setDate(now.getDate() + 1);  // Set date to tomorrow

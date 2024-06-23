@@ -20,4 +20,3 @@ import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import com.artlens.utils.AdminUtils as AdminUtils
 
 AdminUtils.openWebPage('admin.php')
-

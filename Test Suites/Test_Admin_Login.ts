@@ -71,7 +71,7 @@
       <guid>dfeb4886-8533-402b-baab-3160ce22ea59</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Common_TestCases/Login_All_Valid</testCaseId>
+      <testCaseId>Test Cases/Common_TestCases/admin_login_all_valid</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>

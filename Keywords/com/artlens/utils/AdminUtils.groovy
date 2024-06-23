@@ -17,6 +17,7 @@ import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
 import internal.GlobalVariable
 
@@ -35,11 +36,10 @@ public class AdminUtils extends CommonUtils {
 	@Keyword
 	public static void adminLogin(String username, String password, Callback callback) {
 
-		WebUI.click(findTestObject('Object Repository/admin/landing_page/a_Admin Login'))
-
 		// Verify that the Admin Login link is present and visible
 		WebUI.verifyElementPresent(findTestObject('Object Repository/admin/landing_page/a_Admin Login'), 0)
 		WebUI.verifyElementVisible(findTestObject('Object Repository/admin/landing_page/a_Admin Login'), FailureHandling.STOP_ON_FAILURE)
+		WebUI.click(findTestObject('Object Repository/admin/landing_page/a_Admin Login'))
 
 		if (username != null) {
 			WebUI.setText(findTestObject('Object Repository/admin/landing_page/input_ARTLENS_uname'), username)
@@ -65,5 +65,54 @@ public class AdminUtils extends CommonUtils {
 		WebUI.verifyElementVisible(findTestObject('Object Repository/admin/landing_page/button_Login'), FailureHandling.STOP_ON_FAILURE)
 
 		WebUI.click(findTestObject('Object Repository/admin/landing_page/button_Login'))
+	}
+
+	@Keyword
+	public static void adminLogout() {
+		WebUI.click(findTestObject('Object Repository/admin/components/side_nav_drawer/a_Logout'))
+
+		String currentUrl = WebUI.getUrl()
+
+		String expectedUrl = "${GlobalVariable.appBaseLink}admin.php"
+
+		boolean isUrlCorrect = WebUI.verifyMatch(currentUrl, expectedUrl, false)
+
+		if (isUrlCorrect) {
+			KeywordUtil.markPassed('The URL is correct: ' + currentUrl)
+		} else {
+			KeywordUtil.markFailed((('The URL is incorrect. Expected: ' + expectedUrl) + ' but got: ') + currentUrl)
+		}
+	}
+
+	@Keyword
+	static void verifyPageAccessLoggedOut(String pageName) {
+		String fullUrl = openWebPage(pageName, false)
+
+		WebUI.navigateToUrl(fullUrl)
+
+		String currentUrl = WebUI.getUrl()
+
+		String expectedUrl = "${GlobalVariable.appBaseLink}admin.php"
+
+		boolean isAccessible = WebUI.verifyLinksAccessible([fullUrl])
+
+		boolean isAbsoluteAccessible
+		boolean correctRedirection
+
+		try {
+			isAbsoluteAccessible = WebUI.verifyNotMatch(currentUrl, fullUrl, false, FailureHandling.CONTINUE_ON_FAILURE)
+		}
+		catch (Exception e){
+			KeywordUtil.markFailed("Unauthenticated but ${fullUrl} is acessible: ")
+		}
+
+
+
+		try {
+			correctRedirection = WebUI.verifyMatch(currentUrl, expectedUrl, false, FailureHandling.CONTINUE_ON_FAILURE)
+		}
+		catch (Exception e){
+			KeywordUtil.markFailed("Incorrect URL redirection: Expected ${expectedUrl}")
+		}
 	}
 }

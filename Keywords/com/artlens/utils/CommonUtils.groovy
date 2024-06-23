@@ -21,6 +21,11 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable
 
 public class CommonUtils {
+
+	static String openWebPage(String pageName) {
+		openWebPage(pageName, true);
+	}
+
 	/**
 	 * Opens a web page if the link is accessible.
 	 *
@@ -30,20 +35,23 @@ public class CommonUtils {
 	 *
 	 * @param pageName the name of the page to be opened (appended to the base link)
 	 */
-	static void openWebPage(String pageName) {
+	static String openWebPage(String pageName, boolean isVerifyAcessible) {
 		String fullUrl = "${GlobalVariable.appBaseLink}${pageName}"
+
 		boolean isAccessible = WebUI.verifyLinksAccessible([fullUrl])
 
 		// Navigate to the URL only if it is accessible
-		if (isAccessible) {
+		if (isAccessible && isVerifyAcessible) {
 			WebUI.navigateToUrl(fullUrl)
-		} else {
+		} else if (isVerifyAcessible){
 			WebUI.comment("The URL ${fullUrl} is not accessible.")
 		}
+
+		return fullUrl
 	}
-	
+
 	static boolean containsClass(TestObject element, String className) {
-	    String classes = WebUI.getAttribute(element, 'class')
-	    return classes.contains(className)
+		String classes = WebUI.getAttribute(element, 'class')
+		return classes.contains(className)
 	}
 }

@@ -257,62 +257,57 @@ if (isset($_SESSION['userid'])) {
         }
 
         // Handling artwork card click to show modal with details
-        $(document).ready(function() {
-    // Function to handle artwork card click to show modal with editable details
-    $('#artworkContainer').on('click', '.artwork-card', function() {
-        var title = $(this).data('title');
-        var image = $(this).data('image');
-        var artist = $(this).data('artist');
-        var year = $(this).data('year');
-        var medium = $(this).data('medium');
-        var description = $(this).data('desc');
+       $('#artworkContainer').on('click', '.artwork-card', function() {
+    var title = $(this).data('title');
+    var image = $(this).data('image');
+    var artist = $(this).data('artist');
+    var year = $(this).data('year');
+    var medium = $(this).data('medium');
+    var description = $(this).data('desc');
+    var artworkId = $(this).data('id'); // Make sure this is set
 
-        // Populate modal fields with artwork details
-        $('#modal-image').attr('src', image);
-        $('#modal-title-input').val(title);
-        $('#modal-artist-input').val(artist);
-        $('#modal-year-input').val(year);
-        $('#modal-medium-input').val(medium);
-        $('#modal-description-input').val(description);
+    // Populate modal fields
+    $('#modal-image').attr('src', image);
+    $('#modal-title-input').val(title).data('id', artworkId); // Store artworkId in data attribute
+    $('#modal-artist-input').val(artist);
+    $('#modal-year-input').val(year);
+    $('#modal-medium-input').val(medium);
+    $('#modal-description-input').val(description);
 
-        // Show the modal
-        $('#cardModal').modal('show');
-    });
+    // Show the modal
+    $('#cardModal').modal('show');
+});
 
-    // Save changes button click event
-    $('#saveChangesBtn').click(function() {
-        // Prepare data to send to server for update
-        var updatedTitle = $('#modal-title-input').val();
-        var updatedArtist = $('#modal-artist-input').val();
-        var updatedYear = $('#modal-year-input').val();
-        var updatedMedium = $('#modal-medium-input').val();
-        var updatedDescription = $('#modal-description-input').val();
+$('#saveChangesBtn').click(function() {
+    var updatedTitle = $('#modal-title-input').val();
+    var updatedArtist = $('#modal-artist-input').val();
+    var updatedYear = $('#modal-year-input').val();
+    var updatedMedium = $('#modal-medium-input').val();
+    var updatedDescription = $('#modal-description-input').val();
+    var artworkId = $('#modal-title-input').data('id'); // Retrieve artworkId from data attribute
 
-        // AJAX request to update artwork details in database
-        $.ajax({
-            url: 'updateartwork.php',
-            method: 'POST',
-            data: {
-                title: updatedTitle,
-                artist: updatedArtist,
-                year: updatedYear,
-                medium: updatedMedium,
-                description: updatedDescription
-                // Add any other necessary parameters, such as artwork ID for identifying the artwork in the database
-            },
-            success: function(response) {
-                // Handle success response if needed (e.g., show success message, refresh artwork grid)
-                console.log(response); // Log response for debugging
-                $('#cardModal').modal('hide'); // Hide modal after successful update
-            },
-            error: function(xhr, status, error) {
-                // Handle error if AJAX request fails
-                console.error(xhr.responseText); // Log error response for debugging
-                // Optionally display an error message to the user
-            }
-        });
+    // AJAX request to update artwork details
+    $.ajax({
+        url: 'updateartwork.php',
+        method: 'POST',
+        data: {
+            title: updatedTitle,
+            artist: updatedArtist,
+            year: updatedYear,
+            medium: updatedMedium,
+            description: updatedDescription,
+            artworkId: artworkId // Send artworkId
+        },
+        success: function(response) {
+            console.log(response);
+            $('#cardModal').modal('hide');
+        },
+        error: function(xhr, status, error) {
+            console.error(xhr.responseText);
+        }
     });
 });
+
 
     });
 </script>

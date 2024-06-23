@@ -69,7 +69,7 @@ if (isset($_SESSION['userid'])) {
                                 while($row = $result->fetch_assoc()) {
                                     $row_count++;
                                     $row_class = ($row_count % 2 == 0) ? "even-row" : "odd-row";
-                                    echo "<tr class='clickable-row $row_class' data-info='" . $row["log_form"] . "|" . $row["log_first_name"] . "|" . $row["log_mid_name"] . "|" . $row["log_last_name"] . "|" . $row["log_contact_email"] . "|" . $row["log_contact_number"] . "' style='cursor: pointer;'>";
+                                    echo "<tr class='clickable-row $row_class' data-info='" . $row["log_first_name"] . "|" . $row["log_mid_name"] . "|" . $row["log_last_name"] . "|" . $row["log_gender"] . "|" . $row["log_contact_number"] . "|" . $row["log_contact_email"] . "|" . $row["entry_timestamp"] . "' style='cursor: pointer;'>";
                                     echo "<td>" . $row_count . "</td>";
                                     echo "<td>" . $row["log_first_name"]. ' ' . $row["log_mid_name"]. ' '. $row["log_last_name"] .  "</td>";
                                     echo "<td>" . $row["log_gender"] . "</td>";
@@ -107,7 +107,7 @@ if (isset($_SESSION['userid'])) {
                                 while($row = $result->fetch_assoc()) {
                                     $row_count++;
                                     $row_class = ($row_count % 2 == 0) ? "even-row" : "odd-row";
-                                    echo "<tr class='clickable-row $row_class' data-info='" . "|" . $row["visitor_org_cn_no"] . "|" . $row["visitor_org_name"] . "|" . $row["visitor_org_add"] . "|" . $row["visitor_org_natl"] . "|" . $row["visitor_org_male"] . "|" . $row["visitor_org_female"] . "|" . $row["visitor_org_gschool"] . "|" . $row["visitor_org_hschool"] . "|" . $row["visitor_org_college"] . "|" . $row["visitor_org_pwd"] . "|" . $row["visitor_org_17blow"] . "|" . $row["visitor_org_1930old"] . "|" . $row["visitor_org_3159old"] . "|" . $row["visitor_org_60old"] . "' style='cursor: pointer;'>";
+                                    echo "<tr class='clickable-row $row_class' data-info='" . $row["visitor_org_cn_no"] . "|" . $row["visitor_org_name"] . "|" . $row["visitor_org_add"] . "|" . ($row["visitor_org_male"] + $row["visitor_org_female"]) . "|" . $row["visitor_org_natl"] . "|" . $row["visitor_org_male"] . "|" . $row["visitor_org_female"] . "|" . $row["visitor_org_gschool"] . "|" . $row["visitor_org_hschool"] . "|" . $row["visitor_org_college"] . "|" . $row["visitor_org_pwd"] . "|" . $row["visitor_org_17blow"] . "|" . $row["visitor_org_1930old"] . "|" . $row["visitor_org_3159old"] . "|" . $row["visitor_org_60old"] . "' style='cursor: pointer;'>";
                                     echo "<td>" . $row["visitor_org_cn_no"] . "</td>";
                                     echo "<td>" . $row["visitor_org_name"] . "</td>";
                                     echo "<td>" . $row["visitor_org_add"] . "</td>";
@@ -122,20 +122,38 @@ if (isset($_SESSION['userid'])) {
                     </div>
 
                     <!-- Modal for Individual Table -->
-                    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="individualModal" tabindex="-1" aria-labelledby="individualModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Booking Information</h5>
+                                    <h5 class="modal-title" id="individualModalLabel">Visitor Log Information</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>ID: <span id="modal-id"></span></p>
-                                    <p>Name: <span id="modal-name"></span></p>
-                                    <p>Gender: <span id="modal-gender"></span></p>
-                                    <p>Mobile Number: <span id="modal-mobile"></span></p>
-                                    <p>Email: <span id="modal-email"></span></p>
-                                    <p>Time in: <span id="modal-in"></span></p>
+                                    <p>Name: <span id="individual-modal-name"></span></p>
+                                    <p>Gender: <span id="individual-modal-gender"></span></p>
+                                    <p>Mobile Number: <span id="individual-modal-mobile"></span></p>
+                                    <p>Email: <span id="individual-modal-email"></span></p>
+                                    <p>Time in: <span id="individual-modal-in"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal for Organization Table -->
+                    <div class="modal fade" id="organizationModal" tabindex="-1" aria-labelledby="organizationModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="organizationModalLabel">Organization Visitor Information</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>C.N. Bus No.: <span id="organization-modal-cn"></span></p>
+                                    <p>Name: <span id="organization-modal-name"></span></p>
+                                    <p>Address: <span id="organization-modal-address"></span></p>
+                                    <p>Total: <span id="organization-modal-total"></span></p>
+                                    <p>Nationality: <span id="organization-modal-nationality"></span></p>
                                 </div>
                             </div>
                         </div>
@@ -150,10 +168,10 @@ if (isset($_SESSION['userid'])) {
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="infoForm" action="logad.php" method="POST">
+                                    <form id="infoForm" method="POST" action="save_log.php">
                                         <div class="mb-3">
                                             <label for="fnameInput" class="form-label">First Name</label>
-                                            <input class="form-control" type="text" id="fnameInput" name="fn" required>
+                                            <input type="text" class="form-control" id="fnameInput" name="fn" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="lnameInput" class="form-label">Last Name</label>
@@ -195,7 +213,6 @@ if (isset($_SESSION['userid'])) {
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
-    <
     <script>
         $(document).ready(function() {
             $('#myTable').DataTable();
@@ -204,24 +221,22 @@ if (isset($_SESSION['userid'])) {
             // Attach click event handler to the tbody element instead of individual rows
             $('#myTable tbody').on('click', '.clickable-row', function () {
                 var rowData = $(this).data('info').split('|');
-                $('#modal-id').text(rowData[0]);
-                $('#modal-name').text(rowData[1]);
-                $('#modal-gender').text(rowData[2]);
-                $('#modal-email').text(rowData[3]);
-                $('#modal-mobile').text(rowData[4]);
-                $('#modal-in').text(rowData[5]);
-                $('#myModal').modal('show');
+                $('#individual-modal-name').text(rowData[0] + ' ' + rowData[1] + ' ' + rowData[2]);
+                $('#individual-modal-gender').text(rowData[3]);
+                $('#individual-modal-mobile').text(rowData[4]);
+                $('#individual-modal-email').text(rowData[5]);
+                $('#individual-modal-in').text(rowData[6]);
+                $('#individualModal').modal('show');
             });
 
             $('#myTable1 tbody').on('click', '.clickable-row', function () {
                 var rowData = $(this).data('info').split('|');
-                $('#modal-id').text(rowData[0]);
-                $('#modal-name').text(rowData[1]);
-                $('#modal-gender').text(rowData[2]);
-                $('#modal-email').text(rowData[3]);
-                $('#modal-mobile').text(rowData[4]);
-                $('#modal-in').text(rowData[5]);
-                $('#myModal').modal('show');
+                $('#organization-modal-cn').text(rowData[0]);
+                $('#organization-modal-name').text(rowData[1]);
+                $('#organization-modal-address').text(rowData[2]);
+                $('#organization-modal-total').text(rowData[3]);
+                $('#organization-modal-nationality').text(rowData[4]);
+                $('#organizationModal').modal('show');
             });
 
             // Add Row button click event

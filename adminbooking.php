@@ -216,7 +216,6 @@ if (isset($_SESSION['userid'])) {
                 $('#save-button').click(function () {
                     // Disable input fields and dropdown after saving changes
                     $('#modal-name, #modal-email, #modal-mobile, #modal-total, #modal-date-time').prop('readonly', true);
-                    $('#modal-status').prop('disabled', true); // Disable select element
                     $('#edit-button').show(); // Show edit button
                     $(this).hide(); // Hide save changes button
 
@@ -227,8 +226,6 @@ if (isset($_SESSION['userid'])) {
                 // Initial setup: disable the status dropdown and hide the save button
                 $('#modal-status').prop('disabled', true);
                 $('#save-button').hide();
-
-                
             });
             </script>
             </main>

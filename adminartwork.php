@@ -132,46 +132,46 @@ if (isset($_SESSION['userid'])) {
 
                     <!-- Card Modal -->
                     <!-- Card Modal -->
-                    <div id="cardModal" class="modal fade">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Artwork Details</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <center><img id="modal-image" class="img-fluid" alt="Artwork Image"></center>
-                                    <br>
-                                    <form id="editArtworkForm">
-                                        <div class="mb-3">
-                                            <label for="modal-title-input" class="form-label">Title</label>
-                                            <input type="text" class="form-control" id="modal-title-input" name="modal-title">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="modal-artist-input" class="form-label">Artist</label>
-                                            <input type="text" class="form-control" id="modal-artist-input" name="modal-artist">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="modal-year-input" class="form-label">Year</label>
-                                            <input type="text" class="form-control" id="modal-year-input" name="modal-year">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="modal-medium-input" class="form-label">Medium</label>
-                                            <input type="text" class="form-control" id="modal-medium-input" name="modal-medium">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="modal-description-input" class="form-label">Description</label>
-                                            <textarea class="form-control" id="modal-description-input" name="modal-description" rows="3"></textarea>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" id="saveChangesBtn">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
+<div id="cardModal" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Artwork Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <center><img id="modal-image" class="img-fluid" alt="Artwork Image"></center>
+                <br>
+                <form id="editArtworkForm">
+                    <div class="mb-3">
+                        <label for="modal-title-input" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="modal-title-input" name="modal-title">
                     </div>
+                    <div class="mb-3">
+                        <label for="modal-artist-input" class="form-label">Artist</label>
+                        <input type="text" class="form-control" id="modal-artist-input" name="modal-artist">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-year-input" class="form-label">Year</label>
+                        <input type="text" class="form-control" id="modal-year-input" name="modal-year">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-medium-input" class="form-label">Medium</label>
+                        <input type="text" class="form-control" id="modal-medium-input" name="modal-medium">
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-description-input" class="form-label">Description</label>
+                        <textarea class="form-control" id="modal-description-input" name="modal-description" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveChangesBtn">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
                 </div>
 
@@ -181,104 +181,143 @@ if (isset($_SESSION['userid'])) {
 
                 <script src="script.js"></script>
                 <script>
-                $(document).ready(function() {
-                    var originalArtworks = []; // Array to store original artworks order
+    $(document).ready(function() {
+        var originalArtworks = []; // Array to store original artworks order
 
-                    // Fetch initial artworks order
-                    $('#artworkContainer').children('.col-lg-3, .col-md-4, .col-sm-6, .col-6').each(function() {
-                        originalArtworks.push($(this));
-                    });
+        // Fetch initial artworks order
+        $('#artworkContainer').children('.col-lg-3, .col-md-4, .col-sm-6, .col-6').each(function() {
+            originalArtworks.push($(this));
+        });
 
-                    // Sorting button click event
-                    $('#sort-button').click(function() {
-                        var sortDirection = $(this).data('sort');
+        // Sorting button click event
+        $('#sort-button').click(function() {
+            var sortDirection = $(this).data('sort');
 
-                        // Toggle sorting direction
-                        if (sortDirection === 'asc') {
-                            $(this).data('sort', 'desc').html('<i class="bi bi-sort-alpha-up"></i>').css('background-color', '#4169E1');
-                            sortArtworks('asc');
-                        } else if (sortDirection === 'desc') {
-                            $(this).data('sort', 'original').html('<i class="bi bi-sort-alpha-down"></i>').css('background-color', '#4169E1');
-                            sortArtworks('desc');
-                        } else {
-                            $(this).data('sort', 'asc').html('<i class="bi bi-sort-alpha-up"></i>').css('background-color', ''); // Reset to default background
-                            sortArtworks('original');
-                        }
-                    });
+            // Toggle sorting direction
+            if (sortDirection === 'asc') {
+                $(this).data('sort', 'desc').html('<i class="bi bi-sort-alpha-up"></i>').css('background-color', '#4169E1');
+                sortArtworks('asc');
+            } else if (sortDirection === 'desc') {
+                $(this).data('sort', 'original').html('<i class="bi bi-sort-alpha-down"></i>').css('background-color', '#4169E1');
+                sortArtworks('desc');
+            } else {
+                $(this).data('sort', 'asc').html('<i class="bi bi-sort-alpha-up"></i>').css('background-color', ''); // Reset to default background
+                sortArtworks('original');
+            }
+        });
 
-                    // Function to sort artworks based on title
-                    function sortArtworks(direction) {
-                        var artworks;
+        // Function to sort artworks based on title
+        function sortArtworks(direction) {
+            var artworks;
 
-                        if (direction === 'original') {
-                            artworks = originalArtworks;
-                        } else {
-                            artworks = $('#artworkContainer').children('.col-lg-3, .col-md-4, .col-sm-6, .col-6').get();
+            if (direction === 'original') {
+                artworks = originalArtworks;
+            } else {
+                artworks = $('#artworkContainer').children('.col-lg-3, .col-md-4, .col-sm-6, .col-6').get();
 
-                            artworks.sort(function(a, b) {
-                                var titleA = $(a).find('.card-title').text().toUpperCase();
-                                var titleB = $(b).find('.card-title').text().toUpperCase();
+                artworks.sort(function(a, b) {
+                    var titleA = $(a).find('.card-title').text().toUpperCase();
+                    var titleB = $(b).find('.card-title').text().toUpperCase();
 
-                                if (direction === 'asc') {
-                                    return (titleA < titleB) ? -1 : (titleA > titleB) ? 1 : 0;
-                                } else {
-                                    return (titleA > titleB) ? -1 : (titleA < titleB) ? 1 : 0;
-                                }
-                            });
-                        }
-
-                        $.each(artworks, function(index, element) {
-                            $('#artworkContainer').append(element);
-                        });
+                    if (direction === 'asc') {
+                        return (titleA < titleB) ? -1 : (titleA > titleB) ? 1 : 0;
+                    } else {
+                        return (titleA > titleB) ? -1 : (titleA < titleB) ? 1 : 0;
                     }
-
-                    // Other script for modal and search functionality remains the same
-                    $('#add-box').click(function() {
-                        $('#artModal').modal('show');
-                    });
-
-                    // Function to handle live search
-                    $('#searchInput').on('input', function() {
-                        var searchText = $(this).val().toLowerCase();
-                        filterArtworks(searchText);
-                    });
-
-                    // Function to filter artworks based on search text
-                    function filterArtworks(searchText) {
-                        var artworks = $('#artworkContainer').children();
-                        artworks.each(function() {
-                            var artworkName = $(this).find('.card-title').text().toLowerCase();
-                            if (artworkName.includes(searchText)) {
-                                $(this).show();
-                            } else {
-                                $(this).hide();
-                            }
-                        });
-                    }
-
-                    // Handling artwork card click to show modal with details
-                    $('#artworkContainer').on('click', '.artwork-card', function() {
-                        var title = $(this).data('title');
-                        var image = $(this).data('image');
-                        var artist = $(this).data('artist');
-                        var year = $(this).data('year');
-                        var medium = $(this).data('medium');
-                        var description = $(this).data('desc');
-
-                        $('#modal-image').attr('src', image);
-                        $('#modal-title').text(title);
-                        $('#modal-artist').text(artist);
-                        $('#modal-year').text(year);
-                        $('#modal-medium').text(medium);
-                        $('#modal-description').text(description);
-
-                        // Show the modal
-                        $('#cardModal').modal('show');
-                    });
                 });
-            </script>
-    </body>
-</html>
+            }
+
+            $.each(artworks, function(index, element) {
+                $('#artworkContainer').append(element);
+            });
+        }
+
+        // Other script for modal and search functionality remains the same
+        $('#add-box').click(function() {
+            $('#artModal').modal('show');
+        });
+
+        // Function to handle live search
+        $('#searchInput').on('input', function() {
+            var searchText = $(this).val().toLowerCase();
+            filterArtworks(searchText);
+        });
+
+        // Function to filter artworks based on search text
+        function filterArtworks(searchText) {
+            var artworks = $('#artworkContainer').children();
+            artworks.each(function() {
+                var artworkName = $(this).find('.card-title').text().toLowerCase();
+                if (artworkName.includes(searchText)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        }
+
+        // Handling artwork card click to show modal with details
+        $(document).ready(function() {
+    // Function to handle artwork card click to show modal with editable details
+    $('#artworkContainer').on('click', '.artwork-card', function() {
+        var title = $(this).data('title');
+        var image = $(this).data('image');
+        var artist = $(this).data('artist');
+        var year = $(this).data('year');
+        var medium = $(this).data('medium');
+        var description = $(this).data('desc');
+
+        // Populate modal fields with artwork details
+        $('#modal-image').attr('src', image);
+        $('#modal-title-input').val(title);
+        $('#modal-artist-input').val(artist);
+        $('#modal-year-input').val(year);
+        $('#modal-medium-input').val(medium);
+        $('#modal-description-input').val(description);
+
+        // Show the modal
+        $('#cardModal').modal('show');
+    });
+
+    // Save changes button click event
+    $('#saveChangesBtn').click(function() {
+        // Prepare data to send to server for update
+        var updatedTitle = $('#modal-title-input').val();
+        var updatedArtist = $('#modal-artist-input').val();
+        var updatedYear = $('#modal-year-input').val();
+        var updatedMedium = $('#modal-medium-input').val();
+        var updatedDescription = $('#modal-description-input').val();
+
+        // AJAX request to update artwork details in database
+        $.ajax({
+            url: 'updateartwork.php',
+            method: 'POST',
+            data: {
+                title: updatedTitle,
+                artist: updatedArtist,
+                year: updatedYear,
+                medium: updatedMedium,
+                description: updatedDescription
+                // Add any other necessary parameters, such as artwork ID for identifying the artwork in the database
+            },
+            success: function(response) {
+                // Handle success response if needed (e.g., show success message, refresh artwork grid)
+                console.log(response); // Log response for debugging
+                $('#cardModal').modal('hide'); // Hide modal after successful update
+            },
+            error: function(xhr, status, error) {
+                // Handle error if AJAX request fails
+                console.error(xhr.responseText); // Log error response for debugging
+                // Optionally display an error message to the user
+            }
+        });
+    });
+});
+
+    });
+</script>
+</body>
+        </html>
 <?php
     } else {
         header("Location: index.php");

@@ -95,6 +95,7 @@ if (isset($_SESSION['userid'])) {
                                     <th>Address</th>
                                     <th>Total</th>
                                     <th>Nationality</th>
+                                    <th>Time in</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -107,12 +108,13 @@ if (isset($_SESSION['userid'])) {
                                 while($row = $result->fetch_assoc()) {
                                     $row_count++;
                                     $row_class = ($row_count % 2 == 0) ? "even-row" : "odd-row";
-                                    echo "<tr class='clickable-row $row_class' data-info='" . $row["visitor_org_cn_no"] . "|" . $row["visitor_org_name"] . "|" . $row["visitor_org_add"] . "|" . ($row["visitor_org_male"] + $row["visitor_org_female"]) . "|" . $row["visitor_org_natl"] . "|" . $row["visitor_org_male"] . "|" . $row["visitor_org_female"] . "|" . $row["visitor_org_gschool"] . "|" . $row["visitor_org_hschool"] . "|" . $row["visitor_org_college"] . "|" . $row["visitor_org_pwd"] . "|" . $row["visitor_org_17blow"] . "|" . $row["visitor_org_1930old"] . "|" . $row["visitor_org_3159old"] . "|" . $row["visitor_org_60old"] . "' style='cursor: pointer;'>";
+                                    echo "<tr class='clickable-row $row_class' data-info='" . $row["visitor_org_cn_no"] . "|" . $row["visitor_org_name"] . "|" . $row["visitor_org_add"] . "|" . ($row["visitor_org_male"] + $row["visitor_org_female"]) . "|" . $row["visitor_org_natl"] . "|" . $row["visitor_org_male"] . "|" . $row["visitor_org_female"] . "|" . $row["visitor_org_gschool"] . "|" . $row["visitor_org_hschool"] . "|" . $row["visitor_org_college"] . "|" . $row["visitor_org_pwd"] . "|" . $row["visitor_org_17blow"] . "|" . $row["visitor_org_1930old"] . "|" . $row["visitor_org_3159old"] . "|" . $row["visitor_org_60old"] . "|"  . $row["entry_timestamp"].  "' style='cursor: pointer;'>";
                                     echo "<td>" . $row["visitor_org_cn_no"] . "</td>";
                                     echo "<td>" . $row["visitor_org_name"] . "</td>";
                                     echo "<td>" . $row["visitor_org_add"] . "</td>";
                                     echo "<td>" . ($row["visitor_org_male"] + $row["visitor_org_female"]) . "</td>";
                                     echo "<td>" . $row["visitor_org_natl"] . "</td>";
+                                    echo "<td>" . $row["entry_timestamp"] . "</td>";
                                     echo "</tr>";
                                 }
                             }
@@ -154,6 +156,7 @@ if (isset($_SESSION['userid'])) {
                                     <p>Address: <span id="organization-modal-address"></span></p>
                                     <p>Total: <span id="organization-modal-total"></span></p>
                                     <p>Nationality: <span id="organization-modal-nationality"></span></p>
+                                    <p>Time in: <span id="organization-modal-in"></span></p>
                                 </div>
                             </div>
                         </div>
@@ -236,6 +239,7 @@ if (isset($_SESSION['userid'])) {
                 $('#organization-modal-address').text(rowData[2]);
                 $('#organization-modal-total').text(rowData[3]);
                 $('#organization-modal-nationality').text(rowData[4]);
+                $('#organization-modal-in').text(rowData[15]);
                 $('#organizationModal').modal('show');
             });
 

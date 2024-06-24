@@ -22,7 +22,7 @@ if (isset($_SESSION['userid'])) {
 
 <body>
     <div class="wrapper">
-        <!-- Sidebar -->
+        <!-- Sidebar -->z
         <aside id="sidebar" style="position: relative;">
             <?php include('sidebar.php'); ?>
         </aside>
@@ -83,22 +83,30 @@ if (isset($_SESSION['userid'])) {
                     </div>
                 </div>
 
-                <!-- New Container -->
-                <div class="container mt-3" style="background-color: white; background: linear-gradient(to top, white 93%, #4169E1 7%);">
+                 <!-- New Container -->
+                 <div class="container mt-3" style="background-color: white; background: linear-gradient(to top, white 93%, #4169E1 7%);">
                     <div class="row" style="margin-left: 50px; margin-right: 50px; padding-top: 25px; padding-bottom: 35px;">
                         <div class="col-md-12" style="margin-top: 20px;">
                             <h2 class="mt-4" style="font-size: 25px;">Password</h2>
                             <hr style="width: 300px; height: 3px; background-color: #4169E1">
                             <p>To update your password</p>
                             <p>Please enter your existing password and your new password</p>
-                            <form id="" action="" method="POST">
+
+                            <?php
+                            if(isset($_SESSION['errors'])){
+                                echo $_SESSION['errors'][0];
+                            }
+
+                            ?>
+
+                            <form id="" action="changepassword.php" method="POST">
                                 <div class="col-md-4 mb-3">
-                                    <label for="nummInput" class="form-label">New Password</label>
-                                    <input type="password" class="form-control" id="nummInput" required>
+                                    <label for="nummInput" class="form-label">Current Password</label>
+                                    <input type="password" class="form-control" id="nummInput" name="currentpassword" required>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <label for="dateInput" class="form-label">Confirm Password</label>
-                                    <input type="password" class="form-control" id="dateInput" name="dati" required>
+                                    <label for="dateInput" class="form-label">New Password</label>
+                                    <input type="password" class="form-control" id="dateInput" name="newpassword" required>
                                 </div>
                                 <button class="btn btn-primary" type="submit" style="float: right; background-color: #4169E1;">Change Password</button>
                             </form>

@@ -20,7 +20,7 @@ unset($_SESSION['errors']);
 	$query=mysqli_query($conn,"select * from `login` where userid='$userid'");
 
 	if (mysqli_num_rows($query)<1){
-		header('location:adminindex.php');
+		header('location:adminaccount.php');
 	}else{
 		$mail = new PHPMailer(true); 
 $mail->isSMTP();
@@ -47,7 +47,7 @@ $mail->send();
 	 $error = "<span style = 'color:green;'>password successfully change</span>";
 	 $_SESSION['errors'] = array();
 	 array_push($_SESSION['errors'],$error);
-	 header('location:adminindex.php');
+	 header('location:adminaccount.php');
 	 
 	//  if (mysqli_num_rows($update_pwd)<1){
 	// 	header('location:adminindex.php');
@@ -62,7 +62,7 @@ $mail->send();
 	$error = "<span style = 'color:red;'>please enter alpha numeric</span>";
 	$_SESSION['errors'] = array();
 	array_push($_SESSION['errors'],$error);
-	header('location:adminindex.php');
+	header('location:adminaccount.php');
  
 }
 
@@ -75,7 +75,7 @@ $mail->send();
 			 $error = "<span style = 'color:red;'>Sorry your password is the same!</span>";
 			 $_SESSION['errors'] = array();
 			 array_push($_SESSION['errors'],$error);
-			 header('location:adminindex.php');
+			 header('location:adminaccount.php');
  
 		}
 

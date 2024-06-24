@@ -4,32 +4,26 @@ include('connection.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
+    $bookingDate = $_POST["date"];
 
-    // Check if email exists in the database and if there are future bookings
-    $sql = "SELECT COUNT(*) AS count, MAX(book_datetime) AS max_date FROM booking WHERE contact_email = '$email'";
-    $result = $conn->query($sql);
+    // Extract the date part from the datetime string
+    $bookingDateOnly = date('Y-m-d', strtotime($bookingDate));
 
-    if ($result) {
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $count = $row['count'];
-            $maxDate = strtotime($row['max_date']);
-            $today = strtotime(date('Y-m-d H:i:s'));
+    // Check if email exists in the database and if there are bookings on the same day
+    $sql = "SELECT COUNT(*) AS count FROM booking WHERE contact_email = ? AND DATE(book_datetime) = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $email, $bookingDateOnly);
+    $stmt->execute();
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    $stmt->close();
 
-            if ($count > 0 && $maxDate > $today) {
-                // Email exists and has future bookings
-                echo 'exists_future';
-            } else {
-                // Email exists but no future bookings or past bookings
-                echo 'exists_past';
-            }
-        } else {
-            // Email does not exist
-            echo 'not_exists';
-        }
+    if ($count > 0) {
+        // Email exists and has a booking on the same day
+        echo 'exists_same_day';
     } else {
-        // Query execution error
-        echo 'error';
+        // Email does not exist or no booking on the same day
+        echo 'not_exists';
     }
 } else {
     // Invalid request method

@@ -43,7 +43,7 @@ if (isset($_SESSION['userid'])) {
                 <div class="container">
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <h3 style="color: grey;">Individual</h3>
-                        <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white;">Add Log</button>
+                        <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white; visibility: hidden;">Add Log</button>
                     </div>
 
                     <!-- First Table -->

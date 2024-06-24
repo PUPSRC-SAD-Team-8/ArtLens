@@ -98,9 +98,9 @@ if(isset($_SESSION['id'])){
                         <button class="form-control shadow-none" type="button" id="togglePassword">Show</button>
                     </div>
                 </div>
-                <div class="forgot-pass" style="margin-top: 1%; float: right;">
+                <!--<div class="forgot-pass" style="margin-top: 1%; float: right;">
                     <a href="forgotpassword.php">Forgot Password?</a>
-                </div>
+                </div>-->
                 <div class="d-flex justify-content-center mt-5">
                     <button type="submit" name="submit" class="btn3" style="width: 40%;">Login</button>
                 </div>

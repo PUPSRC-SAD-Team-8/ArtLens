@@ -35,12 +35,12 @@ $current_script = getCurrentScript();
                 Announcements
             </a>
         </li>
-        <li class="sidebar-item">
+        <!--<li class="sidebar-item">
             <a href="adminquiz.php" class="sidebar-link mx-2 <?php echo in_array($current_script, ['adminquiz.php', 'adminquiztable.php']) ? 'active' : ''; ?>">
                 <i class="bi bi-file-earmark-text pe-2"></i>
                 Quiz
             </a>
-        </li>
+        </li>-->
         <li class="sidebar-item">
             <a href="adminbooking.php" class="sidebar-link mx-2 <?php echo $current_script == 'adminbooking.php' ? 'active' : ''; ?>">
                 <i class="bi bi-book pe-2"></i>

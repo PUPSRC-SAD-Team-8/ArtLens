@@ -45,7 +45,6 @@ if (isset($_SESSION['userid'])) {
                         <table id="myTable" class="table table-striped table-bordered" style="background-color: #ffffff;">
                             <thead style="background-color: #4169E1; color: white;">
                                 <tr>
-                                    <th>ID</th>
                                     <th>Organization Name</th>
                                     <th>Email</th>
                                     <th>Mobile Number</th>
@@ -69,7 +68,6 @@ if (isset($_SESSION['userid'])) {
                                         $row_class = ($row_num % 2 == 0) ? "even-row" : "odd-row";
                                         
                                         echo "<tr class='clickable-row $row_class' data-info='" . $row["booking_id"] . "|" . $row["organization_name"] . "|" . $row["contact_email"] . "|" . $row["contact_number"] . "|" . ($row["num_male"] + $row["num_female"]) . "|" . $row["book_datetime"] . "|" . $row["book_status"] . "'>";
-                                        echo "<td>" . $row["booking_id"] . "</td>";
                                         echo "<td>" . $row["organization_name"] . "</td>";
                                         echo "<td>" . $row["contact_email"] . "</td>";
                                         echo "<td>" . $row["contact_number"] . "</td>";

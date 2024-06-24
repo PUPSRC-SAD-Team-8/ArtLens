@@ -1,65 +1,69 @@
 var modal = document.getElementById("myModal1");
-        var span = document.getElementsByClassName("close2")[0];
+var span = document.getElementsByClassName("close2")[0];
 
-        span.onclick = function() {
-            modal.style.display = "none";
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+function showForm() {
+    document.getElementById("formContent").classList.remove("hidden");
+    document.getElementById("statusContent").classList.add("hidden");
+    document.getElementById("modalTitle").textContent = "Booking Form";
+    document.querySelector(".btn-toggle.form").style.backgroundColor = "#4169E1";
+    document.querySelector(".btn-toggle.form").style.color = "white"; // Set text color to white
+    document.querySelector(".btn-toggle.status").style.backgroundColor = "white";
+    document.querySelector(".btn-toggle.status").style.color = "black"; // Set text color to black
+}
+
+function showStatus() {
+    document.getElementById("formContent").classList.add("hidden");
+    document.getElementById("statusContent").classList.remove("hidden");
+    document.getElementById("modalTitle").textContent = "Booking Status";
+    document.querySelector(".btn-toggle.form").style.backgroundColor = "white";
+    document.querySelector(".btn-toggle.form").style.color = "black"; // Set text color to black
+    document.querySelector(".btn-toggle.status").style.backgroundColor = "#4169E1";
+    document.querySelector(".btn-toggle.status").style.color = "white"; // Set text color to white
+}
+
+// Set default text color
+document.querySelector(".btn-toggle.form").style.color = "white"; // Default text color for form button
+document.querySelector(".btn-toggle.status").style.color = "black"; // Default text color for status button
+
+function checkStatus() {
+    // Retrieve the reference number
+    var referenceNumber = document.querySelector('#statusContent input[name="contact_email"]').value;
+
+    // AJAX request to send the reference number to check_status.php
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "check_status.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Handle the response from check_status.php
+            document.getElementById('statusMessage').innerHTML = xhr.responseText;
+            // Hide the image when search is made
+            document.getElementById('noInfoImage').style.display = 'none';
+            // Change the background color to blue
+            document.getElementById('imageContainer').style.backgroundColor = '#4169E1';
         }
+    };
+    xhr.send("contact_email=" + referenceNumber); // Send the reference number as POST data
+}
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        function showForm() {
-            document.getElementById("formContent").classList.remove("hidden");
-            document.getElementById("statusContent").classList.add("hidden");
-            document.getElementById("modalTitle").textContent = "Booking Form";
-            document.querySelector(".btn-toggle.form").style.backgroundColor = "#4169E1";
-            document.querySelector(".btn-toggle.form").style.color = "white"; // Set text color to white
-            document.querySelector(".btn-toggle.status").style.backgroundColor = "white";
-            document.querySelector(".btn-toggle.status").style.color = "black"; // Set text color to black
-        }
-
-        function showStatus() {
-            document.getElementById("formContent").classList.add("hidden");
-            document.getElementById("statusContent").classList.remove("hidden");
-            document.getElementById("modalTitle").textContent = "Booking Status";
-            document.querySelector(".btn-toggle.form").style.backgroundColor = "white";
-            document.querySelector(".btn-toggle.form").style.color = "black"; // Set text color to black
-            document.querySelector(".btn-toggle.status").style.backgroundColor = "#4169E1";
-            document.querySelector(".btn-toggle.status").style.color = "white"; // Set text color to white
-        }
-
-        // Set default text color
-        document.querySelector(".btn-toggle.form").style.color = "white"; // Default text color for form button
-        document.querySelector(".btn-toggle.status").style.color = "black"; // Default text color for status button
-
-        function checkStatus() {
-            // Retrieve the reference number
-            var referenceNumber = document.querySelector('#statusContent input[name="contact_email"]').value;
-
-            // AJAX request to send the reference number to check_status.php
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "check_status.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // Handle the response from check_status.php
-                    document.getElementById('statusMessage').innerHTML = xhr.responseText;
-                    // Hide the image when search is made
-                    document.getElementById('noInfoImage').style.display = 'none';
-                    // Change the background color to blue
-                    document.getElementById('imageContainer').style.backgroundColor = '#4169E1';
-                }
-            };
-            xhr.send("contact_email=" + referenceNumber); // Send the reference number as POST data
-        }
-        
 function setMinDateTime() {
     let now = new Date();
     now.setDate(now.getDate() + 1);  // Set date to tomorrow
+    now.setHours(17, 0, 0, 0);   /*  This is for setting min time to 9AM in UTC but if in ph it is 5pm*/
+
+    console.log(now);
     let minDateTime = now.toISOString().slice(0, 16);  // Format date as YYYY-MM-DDTHH:MM
+    console.log(minDateTime);
     document.getElementsByName("dati")[0].setAttribute("min", minDateTime);
 }
 
@@ -83,6 +87,13 @@ function validateForm() {
 
     if (!Number.isInteger(numFemale) || numFemale < 0 || numFemale > 50) {
         alert("Number of females must be a non-negative integer and not more than 50.");
+        return false;
+    }
+
+    let totalVisitor = parseInt(numFemale) + parseInt(numMale);
+
+    if (!Number.isInteger(totalVisitor) || totalVisitor < 1 || totalVisitor > 50) {
+        alert("Invalid Visitor Count"); /* Validate visitor count in total */
         return false;
     }
 
@@ -112,14 +123,14 @@ function handleSubmit(event) {
     // Send form data via AJAX
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'booking.php', true);
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 // AJAX request successful, handle response
                 var response = xhr.responseText.trim();
                 if (response === 'success') {
                     // Show success alert after a short delay (e.g., 2 seconds)
-                    setTimeout(function() {
+                    setTimeout(function () {
                         document.getElementById('alertMessage').classList.remove('d-none');
                         // Reset form fields
                         document.getElementById('bookingForm').reset();
@@ -141,13 +152,13 @@ function handleSubmit(event) {
             }
 
             // Reset button text and hide loading spinner
-            setTimeout(function() {
+            setTimeout(function () {
                 document.getElementById('submitText').style.display = 'inline';
                 document.getElementById('loadingSpinner').classList.add('visually-hidden');
             }, 2000); // Adjust delay as needed
         }
     };
-    xhr.onerror = function() {
+    xhr.onerror = function () {
         // Handle AJAX errors
         console.error('Error: AJAX request failed');
         // Reset button text and hide loading spinner on error
@@ -177,7 +188,7 @@ function checkEmail() {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'check_email.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 // AJAX request successful, handle response
@@ -218,7 +229,7 @@ function checkEmail() {
             }
         }
     };
-    xhr.onerror = function() {
+    xhr.onerror = function () {
         // Handle AJAX errors
         console.error('Error: AJAX request failed');
         emailStatusDiv.innerHTML = ''; // Clear email status
@@ -248,7 +259,7 @@ function restrictMobileInput(e) {
     }
 }
 
-window.onload = function() {
+window.onload = function () {
     setMinDateTime();
     document.getElementsByName("numa")[0].addEventListener("keydown", preventInvalidInput);
     document.getElementsByName("nufe")[0].addEventListener("keydown", preventInvalidInput);

@@ -75,7 +75,7 @@ $mail->send();
 			 $error = "<span style = 'color:red;'>Sorry your password is the same!</span>";
 			 $_SESSION['errors'] = array();
 			 array_push($_SESSION['errors'],$error);
-			 header('location:adminindex.php');
+			 header('location:adminaccount.php');
  
 		}
 

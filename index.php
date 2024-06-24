@@ -7,6 +7,10 @@ $displayModal = isset($_SESSION['msg']);
 if(isset($_SESSION['id'])){
     header('location:index.php');
 }
+
+$schedule = mysqli_query($conn, "SELECT * FROM schedule");
+$row = mysqli_fetch_assoc($schedule);
+
 ?>
 
 <!DOCTYPE html>
@@ -82,10 +86,10 @@ if(isset($_SESSION['id'])){
                     <div class="vertical-line"></div>
                         <div class="row">
                             <div class="col-lg-4" style="display: flex; align-items: start ;justify-content: start; margin-left: 0;">
-                                <h3>Now Open</h3>
+                                <h3><?php echo $row['museum_status']?></h3>
                             </div>
                             <div class="col-lg-5" style="display: flex;align-items: center;justify-content: start; position: absolut; margin-top: -7px; margin-left: 0;">  
-                                <p>Open Tuesday - Sunday<br> 9:00 AM to 4:00 PM</p>
+                                <p><?php echo $row['description']?><br><?php echo date("h:i A", strtotime($row['start_time']))?> to <?php echo date("h:i A", strtotime($row['end_time']))?></p>
                             </div>
                         </div>
                     </div>

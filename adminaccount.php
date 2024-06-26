@@ -25,9 +25,10 @@ $stmt->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="sidebar/style.css">
     <link rel="stylesheet" href="assets/css/adminindex.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
+    
     <title>Artlens</title>
     <style>
         .homebtn{
@@ -47,15 +48,7 @@ $stmt->close();
 </head>
 
 <body>
-    <div class="wrapper">
-        <!-- Sidebar -->
-        <aside id="sidebar" style="position: relative;">
-            <?php include('sidebar.php'); ?>
-        </aside>
-
-        <!-- Main Component -->
-        <div class="main">
-        <?php include('header.php'); ?>
+        <?php include('sidebar.php'); ?>
 
             <!-- Main Content -->
             <main class="content px-4 py-3">
@@ -141,8 +134,11 @@ $stmt->close();
                     </div>
                 </div>
             </main>
-        </div>
-        <script src="script.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+            <script src="sidebar/script.js"></script>
 </body>
 </html>
 

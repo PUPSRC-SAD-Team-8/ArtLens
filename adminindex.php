@@ -3,21 +3,21 @@ session_start();
 include ('connection.php');
 
 if (isset($_SESSION['userid'])) {
+ 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    <title>Sidebar</title>
+    <link rel="stylesheet" href="sidebar/style.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
+
     <link rel="stylesheet" href="assets/css/adminindex.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Artlens</title>
     <style>
         .box {
             background-color: #4169E1;
@@ -39,20 +39,10 @@ if (isset($_SESSION['userid'])) {
         }
     </style>
 </head>
-
 <body>
-    <div class="wrapper">
-        <!-- Sidebar -->
-        <aside id="sidebar" style="position: relative;">
-            <?php include('sidebar.php'); ?>
-        </aside>
+<?php include('sidebar.php'); ?>
 
-        <!-- Main Component -->
-        <div class="main">
-            <?php include('header.php'); ?>
-
-            <!-- Main Content -->
-            <main class="content px-5 py-4">
+    <main class="content px-5 py-4">
                 <div class="container" >
                 <h1 style="color: grey;">Dashboard</h1>
                     <div class="box"  style="width: 30%; border-radius: 10px; min-width: 300px;">
@@ -202,13 +192,20 @@ if (isset($_SESSION['userid'])) {
                 </script>
             </main>
 
-            <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="sidebar/script.js"></script>
 </body>
-
 </html>
+
+           
+
+ 
 <?php
-} else {
-    header("Location: index.php");
-    die();
+}else{
+    
+   header ("Location: index.php");
+   die();
 }
 ?>

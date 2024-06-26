@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
+:root {
+    --color-sidebar-menu: rgb(255, 255, 255) !important;
+
+    --color-texto: rgb(0, 0, 0) !important;
+    --color-texto-menu: rgb(134, 136, 144) !important;
+
+    --color-menu-hover: rgb(238, 238, 238) !important;
+    --color-menu-hover-texto: rgb(0, 0, 0) !important;
+
+    --color-button: rgb(0, 0, 0) !important;
+    --color-button-texto: rgb(255, 255, 255) !important;
+
+    --color-linea: rgb(180, 180, 180) !important;
+
+    --color-switch-base: rgb(201, 202, 206) !important;
+    --color-switch-circle: rgb(241, 241, 241) !important;
+
+    --color-scroll: rgb(192, 192, 192) !important;
+    --color-scroll-hover: rgb(134, 134, 134) !important;
+}
+
+
+
+body {
+    background-color: #eee !important;
+}
+
+/*-----------------Menu*/
+.menu {
+    position: fixed !important;
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 30px !important;
+    display: none !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    background-color: var(--color-button) !important;
+    color: var(--color-button-texto) !important;
+    right: 15px !important;
+    top: 15px !important;
+    z-index: 100 !important;
+}
+
+/*----------------Barra Lateral*/
+.sidebar-menu {
+    position: fixed !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    width: 250px !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    padding: 20px 15px !important;
+    background-color: var(--color-sidebar-menu) !important;
+    transition: width 0.5s ease, background-color 0.3s ease, left 0.5s ease !important;
+    z-index: 50 !important;
+}
+
+.mini-sidebar-menu {
+    width: 80px !important;
+}
+
+.sidebar-menu span {
+    width: 100px !important;
+    white-space: nowrap !important;
+    font-size: 18px !important;
+    text-align: left !important;
+    opacity: 1 !important;
+    transition: opacity 0.5s ease, width 0.5s ease !important;
+}
+
+.sidebar-menu span.hidden {
+    opacity: 0 !important;
+    width: 0 !important;
+}
+
+/*------------> Page Name */
+.sidebar-menu .page-name {
+    width: 100% !important;
+    height: 45px !important;
+    color: var(--color-texto) !important;
+    margin-bottom: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.sidebar-menu .page-name ion-icon {
+    min-width: 50px !important;
+    font-size: 30px !important;
+    cursor: pointer !important;
+}
+
+.sidebar-menu .page-name span {
+    font-size: 25px !important;
+}
+
+/*------------> Button */
+.sidebar-menu .button {
+    width: 100% !important;
+    height: 45px !important;
+    margin-bottom: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: none !important;
+    border-radius: 10px !important;
+    background-color: var(--color-button) !important;
+    color: var(--color-button-texto) !important;
+}
+
+.sidebar-menu .button ion-icon {
+    min-width: 50px !important;
+    font-size: 25px !important;
+}
+
+/*--------------> Navigation */
+.sidebar-menu .navigation {
+    height: 100% !important;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+}
+
+.sidebar-menu .navigation::-webkit-scrollbar {
+    width: 5px !important;
+}
+
+.sidebar-menu .navigation::-webkit-scrollbar-thumb {
+    background-color: var(--color-scroll) !important;
+    border-radius: 5px !important;
+}
+
+.sidebar-menu .navigation::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-scroll-hover) !important;
+}
+
+.sidebar-menu .navigation li {
+    list-style: none !important;
+    display: flex !important;
+    margin-bottom: 5px !important;
+    margin-left: -32px !important;
+}
+
+.sidebar-menu .navigation a {
+    width: 100% !important;
+    height: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    border-radius: 10px !important;
+    color: var(--color-texto-menu) !important;
+}
+
+.sidebar-menu .navigation a:hover {
+    background-color: var(--color-menu-hover) !important;
+    color: var(--color-menu-hover-texto) !important;
+}
+
+.sidebar-menu .navigation ion-icon {
+    min-width: 50px !important;
+    font-size: 20px !important;
+}
+
+/*-----------------> Lines */
+.sidebar-menu .lines {
+    width: 100% !important;
+    height: 1px !important;
+    margin-top: 15px !important;
+    background-color: var(--color-linea) !important;
+}
+
+.active {
+    background-color: #4169E1 !important;
+}
+
+/*---------------> User */
+.sidebar-menu .user {
+    width: 100% !important;
+    display: flex !important;
+}
+
+.sidebar-menu .user img {
+    width: 50px !important;
+    min-width: 50px !important;
+    border-radius: 10px !important;
+}
+
+.sidebar-menu .user .user-info {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    color: var(--color-texto) !important;
+    margin-left: 15px !important;
+}
+
+.sidebar-menu .user .nombre-email {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin-left: 5px !important;
+}
+
+.sidebar-menu .user .nombre {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+
+.sidebar-menu .user .email {
+    font-size: 13px !important;
+}
+
+.sidebar-menu .user ion-icon {
+    font-size: 20px !important;
+}
+
+#inbox {
+    background-color: #4169E1 !important;
+    color: white !important;
+
+}
+
+main {
+    margin-left: 250px !important;
+    padding: 20px !important;
+    transition: margin-left 0.5s ease !important;
+}
+
+main.min-main {
+    margin-left: 80px !important;
+}
+
+/*------------------> Responsive */
+@media (max-height: 660px) {
+    .sidebar-menu .page-name {
+        margin-bottom: 5px !important;
+        margin-left: 10px !important;
+    }
+
+    .sidebar-menu .dark-mode {
+        margin-bottom: 3px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar-menu {
+        position: fixed !important;
+        left: -250px !important;
+    }
+
+    .max-sidebar-menu {
+        left: 0 !important;
+    }
+
+    .menu {
+        display: flex !important;
+    }
+
+    .menu ion-icon:nth-child(2) {
+        display: none !important;
+    }
+
+    main {
+        margin-left: 0 !important;
+    }
+
+    main.min-main {
+        margin-left: 0 !important;
+    }
+}
+
+

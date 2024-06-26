@@ -60,7 +60,7 @@ if (isset($_SESSION['userid'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/sidebar.css">
+        <link rel="stylesheet" href="sidebar/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
         <!-- Swiper CSS -->
@@ -79,15 +79,7 @@ if (isset($_SESSION['userid'])) {
     </head>
 
     <body>
-        <div class="wrapper">
-            <!-- Sidebar -->
-            <aside id="sidebar" style="position: relative;">
-                <?php include('sidebar.php'); ?>
-            </aside>
-
-            <!-- Main Component -->
-            <div class="main">
-                <?php include('header.php'); ?>
+        <?php include('sidebar.php'); ?>
 
                 <!--MAIN MAIN MAIN-->
                 <main class="content px-4 py-3">
@@ -210,47 +202,7 @@ if (isset($_SESSION['userid'])) {
                                     </form>
                                 </div>
                             </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Museum Closure
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <form action="submit.php" method="POST">
-                                            <div class="row d-flex align-items-center">
-                                                <div class="col-md-6 d-flex align-items-center">
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <button class="btn btn-primary" id="datePickerBtn"><i class="fas fa-calendar-alt"></i> Pick a Date</button>
-                                                        </div>
-                                                        <input type="text" class="form-control d-none" id="selectedDate" name="selectedDate" placeholder="Select date" autocomplete="off">
-                                                    </div>
-                                                    <div id="calendarContainer" class="calendar-container mt-4">
-                                                        <div id="datepicker"></div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3">
-                                                        <input class="form-control" name="titleclosure" id="titleclosure" type="text" placeholder="Title" required>
-                                                        <label for="titleclosure">Title</label>
-                                                    </div>
-
-                                                    <div class="form-floating mb-3">
-                                                        <input class="form-control" name="desclosure" id="desclosure" type="text" placeholder="Description" required>
-                                                        <label for="desclosure">Description</label>
-                                                    </div>
-                                                </div>
-                                                <div class="text-center">
-                                                    <button type="submit" name="update_schedule" class="btn3 w-40">Submit</button>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
-                                </div>
+                            
                 </main>
             </div>
             <!--END MAIN-->
@@ -298,17 +250,17 @@ if (isset($_SESSION['userid'])) {
             </div>
         </div>
 
-
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-        <script src="script.js"></script>
+        <script src="sidebar/script.js"></script>
         <script src="assets/js/swiper-bundle.min.js"></script>
         <script src="assets/js/carscript.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="sidebar/script.js"></script>
         <script>
             $(document).ready(function() {
                 $('.update_btn').on('click', function() {

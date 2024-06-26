@@ -1,7 +1,4 @@
 <nav class="navbar navbar-expand px-3 border-bottom" style="background-color: white;">
-            <button class="btn btn-white" type="button" style="background-color: white; color: #4169E1;">
-                <span class="fa-solid fa-bars" style="font-size: 20px;"></span>
-            </button>
             <div class="ms-auto" style="margin-right: 35px; margin-top: 8px;">
              <!--   <a href="#" class="position-relative d-inline-block">
                     <i class="fas fa-bell fa-lg"></i>

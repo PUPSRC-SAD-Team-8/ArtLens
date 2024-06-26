@@ -69,7 +69,7 @@
                     while($row = $result->fetch_assoc()) {
             ?>     
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 grid-container mt-3">
-                <a href="#" class="card-link" data-toggle="modal" data-target="#artworkModal" data-img="<?php echo $row["artwork_img"]; ?>" data-description="<?php echo $row["artwork_description"]; ?>" data-title="<?php echo $row["artwork_name"]; ?>">
+                <a href="#" class="card-link" data-toggle="modal" data-target="#artworkModal" data-img="<?php echo $row["artwork_img"]; ?>" data-description="<?php echo $row["artwork_description"]; ?>" data-title="<?php echo $row["artwork_name"]; ?>" data-artist="<?php echo $row["artwork_artist"]; ?>" data-year="<?php echo $row["artwork_year"]; ?>" data-medium="<?php echo $row["artwork_medium"]; ?>">
                     <div class="card">
                         <img src="<?php echo $row["artwork_img"]; ?>" class="card-img-top image" height="200" width="150" alt="Artwork Image">
                         <div class="card-title text-center">
@@ -142,9 +142,9 @@
                 $('#artworkDescription').text(description); 
                 $('#artworkImage').attr('src', imgSrc);
                 $('#ArtworkTitle').text(title);
-                $('#artworkArtist').text(); 
-                $('#artworkYear').text(); 
-                $('#artworkMedium').text(); 
+                $('#artworkArtist').text(artist); 
+                $('#artworkYear').text(year); 
+                $('#artworkMedium').text(medium); 
             });
 
             $('.draggable-modal').draggable({

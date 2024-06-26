@@ -14,7 +14,7 @@ if (isset($_SESSION['userid'])) {
     <title>Artlens</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="sidebar/style.css">
     <link rel="stylesheet" href="assets/css/adminartwork.css">
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
@@ -37,14 +37,7 @@ if (isset($_SESSION['userid'])) {
 <body>
     <div class="wrapper">
         <!-- Sidebar -->
-        <aside id="sidebar" style="position: relative;">
-            <?php include('sidebar.php'); ?>
-        </aside>
-
-        <!-- Main Component -->
-        <div class="main">
-            <?php include('header.php'); ?>
-
+        <?php include('sidebar.php'); ?>
             <!-- Main Content -->
             <main class="content px-3 py-2">
                 <div id="artModal" class="modal fade">
@@ -62,19 +55,19 @@ if (isset($_SESSION['userid'])) {
                                     </div>
                                     <div class="mb-3">
                                         <label for="titleInput" class="form-label">Title</label>
-                                        <input class="form-control" type="text" id="titleInput" name="title" required>
+                                        <input class="form-control" type="text" id="titleInput" name="title" required max="50">
                                     </div>
                                     <div class="mb-3">
                                         <label for="artistInput" class="form-label">Artist</label>
-                                        <input class="form-control" type="text" id="artistInput" name="artist" required>
+                                        <input class="form-control" type="text" id="artistInput" name="artist" required max="50">
                                     </div>
                                     <div class="mb-3">
                                         <label for="yearInput" class="form-label">Year</label>
-                                        <input class="form-control" type="text" id="yearInput" name="year" required>
+                                        <input class="form-control" type="number" id="yearInput" name="year" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="mediumInput" class="form-label">Medium</label>
-                                        <input class="form-control" type="text" id="mediumInput" name="medium" required>
+                                        <input class="form-control" type="text" id="mediumInput" name="medium" required max="50">
                                     </div>
                                     <div class="mb-3">
                                         <label for="descriptionInput" class="form-label">Description</label>
@@ -132,54 +125,57 @@ if (isset($_SESSION['userid'])) {
 
                     <!-- Card Modal -->
                     <!-- Card Modal -->
-<div id="cardModal" class="modal fade">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Artwork Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <center><img id="modal-image" class="img-fluid" alt="Artwork Image"></center>
-                <br>
-                <form id="editArtworkForm">
-                    <div class="mb-3">
-                        <label for="modal-title-input" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="modal-title-input" name="modal-title">
+                <div id="cardModal" class="modal fade">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Artwork Details</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <center><img id="modal-image" class="img-fluid" alt="Artwork Image"></center>
+                                <br>
+                                <form id="editArtworkForm">
+                                    <div class="mb-3">
+                                        <label for="modal-title-input" class="form-label">Title</label>
+                                        <input type="text" class="form-control" id="modal-title-input" name="modal-title">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modal-artist-input" class="form-label">Artist</label>
+                                        <input type="text" class="form-control" id="modal-artist-input" name="modal-artist">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modal-year-input" class="form-label">Year</label>
+                                        <input type="text" class="form-control" id="modal-year-input" name="modal-year">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modal-medium-input" class="form-label">Medium</label>
+                                        <input type="text" class="form-control" id="modal-medium-input" name="modal-medium">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modal-description-input" class="form-label">Description</label>
+                                        <textarea class="form-control" id="modal-description-input" name="modal-description" rows="3"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="saveChangesBtn">Save changes</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="modal-artist-input" class="form-label">Artist</label>
-                        <input type="text" class="form-control" id="modal-artist-input" name="modal-artist">
-                    </div>
-                    <div class="mb-3">
-                        <label for="modal-year-input" class="form-label">Year</label>
-                        <input type="text" class="form-control" id="modal-year-input" name="modal-year">
-                    </div>
-                    <div class="mb-3">
-                        <label for="modal-medium-input" class="form-label">Medium</label>
-                        <input type="text" class="form-control" id="modal-medium-input" name="modal-medium">
-                    </div>
-                    <div class="mb-3">
-                        <label for="modal-description-input" class="form-label">Description</label>
-                        <textarea class="form-control" id="modal-description-input" name="modal-description" rows="3"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveChangesBtn">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
+                </div>
 
                 </div>
+                </main>
 
                 <!-- Bootstrap JS and jQuery -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-
-                <script src="script.js"></script>
+                <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+                <script src="sidebar/script.js"></script>
+            
                 <script>
     $(document).ready(function() {
         var originalArtworks = []; // Array to store original artworks order

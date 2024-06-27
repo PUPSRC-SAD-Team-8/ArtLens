@@ -14,7 +14,7 @@ if (isset($_SESSION['userid'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="sidebar/style.css">
     <link rel="stylesheet" href="assets/css/adminbooking.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
@@ -25,16 +25,10 @@ if (isset($_SESSION['userid'])) {
 </head>
 
 <body>
-    <div class="wrapper">
+   
         <!-- Sidebar -->
-        <aside id="sidebar" style="position: relative;">
-            <?php include('sidebar.php'); ?>
-        </aside>
+        <?php include('sidebar.php'); ?>
         
-        <!-- Main Component -->
-        <div class="main">
-            <?php include('header.php'); ?>
-            
             <!--MAIN MAIN MAIN-->
             <main class="content px-3 py-2" style="overflow-x: auto;">
                 <div class="container">
@@ -45,7 +39,6 @@ if (isset($_SESSION['userid'])) {
                         <table id="myTable" class="table table-striped table-bordered" style="background-color: #ffffff;">
                             <thead style="background-color: #4169E1; color: white;">
                                 <tr>
-                                    <th>ID</th>
                                     <th>Organization Name</th>
                                     <th>Email</th>
                                     <th>Mobile Number</th>
@@ -69,7 +62,6 @@ if (isset($_SESSION['userid'])) {
                                         $row_class = ($row_num % 2 == 0) ? "even-row" : "odd-row";
                                         
                                         echo "<tr class='clickable-row $row_class' data-info='" . $row["booking_id"] . "|" . $row["organization_name"] . "|" . $row["contact_email"] . "|" . $row["contact_number"] . "|" . ($row["num_male"] + $row["num_female"]) . "|" . $row["book_datetime"] . "|" . $row["book_status"] . "'>";
-                                        echo "<td>" . $row["booking_id"] . "</td>";
                                         echo "<td>" . $row["organization_name"] . "</td>";
                                         echo "<td>" . $row["contact_email"] . "</td>";
                                         echo "<td>" . $row["contact_number"] . "</td>";
@@ -229,11 +221,9 @@ if (isset($_SESSION['userid'])) {
             });
             </script>
             </main>
-        </div>
-        <!--END MAIN-->
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+                <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+                <script src="sidebar/script.js"></script>
 </body>
 
 </html>

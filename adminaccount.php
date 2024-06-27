@@ -25,22 +25,30 @@ $stmt->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="sidebar/style.css">
     <link rel="stylesheet" href="assets/css/adminindex.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
+    
     <title>Artlens</title>
+    <style>
+        .homebtn{
+  padding: 10px ;
+  background-color:#4169E1 !important;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.homebtn:hover{
+  background-color: white !important;
+  border: 1px solid #4169E1 !important;
+  color: #4169E1 !important;
+}
+    </style>
 </head>
 
 <body>
-    <div class="wrapper">
-        <!-- Sidebar -->z
-        <aside id="sidebar" style="position: relative;">
-            <?php include('sidebar.php'); ?>
-        </aside>
-
-        <!-- Main Component -->
-        <div class="main">
-        <?php include('header.php'); ?>
+        <?php include('sidebar.php'); ?>
 
             <!-- Main Content -->
             <main class="content px-4 py-3">
@@ -48,7 +56,6 @@ $stmt->close();
                 <div class="container mt-3" style="background-color: white; background: linear-gradient(to top, white 93%, #4169E1 7%);">
                     <div class="row" style="margin-left: 50px; margin-right: 50px; padding-top: 25px; padding-bottom: 35px;">
                         <div class="col-md-12" style="margin-top: 20px;">
-                            <a type="button" id="editButton" class="btn btn-primary float-end mt-5" onclick="toggleSave()">Edit</a>
                             <div class="row align-items-center">
                                 <div class="col-md-2">
                                     <img src="assets/images/profile.png" style="width: 120px; height: auto;" alt="Profile Picture" class="profile-image mt-4">
@@ -61,37 +68,37 @@ $stmt->close();
                             <hr style="width: 300px; height: 3px; background-color: #4169E1">
                             <br>
                             <form id="employeeForm" action="update_user.php" method="POST">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="firstNameInput" class="form-label">First Name</label>
-                    <input class="form-control" type="text" id="firstNameInput" name="firstName" value="<?php echo htmlspecialchars($firstName); ?>" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="lastNameInput" class="form-label">Last Name</label>
-                    <input class="form-control" type="text" id="lastNameInput" name="lastName" value="<?php echo htmlspecialchars($lastName); ?>" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="middleInitialInput" class="form-label">M.I.</label>
-                    <input class="form-control" type="text" id="middleInitialInput" name="middleInitial" value="<?php echo htmlspecialchars($middleInitial); ?>" style="width: 100px;" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <label for="employeeIdInput" class="form-label">Employee ID</label>
-                    <input class="form-control" type="text" id="employeeIdInput" name="employee_id" value="<?php echo htmlspecialchars($employeeId); ?>" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="emailInput" class="form-label">Email</label>
-                    <input class="form-control" type="email" id="emailInput" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label for="mobileNumberInput" class="form-label">Mobile Number</label>
-                    <input class="form-control" type="text" id="mobileNumberInput" name="mobileNumber" value="<?php echo htmlspecialchars($mobileNumber); ?>" required>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Update</button>
-            <input type="hidden" name="userId" value="<?php echo $userId; ?>">
-        </form>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="firstNameInput" class="form-label">First Name</label>
+                                    <input class="form-control" type="text" id="firstNameInput" name="firstName" value="<?php echo htmlspecialchars($firstName); ?>" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="lastNameInput" class="form-label">Last Name</label>
+                                    <input class="form-control" type="text" id="lastNameInput" name="lastName" value="<?php echo htmlspecialchars($lastName); ?>" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="middleInitialInput" class="form-label">M.I.</label>
+                                    <input class="form-control" type="text" id="middleInitialInput" name="middleInitial" value="<?php echo htmlspecialchars($middleInitial); ?>" style="width: 100px;" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="employeeIdInput" class="form-label">Employee ID</label>
+                                    <input class="form-control" type="text" id="employeeIdInput" name="employee_id" value="<?php echo htmlspecialchars($employeeId); ?>" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="emailInput" class="form-label">Email</label>
+                                    <input class="form-control" type="email" id="emailInput" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="mobileNumberInput" class="form-label">Mobile Number</label>
+                                    <input class="form-control" type="text" id="mobileNumberInput" name="mobileNumber" value="<?php echo htmlspecialchars($mobileNumber); ?>" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="homebtn float-end" style="border: none;">Update</button>
+                            <input type="hidden" name="userId" value="<?php echo $userId; ?>">
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -127,8 +134,11 @@ $stmt->close();
                     </div>
                 </div>
             </main>
-        </div>
-        <script src="script.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+            <script src="sidebar/script.js"></script>
 </body>
 </html>
 

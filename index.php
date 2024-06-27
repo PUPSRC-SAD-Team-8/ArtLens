@@ -1,10 +1,10 @@
 <?php
 session_start();
-include ('connection.php');
+include('connection.php');
 
 $displayModal = isset($_SESSION['msg']);
 
-if(isset($_SESSION['id'])){
+if (isset($_SESSION['id'])) {
     header('location:index.php');
 }
 
@@ -15,6 +15,7 @@ $row = mysqli_fetch_assoc($schedule);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,42 +31,50 @@ $row = mysqli_fetch_assoc($schedule);
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/annstyle.css" />
     <style>
-    /* CSS for the loading spinner */
-.loading-spinner1 {
-    display: none; /* Initially hidden */
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #F8F9FA; /* Semi-transparent white background */
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        /* CSS for the loading spinner */
+        .loading-spinner1 {
+            display: none;
+            /* Initially hidden */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F8F9FA;
+            /* Semi-transparent white background */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.loading-spinner1 .spinner1 {
-    width: 100px;
-    height: 100px;
-    border: 10px solid #4169E1; /* Blue color */
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
+        .loading-spinner1 .spinner1 {
+            width: 100px;
+            height: 100px;
+            border: 10px solid #4169E1;
+            /* Blue color */
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
 
-</style>
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 
 </head>
+
 <body>
-<div class="loading-spinner1" id="loadingSpinner1">
-    <div class="spinner1"></div>
-</div>
+    <div class="loading-spinner1" id="loadingSpinner1">
+        <div class="spinner1"></div>
+    </div>
     <nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <h1 style="color: white; font-family: Josefin Sans; margin-top: 15px; font-size: 25px;"><b>ARTLENS</b></h1>
@@ -83,26 +92,26 @@ $row = mysqli_fetch_assoc($schedule);
                     <h1 style="color: #4169E1;"><b>Rizal Shrine</b></h1>
                     <p style="color: grey;">The Rizal Shrine in Calamba (Filipino: Museo ni José Rizal Calamba) is a reproduction of the original two-story, Spanish-colonial style house in Calamba, Laguna where José Rizal was born on June 19, 1861. The house is designated as a National Shrine (Level 1) by the National Historical Commission of the Philippines.</p>
                     <div class="container mb-4 mt-5">
-                    <div class="vertical-line"></div>
+                        <div class="vertical-line"></div>
                         <div class="row">
                             <div class="col-lg-4" style="display: flex; align-items: start ;justify-content: start; margin-left: 0;">
-                                <h3><?php echo $row['museum_status']?></h3>
+                                <h3><?php echo $row['museum_status'] ?></h3>
                             </div>
-                            <div class="col-lg-5" style="display: flex;align-items: center;justify-content: start; position: absolut; margin-top: -7px; margin-left: 0;">  
-                                <p><?php echo $row['description']?><br><?php echo date("h:i A", strtotime($row['start_time']))?> to <?php echo date("h:i A", strtotime($row['end_time']))?></p>
+                            <div class="col-lg-5" style="display: flex;align-items: center;justify-content: start; position: absolut; margin-top: -7px; margin-left: 0;">
+                                <p><?php echo $row['description'] ?><br><?php echo date("h:i A", strtotime($row['start_time'])) ?> to <?php echo date("h:i A", strtotime($row['end_time'])) ?></p>
                             </div>
                         </div>
                     </div>
 
                     <a href="visitorindex.php" class="cssbuttons-io-button" style="position: relative; z-index: 3; text-decoration: none; width: 45%; min-width: 260px; max-width: 260px;">
-                      Explore the Museum
-                      <div class="icon">
-                          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M0 0h24v24H0z" fill="none"></path>
-                              <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
-                          </svg>
-                      </div>
-                  </a>                
+                        Explore the Museum
+                        <div class="icon">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -110,23 +119,23 @@ $row = mysqli_fetch_assoc($schedule);
 
     <br><br><br><br><br>
 
-            <div class="container text-center">
-                <div class="title">
-                    <h1>Announcements</h1>
-                </div>
-                <div class="description">
-                    <p>Stay tuned for updates, behind-the-scenes peeks, and exclusive events surrounding this exciting announcement. We can't wait to share this journey with you!</p>
-                </div>
-                <?php
-                // Display submissions
-                $sql = "SELECT image_path, title, description FROM submissions ORDER BY id DESC";
-                $result = $conn->query($sql);
+    <div class="container text-center">
+        <div class="title">
+            <h1>Announcements</h1>
+        </div>
+        <div class="description">
+            <p>Stay tuned for updates, behind-the-scenes peeks, and exclusive events surrounding this exciting announcement. We can't wait to share this journey with you!</p>
+        </div>
+        <?php
+        // Display submissions
+        $sql = "SELECT image_path, title, description FROM submissions ORDER BY id DESC";
+        $result = $conn->query($sql);
 
-                $cards = "";
+        $cards = "";
 
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $cards .= '<div class="card swiper-slide">
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $cards .= '<div class="card swiper-slide">
                                     <div class="img-box" style="height: 350px;">
                                         <img src="' . $row["image_path"] . '" alt="" class="image" />
                                         <div class="overlay" style="margin-bottom: -10px;">
@@ -136,10 +145,10 @@ $row = mysqli_fetch_assoc($schedule);
                                         </div>
                                     </div>
                                 </div>';
-                    }
-                } else {
-                    // Display "No updates today" if there are no submissions
-                    $cards = '<div class="card swiper-slide">
+            }
+        } else {
+            // Display "No updates today" if there are no submissions
+            $cards = '<div class="card swiper-slide">
                                 <div class="img-box" style="height: 350px; border: 1px solid #4169E1;">
                                     <div class="text-center" style="margin:10px;">
                                         <h2 style="margin-top: 20px;">No updates today</h2>
@@ -150,20 +159,19 @@ $row = mysqli_fetch_assoc($schedule);
                                     </div>
                                 </div>
                             </div>';
-
-                }
-                ?>
-                <div class="container1 swiper">
-                    <div class="slide-container">
-                        <div class="card-wrapper swiper-wrapper">
-                            <?php echo $cards; ?>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next swiper-navBtn"></div>
-                    <div class="swiper-button-prev swiper-navBtn"></div>
-                    <div class="swiper-pagination"></div>
+        }
+        ?>
+        <div class="container1 swiper">
+            <div class="slide-container">
+                <div class="card-wrapper swiper-wrapper">
+                    <?php echo $cards; ?>
                 </div>
             </div>
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
     <br><br><br><br><br>
     <div class="container">
         <div class="row align-items-center">
@@ -179,11 +187,10 @@ $row = mysqli_fetch_assoc($schedule);
                         <span class="close2 float-end mb-3" onclick="document.getElementById('myModal1').style.display='none'">&times;</span>
                         <h3 id="modalTitle" class="mt-2">Booking Form</h3>
                         <hr>
-    
+
                         <div id="toggleButtons" class="d-flex justify-content-center mb-3">
                             <a type="button" class="btn-toggle form" onclick="showForm()">Form</a>
-                            <a type="button" class="btn-toggle status" 
-                            onclick="showStatus()">Status</a>
+                            <a type="button" class="btn-toggle status" onclick="showStatus()">Status</a>
                         </div>
 
                         <!-- Booking Form -->
@@ -383,9 +390,9 @@ $row = mysqli_fetch_assoc($schedule);
         </div>
     </div>
     <div id="successMessage" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
-    Form submitted successfully!
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+        Form submitted successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
     <br><br><br><br><br><br>
     <div class="container">
@@ -403,30 +410,36 @@ $row = mysqli_fetch_assoc($schedule);
 
     <br><br><br><br><br>
     <footer class="footer" style="background-color: #F8F9FA;">
-    <div class="container mb-3"  style="color: var(--bs-secondary-color);">
-        <div class="row">
-            <div class="col-md mt-3">
-                <p><b>Museo ni Jose Rizal, Calamba, Laguna</b></p>
-                <center><hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;"></center>
-                <p class="tetleft"><a href="https://www.google.com/maps/search/?api=1&query=J.+P.+Rizal+St.,+Cor.+F.+Mercado+St.,+Brgy.+6+Poblacion,+Calamba,+Philippines" class="clickft"><i class="bi bi-geo-alt-fill"></i>&emsp;J. P. Rizal St., Cor. F. Mercado St., Brgy. 6 <span style="margin-left: 30px;">Poblacion, Calamba, Philippines</span></a></p>
-            </div>
-            <div class="col-md mt-3">
-                <p><b>Quick Links</b></p>
-                <center><hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;"></center>
-                <a type="button" href="aboutus.php" class="tetleft clickft">About us</a>
-                <br>
-                <a type="button" href="faqs.php" class="tetleft clickft">Frequently asked Questions</a>
-            </div>
-            <div class="col-md mt-3">
-                <p><b>Contact Us:</b></p>
-                <center><hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;"></center>
-                <p class="tetleft"><a href="https://www.facebook.com/museonijoserizalcalamba" class="clickft"><i class="bi bi-facebook"></i>&emsp;NHCP - Museo ni Jose Rizal, Calamba</a></p>
-                <p class="tetleft"><a href="mailto:mjrc@nhcp.gov.ph" class="clickft"><i class="bi bi-envelope-at-fill"></i>&emsp;mjrc@nhcp.gov.ph</a></p>
-                <p class="tetleft"><a href="tel:+63498341599" class="clickft"><i class="bi bi-telephone-fill"></i>&emsp;(049) 834 1599</a></p>
+        <div class="container mb-3" style="color: var(--bs-secondary-color);">
+            <div class="row">
+                <div class="col-md mt-3">
+                    <p><b>Museo ni Jose Rizal, Calamba, Laguna</b></p>
+                    <center>
+                        <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
+                    </center>
+                    <p class="tetleft"><a href="https://www.google.com/maps/search/?api=1&query=J.+P.+Rizal+St.,+Cor.+F.+Mercado+St.,+Brgy.+6+Poblacion,+Calamba,+Philippines" class="clickft"><i class="bi bi-geo-alt-fill"></i>&emsp;J. P. Rizal St., Cor. F. Mercado St., Brgy. 6 <span style="margin-left: 30px;">Poblacion, Calamba, Philippines</span></a></p>
+                </div>
+                <div class="col-md mt-3">
+                    <p><b>Quick Links</b></p>
+                    <center>
+                        <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
+                    </center>
+                    <a type="button" href="aboutus.php" class="tetleft clickft">About us</a>
+                    <br>
+                    <a type="button" href="faqs.php" class="tetleft clickft">Frequently asked Questions</a>
+                </div>
+                <div class="col-md mt-3">
+                    <p><b>Contact Us:</b></p>
+                    <center>
+                        <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
+                    </center>
+                    <p class="tetleft"><a href="https://www.facebook.com/museonijoserizalcalamba" class="clickft"><i class="bi bi-facebook"></i>&emsp;NHCP - Museo ni Jose Rizal, Calamba</a></p>
+                    <p class="tetleft"><a href="mailto:mjrc@nhcp.gov.ph" class="clickft"><i class="bi bi-envelope-at-fill"></i>&emsp;mjrc@nhcp.gov.ph</a></p>
+                    <p class="tetleft"><a href="tel:+63498341599" class="clickft"><i class="bi bi-telephone-fill"></i>&emsp;(049) 834 1599</a></p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -436,51 +449,52 @@ $row = mysqli_fetch_assoc($schedule);
     <script src="assets/js/carscript.js"></script>
     <script src="assets/js/bookvalidation.js"></script>
     <script src="assets/js/logformvalidation.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-// Get all cards
-const cards = document.querySelectorAll('.card');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all cards
+            const cards = document.querySelectorAll('.card');
 
-// Function to toggle overlay
-function toggleOverlay(card) {
-    const overlay = card.querySelector('.overlay');
-    if (overlay.classList.contains('active')) {
-        overlay.classList.remove('active');
-    } else {
-        // Close any other open overlay
-        cards.forEach(card => {
-            card.querySelector('.overlay').classList.remove('active');
+            // Function to toggle overlay
+            function toggleOverlay(card) {
+                const overlay = card.querySelector('.overlay');
+                if (overlay.classList.contains('active')) {
+                    overlay.classList.remove('active');
+                } else {
+                    // Close any other open overlay
+                    cards.forEach(card => {
+                        card.querySelector('.overlay').classList.remove('active');
+                    });
+                    // Open the clicked overlay
+                    overlay.classList.add('active');
+                }
+            }
+
+            // Add click event listener to each card
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    toggleOverlay(this);
+                });
+
+                // Add touchstart event listener for mobile devices
+                card.addEventListener('touchstart', function(e) {
+                    e.preventDefault(); // Prevent default touch behavior
+                    toggleOverlay(this);
+                });
+            });
         });
-        // Open the clicked overlay
-        overlay.classList.add('active');
-    }
-}
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show loading spinner
+            document.getElementById('loadingSpinner1').style.display = 'flex';
 
-// Add click event listener to each card
-cards.forEach(card => {
-    card.addEventListener('click', function() {
-        toggleOverlay(this);
-    });
-
-    // Add touchstart event listener for mobile devices
-    card.addEventListener('touchstart', function(e) {
-        e.preventDefault(); // Prevent default touch behavior
-        toggleOverlay(this);
-    });
-});
-});
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Show loading spinner
-        document.getElementById('loadingSpinner1').style.display = 'flex';
-
-        // Hide loading spinner after 3 seconds
-        setTimeout(function() {
-            document.getElementById('loadingSpinner1').style.display = 'none';
-        }, 1500); // 3000 milliseconds = 3 seconds
-    });
-</script>
+            // Hide loading spinner after 3 seconds
+            setTimeout(function() {
+                document.getElementById('loadingSpinner1').style.display = 'none';
+            }, 1500); // 3000 milliseconds = 3 seconds
+        });
+    </script>
 
 </body>
+
 </html>

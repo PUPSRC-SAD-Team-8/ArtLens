@@ -1,17 +1,21 @@
 <?php
 session_start();
-include ('connection.php');
+include('connection.php');
 
 $displayModal = isset($_SESSION['msg']);
 
-if(isset($_SESSION['id'])){
+if (isset($_SESSION['id'])) {
     header('location:index.php');
 }
+
+$schedule = mysqli_query($conn, "SELECT * FROM schedule");
+$row = mysqli_fetch_assoc($schedule);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,58 +24,63 @@ if(isset($_SESSION['id'])){
     <link rel="stylesheet" href="assets/css/indexstyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Josefin+Sans" />
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/annstyle.css" />
     <style>
-    /* CSS for the loading spinner */
-.loading-spinner1 {
-    display: none; /* Initially hidden */
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #F8F9FA; /* Semi-transparent white background */
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        /* CSS for the loading spinner */
+        .loading-spinner1 {
+            display: none;
+            /* Initially hidden */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F8F9FA;
+            /* Semi-transparent white background */
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.loading-spinner1 .spinner1 {
-    width: 100px;
-    height: 100px;
-    border: 10px solid #4169E1; /* Blue color */
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
+        .loading-spinner1 .spinner1 {
+            width: 100px;
+            height: 100px;
+            border: 10px solid #4169E1;
+            /* Blue color */
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
 
-</style>
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 
 </head>
+
 <body>
-<div class="loading-spinner1" id="loadingSpinner1">
-    <div class="spinner1"></div>
-</div>
-
-
-<nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="loading-spinner1" id="loadingSpinner1">
+        <div class="spinner1"></div>
+    </div>
+    <nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <h1 style="color: white; font-family: 'Arial Grook', sans-serif; "><b>ArtLens</b></h1>
+            <h1 style="color: white; font-family: Josefin Sans; margin-top: 15px; font-size: 25px;"><b>ARTLENS</b></h1>
             <a class="nav-link admin-login-mobile btn1 adminlogbtn" onclick="document.getElementById('myModal').style.display='flex'">Admin Login</a>
         </div>
     </nav>
-
-    <!-- Login Modal -->
     <div id="myModal" class="modal" style="<?php if ($displayModal) echo 'display: flex; ' ?>">
         <div class="modal-content">
             <span class="close3 " onclick="document.getElementById('myModal').style.display='none'" style="position: absolute; top: 1px; right: 20px; color: white;">&times;</span> <!-- Adjust position as needed -->
@@ -98,9 +107,9 @@ if(isset($_SESSION['id'])){
                         <button class="form-control shadow-none" type="button" id="togglePassword">Show</button>
                     </div>
                 </div>
-                <div class="forgot-pass" style="margin-top: 1%; float: right;">
+                <!--<div class="forgot-pass" style="margin-top: 1%; float: right;">
                     <a href="forgotpassword.php">Forgot Password?</a>
-                </div>
+                </div>-->
                 <div class="d-flex justify-content-center mt-5">
                     <button type="submit" name="submit" class="btn3" style="width: 40%;">Login</button>
                 </div>
@@ -121,26 +130,26 @@ if(isset($_SESSION['id'])){
                     <h1 style="color: #4169E1;"><b>Rizal Shrine</b></h1>
                     <p style="color: grey;">The Rizal Shrine in Calamba (Filipino: Museo ni José Rizal Calamba) is a reproduction of the original two-story, Spanish-colonial style house in Calamba, Laguna where José Rizal was born on June 19, 1861. The house is designated as a National Shrine (Level 1) by the National Historical Commission of the Philippines.</p>
                     <div class="container mb-4 mt-5">
-                    <div class="vertical-line"></div>
+                        <div class="vertical-line"></div>
                         <div class="row">
                             <div class="col-lg-4" style="display: flex; align-items: start ;justify-content: start; margin-left: 0;">
-                                <h3>Now Open</h3>
+                                <h3><?php echo $row['museum_status'] ?></h3>
                             </div>
-                            <div class="col-lg-5" style="display: flex;align-items: center;justify-content: start; position: absolut; margin-top: -7px; margin-left: 0;">  
-                                <p>Open Tuesday - Sunday<br> 9:00 AM to 4:00 PM</p>
+                            <div class="col-lg-5" style="display: flex;align-items: center;justify-content: start; position: absolut; margin-top: -7px; margin-left: 0;">
+                                <p><?php echo $row['description'] ?><br><?php echo date("h:i A", strtotime($row['start_time'])) ?> to <?php echo date("h:i A", strtotime($row['end_time'])) ?></p>
                             </div>
                         </div>
                     </div>
 
                     <a href="visitorindex.php" class="cssbuttons-io-button" style="position: relative; z-index: 3; text-decoration: none; width: 45%; min-width: 260px; max-width: 260px;">
-                      Explore the Museum
-                      <div class="icon">
-                          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M0 0h24v24H0z" fill="none"></path>
-                              <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
-                          </svg>
-                      </div>
-                  </a>                
+                        Explore the Museum
+                        <div class="icon">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -148,23 +157,23 @@ if(isset($_SESSION['id'])){
 
     <br><br><br><br><br>
 
-            <div class="container text-center">
-                <div class="title">
-                    <h1>Announcements</h1>
-                </div>
-                <div class="description">
-                    <p>Stay tuned for updates, behind-the-scenes peeks, and exclusive events surrounding this exciting announcement. We can't wait to share this journey with you!</p>
-                </div>
-                <?php
-                // Display submissions
-                $sql = "SELECT image_path, title, description FROM submissions ORDER BY id DESC";
-                $result = $conn->query($sql);
+    <div class="container text-center">
+        <div class="title">
+            <h1>Announcements</h1>
+        </div>
+        <div class="description">
+            <p>Stay tuned for updates, behind-the-scenes peeks, and exclusive events surrounding this exciting announcement. We can't wait to share this journey with you!</p>
+        </div>
+        <?php
+        // Display submissions
+        $sql = "SELECT image_path, title, description FROM submissions ORDER BY id DESC";
+        $result = $conn->query($sql);
 
-                $cards = "";
+        $cards = "";
 
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        $cards .= '<div class="card swiper-slide">
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $cards .= '<div class="card swiper-slide">
                                     <div class="img-box" style="height: 350px;">
                                         <img src="' . $row["image_path"] . '" alt="" class="image" />
                                         <div class="overlay" style="margin-bottom: -10px;">
@@ -174,10 +183,10 @@ if(isset($_SESSION['id'])){
                                         </div>
                                     </div>
                                 </div>';
-                    }
-                } else {
-                    // Display "No updates today" if there are no submissions
-                    $cards = '<div class="card swiper-slide">
+            }
+        } else {
+            // Display "No updates today" if there are no submissions
+            $cards = '<div class="card swiper-slide">
                                 <div class="img-box" style="height: 350px; border: 1px solid #4169E1;">
                                     <div class="text-center" style="margin:10px;">
                                         <h2 style="margin-top: 20px;">No updates today</h2>
@@ -188,20 +197,19 @@ if(isset($_SESSION['id'])){
                                     </div>
                                 </div>
                             </div>';
-
-                }
-                ?>
-                <div class="container1 swiper">
-                    <div class="slide-container">
-                        <div class="card-wrapper swiper-wrapper">
-                            <?php echo $cards; ?>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next swiper-navBtn"></div>
-                    <div class="swiper-button-prev swiper-navBtn"></div>
-                    <div class="swiper-pagination"></div>
+        }
+        ?>
+        <div class="container1 swiper">
+            <div class="slide-container">
+                <div class="card-wrapper swiper-wrapper">
+                    <?php echo $cards; ?>
                 </div>
             </div>
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
     <br><br><br><br><br>
     <div class="container">
         <div class="row align-items-center">
@@ -217,11 +225,10 @@ if(isset($_SESSION['id'])){
                         <span class="close2 float-end mb-3" onclick="document.getElementById('myModal1').style.display='none'">&times;</span>
                         <h3 id="modalTitle" class="mt-2">Booking Form</h3>
                         <hr>
-    
+
                         <div id="toggleButtons" class="d-flex justify-content-center mb-3">
                             <a type="button" class="btn-toggle form" onclick="showForm()">Form</a>
-                            <a type="button" class="btn-toggle status" 
-                            onclick="showStatus()">Status</a>
+                            <a type="button" class="btn-toggle status" onclick="showStatus()">Status</a>
                         </div>
 
                         <!-- Booking Form -->
@@ -303,111 +310,114 @@ if(isset($_SESSION['id'])){
                             <div class="mb-4">
                                 <label for="modal-status" class="form-label">Type</label>
                                 <select id="modal-status" class="form-select" name="status" onchange="toggleFields()">
-                                    <option name="status" value="Individual">Individual</option>
-                                    <option name="status" value="Organization">Organization</option>
+                                    <option value="Individual">Individual</option>
+                                    <option value="Organization">Organization</option>
                                 </select>
                             </div>
 
                             <!-- Organization Fields -->
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." maxlength="50">
-                                <label for="busno">C.N. Bus No.</label>
-                            </div>
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="names" name="names" type="text" placeholder="Name" maxlength="50">
-                                <label for="names">Name</label>
-                            </div>
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="address" name="address" type="text" placeholder="Address" maxlength="50">
-                                <label for="address">Address</label>
-                            </div>
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="nationality" name="nationality" type="text" placeholder="Nationality" maxlength="50">
-                                <label for="nationality">Nationality</label>
-                            </div>
-                            <div class="row mb-3 organization">
-                                <div class="col">
-                                    <div class="form-floating">
-                                        <input class="form-control" id="numma" name="numma" type="number" placeholder="Number of Male" min="0" max="50">
-                                        <label for="numma">Number of Male</label>
+                            <div class="organization">
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." maxlength="50" required>
+                                    <label for="busno">C.N. Bus No.</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="names" name="names" type="text" placeholder="Name" maxlength="50" required>
+                                    <label for="names">Name</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="address" name="address" type="text" placeholder="Address" maxlength="50" required>
+                                    <label for="address">Address</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="nationality" name="nationality" type="text" placeholder="Nationality" maxlength="50" required>
+                                    <label for="nationality">Nationality</label>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <div class="form-floating">
+                                            <input class="form-control" id="numma" name="numma" type="number" placeholder="Number of Male" min="0" max="50" required>
+                                            <label for="numma">Number of Male</label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-floating">
+                                            <input class="form-control" id="numfe" name="numfe" type="number" placeholder="Number of Female" min="0" max="50" required>
+                                            <label for="numfe">Number of Female</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="form-floating">
-                                        <input class="form-control" id="numfe" name="numfe" type="number" placeholder="Number of Female" min="0" max="50">
-                                        <label for="numfe">Number of Female</label>
-                                    </div>
+                                <p class="mt-3">Number of Students</p>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="gs" name="gs" type="number" placeholder="Grade School" min="0" max="50" required>
+                                    <label for="gs">Grade School</label>
                                 </div>
-                            </div>
-                            <p class="mt-3 organization">Number of Students</p>
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="gs" name="gs" type="number" placeholder="Grade School" min="0" max="50">
-                                <label for="gs">Grade School</label>
-                            </div>
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="hs" name="hs" type="number" placeholder="High School" min="0" max="50">
-                                <label for="hs">High School</label>
-                            </div>
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="cls" name="cls" type="number" placeholder="College/Grad School" min="0" max="50">
-                                <label for="cls">College/Grad School</label>
-                            </div>
-                            <p class="mt-3 organization">PWD</p>
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="pwd" name="pwd" type="number" placeholder="PWD" min="0" max="50">
-                                <label for="pwd">PWD</label>
-                            </div>
-                            <p class="mt-3 organization">Number of Guests Based on Age Bracket</p>
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="17below" name="17below" type="number" placeholder="17 years old below" min="0" max="50">
-                                <label for="17below">17 years old below</label>
-                            </div>
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="1930beloe" name="1930below" type="number" placeholder="19-30 years old" min="0" max="50">
-                                <label for="1930below">19-30 years old</label>
-                            </div>
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="3159below" name="3159below" type="number" placeholder="31-59 years old" min="0" max="50">
-                                <label for="3159below">31-59 years old</label>
-                            </div>
-                            <div class="form-floating mb-3 organization">
-                                <input class="form-control" id="60above" name="60above" type="number" placeholder="60 years old above" min="0" max="50">
-                                <label for="60above">60 years old above</label>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="hs" name="hs" type="number" placeholder="High School" min="0" max="50" required>
+                                    <label for="hs">High School</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="cls" name="cls" type="number" placeholder="College/Grad School" min="0" max="50" required>
+                                    <label for="cls">College/Grad School</label>
+                                </div>
+                                <p class="mt-3">PWD</p>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="pwd" name="pwd" type="number" placeholder="PWD" min="0" max="50" required>
+                                    <label for="pwd">PWD</label>
+                                </div>
+                                <p class="mt-3">Number of Guests Based on Age Bracket</p>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="17below" name="17below" type="number" placeholder="17 years old below" min="0" max="50" required>
+                                    <label for="17below">17 years old below</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="1930below" name="1930below" type="number" placeholder="19-30 years old" min="0" max="50" required>
+                                    <label for="1930below">19-30 years old</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="3159below" name="3159below" type="number" placeholder="31-59 years old" min="0" max="50" required>
+                                    <label for="3159below">31-59 years old</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="60above" name="60above" type="number" placeholder="60 years old above" min="0" max="50" required>
+                                    <label for="60above">60 years old above</label>
+                                </div>
                             </div>
 
                             <!-- Individual Fields -->
-                            <div class="form-floating mb-3 individual">
-                                <input class="form-control" id="fn" name="fn" type="text" placeholder="First Name" maxlength="50">
-                                <label for="fn">First Name</label>
-                            </div>
-                            <div class="form-floating mb-3 individual">
-                                <input class="form-control" id="ln" name="ln" type="text" placeholder="Last Name" maxlength="50">
-                                <label for="ln">Last Name</label>
-                            </div>
-                            <div class="form-floating mb-3 individual">
-                                <input class="form-control" id="mo" name="mo" type="text" placeholder="MI(Optional)" maxlength="1">
-                                <label for="mo">MI(Optional)</label>
-                            </div>
-                            <div class="mb-3 individual">
-                                <label class="form-label d-block">Gender</label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="male" name="gen" value="Male" >
-                                    <label class="form-check-label" for="male">Male</label>
+                            <div class="individual" style="display: none;">
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="fn" name="fn" type="text" placeholder="First Name" maxlength="50">
+                                    <label for="fn">First Name</label>
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="female" name="gen" value="Female" >
-                                    <label class="form-check-label" for="female">Female</label>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="ln" name="ln" type="text" placeholder="Last Name" maxlength="50">
+                                    <label for="ln">Last Name</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="mo" name="mo" type="text" placeholder="MI(Optional)" maxlength="1">
+                                    <label for="mo">MI(Optional)</label>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label d-block">Gender</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="male" name="gen" value="Male">
+                                        <label class="form-check-label" for="male">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="female" name="gen" value="Female">
+                                        <label class="form-check-label" for="female">Female</label>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="email" name="email1" type="email" placeholder="Email" maxlength="50">
+                                    <label for="email">Email</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="mobile1" name="monu1" type="number" placeholder="Mobile Number" pattern="[0-9]{11}" title="Please enter an 11-digit mobile number." maxlength="11">
+                                    <label for="mobile">Mobile Number</label>
                                 </div>
                             </div>
-                            <div class="form-floating mb-3 individual">
-                                <input class="form-control" id="email" name="email1" type="email" placeholder="Email" maxlength="50">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="form-floating mb-3 individual">
-                                <input class="form-control" id="mobile1" name="monu1" type="number" placeholder="Mobile Number" pattern="[0-9]{11}" title="Please enter an 11-digit mobile number." maxlength="11">
-                                <label for="mobile">Mobile Number</label>
-                            </div>
-
                             <div class="d-flex justify-content-center mt-3">
                                 <button type="submit" name="submit" class="btn btn3 w-100 mt-3">Submit</button>
                             </div>
@@ -417,46 +427,57 @@ if(isset($_SESSION['id'])){
             </div>
         </div>
     </div>
+    <div id="successMessage" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none;">
+        Form submitted successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
     <br><br><br><br><br><br>
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <img src="assets/images/rloob.png" class="img-fluid" alt="Placeholder Image" style="width: 600px;">
+                <img src="assets/images/artmu.png" class="img-fluid" alt="Placeholder Image" style="width: 600px;">
             </div>
             <div class="col-md-6 order-md-1">
                 <h3>Art Discovery with Our Innovative Recognition System</h3>
                 <p>Experience art in a whole new way at the Rizal Shrine with our cutting-edge art recognition system. Using advanced technology, our system allows visitors to interact with artworks in a dynamic and engaging manner. Simply point your smartphone or tablet at a piece of art, and watch as detailed information, artist biographies, and historical context come to life before your eyes. Dive deeper into the stories behind each masterpiece and gain a deeper appreciation for the artistic contributions that honor Dr. Jose Rizal's legacy. Explore our galleries with a fresh perspective and uncover hidden treasures waiting to be discovered through our innovative art recognition system.</p>
-                <button class="btn kulay">Try our Image Recognition</button>
+                <a type="button" href="visitorartrecog.php" class="btn kulay">Try our Image Recognition</a>
             </div>
         </div>
     </div>
 
     <br><br><br><br><br>
     <footer class="footer" style="background-color: #F8F9FA;">
-    <div class="container mb-3"  style="color: var(--bs-secondary-color);">
-        <div class="row">
-            <div class="col-md mt-3">
-                <p><b>Museo ni Jose Rizal, Calamba, Laguna</b></p>
-                <center><hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;"></center>
-                <p class="tetleft"><a href="https://www.google.com/maps/search/?api=1&query=J.+P.+Rizal+St.,+Cor.+F.+Mercado+St.,+Brgy.+6+Poblacion,+Calamba,+Philippines" class="clickft"><i class="bi bi-geo-alt-fill"></i>&emsp;J. P. Rizal St., Cor. F. Mercado St., Brgy. 6 <span style="margin-left: 30px;">Poblacion, Calamba, Philippines</span></a></p>
-            </div>
-            <div class="col-md mt-3">
-                <p><b>Quick Links</b></p>
-                <center><hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;"></center>
-                <a type="button" href="aboutus.php" class="tetleft clickft">About us</a>
-                <br>
-                <a type="button" href="faqs.php" class="tetleft clickft">Frequently asked Questions</a>
-            </div>
-            <div class="col-md mt-3">
-                <p><b>Contact Us:</b></p>
-                <center><hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;"></center>
-                <p class="tetleft"><a href="https://www.facebook.com/museonijoserizalcalamba" class="clickft"><i class="bi bi-facebook"></i>&emsp;NHCP - Museo ni Jose Rizal, Calamba</a></p>
-                <p class="tetleft"><a href="mailto:mjrc@nhcp.gov.ph" class="clickft"><i class="bi bi-envelope-at-fill"></i>&emsp;mjrc@nhcp.gov.ph</a></p>
-                <p class="tetleft"><a href="tel:+63498341599" class="clickft"><i class="bi bi-telephone-fill"></i>&emsp;(049) 834 1599</a></p>
+        <div class="container mb-3" style="color: var(--bs-secondary-color);">
+            <div class="row">
+                <div class="col-md mt-3">
+                    <p><b>Museo ni Jose Rizal, Calamba, Laguna</b></p>
+                    <center>
+                        <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
+                    </center>
+                    <p class="tetleft"><a href="https://www.google.com/maps/search/?api=1&query=J.+P.+Rizal+St.,+Cor.+F.+Mercado+St.,+Brgy.+6+Poblacion,+Calamba,+Philippines" class="clickft"><i class="bi bi-geo-alt-fill"></i>&emsp;J. P. Rizal St., Cor. F. Mercado St., Brgy. 6 <span style="margin-left: 30px;">Poblacion, Calamba, Philippines</span></a></p>
+                </div>
+                <div class="col-md mt-3">
+                    <p><b>Quick Links</b></p>
+                    <center>
+                        <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
+                    </center>
+                    <a type="button" href="aboutus.php" class="tetleft clickft">About us</a>
+                    <br>
+                    <a type="button" href="faqs.php" class="tetleft clickft">Frequently asked Questions</a>
+                </div>
+                <div class="col-md mt-3">
+                    <p><b>Contact Us:</b></p>
+                    <center>
+                        <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
+                    </center>
+                    <p class="tetleft"><a href="https://www.facebook.com/museonijoserizalcalamba" class="clickft"><i class="bi bi-facebook"></i>&emsp;NHCP - Museo ni Jose Rizal, Calamba</a></p>
+                    <p class="tetleft"><a href="mailto:mjrc@nhcp.gov.ph" class="clickft"><i class="bi bi-envelope-at-fill"></i>&emsp;mjrc@nhcp.gov.ph</a></p>
+                    <p class="tetleft"><a href="tel:+63498341599" class="clickft"><i class="bi bi-telephone-fill"></i>&emsp;(049) 834 1599</a></p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
@@ -465,166 +486,66 @@ if(isset($_SESSION['id'])){
     <script src="assets/js/input-validator.js"></script>
     <script src="assets/js/carscript.js"></script>
     <script src="assets/js/bookvalidation.js"></script>
+    <script src="assets/js/logformvalidation.js"></script>
     <script>
-    const togglePassword = document.querySelector('#togglePassword');
-    const password = document.querySelector('#pass');
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#pass');
 
-    togglePassword.addEventListener('click', function () {
-        // Toggle the type attribute
-        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-        password.setAttribute('type', type);
-        
-        // Change the button text based on the type
-        this.textContent = type === 'password' ? 'Show' : 'Hide';
-    });
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-// Get all cards
-const cards = document.querySelectorAll('.card');
+        togglePassword.addEventListener('click', function() {
+            // Toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
 
-// Function to toggle overlay
-function toggleOverlay(card) {
-    const overlay = card.querySelector('.overlay');
-    if (overlay.classList.contains('active')) {
-        overlay.classList.remove('active');
-    } else {
-        // Close any other open overlay
-        cards.forEach(card => {
-            card.querySelector('.overlay').classList.remove('active');
+            // Change the button text based on the type
+            this.textContent = type === 'password' ? 'Show' : 'Hide';
         });
-        // Open the clicked overlay
-        overlay.classList.add('active');
-    }
-}
-
-// Add click event listener to each card
-cards.forEach(card => {
-    card.addEventListener('click', function() {
-        toggleOverlay(this);
-    });
-
-    // Add touchstart event listener for mobile devices
-    card.addEventListener('touchstart', function(e) {
-        e.preventDefault(); // Prevent default touch behavior
-        toggleOverlay(this);
-    });
-});
-});
-</script>
-
+    </script>
     <script>
-        var modal = document.getElementById("myModal1");
-        var span = document.getElementsByClassName("close2")[0];
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all cards
+            const cards = document.querySelectorAll('.card');
 
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        function showForm() {
-            document.getElementById("formContent").classList.remove("hidden");
-            document.getElementById("statusContent").classList.add("hidden");
-            document.getElementById("modalTitle").textContent = "Booking Form";
-            document.querySelector(".btn-toggle.form").style.backgroundColor = "#4169E1";
-            document.querySelector(".btn-toggle.form").style.color = "white"; // Set text color to white
-            document.querySelector(".btn-toggle.status").style.backgroundColor = "white";
-            document.querySelector(".btn-toggle.status").style.color = "black"; // Set text color to black
-        }
-
-        function showStatus() {
-            document.getElementById("formContent").classList.add("hidden");
-            document.getElementById("statusContent").classList.remove("hidden");
-            document.getElementById("modalTitle").textContent = "Booking Status";
-            document.querySelector(".btn-toggle.form").style.backgroundColor = "white";
-            document.querySelector(".btn-toggle.form").style.color = "black"; // Set text color to black
-            document.querySelector(".btn-toggle.status").style.backgroundColor = "#4169E1";
-            document.querySelector(".btn-toggle.status").style.color = "white"; // Set text color to white
-        }
-
-        // Set default text color
-        document.querySelector(".btn-toggle.form").style.color = "white"; // Default text color for form button
-        document.querySelector(".btn-toggle.status").style.color = "black"; // Default text color for status button
-
-
-            </script>
-
-
-            <script>
-            function checkStatus() {
-            // Retrieve the reference number
-            var referenceNumber = document.querySelector('#statusContent input[name="contact_email"]').value;
-
-            // AJAX request to send the reference number to check_status.php
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "check_status.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // Handle the response from check_status.php
-                    document.getElementById('statusMessage').innerHTML = xhr.responseText;
-                    // Hide the image when search is made
-                    document.getElementById('noInfoImage').style.display = 'none';
-                    // Change the background color to blue
-                    document.getElementById('imageContainer').style.backgroundColor = '#4169E1';
+            // Function to toggle overlay
+            function toggleOverlay(card) {
+                const overlay = card.querySelector('.overlay');
+                if (overlay.classList.contains('active')) {
+                    overlay.classList.remove('active');
+                } else {
+                    // Close any other open overlay
+                    cards.forEach(card => {
+                        card.querySelector('.overlay').classList.remove('active');
+                    });
+                    // Open the clicked overlay
+                    overlay.classList.add('active');
                 }
-            };
-            xhr.send("contact_email=" + referenceNumber); // Send the reference number as POST data
-        }
-</script>
+            }
 
+            // Add click event listener to each card
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    toggleOverlay(this);
+                });
 
-<!--Form Individual or Organization-->
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Show loading spinner
-        document.getElementById('loadingSpinner1').style.display = 'flex';
-
-        // Hide loading spinner after 3 seconds
-        setTimeout(function() {
-            document.getElementById('loadingSpinner1').style.display = 'none';
-        }, 1500); // 3000 milliseconds = 3 seconds
-    });
-</script>
-<script>
-function toggleFields() {
-    var status = document.getElementById('modal-status').value;
-    var organizationFields = document.querySelectorAll('.organization');
-    var individualFields = document.querySelectorAll('.individual');
-
-    if (status === 'Organization') {
-        individualFields.forEach(element => element.removeAttribute('required'));
-        organizationFields.forEach(function(field) {
-            field.classList.remove('hidden');
-             field.required = true;
+                // Add touchstart event listener for mobile devices
+                card.addEventListener('touchstart', function(e) {
+                    e.preventDefault(); // Prevent default touch behavior
+                    toggleOverlay(this);
+                });
+            });
         });
-        individualFields.forEach(function(field) {
-            field.classList.add('hidden');
-            field.required = false;
-        });
-    } else {
-        organizationFields.forEach(element => element.removeAttribute('required'));
-        organizationFields.forEach(function(field) {
-            field.classList.add('hidden');
-            field.required = false;
-        });
-        individualFields.forEach(function(field) {
-            field.classList.remove('hidden');
-            field.required = true;
-        });
-    }
-}
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show loading spinner
+            document.getElementById('loadingSpinner1').style.display = 'flex';
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    toggleFields(); // Ensure the fields are toggled correctly on page load
-});
-</script>
+            // Hide loading spinner after 3 seconds
+            setTimeout(function() {
+                document.getElementById('loadingSpinner1').style.display = 'none';
+            }, 1500); // 3000 milliseconds = 3 seconds
+        });
+    </script>
 
 </body>
+
 </html>

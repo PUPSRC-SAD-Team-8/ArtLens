@@ -6,59 +6,70 @@ function getCurrentScript() {
 $current_script = getCurrentScript();
 ?>
 
-<div class="h-100">
-    <center>
-        <br>
-        <img src="assets/images/image.png" class="img-fluid" style="width: 70px;" alt="logo">
-        <div class="sidebar-logo">
-            <h4 style="color: #4169E1;"><b>ArtLens</b></h4>
-            <hr>
-        </div>
-    </center>
-    <!-- Sidebar Navigation -->
-    <ul class="sidebar-nav">
-        <li class="sidebar-item">
-            <a href="adminindex.php" class="sidebar-link mx-2 <?php echo $current_script == 'adminindex.php' ? 'active' : ''; ?>">
-                <i class="bi bi-house-door pe-2"></i>
-                Dashboard
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="adminartwork.php" class="sidebar-link mx-2 <?php echo $current_script == 'adminartwork.php' ? 'active' : ''; ?>">
-                <i class="bi bi-palette pe-2"></i>
-                Artworks
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="adminannouncements.php" class="sidebar-link mx-2 <?php echo $current_script == 'adminannouncements.php' ? 'active' : ''; ?>">
-             <i class="bi bi-megaphone pe-2"></i>
-                Announcements
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="adminquiz.php" class="sidebar-link mx-2 <?php echo in_array($current_script, ['adminquiz.php', 'adminquiztable.php']) ? 'active' : ''; ?>">
-                <i class="bi bi-file-earmark-text pe-2"></i>
-                Quiz
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="adminbooking.php" class="sidebar-link mx-2 <?php echo $current_script == 'adminbooking.php' ? 'active' : ''; ?>">
-                <i class="bi bi-book pe-2"></i>
-                Booking
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="adminvisitorlog.php" class="sidebar-link mx-2 <?php echo $current_script == 'adminvisitorlog.php' ? 'active' : ''; ?>">
-                <i class="bi bi-file-earmark-person pe-2"></i>
-                Visitor Log
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="logout.php" class="sidebar-link mx-2" style="margin-top: 30%; color: red;">
-                <i class="fa-solid fa-right-from-bracket pe-2"></i>
-                Logout
-            </a>
-        </li>
-    </ul>
-</div>
+<div class="menu">
+        <ion-icon name="menu-outline"></ion-icon>
+        <ion-icon name="close-outline"></ion-icon>
+    </div>
 
+    <div class="sidebar-menu">
+        <div>
+            <div class="page-name">
+                <ion-icon id="cloud" src="assets\icons\reorder-four-outline.svg"></ion-icon>
+                <span style="color: blue;">&emsp;<b>Art<span style="color: black;">Lens</span></b></span>
+            </div>
+        </div>
+
+        <nav class="navigation">
+            <ul>
+                <li>
+                    <a id="<?php echo $current_script == 'adminindex.php' ? 'inbox' : ''; ?>" href="adminindex.php">
+                        <ion-icon name="stats-chart-outline"></ion-icon>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="<?php echo $current_script == 'adminartwork.php' ? 'inbox' : ''; ?>" href="adminartwork.php">
+                        <ion-icon name="extension-puzzle-outline"></ion-icon>
+                        <span>Artworks</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="<?php echo $current_script == 'adminannouncements.php' ? 'inbox' : ''; ?>" href="adminannouncements.php">
+                        <ion-icon name="megaphone-outline"></ion-icon>
+                        <span>Announcement</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="<?php echo $current_script == 'adminbooking.php' ? 'inbox' : ''; ?>" href="adminbooking.php">
+                        <ion-icon name="book-outline"></ion-icon>
+                        <span>Booking</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="<?php echo $current_script == 'adminvisitorlog.php' ? 'inbox' : ''; ?>" href="adminvisitorlog.php">
+                        <ion-icon name="walk-outline"></ion-icon>
+                        <span>Visitor Log</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div>
+            <div class="user">
+                <img src="assets/images/profile.png" alt="">
+                <div class="user-info">
+                    <div class="name-email">
+                        <span class="name">Admin</span>
+                        <span class="email">admin12@gmail.com</span>
+                    </div>
+                    <div class="dropup" style="cursor: pointer;">
+                        <ion-icon name="ellipsis-vertical-outline" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="adminaccount.php">Manage Account</a></li>
+                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

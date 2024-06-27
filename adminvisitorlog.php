@@ -14,7 +14,7 @@ if (isset($_SESSION['userid'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="sidebar/style.css">
     <link rel="stylesheet" href="assets/css/adminvisitorlogs.css">
     <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
@@ -28,22 +28,15 @@ if (isset($_SESSION['userid'])) {
 </head>
 
 <body>
-    <div class="wrapper">
         <!-- Sidebar -->
-        <aside id="sidebar" style="position: relative;">
-            <?php include('sidebar.php'); ?>
-        </aside>
+        <?php include('sidebar.php'); ?>
 
-        <!-- Main Component -->
-        <div class="main">
-            <?php include('header.php'); ?>
-            
             <!--MAIN MAIN MAIN-->
             <main class="content px-3 py-2">
                 <div class="container">
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <h3 style="color: grey;">Individual</h3>
-                        <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white;">Add Log</button>
+                        <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white; visibility: hidden;">Add Log</button>
                     </div>
 
                     <!-- First Table -->
@@ -208,14 +201,15 @@ if (isset($_SESSION['userid'])) {
                     </div>
                 </div>
             </main>
-        </div>
-    </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="sidebar/script.js"></script>
     <script>
         $(document).ready(function() {
             $('#myTable').DataTable();

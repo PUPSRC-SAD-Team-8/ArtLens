@@ -18,9 +18,10 @@
         }
 
         .homebtn:hover {
-            background-color: #4169E1;
-            border-color: white;
-            color: white;
+            background-color: #4169E1 !important;
+            border: 1px solid white !important;
+            color: white !important;
+            text-decoration: none;
         }
 
         .head {
@@ -33,7 +34,7 @@
         }
 
         body {
-            padding-top: 40px; /* Adjust body padding to accommodate fixed header */
+            padding-top: 40px; 
         }
 
         .titleh {

@@ -97,16 +97,8 @@
             let highestProbability = 0;
             let highestClass = "";
 
-            for (let i = 0; i < maxPredictions; i++) {
-                if (prediction[i].probability > highestProbability) {
-                    highestProbability = prediction[i].probability;
-                    highestClass = prediction[i].className;
-                }
-            }
-            //labelContainer.innerHTML = "Highest accuracy class: " + highestClass + " (" + highestProbability.toFixed(2) + ")";
+            labelContainer.innerHTML = highestClass + " (" + highestProbability.toFixed(2) + ")";
             
-            // Check the highest class name in the database
-            checkArtworkInDatabase(highestClass);
         }
 
         function checkArtworkInDatabase(artworkName) {

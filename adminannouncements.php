@@ -8,13 +8,13 @@ if (isset($_SESSION['userid'])) {
         $update_id = $_POST['update-id'];
         $update_title = $_POST['update-title'];
         $update_desc = $_POST['update-desc'];
-        
+
         // Check if a new image file is uploaded
         if ($_FILES['update-image']['name'] !== '') {
             // Update the image file and move it to the target directory
             $target = basename($_FILES['update-image']['name']);
             $image = $_FILES['update-image']['name'];
-    
+
             if (move_uploaded_file($_FILES['update-image']['tmp_name'], $target)) {
                 $update_query = "UPDATE `submissions` SET image_path = '$image', title = '$update_title', description = '$update_desc' WHERE id = '$update_id'";
             } else {
@@ -26,7 +26,7 @@ if (isset($_SESSION['userid'])) {
             // No new image selected, update only the other fields
             $update_query = "UPDATE `submissions` SET title = '$update_title', description = '$update_desc' WHERE id = '$update_id'";
         }
-    
+
         // Execute the update query
         if (isset($update_query)) {
             mysqli_query($conn, $update_query);
@@ -35,13 +35,13 @@ if (isset($_SESSION['userid'])) {
         }
     }
 
-    if (isset($_POST["update_schedule"])){
+    if (isset($_POST["update_schedule"])) {
         // Retrieve form data
         $openclose = $_POST['openclose'];
         $startTime = $_POST['startTime'];
         $endTime = $_POST['endTime'];
         $description = $_POST['description'];
-    
+
         $query = "UPDATE schedule SET museum_status= '$openclose', start_time= '$startTime', end_time= '$endTime', description = '$description' WHERE sched_id = 1";
         // Execute the update query
         if (isset($query)) {
@@ -60,7 +60,7 @@ if (isset($_SESSION['userid'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/sidebar.css">
+        <link rel="stylesheet" href="sidebar/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
         <!-- Swiper CSS -->
@@ -70,23 +70,16 @@ if (isset($_SESSION['userid'])) {
         <link rel="stylesheet" href="assets/css/annstyle.css" />
         <link rel="stylesheet" href="assets/css/adminannouncement.css" />
         <style>
-    .calendar-container {
-      display: none; /* Hide by default */
-    }
-  </style>
+            .calendar-container {
+                display: none;
+                /* Hide by default */
+            }
+        </style>
         <title>Artlens</title>
     </head>
 
     <body>
-        <div class="wrapper">
-            <!-- Sidebar -->
-            <aside id="sidebar" style="position: relative;">
-                <?php include('sidebar.php'); ?>
-            </aside>
-
-            <!-- Main Component -->
-            <div class="main">
-                <?php include('header.php'); ?>
+        <?php include('sidebar.php'); ?>
 
                 <!--MAIN MAIN MAIN-->
                 <main class="content px-4 py-3">
@@ -141,7 +134,7 @@ if (isset($_SESSION['userid'])) {
                                             </div>
                                         </div>';
                                     }
-                                    } else {
+                                } else {
                                     // Display "No updates today" if there are no submissions
                                     $cards = '<div class="card swiper-slide">
                                     <div class="img-box" style="height: 350px; border: 1px solid #4169E1;">
@@ -184,12 +177,12 @@ if (isset($_SESSION['userid'])) {
                                             $row = mysqli_fetch_assoc($schedule);
                                             ?>
                                             <div class="mb-4" style="min-width: 300px;">
-                                            <label for="modal-openclose" class="form-label">Status</label>
-                                            <select id="modal-openclose" class="form-select mb-3" name="openclose" required>
-                                                <option value="" disabled>Select Museum Status</option>
-                                                <option value="Now Open" <?php if ($row['museum_status'] == "Now Open") echo "selected"; ?>>Now Open</option>
-                                                <option value="Now Closed" <?php if ($row['museum_status'] == "Now Closed") echo "selected"; ?>>Now Closed</option>
-                                            </select>
+                                                <label for="modal-openclose" class="form-label">Status</label>
+                                                <select id="modal-openclose" class="form-select mb-3" name="openclose" required>
+                                                    <option value="" disabled>Select Museum Status</option>
+                                                    <option value="Now Open" <?php if ($row['museum_status'] == "Now Open") echo "selected"; ?>>Now Open</option>
+                                                    <option value="Now Closed" <?php if ($row['museum_status'] == "Now Closed") echo "selected"; ?>>Now Closed</option>
+                                                </select>
                                                 <div class="form-floating mb-3">
                                                     <input class="form-control" name="description" id="description" type="text" placeholder="Open Dates" value="<?php echo $row['description']; ?>" required>
                                                     <label for="endTime">Open Dates</label>
@@ -209,147 +202,106 @@ if (isset($_SESSION['userid'])) {
                                     </form>
                                 </div>
                             </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Museum Closure
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                <form action="submit.php" method="POST">
-                                    <div class="row d-flex align-items-center" >
-                                    <div class="col-md-6 d-flex align-items-center">
-                                        <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <button class="btn btn-primary" id="datePickerBtn"><i class="fas fa-calendar-alt"></i> Pick a Date</button>
-                                        </div>
-                                        <input type="text" class="form-control d-none" id="selectedDate" name="selectedDate" placeholder="Select date" autocomplete="off">
-                                        </div>
-                                        <div id="calendarContainer" class="calendar-container mt-4">
-                                        <div id="datepicker"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="form-floating mb-3">
-                                        <input class="form-control" name="titleclosure" id="titleclosure" type="text" placeholder="Title" required>
-                                        <label for="titleclosure">Title</label>
-                                        </div>
-
-                                        <div class="form-floating mb-3">
-                                        <input class="form-control" name="desclosure" id="desclosure" type="text" placeholder="Description" required>
-                                        <label for="desclosure">Description</label>
-                                        </div>  
-                                    </div><div class="text-center">
-                                        <button type="submit" name="update_schedule" class="btn3 w-40">Submit</button>
-                                        </div>
-                                    </div>
-                                    
-                                </form>
-                        </div>
-                    </div>
+                            
                 </main>
             </div>
             <!--END MAIN-->
         </div>
 
         <!--modal-->
-        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update Announcement</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update Announcement</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <form id="editForm" action="" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <input type="hidden" name="update-id" id="update-id">
+
+                            <div class="form-group">
+                                <label>Current Image</label>
+                                <img src="" class="img-fluid img-thumbnail" id="update-image-preview">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Update Image</label>
+                                <input type="file" class="form-control" id="update-image" name="update-image">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" class="form-control" id="update-title" name="update-title" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" id="update-desc" name="update-desc" rows="4" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" name="confirm_update" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
                 </div>
-
-                <form id="editForm" action="" method="POST" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <input type="hidden" name="update-id" id="update-id">
-
-                        <div class="form-group">
-                            <label>Current Image</label>
-                            <img src="" class="img-fluid img-thumbnail" id="update-image-preview">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Update Image</label>
-                            <input type="file" class="form-control" id="update-image" name="update-image">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Title</label>
-                            <input type="text" class="form-control" id="update-title" name="update-title" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Description</label>
-                            <textarea class="form-control" id="update-desc" name="update-desc" rows="4" required></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" name="confirm_update" class="btn btn-primary">Update</button>
-                    </div>
-                </form>
             </div>
         </div>
-    </div>
-
-
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-        <script src="script.js"></script>
+        <script src="sidebar/script.js"></script>
         <script src="assets/js/swiper-bundle.min.js"></script>
         <script src="assets/js/carscript.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="sidebar/script.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.update_btn').on('click', function() {
+                    var id = $(this).data('id');
+                    var image = $(this).data('image');
+                    var title = $(this).data('title');
+                    var description = $(this).data('description');
 
-<script>
+                    // Populate modal fields
+                    $('#editForm').attr('action', 'adminannouncements.php?id=' + id); // Adjust action attribute if necessary
+                    $('#update-id').val(id);
+                    $('#update-image-preview').attr('src', image);
+                    $('#update-title').val(title);
+                    $('#update-desc').val(description);
 
-$(document).ready(function() {
-    $('.update_btn').on('click', function() {
-        var id = $(this).data('id');
-        var image = $(this).data('image');
-        var title = $(this).data('title');
-        var description = $(this).data('description');
-
-        // Populate modal fields
-        $('#editForm').attr('action', 'adminannouncements.php?id=' + id); // Adjust action attribute if necessary
-        $('#update-id').val(id);
-        $('#update-image-preview').attr('src', image);
-        $('#update-title').val(title);
-        $('#update-desc').val(description);
-
-        // Show the modal
-        $('#editmodal').modal('show');
-    });
-});
+                    // Show the modal
+                    $('#editmodal').modal('show');
+                });
+            });
 
 
-  $(document).ready(function() {
-    // Initialize date picker
-    $('#datepicker').datepicker({
-      format: 'yyyy-mm-dd', // Adjust date format as needed
-      autoclose: true
-    });
+            $(document).ready(function() {
+                // Initialize date picker
+                $('#datepicker').datepicker({
+                    format: 'yyyy-mm-dd', // Adjust date format as needed
+                    autoclose: true
+                });
 
-    // Show/hide calendar on button click
-    $('#datePickerBtn').click(function() {
-      $('#calendarContainer').toggle();
-    });
+                // Show/hide calendar on button click
+                $('#datePickerBtn').click(function() {
+                    $('#calendarContainer').toggle();
+                });
 
-    // Handle date selection
-    $('#datepicker').on('changeDate', function(e) {
-      var selectedDate = $('#datepicker').datepicker('getFormattedDate');
-      $('#selectedDate').val(selectedDate); // Update hidden input value
-      $('#calendarContainer').hide(); // Hide calendar after selection
-    });
-  });
-</script>
+                // Handle date selection
+                $('#datepicker').on('changeDate', function(e) {
+                    var selectedDate = $('#datepicker').datepicker('getFormattedDate');
+                    $('#selectedDate').val(selectedDate); // Update hidden input value
+                    $('#calendarContainer').hide(); // Hide calendar after selection
+                });
+            });
+        </script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 // Get all cards

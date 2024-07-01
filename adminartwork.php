@@ -104,7 +104,8 @@ if (isset($_SESSION['userid'])) {
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<div class='col-lg-3 col-md-4 col-sm-6 col-6 grid-container mt-3'>";
-                                    echo "<div class='card artwork-card' data-bs-toggle='modal' data-bs-target='#cardModal' 
+                                    echo "<div class='card artwork-card' data-bs-toggle='modal' data-bs-target='#cardModal'
+                                            data-id='" . $row["artwork_id"] . "' 
                                             data-title='" . $row["artwork_name"] . "' 
                                             data-image='" . $row["artwork_img"] . "' 
                                             data-artist='" . $row["artwork_artist"] . "'  
@@ -137,6 +138,9 @@ if (isset($_SESSION['userid'])) {
                                 <br>
                                 <form id="editArtworkForm">
                                     <div class="mb-3">
+                                        <input type="file" class="form-control" id="modal-image-input" name="modal-image">
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="modal-title-input" class="form-label">Title</label>
                                         <input type="text" class="form-control" id="modal-title-input" name="modal-title">
                                     </div>
@@ -156,12 +160,12 @@ if (isset($_SESSION['userid'])) {
                                         <label for="modal-description-input" class="form-label">Description</label>
                                         <textarea class="form-control" id="modal-description-input" name="modal-description" rows="3"></textarea>
                                     </div>
-                                </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-primary" id="saveChangesBtn">Save changes</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -282,27 +286,40 @@ $('#saveChangesBtn').click(function() {
     var updatedDescription = $('#modal-description-input').val();
     var artworkId = $('#modal-title-input').data('id'); // Retrieve artworkId from data attribute
 
+    // Create a FormData object to handle file uploads
+    var formData = new FormData();
+    formData.append('title', updatedTitle);
+    formData.append('artist', updatedArtist);
+    formData.append('year', updatedYear);
+    formData.append('medium', updatedMedium);
+    formData.append('description', updatedDescription);
+    formData.append('artworkId', artworkId);
+
+    // Check if a new image file is selected
+    var imageFile = $('#modal-image-input')[0].files[0]; // Ensure the input field for image exists and is used
+    if (imageFile) {
+        formData.append('image', imageFile);
+    }
+
     // AJAX request to update artwork details
     $.ajax({
         url: 'updateartwork.php',
         method: 'POST',
-        data: {
-            title: updatedTitle,
-            artist: updatedArtist,
-            year: updatedYear,
-            medium: updatedMedium,
-            description: updatedDescription,
-            artworkId: artworkId // Send artworkId
-        },
+        data: formData,
+        processData: false, // Important for file uploads
+        contentType: false, // Important for file uploads
         success: function(response) {
             console.log(response);
             $('#cardModal').modal('hide');
+            // Redirect to adminartwork.php after successful update
+            window.location.href = 'adminartwork.php';
         },
         error: function(xhr, status, error) {
             console.error(xhr.responseText);
         }
     });
 });
+
 
 
     });

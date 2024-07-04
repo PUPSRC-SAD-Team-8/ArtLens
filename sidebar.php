@@ -59,7 +59,7 @@ $current_script = getCurrentScript();
                 <img src="assets/images/profile.png" alt="">
                 <div class="user-info">
                     <div class="name-email">
-                        <span class="name">Admin</span>
+                        <span class="name">adminaccount.php</span>
                         <span class="email">admin12@gmail.com</span>
                     </div>
                     <div class="dropup" style="cursor: pointer;">

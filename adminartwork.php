@@ -51,7 +51,7 @@ if (isset($_SESSION['userid'])) {
                                 <form class="add-form" enctype="multipart/form-data" action="submitartwork.php" method="POST">
                                     <div class="mb-3">
                                         <label for="image-upload" class="form-label">Upload Image</label>
-                                        <input type="file" id="image-upload" name="image" class="form-control" accept="image/*">
+                                        <input type="file" id="image-upload" name="image" class="form-control" accept=".png, .jpeg, .jpg">
                                     </div>
                                     <div class="mb-3">
                                         <label for="titleInput" class="form-label">Title</label>
@@ -138,7 +138,7 @@ if (isset($_SESSION['userid'])) {
                                 <br>
                                 <form id="editArtworkForm">
                                     <div class="mb-3">
-                                        <input type="file" class="form-control" id="modal-image-input" name="modal-image">
+                                        <input type="file" class="form-control" id="modal-image-input" name="modal-image" accept=" .png, .jpeg, .jpg">
                                     </div>
                                     <div class="mb-3">
                                         <label for="modal-title-input" class="form-label">Title</label>

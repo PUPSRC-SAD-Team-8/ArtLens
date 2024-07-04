@@ -34,6 +34,9 @@ if (isset($_SESSION['userid'])) {
             <!--MAIN MAIN MAIN-->
             <main class="content px-3 py-2">
                 <div class="container">
+                <form method="POST" action="generate_visitor_individual.php" target="_blank">
+                        <button type="submit" class="btn btn-primary float-end" name="pdf_for_individual" value="PDF">Export to File <i class="bi bi-file-earmark-pdf"></i></button>
+                    </form>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <h3 style="color: grey;">Individual</h3>
                         <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white; visibility: hidden;">Add Log</button>
@@ -78,7 +81,10 @@ if (isset($_SESSION['userid'])) {
                     </div>
 
                     <!-- Second Table -->
-                    <h3 style="margin-top: 2rem; color: grey;">Organization</h3>
+                    <form method="POST" action="generate_visitor_org.php" target="_blank">
+                        <button type="submit" class="btn btn-primary float-end" name="pdf_for_org" value="PDF">Export to File <i class="bi bi-file-earmark-pdf"></i></button>
+                    </form>
+                    <h3 style="margin-top: 2rem; color: grey;">Organization</h3> 
                     <div class="table-container">
                         <table id="myTable1" class="table table-striped table-bordered" style="background-color: #ffffff;">
                             <thead style="background-color: #4169E1; color: white;">

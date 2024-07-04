@@ -30,45 +30,6 @@ $row = mysqli_fetch_assoc($schedule);
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/annstyle.css" />
-    <style>
-        /* CSS for the loading spinner */
-        .loading-spinner1 {
-            display: none;
-            /* Initially hidden */
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #F8F9FA;
-            /* Semi-transparent white background */
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .loading-spinner1 .spinner1 {
-            width: 100px;
-            height: 100px;
-            border: 10px solid #4169E1;
-            /* Blue color */
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
-
 </head>
 
 <body>
@@ -81,9 +42,9 @@ $row = mysqli_fetch_assoc($schedule);
             <a class="nav-link admin-login-mobile btn1 adminlogbtn" onclick="document.getElementById('myModal').style.display='flex'">Admin Login</a>
         </div>
     </nav>
-    <div id="myModal" class="modal" style="<?php if ($displayModal) echo 'display: flex; ' ?>">
-        <div class="modal-content">
-            <span class="close3 " onclick="document.getElementById('myModal').style.display='none'" style="position: absolute; top: 1px; right: 20px; color: white;">&times;</span> <!-- Adjust position as needed -->
+    <div id="myModal" class="modallogin" style="<?php if ($displayModal) echo 'display: flex; ' ?>">
+        <div class="modal-contentlogin">
+            <span class="close3" onclick="document.getElementById('myModal').style.display='none'" style="position: relative; margin-top: -18px; color: white;">&times;</span> <!-- Adjust position as needed -->
             <br><br><br>
             <center><b>
                     <h3 style="font-size: 150%; font-family: sans-serif; color: #4169E1;">ARTLENS

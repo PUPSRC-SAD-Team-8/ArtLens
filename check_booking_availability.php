@@ -1,14 +1,9 @@
 <?php
-session_start();
 include('connection.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Escape and sanitize user inputs (not necessary with prepared statements)
-    $org_name = $_POST["onam"];
     $email = $_POST["emal"];
-    $phone_number = $_POST["monu"];
-    $num_female = $_POST["nufe"];
-    $num_male = $_POST["numa"];
     $date_time = $_POST["dati"];
 
     // Extract the date part from the datetime string
@@ -25,27 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($count > 0) {
         // Booking exists for the same email on the same date
-        http_response_code(400); // Bad Request
         echo 'exists_same_day';
-        exit; // Exit to prevent further execution
-    }
-
-    // Prepare SQL statement for insertion
-    $stmt_insert_booking = $conn->prepare("INSERT INTO booking (organization_name, contact_email, contact_number, num_male, num_female, book_datetime, book_status) 
-                                           VALUES (?, ?, ?, ?, ?, ?, 'Pending')");
-    // Bind parameters for insertion
-    $stmt_insert_booking->bind_param("ssssss", $org_name, $email, $phone_number, $num_male, $num_female, $date_time);
-
-    // Execute the insertion query
-    if ($stmt_insert_booking->execute()) {
-        echo 'success';
     } else {
-        http_response_code(500); // Internal Server Error
-        echo 'Error executing statement: ' . $stmt_insert_booking->error;
+        // No booking exists for the same email on the same date
+        echo 'success';
     }
-
-    // Close statement for insertion
-    $stmt_insert_booking->close();
 
     // Close connection
     $conn->close();

@@ -106,7 +106,7 @@ if (isset($_SESSION['userid'])) {
                     </div>
                     <div class="box"  style="width: 30%; border-radius: 10px; min-width: 300px;">
                         <h5 style="margin-left: -100px;">Current Visitor</h5>
-                        <h3 style="margin-left: -200px;"><b>123</b></h3>
+                        <h3 style="margin-left: -200px;"><b>4</b></h3>
                         <div class="d-flex align-items-center justify-content-end" style="margin-top: -50px; margin-right: 50px;">
                         <i class="bi bi-people-fill"></i>
                         </div>

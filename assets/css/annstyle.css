@@ -36,6 +36,12 @@
   font-size: 24px !important;
 }
 
+@media screen and (max-width: 700px) {
+  .swiper-navBtn {
+    display: none !important;
+  }
+}
+
 .swiper-pagination-bullet {
   background-color: #333 !important;
 }

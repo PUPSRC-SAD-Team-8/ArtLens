@@ -11,30 +11,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $num_male = $_POST["numa"];
     $date_time = $_POST["dati"];
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Extract the date part from the datetime string
+    $bookingDateOnly = date('Y-m-d', strtotime($date_time));
 
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+    // Check if there's already a booking for the same email on the same date
+    $sql_check_booking = "SELECT COUNT(*) AS count FROM booking WHERE contact_email = ? AND DATE(book_datetime) = ?";
+    $stmt_check_booking = $conn->prepare($sql_check_booking);
+    $stmt_check_booking->bind_param("ss", $email, $bookingDateOnly);
+    $stmt_check_booking->execute();
+    $stmt_check_booking->bind_result($count);
+    $stmt_check_booking->fetch();
+    $stmt_check_booking->close();
+
+    if ($count > 0) {
+        // Booking exists for the same email on the same date
+        http_response_code(400); // Bad Request
+        echo 'exists_same_day';
+        exit; // Exit to prevent further execution
     }
 
-    // Prepare SQL statement
-    $stmt = $conn->prepare("INSERT INTO booking (organization_name, contact_email, contact_number, num_male, num_female, book_datetime, book_status) 
-                            VALUES (?, ?, ?, ?, ?, ?, 'Pending')");
+    // Prepare SQL statement for insertion
+    $stmt_insert_booking = $conn->prepare("INSERT INTO booking (organization_name, contact_email, contact_number, num_male, num_female, book_datetime, book_status) 
+                                           VALUES (?, ?, ?, ?, ?, ?, 'Pending')");
+    // Bind parameters for insertion
+    $stmt_insert_booking->bind_param("ssssss", $org_name, $email, $phone_number, $num_male, $num_female, $date_time);
 
-    // Bind parameters
-    $stmt->bind_param("ssssss", $org_name, $email, $phone_number, $num_male, $num_female, $date_time);
-
-    // Execute the query
-    if ($stmt->execute()) {
+    // Execute the insertion query
+    if ($stmt_insert_booking->execute()) {
         echo 'success';
     } else {
-        echo 'Error executing statement: ' . $stmt->error;
+        http_response_code(500); // Internal Server Error
+        echo 'Error executing statement: ' . $stmt_insert_booking->error;
     }
 
-    // Close statement and connection
-    $stmt->close();
+    // Close statement for insertion
+    $stmt_insert_booking->close();
+
+    // Close connection
     $conn->close();
 } else {
     // Invalid request method

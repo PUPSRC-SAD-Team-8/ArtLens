@@ -1,3 +1,4 @@
+
 var modal = document.getElementById("myModal1");
 var span = document.getElementsByClassName("close2")[0];
 
@@ -10,6 +11,8 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 }
+
+
 
 function showForm() {
     document.getElementById("formContent").classList.remove("hidden");
@@ -55,189 +58,151 @@ function checkStatus() {
     };
     xhr.send("contact_email=" + referenceNumber); // Send the reference number as POST data
 }
+// time and date validation
+document.addEventListener("DOMContentLoaded", function() {
+    const input = document.getElementById('dati');
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1); // Set date to tomorrow
 
-function setMinDateTime() {
-    let now = new Date();
-    now.setDate(now.getDate() + 1);  // Set date to tomorrow
-    now.setHours(17, 0, 0, 0);   /*  This is for setting min time to 9AM in UTC but if in ph it is 5pm*/
+    // Calculate minimum datetime string
+    const minDateTime = tomorrow.toISOString().slice(0, 16); // Format as YYYY-MM-DDTHH:mm
 
-    console.log(now);
-    let minDateTime = now.toISOString().slice(0, 16);  // Format date as YYYY-MM-DDTHH:MM
-    console.log(minDateTime);
-    document.getElementsByName("dati")[0].setAttribute("min", minDateTime);
-}
+    // Set attribute for input element
+    input.setAttribute('min', minDateTime);
 
-function validateForm() {
-    let form = document.forms["bookingForm"];
-    let mobile = form["monu"].value;
-    let numMale = parseInt(form["numa"].value, 10);
-    let numFemale = parseInt(form["nufe"].value, 10);
+    // Validate time on input change
+    input.addEventListener('input', function() {
+        const selectedDateTime = new Date(this.value);
+        const selectedTime = selectedDateTime.getHours() * 100 + selectedDateTime.getMinutes(); // Convert time to 24-hour format HHmm
 
-    let mobilePattern = /^\d{11}$/;
+        const minTime = 900; // 9:00 AM in HHmm format (900)
+        const maxTime = 1600; // 4:00 PM in HHmm format (1600)
 
-    if (!mobilePattern.test(mobile)) {
-        alert("Please enter a valid 11-digit mobile number.");
-        return false;
+        if (selectedTime < minTime || selectedTime > maxTime) {
+            this.setCustomValidity(`Please select a time between 9:00 AM and 4:00 PM.`);
+            document.getElementById("bookButton").setAttribute('required', '');
+
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+});
+// time and date validation end
+
+//start of booking form date and email validation
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        // Show loading spinner
+        document.getElementById('submitText').style.display = 'none';
+        document.getElementById('loadingSpinner').classList.remove('visually-hidden');
+
+        // Collect form data
+        var formData = new FormData(document.getElementById('bookingForm'));
+
+        // Send form data via AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'booking.php', true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) { // Check for successful response
+                    var response = xhr.responseText.trim();
+                    if (response === 'success') {
+                        // Show success alert after a short delay (e.g., 3 seconds)
+                        setTimeout(function () {
+                            document.getElementById('alertMessage').classList.remove('d-none');
+                            // Reset form fields
+                            document.getElementById('bookingForm').reset();
+                            // Clear email status and enable submit button
+                            document.getElementById('emailStatus').innerHTML = '';
+                            document.getElementById('emal').classList.remove('input-error');
+                            document.getElementById('emal').classList.remove('border-red');
+                        }, 3000); // Adjust delay as needed
+                    } else {
+                        // Handle other responses (optional)
+                        console.error('Error: ' + response);
+                    }
+                } else {
+                    // Handle HTTP errors
+                    console.error('Error: ' + xhr.status);
+                }
+
+                // Hide loading spinner after request completes
+                setTimeout(function () {
+                    document.getElementById('submitText').style.display = 'inline';
+                    document.getElementById('loadingSpinner').classList.add('visually-hidden');
+                }, 3000); // Adjust delay as needed
+            }
+        };
+        xhr.onerror = function () {
+            // Handle AJAX errors
+            console.error('Error: AJAX request failed');
+
+            // Hide loading spinner on error
+            document.getElementById('submitText').style.display = 'inline';
+            document.getElementById('loadingSpinner').classList.add('visually-hidden');
+        };
+        xhr.send(formData);
     }
 
-    if (!Number.isInteger(numMale) || numMale < 0 || numMale > 50) {
-        alert("Number of males must be a non-negative integer and not more than 50.");
-        return false;
-    }
+    // Function to check email and date on input change
+    function checkBookingAvailability() {
+        var email = document.getElementById('emal').value.trim();
+        var datetime = document.getElementById('dati').value.trim();
 
-    if (!Number.isInteger(numFemale) || numFemale < 0 || numFemale > 50) {
-        alert("Number of females must be a non-negative integer and not more than 50.");
-        return false;
-    }
+        if (email === '' || datetime === '') {
+            // Clear email status if email or date field is empty
+            document.getElementById('emailStatus').innerHTML = '';
+            document.getElementById('emal').classList.remove('input-error');
+            document.getElementById('emal').classList.remove('border-red');
+            return;
+        }
 
-    let totalVisitor = parseInt(numFemale) + parseInt(numMale);
+        // AJAX request to check if email has a booking on the same day
+        var xhr = new XMLHttpRequest();
+        var formData = new FormData();
+        formData.append('emal', email);
+        formData.append('dati', datetime);
 
-    if (!Number.isInteger(totalVisitor) || totalVisitor < 1 || totalVisitor > 50) {
-        alert("Invalid Visitor Count"); /* Validate visitor count in total */
-        return false;
-    }
-
-    return true;
-}
-
-function handleSubmit(event) {
-    event.preventDefault(); // Prevent default form submission
-
-    // Check if email has future booking
-    if (document.getElementById('emal').classList.contains('input-error')) {
-        document.getElementById('emal').classList.add('border-red');
-        return; // Prevent form submission
-    }
-
-    if (!validateForm()) {
-        return; // Prevent form submission if form validation fails
-    }
-
-    // Show loading spinner and hide button text
-    document.getElementById('submitText').style.display = 'none';
-    document.getElementById('loadingSpinner').classList.remove('visually-hidden');
-
-    // Collect form data
-    var formData = new FormData(document.getElementById('bookingForm'));
-
-    // Send form data via AJAX
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'booking.php', true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                // AJAX request successful, handle response
-                var response = xhr.responseText.trim();
-                if (response === 'success') {
-                    // Show success alert after a short delay (e.g., 2 seconds)
-                    setTimeout(function () {
-                        document.getElementById('alertMessage').classList.remove('d-none');
-                        // Reset form fields
-                        document.getElementById('bookingForm').reset();
-                        // Clear email status and enable submit button
-                        document.getElementById('emailStatus').innerHTML = '';
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) { // Check for successful response
+                    var response = xhr.responseText.trim();
+                    if (response === 'exists_same_day') {
+                        // Show error message for existing booking on the same day
+                        document.getElementById('emailStatus').innerHTML = '<p style="color: red; font-size: smaller;">Email already has a booking on the same day.</p>';
+                        document.getElementById('emal').classList.add('input-error');
+                        document.getElementById('emal').classList.add('border-red');
+                      
+                    } else {
+                        // Clear email status and enable submit button if no booking exists
+                   
                         document.getElementById('emal').classList.remove('input-error');
                         document.getElementById('emal').classList.remove('border-red');
-                        document.getElementById('submitButton').disabled = false;
-                    }, 2000); // Adjust delay as needed
+                   
+                    }
                 } else {
-                    // Show error message (optional)
-                    console.error('Error: ' + response);
-                    // Handle error scenario as needed
+                    // Handle AJAX errors or HTTP errors
+                    console.error('Error: ' + xhr.status);
                 }
-            } else {
-                // AJAX request failed
-                console.error('Error: ' + xhr.status);
-                // Handle error scenario as needed
             }
+        };
 
-            // Reset button text and hide loading spinner
-            setTimeout(function () {
-                document.getElementById('submitText').style.display = 'inline';
-                document.getElementById('loadingSpinner').classList.add('visually-hidden');
-            }, 2000); // Adjust delay as needed
-        }
-    };
-    xhr.onerror = function () {
-        // Handle AJAX errors
-        console.error('Error: AJAX request failed');
-        // Reset button text and hide loading spinner on error
-        document.getElementById('submitText').style.display = 'inline';
-        document.getElementById('loadingSpinner').classList.add('visually-hidden');
-    };
-    xhr.send(formData);
-}
+        xhr.open('POST', 'check_booking_availability.php', true); // Replace with the PHP file to check booking availability
+        xhr.send(formData);
+    }
+
+    // Event listeners for input fields
+    document.getElementById('emal').addEventListener('input', checkBookingAvailability);
+    document.getElementById('dati').addEventListener('change', checkBookingAvailability);
+
+    // Event listener for form submission
+    document.getElementById('bookingForm').addEventListener('submit', handleSubmit);
+
+//end of booking form
 
 function dismissAlert() {
     document.getElementById('alertMessage').classList.add('d-none');
-}
-
-function checkEmail() {
-    var email = document.getElementById('emal').value.trim();
-    var emailStatusDiv = document.getElementById('emailStatus');
-
-    if (email === '') {
-        emailStatusDiv.innerHTML = ''; // Clear email status if email is empty
-        document.getElementById('emal').classList.remove('input-error');
-        document.getElementById('emal').classList.remove('border-red');
-        document.getElementById('submitButton').disabled = false; // Enable submit button
-        return; // If email field is empty, do nothing further
-    }
-
-    // Send AJAX request to check if email exists
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'check_email.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                // AJAX request successful, handle response
-                var response = xhr.responseText.trim();
-
-                if (response === 'exists_future') {
-                    // Email exists and has future bookings
-                    emailStatusDiv.innerHTML = '<span style="color: red;">This email already has a future booking.</span>';
-                    document.getElementById('emal').classList.add('input-error');
-                    document.getElementById('emal').classList.add('border-red');
-                    document.getElementById('submitButton').disabled = true; // Disable submit button
-                } else if (response === 'exists_past') {
-                    // Email exists but past bookings are allowed (handle this case if needed)
-                    emailStatusDiv.innerHTML = ''; // Clear email status
-                    document.getElementById('emal').classList.remove('input-error');
-                    document.getElementById('emal').classList.remove('border-red');
-                    document.getElementById('submitButton').disabled = false; // Enable submit button
-                } else if (response === 'not_exists') {
-                    // Email does not exist
-                    emailStatusDiv.innerHTML = ''; // Clear email status
-                    document.getElementById('emal').classList.remove('input-error');
-                    document.getElementById('emal').classList.remove('border-red');
-                    document.getElementById('submitButton').disabled = false; // Enable submit button
-                } else {
-                    console.error('Error: Unexpected response');
-                    emailStatusDiv.innerHTML = ''; // Clear email status
-                    document.getElementById('emal').classList.remove('input-error');
-                    document.getElementById('emal').classList.remove('border-red');
-                    document.getElementById('submitButton').disabled = false; // Enable submit button
-                }
-            } else {
-                // AJAX request failed
-                console.error('Error: ' + xhr.status);
-                emailStatusDiv.innerHTML = ''; // Clear email status
-                document.getElementById('emal').classList.remove('input-error');
-                document.getElementById('emal').classList.remove('border-red');
-                document.getElementById('submitButton').disabled = false; // Enable submit button
-            }
-        }
-    };
-    xhr.onerror = function () {
-        // Handle AJAX errors
-        console.error('Error: AJAX request failed');
-        emailStatusDiv.innerHTML = ''; // Clear email status
-        document.getElementById('emal').classList.remove('input-error');
-        document.getElementById('emal').classList.remove('border-red');
-        document.getElementById('submitButton').disabled = false; // Enable submit button
-    };
-    xhr.send('email=' + encodeURIComponent(email));
 }
 
 function preventInvalidInput(e) {

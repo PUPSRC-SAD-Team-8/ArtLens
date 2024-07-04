@@ -1,55 +1,371 @@
-.btn1{
-    padding: 10px ;
-    background-color:white !important;
-    color: #4169E1;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-  
-  .homebtn:hover{
-    background-color: #4169E1;
-    border-color: white;
-    color: #4169E1;
-  }
-  
-  .head {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      z-index: 1000 !important;
-      background-color: #4169E1 !important;
-  }
-  
-  body {
-      padding-top: 50px; /* Adjust body padding to accommodate fixed header */
-      margin-left: 1%;
-  }
-  
-  .titleh {
-      color: white;
-      
-  }
-
-  .info_box{
-    width: 540px;
-    max-width: 540px;
-    background: #fff;
-    border-radius: 5px;
-    transform: translate(-50%, -50%) scale(0.9);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
-.quiz_box{
-    width: 550px;
-    max-width: 400px;
-    background: #fff;
-    border-radius: 5px;
-    transform: translate(-50%, -50%) scale(0.9);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
+/* Custom CSS styles */
+.btn1 {
+    padding: 10px !important;
+    background-color: white !important;
+    color: #4169E1 !important;
+    border-radius: 5px !important;
+    text-decoration: none !important;
 }
 
-  
+.homebtn:hover {
+    background-color: #4169E1 !important;
+    border-color: white !important;
+    color: #4169E1 !important;
+}
+
+.head {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    background-color: #4169E1 !important;
+}
+
+.titleh {
+    color: white !important;
+}
+
+.info_box,
+.quiz_box,
+.result_box {
+    width: 100% !important;
+    max-width: 600px !important;
+    background: #fff !important;
+    border-radius: 5px !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(0.9) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.info_box.activeInfo,
+.quiz_box.activeQuiz,
+.result_box.activeResult {
+    opacity: 1 !important;
+    z-index: 5 !important;
+    pointer-events: auto !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+
+.info_box .info-title {
+    height: 60px !important;
+    width: 100% !important;
+    border-bottom: 1px solid lightgrey !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 30px !important;
+    border-radius: 5px 5px 0 0 !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+}
+
+.info_box .info-list {
+    padding: 15px 30px !important;
+}
+
+.info_box .info-list .info {
+    margin: 5px 0 !important;
+    font-size: 17px !important;
+}
+
+.info_box .info-list .info span {
+    font-weight: 600 !important;
+    color: #007bff !important;
+}
+
+.info_box .buttons {
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    padding: 0 30px !important;
+    border-top: 1px solid lightgrey !important;
+}
+
+.info_box .buttons button {
+    margin: 0 5px !important;
+    height: 40px !important;
+    width: 100px !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 5px !important;
+    border: 1px solid #007bff !important;
+    transition: all 0.3s ease !important;
+}
+
+.quiz_box header,
+.result_box .icon {
+    font-size: 100px !important;
+    color: #007bff !important;
+    margin-bottom: 10px !important;
+}
+
+.quiz_box header .title {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+}
+
+.quiz_box header .timer,
+.quiz_box header .time_line {
+    background: #cce5ff !important;
+    border: 1px solid #b8daff !important;
+}
+
+.quiz_box header .time_left_txt {
+    font-weight: 400 !important;
+    font-size: 17px !important;
+    user-select: none !important;
+}
+
+.quiz_box header .timer .timer_sec {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    height: 30px !important;
+    width: 45px !important;
+    color: #fff !important;
+    border-radius: 5px !important;
+    line-height: 30px !important;
+    text-align: center !important;
+    background: #343a40 !important;
+    border: 1px solid #343a40 !important;
+    user-select: none !important;
+}
+
+.quiz_box header .time_line {
+    position: absolute !important;
+    bottom: 0px !important;
+    left: 0px !important;
+    height: 3px !important;
+    background: #007bff !important;
+}
+
+section {
+    padding: 25px 30px 20px 30px !important;
+    background: #fff !important;
+}
+
+section .que_text {
+    font-size: 25px !important;
+    font-weight: 600 !important;
+}
+
+section .option_list {
+    padding: 20px 0px !important;
+    display: block !important;
+}
+
+section .option_list .option {
+    background: aliceblue !important;
+    border: 1px solid #84c5fe !important;
+    border-radius: 5px !important;
+    padding: 8px 15px !important;
+    font-size: 17px !important;
+    margin-bottom: 15px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+section .option_list .option:last-child {
+    margin-bottom: 0px !important;
+}
+
+section .option_list .option:hover {
+    color: #004085 !important;
+    background: #cce5ff !important;
+    border: 1px solid #b8daff !important;
+}
+
+section .option_list .option.correct {
+    color: #155724 !important;
+    background: #d4edda !important;
+    border: 1px solid #c3e6cb !important;
+}
+
+section .option_list .option.incorrect {
+    color: #721c24 !important;
+    background: #f8d7da !important;
+    border: 1px solid #f5c6cb !important;
+}
+
+section .option_list .option.disabled {
+    pointer-events: none !important;
+}
+
+section .option_list .option .icon {
+    height: 26px !important;
+    width: 26px !important;
+    border: 2px solid transparent !important;
+    border-radius: 50% !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    pointer-events: none !important;
+    transition: all 0.3s ease !important;
+    line-height: 24px !important;
+}
+
+.option_list .option .icon.tick {
+    color: #23903c !important;
+    border-color: #23903c !important;
+    background: #d4edda !important;
+}
+
+.option_list .option .icon.cross {
+    color: #a42834 !important;
+    background: #f8d7da !important;
+    border-color: #a42834 !important;
+}
+
+footer {
+    height: 60px !important;
+    padding: 0 30px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border-top: 1px solid lightgrey !important;
+}
+
+footer .total_que span {
+    display: flex !important;
+    user-select: none !important;
+}
+
+footer .total_que span p {
+    font-weight: 500 !important;
+    padding: 0 5px !important;
+}
+
+footer .total_que span p:first-child {
+    padding-left: 0px !important;
+}
+
+footer button {
+    height: 40px !important;
+    padding: 0 13px !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    cursor: pointer !important;
+    border: none !important;
+    outline: none !important;
+    color: #fff !important;
+    border-radius: 5px !important;
+    background: #007bff !important;
+    border: 1px solid #007bff !important;
+    line-height: 10px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: scale(0.95) !important;
+    transition: all 0.3s ease !important;
+}
+
+footer button:hover {
+    background: #0263ca !important;
+}
+
+footer button.show {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: scale(1) !important;
+}
+
+.result_box {
+    background: #fff !important;
+    border-radius: 5px !important;
+    display: flex !important;
+    padding: 25px 30px !important;
+    width: 450px !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    transform: translate(-50%, -50%) scale(0.9) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.result_box .icon {
+    font-size: 100px !important;
+    color: #007bff !important;
+    margin-bottom: 10px !important;
+}
+
+.result_box .complete_text {
+    font-size: 20px !important;
+    font-weight: 500 !important;
+}
+
+.result_box .score_text span {
+    display: flex !important;
+    margin: 10px 0 !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+.result_box .score_text span p {
+    padding: 0 4px !important;
+    font-weight: 600 !important;
+}
+
+.result_box .buttons {
+    display: flex !important;
+    margin: 20px 0 !important;
+}
+
+.result_box .buttons button {
+    margin: 0 10px !important;
+    height: 45px !important;
+    padding: 0 20px !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 5px !important;
+    border: 1px solid #007bff !important;
+    transition: all 0.3s ease !important;
+}
+
+.buttons button.restart {
+    color: #fff !important;
+    background: #007bff !important;
+}
+
+.buttons button.restart:hover {
+    background: #0263ca !important;
+}
+
+.buttons button.quit {
+    color: #007bff !important;
+    background: #fff !important;
+}
+
+.buttons button.quit:hover {
+    color: #fff !important;
+    background: #007bff !important;
+}
+
+@media (max-width: 768px) {
+    .blue-container {
+        padding-top: 80px !important;
+        height: auto !important;
+    }
+
+    .info_box,
+    .quiz_box,
+    .result_box {
+        width: 90% !important;
+    }
+
+    .container {
+        padding: 0 15px !important;
+    }
+}

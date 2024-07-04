@@ -112,23 +112,7 @@
         .capture-btn-group {
             position: absolute;
             left: 50%;
-            bottom: 20%;
-
-            /* @media only screen and (min-width: 320px) and (max-width: 375px) {
-                bottom: 20%;
-            } */
-
-            /* @media only screen and (min-width: 768px) and (max-width: 991px) {
-                bottom: 10%;
-            }
-
-            @media only screen and (min-width: 992px) and (max-width: 1023px) {
-                bottom: 25%;
-            }
-
-            @media only screen and (min-width: 1024px) {
-                bottom: 30%;
-            } */
+            bottom: 10%;
 
         }
 
@@ -138,7 +122,7 @@
             background-color: color-mix(in srgb, #4169e1 75%, transparent);
             border-radius: 50%;
             border: transparent solid clamp(1px, 0.25rem + 0.1vh + 0.1vw, 1rem);
-            outline: white solid clamp(2px, 0.01rem + 0.2vh + 0.2vw, 5px);
+            outline: white solid clamp(2px, 0.01rem + 0.3vh + 0.1vw, 5px);
             transform: translateX(-40%);
 
         }
@@ -165,13 +149,13 @@
         </div>
     </nav>
 
-    <div class="container-fluid mt-5">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-12 text-center">
                 <div id="webcam-container">
                     <button id="flip-camera-btn" class="btn btn-sm"><i class="fas fa-sync-alt"></i> Flip Camera</button>
                 </div>
-                <div class="capture-btn-group">
+                <div class="capture-btn-group d-none">
                     <label class="d-none" for="capture-button d-none">Capture</label>
                     <button id="capture-button" class="btn btn-primary mt-3">
 
@@ -186,113 +170,53 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-    <!-- <script type="module" src="assets/js/visitor-art-recog.js"></script> -->
 
 
 
     <script type="module">
-        import ViewportDimensions from './assets/js/viewport.js';
-        // import {
-        //     cropTo
-        // } from './assets/js/canvas.js';
-
-        let screen = {
-            width: null,
-            height: null,
-        };
-
-        let width = window.innerWidth;
-        let height = window.innerHeight;
-
-        screen.width = width * 0.9;
-
-        setSize(width, height, screen);
-
-        function setSize(thisWidth, thisHeight, screen) {
-            // Temporary set a fixed height caus I cant make it fully responsive
-
-            if (thisWidth > 576 && thisWidth < 768) {
-                // screen.height = height * 0.75;  
-                /* screen.height = thisHeight * 0.7; */
-
-            } else if (thisWidth >= 768) {
-                screen.height = 640;
-                screen.width = 480;
-            } else {
-                screen.height = thisHeight * 0.4;
-            }
-        }
-
-
-        // resize webcam every screen resize
-        ViewportDimensions.listenWindowResize((width, height, args) => {
-            console.log('width ' + width);
-            console.log('height ' + height);
-            const screen = args[0];
-            screen.width = width * 0.9;
-
-            setSize(width, height, screen);
-
-
-            console.log('calc width ' + screen.width);
-            console.log('calc height ' + screen.height);
-            setWebcam();
-        }, screen)
-
-        // console.log(screenWidth);
-        // console.log(screenHeight);
-
         const URL = "./my_model/"; // Path to your model files
 
         let model, webcam, labelContainer, maxPredictions;
 
-        async function init() {
+
+
+        async function init(isBackCam = true) {
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
+
 
             // Load the model and metadata
             model = await tmImage.load(modelURL, metadataURL);
             maxPredictions = model.getTotalClasses();
 
-            setWebcam();
+            setCamera(isBackCam);
+
         }
 
+        async function setCamera(isBackCam) {
+            let cameraFacing = "user";
+            if (isBackCam) {
+                cameraFacing = "environment";
+            }
 
-        // // This is a bad practice, use with caution
-        // tmImage.Webcam.prototype.renderCameraToCanvas = function() {
-        //     if (this.canvas && this.webcam) {
-        //         const ctx = this.canvas.getContext('2d');
+            if (webcam) {
+                await webcam.stop();
+            }
 
-        //         if (this.webcam.videoWidth !== 0) {
-        //             const croppedCanvas = cropTo(this.webcam, this.width, this.flip);
-
-        //             console.log(this.width)
-        //             console.log(croppedCanvas)
-        //             ctx.drawImage(croppedCanvas, 0, 0);
-        //         }
-        //     }
-        // }
-
-
-        async function setWebcam() {
             // Setup webcam
-            let flip = true; // Default to front camera
-            //let flip = false;
-
-            // webcam = new tmImage.Webcam(640, 480, flip); // Initial dimensions for desktop
-            webcam = new tmImage.Webcam(screen.width, screen.height, flip); // Initial dimensions for desktop
-
-
-
+            const flip = false; // Default to front camera
+            webcam = new tmImage.Webcam(640, 480, flip); // Initial dimensions for desktop
             await webcam.setup({
-                facingMode: "environment"
-            }); /* Try if automatically decide which camera to use */
+                facingMode: cameraFacing,
+                frameRate: 60
+            });
             await webcam.play();
             window.requestAnimationFrame(loop);
 
             // Append webcam element to the DOM
             const webcamContainer = document.getElementById("webcam-container");
             const existingCanvas = webcamContainer.querySelector('canvas');
+            const captureBtn = webcamContainer.nextElementSibling;
 
             // Check if there's already a canvas of cam preview
             if (existingCanvas) {
@@ -303,17 +227,9 @@
             // Now append the webcam canvas
             webcamContainer.appendChild(webcam.canvas);
 
-            const canvas = webcamContainer.querySelector('canvas');
-
-            if (width > 576 && width < 768) {
-                canvas.style.aspectRatio = 'auto';
-            } else if (screen.width > 768) {
-                canvas.style.aspectRatio = '4/3';
-            } else {
-                canvas.style.aspectRatio = 'auto';
-            }
-
             labelContainer = document.getElementById("label-container");
+
+            captureBtn.classList.remove('d-none');
         }
 
         async function loop() {
@@ -359,16 +275,13 @@
                         document.getElementById('modal-description').textContent = data.artwork_description;
                         $('#cardModal').addClass('modal-from-bottom').modal('show');
                     } else {
-                        alert("Artwork not found in the database.");
+                        $('#no-art').modal('show');
                     }
                 })
                 .catch(error => console.error('Error:', error));
         }
 
-        // Toggle function for flipping camera
-        function toggleCamera() {
-            webcam.flip(); // Flip the camera (front/back)
-        }
+        let flipCameraToggle = false;
 
         // Automatically initialize when the page loads
         window.addEventListener('load', init);
@@ -378,7 +291,8 @@
 
         // Add event listener to flip camera button
         document.getElementById('flip-camera-btn').addEventListener('click', function() {
-            toggleCamera();
+            setCamera(flipCameraToggle);
+            flipCameraToggle = !flipCameraToggle;
         });
     </script>
 
@@ -403,6 +317,25 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="textToSpeechBtn">Text to Speech</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="no-art" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span>
+                        The artwork is not available or is not recognized.
+                    </span>
                 </div>
             </div>
         </div>

@@ -61,13 +61,13 @@ if (isset($_SESSION['userid'])) {
                                         // Determine row class based on row number for alternating colors
                                         $row_class = ($row_num % 2 == 0) ? "even-row" : "odd-row";
                                         
-                                        echo "<tr class='clickable-row $row_class' data-info='" . $row["booking_id"] . "|" . $row["organization_name"] . "|" . $row["contact_email"] . "|" . $row["contact_number"] . "|" . ($row["num_male"] + $row["num_female"]) . "|" . $row["book_datetime"] . "|" . $row["book_status"] . "'>";
+                                        echo "<tr class='clickable-row $row_class' data-info='" . $row["booking_id"] . "|" . $row["organization_name"] . "|" . $row["contact_email"] . "|" . $row["contact_number"] . "|" . $row["num_male"] . "|" . $row["num_female"] . "|" . $row["book_datetime"] . "|" . $row["book_status"] . "'>";
                                         echo "<td>" . $row["organization_name"] . "</td>";
                                         echo "<td>" . $row["contact_email"] . "</td>";
                                         echo "<td>" . $row["contact_number"] . "</td>";
                                         echo "<td>" . ($row["num_male"] + $row["num_female"]) . "</td>";
                                         echo "<td>" . $row["book_datetime"] . "</td>";
-                                        echo "<td>" . $row["book_status"] . "</td>";
+                                        echo "<td>" . $row["book_status"] . "</td>"; 
                                         echo "</tr>";
                                     }
                                 } 
@@ -76,6 +76,9 @@ if (isset($_SESSION['userid'])) {
                         </table>
                         <br>
                         <br><br>
+                        <form method="POST" action="generate_booking_report.php" target="_blank">
+                            <button type="submit" class="btn btn-primary float-end" name="pdf_creater" value="PDF">Export to File <i class="bi bi-file-earmark-pdf"></i></button>
+                        </form>
                     </div>
                 </div>
             
@@ -147,8 +150,12 @@ if (isset($_SESSION['userid'])) {
                                         <input type="text" class="form-control" id="modal-mobile" name="mobile_number" readonly>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="modal-total" class="form-label">Total</label>
-                                        <input type="text" class="form-control" id="modal-total" name="total" readonly>
+                                        <label for="modal-nummale" class="form-label">Number of Male</label>
+                                        <input type="number" class="form-control" id="modal-nummale" name="num_male" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="modal-numfemale" class="form-label">Number of Female</label>
+                                        <input type="number" class="form-control" id="modal-numfemale" name="num_female" readonly>
                                     </div>
                                     <div class="mb-3">
                                         <label for="modal-date-time" class="form-label">Date and Time</label>
@@ -183,13 +190,15 @@ if (isset($_SESSION['userid'])) {
 
                         $('.clickable-row').click(function () {
                             var rowData = $(this).data('info').split('|');
+                            console.log(rowData);
                             $('#modal-id').val(rowData[0]);
                             $('#modal-name').val(rowData[1]);
                             $('#modal-email').val(rowData[2]);
                             $('#modal-mobile').val(rowData[3]);
-                            $('#modal-total').val(rowData[4]);
-                            $('#modal-date-time').val(rowData[5]);
-                            $('#modal-status').val(rowData[6]);
+                            $('#modal-nummale').val(rowData[4]);
+                            $('#modal-numfemale').val(rowData[5]);
+                            $('#modal-date-time').val(rowData[6]);
+                            $('#modal-status').val(rowData[7]);
                             $('#myModal').modal('show');
                         });
                     });

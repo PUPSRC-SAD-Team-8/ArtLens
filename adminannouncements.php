@@ -95,7 +95,7 @@ if (isset($_SESSION['userid'])) {
                                     <form action="adminannouncements.php" method="post" enctype="multipart/form-data" class="border p-4 shadow rounded" style="min-width: 350px; max-width: 450px;">
                                         <div class="mb-3">
                                             <label for="image" class="form-label">Image:</label>
-                                            <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                                            <input type="file" class="form-control" id="image" name="image" accept=".png, .jpeg, .jpg" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="title" class="form-label">Title:</label>
@@ -228,7 +228,7 @@ if (isset($_SESSION['userid'])) {
 
                             <div class="form-group">
                                 <label>Update Image</label>
-                                <input type="file" class="form-control" id="update-image" name="update-image">
+                                <input type="file" class="form-control" id="update-image" name="update-image" accept=".png, .jpeg, jpg">
                             </div>
 
                             <div class="form-group">

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a_Quiz</name>
+   <tag></tag>
+   <elementGuidId>80620841-6b24-4a9a-b06f-c008a81729cd</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//aside[@id='sidebar']/div/ul/li[4]/a</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:role=link[name=&quot; Quiz&quot;i]</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>9343d795-cd3e-493f-9d87-21c6b42fe9ce</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>adminquiz.php</value>
+      <webElementGuid>c108c493-37b5-46b5-93c1-e4457ba37a34</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>sidebar-link mx-2 </value>
+      <webElementGuid>0c9a0b59-23fb-4444-9a6e-ad6e2d1a4f10</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>
+                
+                Quiz
+            </value>
+      <webElementGuid>12725d15-1fd5-42ed-839f-25629355e4b9</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;sidebar&quot;)/div[@class=&quot;h-100&quot;]/ul[@class=&quot;sidebar-nav&quot;]/li[@class=&quot;sidebar-item&quot;]/a[@class=&quot;sidebar-link mx-2&quot;]</value>
+      <webElementGuid>b2fd3ed2-4085-4cd5-a941-2d20e0e1c960</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//aside[@id='sidebar']/div/ul/li[4]/a</value>
+      <webElementGuid>c45b00bd-a04c-449b-96f3-1904cc433251</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Quiz']/parent::*</value>
+      <webElementGuid>a1991a4a-21f7-4d8c-aaa7-d90823f3a608</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>//a[contains(@href, 'adminquiz.php')]</value>
+      <webElementGuid>440eb798-2b8b-410b-850d-7e9aa2ab729d</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//li[4]/a</value>
+      <webElementGuid>de3f5280-8386-4c87-b880-5077be7a96d7</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = 'adminquiz.php' and (text() = '
+                
+                Quiz
+            ' or . = '
+                
+                Quiz
+            ')]</value>
+      <webElementGuid>373559fb-707f-44d2-b742-e92973ead952</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

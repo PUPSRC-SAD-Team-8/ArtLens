@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportCollectionEntity>
+   <description></description>
+   <name>20240623_205000</name>
+   <tag></tag>
+   <displayName>20240623_205000</displayName>
+   <reportItemDescriptions>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_205000/Test_Admin_Page_Accessible/20240623_205001</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Edge Chromium</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_205000/Test_Admin_Pages_Authentication/20240623_205003</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Edge Chromium</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_205000/Test_Admin_Login/20240623_205005</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Edge Chromium</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_205000/Test_Admin_Logout/20240623_205007</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Edge Chromium</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_205000/Test_Admin_Pages_Authentication/20240623_205150</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Edge Chromium</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_205000/Test_Admin_Logout/20240623_205322</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Edge Chromium</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_205000/Test_Admin_Login/20240623_205330</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Edge Chromium</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_205000/Test_Admin_Login/20240623_205437</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Edge Chromium</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+   </reportItemDescriptions>
+   <testSuiteCollectionId>Test Suites/Test_on_MS_Edge</testSuiteCollectionId>
+</ReportCollectionEntity>

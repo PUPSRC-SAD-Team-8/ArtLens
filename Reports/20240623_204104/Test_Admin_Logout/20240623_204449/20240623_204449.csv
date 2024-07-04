@@ -1,0 +1,51 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Test_Admin_Logout,Firefox 128.0,,,23-06-2024 20:45:07,23-06-2024 20:47:10,2m - 3.067s,FAILED
+,,,,,,,
+Test Cases/admin/account_management/logout,Firefox 128.0,,,23-06-2024 20:45:08,23-06-2024 20:45:41,33.104s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:45:08,23-06-2024 20:45:19,11.322s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:45:19,23-06-2024 20:45:41,21.083s,FAILED
+catch (Exception e),Firefox 128.0,,,23-06-2024 20:45:41,23-06-2024 20:45:41,0.078s,FAILED
+Finally,Firefox 128.0,,,23-06-2024 20:45:41,23-06-2024 20:45:41,0.002s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:45:41,23-06-2024 20:45:41,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/announcement_management/logout,Firefox 128.0,,,23-06-2024 20:45:41,23-06-2024 20:45:57,16.736s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:45:41,23-06-2024 20:45:51,10.022s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:45:51,23-06-2024 20:45:57,6.180s,FAILED
+catch (Exception e),Firefox 128.0,,,23-06-2024 20:45:57,23-06-2024 20:45:57,0.008s,FAILED
+Finally,Firefox 128.0,,,23-06-2024 20:45:57,23-06-2024 20:45:57,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:45:57,23-06-2024 20:45:57,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/artwork_management/logout,Firefox 128.0,,,23-06-2024 20:45:57,23-06-2024 20:46:13,15.349s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:45:57,23-06-2024 20:46:06,8.808s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:46:07,23-06-2024 20:46:13,5.977s,FAILED
+catch (Exception e),Firefox 128.0,,,23-06-2024 20:46:13,23-06-2024 20:46:13,0.008s,FAILED
+Finally,Firefox 128.0,,,23-06-2024 20:46:13,23-06-2024 20:46:13,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:46:13,23-06-2024 20:46:13,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/booking_management/logout,Firefox 128.0,,,23-06-2024 20:46:13,23-06-2024 20:46:30,16.924s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:46:13,23-06-2024 20:46:21,7.750s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:46:21,23-06-2024 20:46:30,8.488s,FAILED
+catch (Exception e),Firefox 128.0,,,23-06-2024 20:46:30,23-06-2024 20:46:30,0.006s,FAILED
+Finally,Firefox 128.0,,,23-06-2024 20:46:30,23-06-2024 20:46:30,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:46:30,23-06-2024 20:46:30,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/dashboard/logout,Firefox 128.0,,,23-06-2024 20:46:30,23-06-2024 20:46:42,12.764s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:46:30,23-06-2024 20:46:38,8.273s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:46:38,23-06-2024 20:46:42,4.093s,FAILED
+catch (Exception e),Firefox 128.0,,,23-06-2024 20:46:42,23-06-2024 20:46:42,0.007s,FAILED
+Finally,Firefox 128.0,,,23-06-2024 20:46:42,23-06-2024 20:46:42,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:46:42,23-06-2024 20:46:42,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/quiz_management/logout,Firefox 128.0,,,23-06-2024 20:46:42,23-06-2024 20:46:55,12.278s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:46:43,23-06-2024 20:46:50,7.682s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:46:50,23-06-2024 20:46:55,4.293s,FAILED
+catch (Exception e),Firefox 128.0,,,23-06-2024 20:46:55,23-06-2024 20:46:55,0.006s,FAILED
+Finally,Firefox 128.0,,,23-06-2024 20:46:55,23-06-2024 20:46:55,0.000s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:46:55,23-06-2024 20:46:55,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/visitor_log_management/logout,Firefox 128.0,,,23-06-2024 20:46:55,23-06-2024 20:47:10,15.274s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:46:55,23-06-2024 20:47:02,7.596s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:47:04,23-06-2024 20:47:10,5.930s,FAILED
+catch (Exception e),Firefox 128.0,,,23-06-2024 20:47:10,23-06-2024 20:47:10,0.005s,FAILED
+Finally,Firefox 128.0,,,23-06-2024 20:47:10,23-06-2024 20:47:10,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:47:10,23-06-2024 20:47:10,0.000s,PASSED

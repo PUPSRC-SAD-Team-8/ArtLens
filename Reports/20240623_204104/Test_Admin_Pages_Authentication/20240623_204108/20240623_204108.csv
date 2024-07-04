@@ -1,0 +1,37 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Test_Admin_Pages_Authentication,Firefox 128.0,,,23-06-2024 20:41:35,23-06-2024 20:44:06,2m - 31.248s,FAILED
+,,,,,,,
+Test Cases/admin/account_management/page_accessible_logged_out,Firefox 128.0,,,23-06-2024 20:41:36,23-06-2024 20:42:14,38.472s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:41:36,23-06-2024 20:41:58,21.829s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:42:00,23-06-2024 20:42:14,14.142s,FAILED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:42:14,23-06-2024 20:42:14,0.002s,PASSED
+,,,,,,,
+Test Cases/admin/announcement_management/page_accessible_logged_out,Firefox 128.0,,,23-06-2024 20:42:14,23-06-2024 20:42:32,18.170s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:42:14,23-06-2024 20:42:31,16.419s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:42:31,23-06-2024 20:42:32,1.298s,FAILED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:42:32,23-06-2024 20:42:32,0.009s,PASSED
+,,,,,,,
+Test Cases/admin/artwork_management/page_accessible_logged_out,Firefox 128.0,,,23-06-2024 20:42:32,23-06-2024 20:43:06,33.778s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:42:33,23-06-2024 20:43:00,27.424s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:43:01,23-06-2024 20:43:06,5.392s,FAILED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:43:06,23-06-2024 20:43:06,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/booking_management/page_accessible_logged_out,Firefox 128.0,,,23-06-2024 20:43:06,23-06-2024 20:43:23,17.301s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:43:06,23-06-2024 20:43:22,15.991s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:43:22,23-06-2024 20:43:23,1.032s,FAILED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:43:23,23-06-2024 20:43:23,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/dashboard/page_accessible_logged_out,Firefox 128.0,,,23-06-2024 20:43:23,23-06-2024 20:43:40,16.361s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:43:23,23-06-2024 20:43:36,12.919s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:43:36,23-06-2024 20:43:40,3.404s,FAILED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:43:40,23-06-2024 20:43:40,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/quiz_management/page_accessible_logged_out,Firefox 128.0,,,23-06-2024 20:43:40,23-06-2024 20:43:54,13.773s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:43:40,23-06-2024 20:43:50,10.104s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:43:51,23-06-2024 20:43:54,2.360s,FAILED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:43:54,23-06-2024 20:43:54,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/visitor_log_management/page_accessible_logged_out,Firefox 128.0,,,23-06-2024 20:43:54,23-06-2024 20:44:06,12.722s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:43:54,23-06-2024 20:44:04,9.916s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:44:04,23-06-2024 20:44:06,2.285s,FAILED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:44:06,23-06-2024 20:44:06,0.001s,PASSED

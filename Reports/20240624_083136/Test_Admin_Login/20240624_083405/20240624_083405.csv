@@ -1,0 +1,36 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Test_Admin_Login,Edge Chromium 126,,,24-06-2024 08:34:16,24-06-2024 08:35:02,46.445s,FAILED
+,,,,,,,
+Test Cases/admin/landing_page/login_username_password_space_only,Edge Chromium 126,,,24-06-2024 08:34:16,24-06-2024 08:34:33,17.134s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,24-06-2024 08:34:17,24-06-2024 08:34:20,3.563s,PASSED
+try,Edge Chromium 126,,,24-06-2024 08:34:21,24-06-2024 08:34:31,10.266s,PASSED
+"click(findTestObject(""admin/landing_page/div_ARTLENS_Modal_Login_Form""))",Edge Chromium 126,,,24-06-2024 08:34:31,24-06-2024 08:34:32,0.386s,PASSED
+Thread.sleep(500),Edge Chromium 126,,,24-06-2024 08:34:32,24-06-2024 08:34:32,0.539s,PASSED
+"isUsernameInvalid = AdminUtils.containsClass(findTestObject(""Object Repository/admin/landing_page/input_ARTLENS_uname""), ""is-invalid"")",Edge Chromium 126,,,24-06-2024 08:34:32,24-06-2024 08:34:32,0.324s,PASSED
+if (!(isUsernameInvalid)),Edge Chromium 126,,,24-06-2024 08:34:32,24-06-2024 08:34:33,1.039s,PASSED
+Finally,Edge Chromium 126,,,24-06-2024 08:34:33,24-06-2024 08:34:33,0.003s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,24-06-2024 08:34:33,24-06-2024 08:34:33,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/login_username_space_only,Edge Chromium 126,,,24-06-2024 08:34:33,24-06-2024 08:34:43,9.568s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,24-06-2024 08:34:34,24-06-2024 08:34:35,1.072s,PASSED
+try,Edge Chromium 126,,,24-06-2024 08:34:35,24-06-2024 08:34:41,5.820s,PASSED
+"click(findTestObject(""admin/landing_page/div_ARTLENS_Modal_Login_Form""))",Edge Chromium 126,,,24-06-2024 08:34:41,24-06-2024 08:34:41,0.332s,PASSED
+Thread.sleep(500),Edge Chromium 126,,,24-06-2024 08:34:41,24-06-2024 08:34:41,0.505s,PASSED
+"isUsernameInvalid = AdminUtils.containsClass(findTestObject(""Object Repository/admin/landing_page/input_ARTLENS_uname""), ""is-invalid"")",Edge Chromium 126,,,24-06-2024 08:34:41,24-06-2024 08:34:42,0.307s,PASSED
+if (!(isUsernameInvalid)),Edge Chromium 126,,,24-06-2024 08:34:42,24-06-2024 08:34:43,1.264s,FAILED
+Finally,Edge Chromium 126,,,24-06-2024 08:34:43,24-06-2024 08:34:43,0.000s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,24-06-2024 08:34:43,24-06-2024 08:34:43,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/login_all_valid_email_case_incorrect,Edge Chromium 126,,,24-06-2024 08:34:43,24-06-2024 08:34:52,9.448s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,24-06-2024 08:34:43,24-06-2024 08:34:44,1.065s,PASSED
+try,Edge Chromium 126,,,24-06-2024 08:34:44,24-06-2024 08:34:52,8.048s,FAILED
+catch (Exception e),Edge Chromium 126,,,24-06-2024 08:34:52,24-06-2024 08:34:52,0.045s,FAILED
+Finally,Edge Chromium 126,,,24-06-2024 08:34:52,24-06-2024 08:34:52,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,24-06-2024 08:34:52,24-06-2024 08:34:52,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/login_all_valid_passwords_case_incorrect,Edge Chromium 126,,,24-06-2024 08:34:52,24-06-2024 08:35:02,9.843s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,24-06-2024 08:34:53,24-06-2024 08:34:54,1.162s,PASSED
+try,Edge Chromium 126,,,24-06-2024 08:34:54,24-06-2024 08:35:02,8.300s,FAILED
+catch (Exception e),Edge Chromium 126,,,24-06-2024 08:35:02,24-06-2024 08:35:02,0.010s,FAILED
+Finally,Edge Chromium 126,,,24-06-2024 08:35:02,24-06-2024 08:35:02,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,24-06-2024 08:35:02,24-06-2024 08:35:02,0.000s,PASSED

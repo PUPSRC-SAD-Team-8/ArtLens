@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a_Artworks</name>
+   <tag></tag>
+   <elementGuidId>f349de78-3ade-4d35-94d8-04193a4f6af8</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//aside[@id='sidebar']/div/ul/li[2]/a</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:role=link[name=&quot; Artworks&quot;i]</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>07b2052a-1d75-431c-97e2-a1830b9bf218</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>adminartwork.php</value>
+      <webElementGuid>207d5458-d44d-4521-a8d8-e6157eaf9376</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>sidebar-link mx-2 </value>
+      <webElementGuid>75088254-1447-418a-b218-36a95dba168f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>
+                
+                Artworks
+            </value>
+      <webElementGuid>a343413d-61dd-4141-96a9-44989257fd08</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;sidebar&quot;)/div[@class=&quot;h-100&quot;]/ul[@class=&quot;sidebar-nav&quot;]/li[@class=&quot;sidebar-item&quot;]/a[@class=&quot;sidebar-link mx-2&quot;]</value>
+      <webElementGuid>04c6e33f-5da4-44b2-82d0-1afaa0d58ca0</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//aside[@id='sidebar']/div/ul/li[2]/a</value>
+      <webElementGuid>8317d8d1-342d-49cf-8f87-96ff4c1efffd</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='ArtLens'])[1]/following::a[2]</value>
+      <webElementGuid>93dd273b-9a05-42f6-aea4-4f2a19872eb9</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Artworks']/parent::*</value>
+      <webElementGuid>74dbf78c-cd95-4f69-9b5f-3f4ac0fcb975</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>//a[contains(@href, 'adminartwork.php')]</value>
+      <webElementGuid>a67e8509-59f9-49fb-a656-de1fc56d1c72</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//li[2]/a</value>
+      <webElementGuid>18831cee-b4fb-45ab-91b7-fd92b022af6b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = 'adminartwork.php' and (text() = '
+                
+                Artworks
+            ' or . = '
+                
+                Artworks
+            ')]</value>
+      <webElementGuid>ca0333b8-f747-4099-9419-21122a41f1f4</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

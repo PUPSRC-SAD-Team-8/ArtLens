@@ -1,0 +1,36 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Test_Admin_Login,Firefox 128.0,,,23-06-2024 20:47:14,23-06-2024 20:47:55,41.050s,FAILED
+,,,,,,,
+Test Cases/admin/landing_page/login_username_password_space_only,Firefox 128.0,,,23-06-2024 20:47:14,23-06-2024 20:47:30,15.750s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:47:14,23-06-2024 20:47:22,7.906s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:47:23,23-06-2024 20:47:29,5.941s,PASSED
+"click(findTestObject(""admin/landing_page/div_ARTLENS_Modal_Login_Form""))",Firefox 128.0,,,23-06-2024 20:47:29,23-06-2024 20:47:29,0.235s,PASSED
+Thread.sleep(500),Firefox 128.0,,,23-06-2024 20:47:29,23-06-2024 20:47:29,0.516s,PASSED
+"isUsernameInvalid = AdminUtils.containsClass(findTestObject(""Object Repository/admin/landing_page/input_ARTLENS_uname""), ""is-invalid"")",Firefox 128.0,,,23-06-2024 20:47:29,23-06-2024 20:47:29,0.041s,PASSED
+if (!(isUsernameInvalid)),Firefox 128.0,,,23-06-2024 20:47:29,23-06-2024 20:47:30,0.382s,PASSED
+Finally,Firefox 128.0,,,23-06-2024 20:47:30,23-06-2024 20:47:30,0.000s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:47:30,23-06-2024 20:47:30,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/login_username_space_only,Firefox 128.0,,,23-06-2024 20:47:30,23-06-2024 20:47:39,8.800s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:47:30,23-06-2024 20:47:34,4.408s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:47:35,23-06-2024 20:47:38,2.916s,PASSED
+"click(findTestObject(""admin/landing_page/div_ARTLENS_Modal_Login_Form""))",Firefox 128.0,,,23-06-2024 20:47:38,23-06-2024 20:47:38,0.231s,PASSED
+Thread.sleep(500),Firefox 128.0,,,23-06-2024 20:47:38,23-06-2024 20:47:38,0.502s,PASSED
+"isUsernameInvalid = AdminUtils.containsClass(findTestObject(""Object Repository/admin/landing_page/input_ARTLENS_uname""), ""is-invalid"")",Firefox 128.0,,,23-06-2024 20:47:38,23-06-2024 20:47:38,0.026s,PASSED
+if (!(isUsernameInvalid)),Firefox 128.0,,,23-06-2024 20:47:38,23-06-2024 20:47:39,0.350s,FAILED
+Finally,Firefox 128.0,,,23-06-2024 20:47:39,23-06-2024 20:47:39,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:47:39,23-06-2024 20:47:39,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/login_all_valid_email_case_incorrect,Firefox 128.0,,,23-06-2024 20:47:39,23-06-2024 20:47:47,7.968s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:47:39,23-06-2024 20:47:43,4.067s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:47:43,23-06-2024 20:47:47,3.513s,FAILED
+catch (Exception e),Firefox 128.0,,,23-06-2024 20:47:47,23-06-2024 20:47:47,0.037s,FAILED
+Finally,Firefox 128.0,,,23-06-2024 20:47:47,23-06-2024 20:47:47,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:47:47,23-06-2024 20:47:47,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/login_all_valid_passwords_case_incorrect,Firefox 128.0,,,23-06-2024 20:47:47,23-06-2024 20:47:55,8.255s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:47:47,23-06-2024 20:47:51,4.520s,PASSED
+try,Firefox 128.0,,,23-06-2024 20:47:51,23-06-2024 20:47:55,3.431s,FAILED
+catch (Exception e),Firefox 128.0,,,23-06-2024 20:47:55,23-06-2024 20:47:55,0.005s,FAILED
+Finally,Firefox 128.0,,,23-06-2024 20:47:55,23-06-2024 20:47:55,0.000s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:47:55,23-06-2024 20:47:55,0.000s,PASSED

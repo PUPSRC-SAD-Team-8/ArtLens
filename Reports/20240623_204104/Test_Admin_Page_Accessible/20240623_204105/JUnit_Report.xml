@@ -1,0 +1,945 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Test_Admin_Page_Accessible" time="200.511" tests="8" failures="0" errors="0">
+   <testsuite name="Test_Admin_Page_Accessible" tests="8" failures="0" errors="0" time="200.511" skipped="0" timestamp="23-06-2024T20:41:31" hostname="Summer - DESKTOP-KG5V3HF" id="Test Suites/Test_Admin_Page_Accessible">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="C:\\DevPackage\\xampp\\htdocs\\SAD\\ArtLens\\Reports\\20240623_204104\\Test_Admin_Page_Accessible\\20240623_204105"/>
+         <property name="logFiles" value="C:\\DevPackage\\xampp\\htdocs\\SAD\\ArtLens\\Reports\\20240623_204104\\Test_Admin_Page_Accessible\\20240623_204105\\execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="Summer - DESKTOP-KG5V3HF"/>
+         <property name="os" value="Windows 10 64bit"/>
+         <property name="katalonVersion" value="9.6.0.217"/>
+         <property name="browser" value="Firefox 128.0"/>
+         <property name="hostAddress" value="192.200.100.56"/>
+         <property name="sessionId" value="048a1d81-53b3-48e2-a98e-237b6ed2b65e"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Windows 10"/>
+      </properties>
+      <testcase name="Test Cases/admin/account_management/page_accessible" time="52.051" classname="Test Cases/admin/account_management/page_accessible" status="PASSED">
+         <system-out><![CDATA[23-06-2024T20:41:32 - [TEST_CASE][PASSED] - Test Cases/admin/account_management/page_accessible: Test Cases/admin/account_management/page_accessible
+
+23-06-2024T20:41:33 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:41:33 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:41:34 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:41:36 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:41:38 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:41:58 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:42:00 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("adminaccount.php"): Navigate to 'http://localhost/SAD/ArtLens/adminaccount.php' successfully
+
+23-06-2024T20:42:10 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\0.har
+
+23-06-2024T20:42:10 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:42:10 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:42:13 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/adminaccount.php' successfully
+
+23-06-2024T20:42:13 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:42:14 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:42:15 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:15 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:42:15 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:42:15 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:42:16 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:42:16 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:42:17 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:42:17 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\1.har
+
+23-06-2024T20:42:17 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:42:17 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:42:18 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:42:18 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:42:18 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:42:18 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:19 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:42:19 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:42:19 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:42:19 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:42:19 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:42:19 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:20 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:42:20 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:42:21 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:42:21 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:42:21 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:42:22 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:42:22 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:22 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:42:22 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:42:23 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:42:23 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:42:23 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:42:23 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:42:23 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:42:23 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:42:23 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:23 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:23 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:23 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:42:23 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:42:23 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3"), 0): Object 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is present
+
+23-06-2024T20:42:23 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:23 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is present
+
+23-06-2024T20:42:23 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is visible
+
+23-06-2024T20:42:23 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is visible
+
+23-06-2024T20:42:23 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3")): Object: 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is clicked on
+
+23-06-2024T20:42:24 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is clicked on
+
+23-06-2024T20:42:24 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminaccount.php'
+
+23-06-2024T20:42:24 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminaccount.php'
+
+23-06-2024T20:42:24 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminaccount.php: null
+
+23-06-2024T20:42:24 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminaccount.php' and expected text 'http://localhost/SAD/ArtLens/adminaccount.php' are matched 
+
+23-06-2024T20:42:24 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminaccount.php' and expected text 'http://localhost/SAD/ArtLens/adminaccount.php' are matched 
+
+23-06-2024T20:42:24 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminaccount.php
+
+23-06-2024T20:42:24 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminaccount.php
+
+23-06-2024T20:42:24 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminaccount.php
+
+23-06-2024T20:42:24 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/announcement_management/page_accessible" time="24.552" classname="Test Cases/admin/announcement_management/page_accessible" status="PASSED">
+         <system-out><![CDATA[23-06-2024T20:42:24 - [TEST_CASE][PASSED] - Test Cases/admin/announcement_management/page_accessible: Test Cases/admin/announcement_management/page_accessible
+
+23-06-2024T20:42:25 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:42:25 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:42:25 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:42:25 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:42:28 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:42:28 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:42:36 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:42:37 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("adminannouncements.php"): Navigate to 'http://localhost/SAD/ArtLens/adminannouncements.php' successfully
+
+23-06-2024T20:42:37 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\2.har
+
+23-06-2024T20:42:37 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:42:37 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:42:40 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/adminannouncements.php' successfully
+
+23-06-2024T20:42:40 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:42:40 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:42:40 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:40 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:42:40 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:42:41 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:42:41 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:42:41 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:42:41 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:42:41 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\3.har
+
+23-06-2024T20:42:41 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:42:41 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:42:42 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:42:42 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:42:42 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:42:42 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:42 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:42:42 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:42:42 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:42:42 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:42:42 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:42:42 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:43 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:42:43 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:42:46 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:42:47 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:42:47 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:42:47 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:42:47 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:47 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:42:48 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:42:48 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:42:48 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:42:48 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:42:48 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:42:48 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:42:48 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:42:48 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:48 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:48 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:48 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:42:48 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:42:48 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Announcements"), 0): Object 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is present
+
+23-06-2024T20:42:48 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:48 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is present
+
+23-06-2024T20:42:48 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Announcements"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is visible
+
+23-06-2024T20:42:49 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is visible
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Announcements")): Object: 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is clicked on
+
+23-06-2024T20:42:49 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is clicked on
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminannouncements.php'
+
+23-06-2024T20:42:49 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminannouncements.php'
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminannouncements.php: null
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminannouncements.php' and expected text 'http://localhost/SAD/ArtLens/adminannouncements.php' are matched 
+
+23-06-2024T20:42:49 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminannouncements.php' and expected text 'http://localhost/SAD/ArtLens/adminannouncements.php' are matched 
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminannouncements.php
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminannouncements.php
+
+23-06-2024T20:42:49 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminannouncements.php
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/artwork_management/page_accessible" time="27.736" classname="Test Cases/admin/artwork_management/page_accessible" status="PASSED">
+         <system-out><![CDATA[23-06-2024T20:42:49 - [TEST_CASE][PASSED] - Test Cases/admin/artwork_management/page_accessible: Test Cases/admin/artwork_management/page_accessible
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:42:49 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:42:53 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:42:53 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:43:00 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:43:01 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("adminartwork.php"): Navigate to 'http://localhost/SAD/ArtLens/adminartwork.php' successfully
+
+23-06-2024T20:43:01 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\4.har
+
+23-06-2024T20:43:01 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:43:01 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:43:04 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/adminartwork.php' successfully
+
+23-06-2024T20:43:04 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:43:04 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:43:04 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:04 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:43:04 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:43:04 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:43:04 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:43:04 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:43:04 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:43:05 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\5.har
+
+23-06-2024T20:43:05 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:43:05 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:43:12 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:43:12 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:43:12 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:43:12 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:12 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:43:12 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:43:12 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:43:12 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:43:12 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:43:12 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:12 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:43:12 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:43:14 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:43:15 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:43:15 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:43:15 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:43:15 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:15 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:43:16 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:43:16 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:43:16 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:43:16 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:43:16 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:43:16 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:43:16 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:43:16 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:16 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:16 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:16 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:43:16 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:43:16 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Artworks"), 0): Object 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is present
+
+23-06-2024T20:43:16 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:16 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is present
+
+23-06-2024T20:43:16 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Artworks"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is visible
+
+23-06-2024T20:43:16 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is visible
+
+23-06-2024T20:43:16 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Artworks")): Object: 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is clicked on
+
+23-06-2024T20:43:17 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is clicked on
+
+23-06-2024T20:43:17 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminartwork.php'
+
+23-06-2024T20:43:17 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminartwork.php'
+
+23-06-2024T20:43:17 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminartwork.php: null
+
+23-06-2024T20:43:17 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminartwork.php' and expected text 'http://localhost/SAD/ArtLens/adminartwork.php' are matched 
+
+23-06-2024T20:43:17 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminartwork.php' and expected text 'http://localhost/SAD/ArtLens/adminartwork.php' are matched 
+
+23-06-2024T20:43:17 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminartwork.php
+
+23-06-2024T20:43:17 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminartwork.php
+
+23-06-2024T20:43:17 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminartwork.php
+
+23-06-2024T20:43:17 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/booking_management/page_accessible" time="23.346" classname="Test Cases/admin/booking_management/page_accessible" status="PASSED">
+         <system-out><![CDATA[23-06-2024T20:43:17 - [TEST_CASE][PASSED] - Test Cases/admin/booking_management/page_accessible: Test Cases/admin/booking_management/page_accessible
+
+23-06-2024T20:43:17 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:43:17 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:43:17 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:43:17 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:43:24 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:43:24 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:43:32 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:43:33 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("adminbooking.php"): Navigate to 'http://localhost/SAD/ArtLens/adminbooking.php' successfully
+
+23-06-2024T20:43:33 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\6.har
+
+23-06-2024T20:43:33 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:43:33 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:43:34 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/adminbooking.php' successfully
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:43:34 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:43:35 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:43:35 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:43:35 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:43:35 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:43:35 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\7.har
+
+23-06-2024T20:43:35 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:43:35 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:43:36 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:43:36 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:43:36 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:43:36 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:36 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:43:36 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:43:36 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:43:36 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:43:36 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:43:36 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:36 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:43:37 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:43:38 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:43:38 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:43:38 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:43:38 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:43:39 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:39 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:43:39 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:43:39 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:43:39 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:43:39 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:43:39 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:43:39 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:43:39 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:43:39 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:39 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:39 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:39 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:43:39 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:43:39 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Booking"), 0): Object 'Object Repository/admin/components/side_nav_drawer/a_Booking' is present
+
+23-06-2024T20:43:39 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:39 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Booking' is present
+
+23-06-2024T20:43:39 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Booking"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/side_nav_drawer/a_Booking' is visible
+
+23-06-2024T20:43:39 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Booking' is visible
+
+23-06-2024T20:43:39 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Booking")): Object: 'Object Repository/admin/components/side_nav_drawer/a_Booking' is clicked on
+
+23-06-2024T20:43:40 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Booking' is clicked on
+
+23-06-2024T20:43:40 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminbooking.php'
+
+23-06-2024T20:43:40 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminbooking.php'
+
+23-06-2024T20:43:40 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminbooking.php: null
+
+23-06-2024T20:43:40 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminbooking.php' and expected text 'http://localhost/SAD/ArtLens/adminbooking.php' are matched 
+
+23-06-2024T20:43:40 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminbooking.php' and expected text 'http://localhost/SAD/ArtLens/adminbooking.php' are matched 
+
+23-06-2024T20:43:40 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminbooking.php
+
+23-06-2024T20:43:40 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminbooking.php
+
+23-06-2024T20:43:40 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminbooking.php
+
+23-06-2024T20:43:40 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/dashboard/page_accessible" time="13.458" classname="Test Cases/admin/dashboard/page_accessible" status="PASSED">
+         <system-out><![CDATA[23-06-2024T20:43:40 - [TEST_CASE][PASSED] - Test Cases/admin/dashboard/page_accessible: Test Cases/admin/dashboard/page_accessible
+
+23-06-2024T20:43:40 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:43:40 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:43:40 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:43:40 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:43:43 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:43:43 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:43:50 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:43:51 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("adminindex.php"): Navigate to 'http://localhost/SAD/ArtLens/adminindex.php' successfully
+
+23-06-2024T20:43:51 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\8.har
+
+23-06-2024T20:43:51 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:43:51 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:43:53 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/adminindex.php' successfully
+
+23-06-2024T20:43:54 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/landing_page/page_acessible" time="12.716" classname="Test Cases/admin/landing_page/page_acessible" status="PASSED">
+         <system-out><![CDATA[23-06-2024T20:43:54 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:43:54 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:43:54 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:43:54 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:43:54 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:43:57 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:43:57 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:44:04 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:44:04 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:44:04 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\9.har
+
+23-06-2024T20:44:04 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:44:04 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:44:06 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:44:06 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/quiz_management/page_accessible" time="21.564" classname="Test Cases/admin/quiz_management/page_accessible" status="PASSED">
+         <system-out><![CDATA[23-06-2024T20:44:06 - [TEST_CASE][PASSED] - Test Cases/admin/quiz_management/page_accessible: Test Cases/admin/quiz_management/page_accessible
+
+23-06-2024T20:44:06 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:44:06 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:44:06 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:44:06 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:44:13 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:44:13 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:44:19 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:44:19 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("adminquiz.php"): Navigate to 'http://localhost/SAD/ArtLens/adminquiz.php' successfully
+
+23-06-2024T20:44:19 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\10.har
+
+23-06-2024T20:44:19 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:44:19 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:44:21 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/adminquiz.php' successfully
+
+23-06-2024T20:44:21 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:44:21 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:44:21 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:21 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:44:21 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:44:21 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:44:21 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:44:21 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:44:21 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:44:22 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\11.har
+
+23-06-2024T20:44:22 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:44:22 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:44:22 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:44:22 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:44:22 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:44:22 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:22 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:44:22 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:44:22 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:44:22 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:44:22 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:44:22 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:23 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:44:23 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:44:25 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:44:26 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:44:26 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:44:26 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:44:26 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:26 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:44:26 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:44:27 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:44:27 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:44:27 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:44:27 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:44:27 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:44:27 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:44:27 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:27 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:27 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:27 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:44:27 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:44:27 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Quiz"), 0): Object 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is present
+
+23-06-2024T20:44:27 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:27 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is present
+
+23-06-2024T20:44:27 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Quiz"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is visible
+
+23-06-2024T20:44:27 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is visible
+
+23-06-2024T20:44:27 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Quiz")): Object: 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is clicked on
+
+23-06-2024T20:44:28 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is clicked on
+
+23-06-2024T20:44:28 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminquiz.php'
+
+23-06-2024T20:44:28 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminquiz.php'
+
+23-06-2024T20:44:28 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminquiz.php: null
+
+23-06-2024T20:44:28 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminquiz.php' and expected text 'http://localhost/SAD/ArtLens/adminquiz.php' are matched 
+
+23-06-2024T20:44:28 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminquiz.php' and expected text 'http://localhost/SAD/ArtLens/adminquiz.php' are matched 
+
+23-06-2024T20:44:28 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminquiz.php
+
+23-06-2024T20:44:28 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminquiz.php
+
+23-06-2024T20:44:28 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminquiz.php
+
+23-06-2024T20:44:28 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/visitor_log_management/page_accessible" time="23.825" classname="Test Cases/admin/visitor_log_management/page_accessible" status="PASSED">
+         <system-out><![CDATA[23-06-2024T20:44:28 - [TEST_CASE][PASSED] - Test Cases/admin/visitor_log_management/page_accessible: Test Cases/admin/visitor_log_management/page_accessible
+
+23-06-2024T20:44:28 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:44:28 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:44:28 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:44:28 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:44:33 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:44:34 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:44:41 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:44:43 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("adminvisitorlog.php"): Navigate to 'http://localhost/SAD/ArtLens/adminvisitorlog.php' successfully
+
+23-06-2024T20:44:43 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\12.har
+
+23-06-2024T20:44:43 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:44:43 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:44:45 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/adminvisitorlog.php' successfully
+
+23-06-2024T20:44:45 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:44:45 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:44:45 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:45 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:44:45 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:44:45 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:44:45 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:44:45 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:44:45 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:44:45 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Page_Accessible\20240623_204105\requests\main\13.har
+
+23-06-2024T20:44:45 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:44:45 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:44:46 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:44:46 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:44:46 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:44:46 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:46 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:44:46 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:44:47 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:44:47 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:44:47 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:44:47 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:47 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:44:48 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:44:49 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:44:49 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:44:50 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:44:50 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:44:50 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:50 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:44:50 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:44:51 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:44:51 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:44:51 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:44:51 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:44:51 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:44:51 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:44:51 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:51 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:51 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:51 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:44:51 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:44:51 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Visitor Log"), 0): Object 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is present
+
+23-06-2024T20:44:51 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:51 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is present
+
+23-06-2024T20:44:51 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Visitor Log"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is visible
+
+23-06-2024T20:44:51 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is visible
+
+23-06-2024T20:44:51 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Visitor Log")): Object: 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is clicked on
+
+23-06-2024T20:44:52 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is clicked on
+
+23-06-2024T20:44:52 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminvisitorlog.php'
+
+23-06-2024T20:44:52 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminvisitorlog.php'
+
+23-06-2024T20:44:52 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminvisitorlog.php: null
+
+23-06-2024T20:44:52 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminvisitorlog.php' and expected text 'http://localhost/SAD/ArtLens/adminvisitorlog.php' are matched 
+
+23-06-2024T20:44:52 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminvisitorlog.php' and expected text 'http://localhost/SAD/ArtLens/adminvisitorlog.php' are matched 
+
+23-06-2024T20:44:52 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminvisitorlog.php
+
+23-06-2024T20:44:52 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminvisitorlog.php
+
+23-06-2024T20:44:52 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminvisitorlog.php
+
+23-06-2024T20:44:52 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[23-06-2024T20:41:31 - [TEST_SUITE][PASSED] - Test_Admin_Page_Accessible: Test Cases/admin/visitor_log_management/page_accessible]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>

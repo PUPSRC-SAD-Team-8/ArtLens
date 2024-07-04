@@ -1,0 +1,16 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Test_Admin_Login,Firefox 128.0,,,20-06-2024 16:10:56,20-06-2024 16:11:19,22.350s,FAILED
+,,,,,,,
+Test Cases/admin/landing_page/login_all_valid_email_case_incorrect,Firefox 128.0,,,20-06-2024 16:10:56,20-06-2024 16:11:10,13.137s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,20-06-2024 16:10:57,20-06-2024 16:11:01,4.318s,PASSED
+try,Firefox 128.0,,,20-06-2024 16:11:01,20-06-2024 16:11:10,8.155s,FAILED
+catch (Exception e),Firefox 128.0,,,20-06-2024 16:11:10,20-06-2024 16:11:10,0.028s,FAILED
+Finally,Firefox 128.0,,,20-06-2024 16:11:10,20-06-2024 16:11:10,0.000s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,20-06-2024 16:11:10,20-06-2024 16:11:10,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/login_all_valid_passwords_case_incorrect,Firefox 128.0,,,20-06-2024 16:11:10,20-06-2024 16:11:19,9.001s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,20-06-2024 16:11:10,20-06-2024 16:11:13,3.474s,PASSED
+try,Firefox 128.0,,,20-06-2024 16:11:13,20-06-2024 16:11:19,5.199s,FAILED
+catch (Exception e),Firefox 128.0,,,20-06-2024 16:11:19,20-06-2024 16:11:19,0.007s,FAILED
+Finally,Firefox 128.0,,,20-06-2024 16:11:19,20-06-2024 16:11:19,0.000s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,20-06-2024 16:11:19,20-06-2024 16:11:19,0.001s,PASSED

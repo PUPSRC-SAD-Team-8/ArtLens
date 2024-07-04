@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>page_accessible_logged_out</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>5b24ff8e-e600-4597-8b27-3a219fa7efb8</testCaseGuid>
+</TestCaseEntity>

@@ -1,0 +1,37 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Test_Admin_Pages_Authentication,Edge Chromium 126,,,23-06-2024 20:50:29,23-06-2024 20:51:44,1m - 15.700s,FAILED
+,,,,,,,
+Test Cases/admin/account_management/page_accessible_logged_out,Edge Chromium 126,,,23-06-2024 20:50:30,23-06-2024 20:50:56,25.708s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:50:30,23-06-2024 20:50:42,11.228s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:50:42,23-06-2024 20:50:56,13.454s,FAILED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:50:56,23-06-2024 20:50:56,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/announcement_management/page_accessible_logged_out,Edge Chromium 126,,,23-06-2024 20:50:56,23-06-2024 20:51:04,8.768s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:50:56,23-06-2024 20:51:02,5.920s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:51:02,23-06-2024 20:51:04,2.430s,FAILED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:51:04,23-06-2024 20:51:04,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/artwork_management/page_accessible_logged_out,Edge Chromium 126,,,23-06-2024 20:51:04,23-06-2024 20:51:12,7.064s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:51:05,23-06-2024 20:51:09,4.936s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:51:10,23-06-2024 20:51:11,1.811s,FAILED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:51:12,23-06-2024 20:51:12,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/booking_management/page_accessible_logged_out,Edge Chromium 126,,,23-06-2024 20:51:12,23-06-2024 20:51:18,6.503s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:51:12,23-06-2024 20:51:17,5.011s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:51:17,23-06-2024 20:51:18,1.168s,FAILED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:51:18,23-06-2024 20:51:18,0.002s,PASSED
+,,,,,,,
+Test Cases/admin/dashboard/page_accessible_logged_out,Edge Chromium 126,,,23-06-2024 20:51:18,23-06-2024 20:51:29,10.916s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:51:18,23-06-2024 20:51:25,7.357s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:51:25,23-06-2024 20:51:29,3.489s,FAILED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:51:29,23-06-2024 20:51:29,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/quiz_management/page_accessible_logged_out,Edge Chromium 126,,,23-06-2024 20:51:29,23-06-2024 20:51:36,6.621s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:51:29,23-06-2024 20:51:33,4.307s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:51:34,23-06-2024 20:51:36,1.850s,FAILED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:51:36,23-06-2024 20:51:36,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/visitor_log_management/page_accessible_logged_out,Edge Chromium 126,,,23-06-2024 20:51:36,23-06-2024 20:51:44,8.815s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:51:36,23-06-2024 20:51:43,7.085s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:51:43,23-06-2024 20:51:44,1.206s,FAILED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:51:44,23-06-2024 20:51:44,0.000s,PASSED

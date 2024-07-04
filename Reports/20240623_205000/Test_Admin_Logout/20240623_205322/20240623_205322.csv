@@ -1,0 +1,51 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Test_Admin_Logout,Edge Chromium 126,,,23-06-2024 20:53:33,23-06-2024 20:55:14,1m - 41.337s,FAILED
+,,,,,,,
+Test Cases/admin/account_management/logout,Edge Chromium 126,,,23-06-2024 20:53:34,23-06-2024 20:53:58,24.574s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:53:34,23-06-2024 20:53:43,8.975s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:53:44,23-06-2024 20:53:58,14.779s,FAILED
+catch (Exception e),Edge Chromium 126,,,23-06-2024 20:53:58,23-06-2024 20:53:58,0.040s,FAILED
+Finally,Edge Chromium 126,,,23-06-2024 20:53:58,23-06-2024 20:53:58,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:53:58,23-06-2024 20:53:58,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/announcement_management/logout,Edge Chromium 126,,,23-06-2024 20:53:58,23-06-2024 20:54:10,12.083s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:53:58,23-06-2024 20:54:01,2.872s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:54:02,23-06-2024 20:54:10,8.909s,FAILED
+catch (Exception e),Edge Chromium 126,,,23-06-2024 20:54:10,23-06-2024 20:54:10,0.011s,FAILED
+Finally,Edge Chromium 126,,,23-06-2024 20:54:10,23-06-2024 20:54:10,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:54:10,23-06-2024 20:54:10,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/artwork_management/logout,Edge Chromium 126,,,23-06-2024 20:54:10,23-06-2024 20:54:23,12.159s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:54:11,23-06-2024 20:54:14,3.015s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:54:14,23-06-2024 20:54:23,8.858s,FAILED
+catch (Exception e),Edge Chromium 126,,,23-06-2024 20:54:23,23-06-2024 20:54:23,0.005s,FAILED
+Finally,Edge Chromium 126,,,23-06-2024 20:54:23,23-06-2024 20:54:23,0.000s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:54:23,23-06-2024 20:54:23,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/booking_management/logout,Edge Chromium 126,,,23-06-2024 20:54:23,23-06-2024 20:54:35,12.004s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:54:23,23-06-2024 20:54:26,2.930s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:54:26,23-06-2024 20:54:35,8.826s,FAILED
+catch (Exception e),Edge Chromium 126,,,23-06-2024 20:54:35,23-06-2024 20:54:35,0.008s,FAILED
+Finally,Edge Chromium 126,,,23-06-2024 20:54:35,23-06-2024 20:54:35,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:54:35,23-06-2024 20:54:35,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/dashboard/logout,Edge Chromium 126,,,23-06-2024 20:54:35,23-06-2024 20:54:46,11.490s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:54:35,23-06-2024 20:54:38,3.123s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:54:38,23-06-2024 20:54:46,8.015s,FAILED
+catch (Exception e),Edge Chromium 126,,,23-06-2024 20:54:46,23-06-2024 20:54:46,0.008s,FAILED
+Finally,Edge Chromium 126,,,23-06-2024 20:54:46,23-06-2024 20:54:46,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:54:46,23-06-2024 20:54:46,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/quiz_management/logout,Edge Chromium 126,,,23-06-2024 20:54:46,23-06-2024 20:55:00,14.037s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:54:46,23-06-2024 20:54:51,4.294s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:54:51,23-06-2024 20:55:00,9.324s,FAILED
+catch (Exception e),Edge Chromium 126,,,23-06-2024 20:55:00,23-06-2024 20:55:00,0.006s,FAILED
+Finally,Edge Chromium 126,,,23-06-2024 20:55:00,23-06-2024 20:55:00,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:55:00,23-06-2024 20:55:00,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/visitor_log_management/logout,Edge Chromium 126,,,23-06-2024 20:55:00,23-06-2024 20:55:14,14.224s,FAILED
+Start listener action : sampleBeforeTestCase,Edge Chromium 126,,,23-06-2024 20:55:00,23-06-2024 20:55:04,3.687s,PASSED
+try,Edge Chromium 126,,,23-06-2024 20:55:04,23-06-2024 20:55:14,10.212s,FAILED
+catch (Exception e),Edge Chromium 126,,,23-06-2024 20:55:14,23-06-2024 20:55:14,0.007s,FAILED
+Finally,Edge Chromium 126,,,23-06-2024 20:55:14,23-06-2024 20:55:14,0.000s,PASSED
+Start listener action : sampleAfterTestCase,Edge Chromium 126,,,23-06-2024 20:55:14,23-06-2024 20:55:14,0.000s,PASSED

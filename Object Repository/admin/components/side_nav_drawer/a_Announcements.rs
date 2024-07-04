@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a_Announcements</name>
+   <tag></tag>
+   <elementGuidId>9da77bf4-f800-49d6-bb5f-9bd7a678f8d9</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//aside[@id='sidebar']/div/ul/li[3]/a</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:role=link[name=&quot; Announcements&quot;i]</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>125259ad-87cd-42d6-ae89-550201e6b93e</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>adminannouncements.php</value>
+      <webElementGuid>2ac27541-d801-473c-81c2-2b87fb9b71e0</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>sidebar-link mx-2 </value>
+      <webElementGuid>16075fa9-0c43-48f8-870e-8d211c2c1262</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>
+             
+                Announcements
+            </value>
+      <webElementGuid>8f77dc29-26ce-4660-971f-7dc5d146d53f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;sidebar&quot;)/div[@class=&quot;h-100&quot;]/ul[@class=&quot;sidebar-nav&quot;]/li[@class=&quot;sidebar-item&quot;]/a[@class=&quot;sidebar-link mx-2&quot;]</value>
+      <webElementGuid>c0a606a3-74da-4054-8c56-16cec0ecada1</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//aside[@id='sidebar']/div/ul/li[3]/a</value>
+      <webElementGuid>76f52683-7378-40c0-a47a-fa4c908a4a71</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Announcements']/parent::*</value>
+      <webElementGuid>a18641b4-76d9-40ad-9e10-eb6c2a524d5c</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>//a[contains(@href, 'adminannouncements.php')]</value>
+      <webElementGuid>211ed906-f10b-4220-9d93-4260551c8d77</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//li[3]/a</value>
+      <webElementGuid>8f9bf9fb-083e-4bcb-9ee5-47ceba49f9da</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = 'adminannouncements.php' and (text() = '
+             
+                Announcements
+            ' or . = '
+             
+                Announcements
+            ')]</value>
+      <webElementGuid>e8254fe0-c9c8-4979-98c9-fa4140292d4f</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

@@ -1,0 +1,37 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Test_Admin_Pages_Authentication,,,,23-06-2024 20:52:11,23-06-2024 20:53:14,1m - 2.625s,FAILED
+,,,,,,,
+Test Cases/admin/account_management/page_accessible_logged_out,,,,23-06-2024 20:52:12,23-06-2024 20:52:31,19.467s,FAILED
+Start listener action : sampleBeforeTestCase,,,,23-06-2024 20:52:12,23-06-2024 20:52:20,8.346s,PASSED
+try,,,,23-06-2024 20:52:21,23-06-2024 20:52:31,10.592s,FAILED
+Start listener action : sampleAfterTestCase,,,,23-06-2024 20:52:31,23-06-2024 20:52:31,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/announcement_management/page_accessible_logged_out,,,,23-06-2024 20:52:31,23-06-2024 20:52:39,7.819s,FAILED
+Start listener action : sampleBeforeTestCase,,,,23-06-2024 20:52:31,23-06-2024 20:52:36,5.064s,PASSED
+try,,,,23-06-2024 20:52:37,23-06-2024 20:52:39,2.178s,FAILED
+Start listener action : sampleAfterTestCase,,,,23-06-2024 20:52:39,23-06-2024 20:52:39,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/artwork_management/page_accessible_logged_out,,,,23-06-2024 20:52:39,23-06-2024 20:52:45,6.187s,FAILED
+Start listener action : sampleBeforeTestCase,,,,23-06-2024 20:52:39,23-06-2024 20:52:43,4.248s,PASSED
+try,,,,23-06-2024 20:52:44,23-06-2024 20:52:45,1.417s,FAILED
+Start listener action : sampleAfterTestCase,,,,23-06-2024 20:52:45,23-06-2024 20:52:45,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/booking_management/page_accessible_logged_out,,,,23-06-2024 20:52:45,23-06-2024 20:52:53,8.088s,FAILED
+Start listener action : sampleBeforeTestCase,,,,23-06-2024 20:52:45,23-06-2024 20:52:51,5.341s,PASSED
+try,,,,23-06-2024 20:52:51,23-06-2024 20:52:53,2.251s,FAILED
+Start listener action : sampleAfterTestCase,,,,23-06-2024 20:52:53,23-06-2024 20:52:53,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/dashboard/page_accessible_logged_out,,,,23-06-2024 20:52:53,23-06-2024 20:53:00,6.789s,FAILED
+Start listener action : sampleBeforeTestCase,,,,23-06-2024 20:52:53,23-06-2024 20:52:59,5.395s,PASSED
+try,,,,23-06-2024 20:52:59,23-06-2024 20:53:00,1.334s,FAILED
+Start listener action : sampleAfterTestCase,,,,23-06-2024 20:53:00,23-06-2024 20:53:00,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/quiz_management/page_accessible_logged_out,,,,23-06-2024 20:53:00,23-06-2024 20:53:07,6.385s,FAILED
+Start listener action : sampleBeforeTestCase,,,,23-06-2024 20:53:00,23-06-2024 20:53:04,4.136s,PASSED
+try,,,,23-06-2024 20:53:05,23-06-2024 20:53:07,1.946s,FAILED
+Start listener action : sampleAfterTestCase,,,,23-06-2024 20:53:07,23-06-2024 20:53:07,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/visitor_log_management/page_accessible_logged_out,,,,23-06-2024 20:53:07,23-06-2024 20:53:14,7.279s,FAILED
+Start listener action : sampleBeforeTestCase,,,,23-06-2024 20:53:07,23-06-2024 20:53:12,5.859s,PASSED
+try,,,,23-06-2024 20:53:13,23-06-2024 20:53:14,1.104s,FAILED
+Start listener action : sampleAfterTestCase,,,,23-06-2024 20:53:14,23-06-2024 20:53:14,0.001s,PASSED

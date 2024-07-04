@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a_Booking</name>
+   <tag></tag>
+   <elementGuidId>37a259af-76cb-4455-b802-450c07a3f8b6</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//aside[@id='sidebar']/div/ul/li[5]/a</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:role=link[name=&quot; Booking&quot;i]</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>0b555dc5-5e22-41c3-a603-490c7248d876</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>adminbooking.php</value>
+      <webElementGuid>8d65fce8-cd58-414c-839c-93b822f365c5</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>sidebar-link mx-2 </value>
+      <webElementGuid>0c83b9fa-ddf4-46ca-a28c-470a043d95e2</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>
+                
+                Booking
+            </value>
+      <webElementGuid>505b2ab5-bb8a-4781-8d6e-ef9d30dacbb3</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;sidebar&quot;)/div[@class=&quot;h-100&quot;]/ul[@class=&quot;sidebar-nav&quot;]/li[@class=&quot;sidebar-item&quot;]/a[@class=&quot;sidebar-link mx-2&quot;]</value>
+      <webElementGuid>0d582f2c-e8ca-460a-ae2a-02c8b7ceabab</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//aside[@id='sidebar']/div/ul/li[5]/a</value>
+      <webElementGuid>d373bb14-c599-4f05-beef-de9a81e9d107</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Booking']/parent::*</value>
+      <webElementGuid>8a22fe5e-4fef-46ff-9dd1-1ddfe19943d8</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>//a[contains(@href, 'adminbooking.php')]</value>
+      <webElementGuid>713b83f4-30e6-4f6f-81af-ccd4dd536c46</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//li[5]/a</value>
+      <webElementGuid>7dcca5ff-324a-44da-9443-0e1d89f3fbd0</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = 'adminbooking.php' and (text() = '
+                
+                Booking
+            ' or . = '
+                
+                Booking
+            ')]</value>
+      <webElementGuid>e7199e04-80f1-4b9c-a633-55f7f72a4fe8</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

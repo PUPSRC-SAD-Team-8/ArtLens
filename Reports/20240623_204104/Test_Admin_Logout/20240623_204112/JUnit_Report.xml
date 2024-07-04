@@ -1,0 +1,1865 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Test_Admin_Logout" time="172.165" tests="7" failures="7" errors="0">
+   <testsuite name="Test_Admin_Logout" tests="7" failures="7" errors="0" time="172.165" skipped="0" timestamp="23-06-2024T20:41:45" hostname="Summer - DESKTOP-KG5V3HF" id="Test Suites/Test_Admin_Logout">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="C:\\DevPackage\\xampp\\htdocs\\SAD\\ArtLens\\Reports\\20240623_204104\\Test_Admin_Logout\\20240623_204112"/>
+         <property name="logFiles" value="C:\\DevPackage\\xampp\\htdocs\\SAD\\ArtLens\\Reports\\20240623_204104\\Test_Admin_Logout\\20240623_204112\\execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="Summer - DESKTOP-KG5V3HF"/>
+         <property name="os" value="Windows 10 64bit"/>
+         <property name="katalonVersion" value="9.6.0.217"/>
+         <property name="browser" value="Firefox 128.0"/>
+         <property name="hostAddress" value="192.200.100.56"/>
+         <property name="sessionId" value="a78c8f4e-e98e-4bad-ad99-75ce5f86d5a5"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Windows 10"/>
+      </properties>
+      <testcase name="Test Cases/admin/account_management/logout" time="39.067" classname="Test Cases/admin/account_management/logout" status="FAILED">
+         <failure type="FAILED" message="Test Cases/admin/account_management/logout FAILED.&#xa;Reason:&#xa;com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched&#xa;	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)&#xa;	at logout.run(logout:36)&#xa;	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)&#xa;	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)&#xa;	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)&#xa;	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)&#xa;	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)&#xa;	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#xa;"/>
+         <system-out><![CDATA[23-06-2024T20:41:46 - [TEST_CASE][FAILED] - Test Cases/admin/account_management/logout: Test Cases/admin/account_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+23-06-2024T20:41:48 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:41:48 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:41:48 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:41:49 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:41:50 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:42:04 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:42:05 - [TEST_STEP][FAILED] - try: Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:42:05 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:42:05 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:42:06 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:06 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:42:07 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:42:07 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:42:08 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:42:08 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:42:08 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:42:15 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Logout\20240623_204112\requests\main\0.har
+
+23-06-2024T20:42:15 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:42:15 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:42:18 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:42:18 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:42:18 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:42:18 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:18 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:42:18 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:42:19 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:42:19 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:42:19 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:42:19 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:19 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:42:19 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:42:19 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:42:20 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:42:20 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:42:21 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:42:21 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:21 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:42:21 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:42:22 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:42:22 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:42:22 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:42:22 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:42:22 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:42:22 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:42:22 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:22 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:22 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:22 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:42:22 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:42:22 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3"), 0): Object 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is present
+
+23-06-2024T20:42:22 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:22 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is present
+
+23-06-2024T20:42:22 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is visible
+
+23-06-2024T20:42:22 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is visible
+
+23-06-2024T20:42:22 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3")): Object: 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is clicked on
+
+23-06-2024T20:42:22 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3' is clicked on
+
+23-06-2024T20:42:22 - [TEST_STEP][FAILED] - AdminUtils.adminLogout(): Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:42:24 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Logout' is clicked on
+
+23-06-2024T20:42:24 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/index.php'
+
+23-06-2024T20:42:24 - [MESSAGE][FAILED] - Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:42:24 - [TEST_STEP][FAILED] - catch (Exception e): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:42:24 - [TEST_STEP][FAILED] - markFailed("An error occurred: " + message): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:42:25 - [MESSAGE][FAILED] - An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:42:25 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:42:25 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[23-06-2024T20:41:46 - [TEST_CASE][FAILED] - Test Cases/admin/account_management/logout: Test Cases/admin/account_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/announcement_management/logout" time="24.386" classname="Test Cases/admin/announcement_management/logout" status="FAILED">
+         <failure type="FAILED" message="Test Cases/admin/announcement_management/logout FAILED.&#xa;Reason:&#xa;com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched&#xa;	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)&#xa;	at logout.run(logout:36)&#xa;	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)&#xa;	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)&#xa;	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)&#xa;	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)&#xa;	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)&#xa;	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#xa;"/>
+         <system-out><![CDATA[23-06-2024T20:42:25 - [TEST_CASE][FAILED] - Test Cases/admin/announcement_management/logout: Test Cases/admin/announcement_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+23-06-2024T20:42:25 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:42:25 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:42:25 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:42:25 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:42:27 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:42:27 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:42:35 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:42:36 - [TEST_STEP][FAILED] - try: Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:42:36 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:42:36 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:42:36 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:36 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:42:36 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:42:36 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:42:36 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:42:37 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:42:37 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:42:37 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Logout\20240623_204112\requests\main\1.har
+
+23-06-2024T20:42:37 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:42:37 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:42:39 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:42:39 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:42:39 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:42:39 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:39 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:42:39 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:42:39 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:42:39 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:42:39 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:42:39 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:39 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:42:39 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:42:42 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:42:43 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:42:43 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:42:43 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:42:43 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:43 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:42:43 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:42:46 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:42:46 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:42:46 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:42:46 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:42:46 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:42:46 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:42:46 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:46 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:46 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:42:46 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:42:46 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:42:46 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Announcements"), 0): Object 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is present
+
+23-06-2024T20:42:46 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:42:46 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is present
+
+23-06-2024T20:42:46 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Announcements"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is visible
+
+23-06-2024T20:42:46 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is visible
+
+23-06-2024T20:42:46 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Announcements")): Object: 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is clicked on
+
+23-06-2024T20:42:47 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Announcements' is clicked on
+
+23-06-2024T20:42:47 - [TEST_STEP][FAILED] - AdminUtils.adminLogout(): Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:42:48 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Logout' is clicked on
+
+23-06-2024T20:42:48 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/index.php'
+
+23-06-2024T20:42:48 - [MESSAGE][FAILED] - Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:42:48 - [TEST_STEP][FAILED] - catch (Exception e): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:42:48 - [TEST_STEP][FAILED] - markFailed("An error occurred: " + message): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:42:48 - [MESSAGE][FAILED] - An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:42:48 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[23-06-2024T20:42:25 - [TEST_CASE][FAILED] - Test Cases/admin/announcement_management/logout: Test Cases/admin/announcement_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/artwork_management/logout" time="23.256" classname="Test Cases/admin/artwork_management/logout" status="FAILED">
+         <failure type="FAILED" message="Test Cases/admin/artwork_management/logout FAILED.&#xa;Reason:&#xa;com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched&#xa;	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)&#xa;	at logout.run(logout:36)&#xa;	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)&#xa;	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)&#xa;	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)&#xa;	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)&#xa;	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)&#xa;	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#xa;"/>
+         <system-out><![CDATA[23-06-2024T20:42:49 - [TEST_CASE][FAILED] - Test Cases/admin/artwork_management/logout: Test Cases/admin/artwork_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:42:49 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:42:49 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:42:52 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:42:53 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:43:00 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:43:01 - [TEST_STEP][FAILED] - try: Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:43:01 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:43:01 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:43:01 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:01 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:43:01 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:43:01 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:43:01 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:43:02 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:43:02 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:43:02 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Logout\20240623_204112\requests\main\2.har
+
+23-06-2024T20:43:02 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:43:02 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:43:05 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:43:05 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:43:05 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:43:05 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:06 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:43:06 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:43:06 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:43:06 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:43:06 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:43:06 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:06 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:43:06 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:43:07 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:43:07 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:43:07 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:43:09 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:43:09 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:09 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:43:09 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:43:10 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:43:10 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:43:10 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:43:10 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:43:10 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:43:10 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:43:10 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:10 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:10 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:10 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:43:10 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:43:10 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Artworks"), 0): Object 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is present
+
+23-06-2024T20:43:10 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:10 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is present
+
+23-06-2024T20:43:10 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Artworks"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is visible
+
+23-06-2024T20:43:11 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is visible
+
+23-06-2024T20:43:11 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Artworks")): Object: 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is clicked on
+
+23-06-2024T20:43:11 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Artworks' is clicked on
+
+23-06-2024T20:43:11 - [TEST_STEP][FAILED] - AdminUtils.adminLogout(): Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:43:12 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Logout' is clicked on
+
+23-06-2024T20:43:12 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/index.php'
+
+23-06-2024T20:43:12 - [MESSAGE][FAILED] - Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:43:12 - [TEST_STEP][FAILED] - catch (Exception e): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:43:12 - [TEST_STEP][FAILED] - markFailed("An error occurred: " + message): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:43:12 - [MESSAGE][FAILED] - An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:43:12 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:43:12 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[23-06-2024T20:42:49 - [TEST_CASE][FAILED] - Test Cases/admin/artwork_management/logout: Test Cases/admin/artwork_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/booking_management/logout" time="23.65" classname="Test Cases/admin/booking_management/logout" status="FAILED">
+         <failure type="FAILED" message="Test Cases/admin/booking_management/logout FAILED.&#xa;Reason:&#xa;com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched&#xa;	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)&#xa;	at logout.run(logout:36)&#xa;	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)&#xa;	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)&#xa;	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)&#xa;	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)&#xa;	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)&#xa;	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#xa;"/>
+         <system-out><![CDATA[23-06-2024T20:43:12 - [TEST_CASE][FAILED] - Test Cases/admin/booking_management/logout: Test Cases/admin/booking_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+23-06-2024T20:43:12 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:43:12 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:43:12 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:43:12 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:43:18 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:43:18 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:43:28 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:43:29 - [TEST_STEP][FAILED] - try: Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:43:29 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:43:29 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:43:29 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:29 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:43:29 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:43:29 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:43:29 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:43:29 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:43:29 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:43:29 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Logout\20240623_204112\requests\main\3.har
+
+23-06-2024T20:43:29 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:43:29 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:43:30 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:43:30 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:43:30 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:43:30 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:30 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:43:30 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:43:31 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:43:31 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:43:31 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:43:31 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:31 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:43:31 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:43:32 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:43:33 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:43:33 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:43:33 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:43:33 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:33 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:43:33 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:43:34 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:43:34 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:43:34 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:34 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:43:34 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Booking"), 0): Object 'Object Repository/admin/components/side_nav_drawer/a_Booking' is present
+
+23-06-2024T20:43:34 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:34 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Booking' is present
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Booking"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/side_nav_drawer/a_Booking' is visible
+
+23-06-2024T20:43:34 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Booking' is visible
+
+23-06-2024T20:43:34 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Booking")): Object: 'Object Repository/admin/components/side_nav_drawer/a_Booking' is clicked on
+
+23-06-2024T20:43:35 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Booking' is clicked on
+
+23-06-2024T20:43:35 - [TEST_STEP][FAILED] - AdminUtils.adminLogout(): Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:43:36 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Logout' is clicked on
+
+23-06-2024T20:43:36 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/index.php'
+
+23-06-2024T20:43:36 - [MESSAGE][FAILED] - Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:43:36 - [TEST_STEP][FAILED] - catch (Exception e): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:43:36 - [TEST_STEP][FAILED] - markFailed("An error occurred: " + message): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:43:36 - [MESSAGE][FAILED] - An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:43:36 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:43:36 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[23-06-2024T20:43:12 - [TEST_CASE][FAILED] - Test Cases/admin/booking_management/logout: Test Cases/admin/booking_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/dashboard/logout" time="20.359" classname="Test Cases/admin/dashboard/logout" status="FAILED">
+         <failure type="FAILED" message="Test Cases/admin/dashboard/logout FAILED.&#xa;Reason:&#xa;com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched&#xa;	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)&#xa;	at logout.run(logout:32)&#xa;	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)&#xa;	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)&#xa;	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)&#xa;	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)&#xa;	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)&#xa;	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#xa;"/>
+         <system-out><![CDATA[23-06-2024T20:43:36 - [TEST_CASE][FAILED] - Test Cases/admin/dashboard/logout: Test Cases/admin/dashboard/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:32)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+23-06-2024T20:43:36 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:43:36 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:43:36 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:43:36 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:43:40 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:43:40 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:43:47 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:43:48 - [TEST_STEP][FAILED] - try: Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:26)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:43:48 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:43:48 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:43:48 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:48 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:43:48 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:43:48 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:43:48 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:43:48 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:43:48 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:43:48 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Logout\20240623_204112\requests\main\4.har
+
+23-06-2024T20:43:48 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:43:48 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:43:51 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:43:51 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:43:51 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:43:51 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:52 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:43:52 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:43:52 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:43:52 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:43:52 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:43:52 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:52 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:43:52 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:43:54 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:43:54 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:43:55 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:43:55 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:43:55 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:43:55 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:43:55 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:43:56 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:43:56 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:43:56 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:43:56 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:43:56 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:43:56 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:43:56 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:56 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:56 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:43:56 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:43:56 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:43:56 - [TEST_STEP][FAILED] - AdminUtils.adminLogout(): Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:26)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:43:56 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Logout' is clicked on
+
+23-06-2024T20:43:56 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/index.php'
+
+23-06-2024T20:43:56 - [MESSAGE][FAILED] - Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:26)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:43:56 - [TEST_STEP][FAILED] - catch (Exception e): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:43:56 - [TEST_STEP][FAILED] - markFailed("An error occurred: " + message): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:43:56 - [MESSAGE][FAILED] - An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:43:56 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:43:56 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[23-06-2024T20:43:36 - [TEST_CASE][FAILED] - Test Cases/admin/dashboard/logout: Test Cases/admin/dashboard/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:32)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/quiz_management/logout" time="18.909" classname="Test Cases/admin/quiz_management/logout" status="FAILED">
+         <failure type="FAILED" message="Test Cases/admin/quiz_management/logout FAILED.&#xa;Reason:&#xa;com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched&#xa;	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)&#xa;	at logout.run(logout:36)&#xa;	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)&#xa;	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)&#xa;	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)&#xa;	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)&#xa;	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)&#xa;	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#xa;"/>
+         <system-out><![CDATA[23-06-2024T20:43:56 - [TEST_CASE][FAILED] - Test Cases/admin/quiz_management/logout: Test Cases/admin/quiz_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+23-06-2024T20:43:57 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:43:57 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:43:57 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:43:57 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:43:59 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:43:59 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:44:08 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:44:08 - [TEST_STEP][FAILED] - try: Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:44:08 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:44:08 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:44:09 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:09 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:44:09 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:44:09 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:44:09 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:44:09 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:44:09 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:44:09 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Logout\20240623_204112\requests\main\5.har
+
+23-06-2024T20:44:09 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:44:09 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:44:10 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:44:10 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:44:10 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:44:10 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:10 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:44:10 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:44:10 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:44:10 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:44:10 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:44:10 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:10 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:44:11 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:44:12 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:44:12 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:44:13 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:44:13 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:44:13 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:13 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:44:13 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:44:14 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:44:14 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:44:14 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:44:14 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:44:14 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:44:14 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:44:14 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:14 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:14 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:14 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:44:14 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:44:14 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Quiz"), 0): Object 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is present
+
+23-06-2024T20:44:14 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:14 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is present
+
+23-06-2024T20:44:14 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Quiz"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is visible
+
+23-06-2024T20:44:14 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is visible
+
+23-06-2024T20:44:14 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Quiz")): Object: 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is clicked on
+
+23-06-2024T20:44:15 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Quiz' is clicked on
+
+23-06-2024T20:44:15 - [TEST_STEP][FAILED] - AdminUtils.adminLogout(): Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:44:15 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Logout' is clicked on
+
+23-06-2024T20:44:15 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/index.php'
+
+23-06-2024T20:44:15 - [MESSAGE][FAILED] - Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:44:15 - [TEST_STEP][FAILED] - catch (Exception e): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:44:15 - [TEST_STEP][FAILED] - markFailed("An error occurred: " + message): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:44:15 - [MESSAGE][FAILED] - An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:44:15 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:44:15 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[23-06-2024T20:43:56 - [TEST_CASE][FAILED] - Test Cases/admin/quiz_management/logout: Test Cases/admin/quiz_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/admin/visitor_log_management/logout" time="21.925" classname="Test Cases/admin/visitor_log_management/logout" status="FAILED">
+         <failure type="FAILED" message="Test Cases/admin/visitor_log_management/logout FAILED.&#xa;Reason:&#xa;com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched&#xa;	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)&#xa;	at logout.run(logout:36)&#xa;	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)&#xa;	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)&#xa;	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)&#xa;	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)&#xa;	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)&#xa;	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)&#xa;	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#xa;	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)&#xa;	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#xa;"/>
+         <system-out><![CDATA[23-06-2024T20:44:15 - [TEST_CASE][FAILED] - Test Cases/admin/visitor_log_management/logout: Test Cases/admin/visitor_log_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+
+23-06-2024T20:44:15 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: Browser is opened with url: ''
+
+23-06-2024T20:44:15 - [TEST_STEP][PASSED] - println(testCaseContext.getTestCaseId()): null
+
+23-06-2024T20:44:15 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+23-06-2024T20:44:15 - [MESSAGE][WARNING] - A browser is already opened. Closing browser and opening a new one
+
+23-06-2024T20:44:18 - [MESSAGE][INFO] - Starting 'Firefox (headless)' driver
+
+23-06-2024T20:44:18 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+23-06-2024T20:44:29 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+23-06-2024T20:44:30 - [TEST_STEP][FAILED] - try: Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:44:30 - [TEST_STEP][PASSED] - callTestCase(findTestCase("Common_TestCases/admin_login_all_valid"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:44:30 - [TEST_CASE][PASSED] - Test Cases/Common_TestCases/admin_login_all_valid: Test Cases/Common_TestCases/admin_login_all_valid
+
+23-06-2024T20:44:30 - [TEST_STEP][PASSED] - try: The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:30 - [TEST_STEP][PASSED] - userIndex = userIndex: null
+
+23-06-2024T20:44:30 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/header_bar_visible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:44:30 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/header_bar_visible: Test Cases/admin/landing_page/header_bar_visible
+
+23-06-2024T20:44:30 - [TEST_STEP][PASSED] - callTestCase(findTestCase("admin/landing_page/page_acessible"), [:], STOP_ON_FAILURE): Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:44:30 - [TEST_CASE][PASSED] - Test Cases/admin/landing_page/page_acessible: Test Cases/admin/landing_page/page_acessible
+
+23-06-2024T20:44:30 - [TEST_STEP][PASSED] - AdminUtils.openWebPage("admin.php"): Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:44:30 - [MESSAGE][INFO] - HAR: C:\DevPackage\xampp\htdocs\SAD\ArtLens\Reports\20240623_204104\Test_Admin_Logout\20240623_204112\requests\main\6.har
+
+23-06-2024T20:44:30 - [MESSAGE][PASSED] - Send request successfully
+
+23-06-2024T20:44:30 - [MESSAGE][PASSED] - All links are accessible
+
+23-06-2024T20:44:32 - [MESSAGE][PASSED] - Navigate to 'http://localhost/SAD/ArtLens/admin.php' successfully
+
+23-06-2024T20:44:32 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/page_acessible' successfully
+
+23-06-2024T20:44:32 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("admin/landing_page/nav_ArtLens            Admin Login"), 0): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:44:32 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:33 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is present
+
+23-06-2024T20:44:33 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("admin/landing_page/nav_ArtLens            Admin Login")): Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:44:33 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/nav_ArtLens            Admin Login' is visible
+
+23-06-2024T20:44:33 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/admin/landing_page/header_bar_visible' successfully
+
+23-06-2024T20:44:33 - [TEST_STEP][PASSED] - AdminUtils.adminLogin(ValidUsernameCredentials[userIndex], ValidPasswordCredentials[userIndex]): Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:44:33 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:33 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is present
+
+23-06-2024T20:44:33 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/a_Admin Login' is visible
+
+23-06-2024T20:44:34 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/a_Admin Login' is clicked on
+
+23-06-2024T20:44:35 - [MESSAGE][PASSED] - Text 'admin@gmail.com' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_uname'
+
+23-06-2024T20:44:35 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Show' is clicked on
+
+23-06-2024T20:44:35 - [MESSAGE][PASSED] - Text '@Helloword' is set on object 'Object Repository/admin/landing_page/input_ARTLENS_pass_1'
+
+23-06-2024T20:44:35 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:35 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is present
+
+23-06-2024T20:44:35 - [MESSAGE][PASSED] - Object 'Object Repository/admin/landing_page/button_Login' is visible
+
+23-06-2024T20:44:36 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/landing_page/button_Login' is clicked on
+
+23-06-2024T20:44:36 - [TEST_STEP][PASSED] - currentUrl = getUrl(): Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:44:36 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/adminindex.php'
+
+23-06-2024T20:44:36 - [TEST_STEP][PASSED] - expectedUrl = $GlobalVariable.appBaseLinkadminindex.php: null
+
+23-06-2024T20:44:36 - [TEST_STEP][PASSED] - isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false): Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:44:36 - [MESSAGE][PASSED] - Actual text 'http://localhost/SAD/ArtLens/adminindex.php' and expected text 'http://localhost/SAD/ArtLens/adminindex.php' are matched 
+
+23-06-2024T20:44:36 - [TEST_STEP][PASSED] - if (isUrlCorrect): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:36 - [TEST_STEP][PASSED] - markPassed("The URL is correct: " + currentUrl): The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:36 - [MESSAGE][PASSED] - The URL is correct: http://localhost/SAD/ArtLens/adminindex.php
+
+23-06-2024T20:44:36 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:44:36 - [MESSAGE][PASSED] - Call Test Case 'Test Cases/Common_TestCases/admin_login_all_valid' successfully
+
+23-06-2024T20:44:36 - [TEST_STEP][PASSED] - verifyElementPresent(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Visitor Log"), 0): Object 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is present
+
+23-06-2024T20:44:36 - [MESSAGE][WARNING] - Timeout '0' is invalid. Using default page load timeout: '30'
+
+23-06-2024T20:44:36 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is present
+
+23-06-2024T20:44:36 - [TEST_STEP][PASSED] - verifyElementVisible(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Visitor Log"), STOP_ON_FAILURE): Object 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is visible
+
+23-06-2024T20:44:36 - [MESSAGE][PASSED] - Object 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is visible
+
+23-06-2024T20:44:36 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/admin/components/side_nav_drawer/a_Visitor Log")): Object: 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is clicked on
+
+23-06-2024T20:44:37 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Visitor Log' is clicked on
+
+23-06-2024T20:44:37 - [TEST_STEP][FAILED] - AdminUtils.adminLogout(): Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:44:37 - [MESSAGE][PASSED] - Object: 'Object Repository/admin/components/side_nav_drawer/a_Logout' is clicked on
+
+23-06-2024T20:44:37 - [MESSAGE][PASSED] - Current window's url is: 'http://localhost/SAD/ArtLens/index.php'
+
+23-06-2024T20:44:37 - [MESSAGE][FAILED] - Unable to verify match between actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' (Root cause: com.kms.katalon.core.exception.StepFailedException: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.doCall(VerifyMatchKeyword.groovy:57)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword$_verifyMatch_closure1.call(VerifyMatchKeyword.groovy)
+	at com.kms.katalon.core.keyword.internal.KeywordMain.runKeyword(KeywordMain.groovy:75)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.verifyMatch(VerifyMatchKeyword.groovy:60)
+	at com.kms.katalon.core.keyword.builtin.VerifyMatchKeyword.execute(VerifyMatchKeyword.groovy:45)
+	at com.kms.katalon.core.keyword.internal.KeywordExecutor.executeKeywordForPlatform(KeywordExecutor.groovy:74)
+	at com.kms.katalon.core.keyword.BuiltinKeywords.verifyMatch(BuiltinKeywords.groovy:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at com.artlens.utils.AdminUtils.adminLogout(AdminUtils.groovy:78)
+	at logout.run(logout:30)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+)
+
+23-06-2024T20:44:37 - [TEST_STEP][FAILED] - catch (Exception e): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:44:37 - [TEST_STEP][FAILED] - markFailed("An error occurred: " + message): An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:44:37 - [MESSAGE][FAILED] - An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+
+23-06-2024T20:44:37 - [TEST_STEP][PASSED] - Finally: null
+
+23-06-2024T20:44:37 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[23-06-2024T20:44:15 - [TEST_CASE][FAILED] - Test Cases/admin/visitor_log_management/logout: Test Cases/admin/visitor_log_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-err>
+      </testcase>
+      <system-out><![CDATA[23-06-2024T20:41:45 - [TEST_SUITE][FAILED] - Test_Admin_Logout: Test Cases/admin/account_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-out>
+      <system-err><![CDATA[23-06-2024T20:41:45 - [TEST_SUITE][FAILED] - Test_Admin_Logout: Test Cases/admin/account_management/logout FAILED.
+Reason:
+com.kms.katalon.core.exception.StepFailedException: An error occurred: Actual text 'http://localhost/SAD/ArtLens/index.php' and expected text 'http://localhost/SAD/ArtLens/admin.php' are not matched
+	at com.kms.katalon.core.util.KeywordUtil.markFailed(KeywordUtil.java:19)
+	at logout.run(logout:36)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.common.CommonExecutor.accessTestCaseMainPhase(CommonExecutor.java:65)
+	at com.kms.katalon.core.main.TestSuiteExecutor.accessTestSuiteMainPhase(TestSuiteExecutor.java:150)
+	at com.kms.katalon.core.main.TestSuiteExecutor.execute(TestSuiteExecutor.java:106)
+	at com.kms.katalon.core.main.TestCaseMain.startTestSuite(TestCaseMain.java:180)
+	at TempTestSuite1719146472667.run(TempTestSuite1719146472667.groovy:35)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)]]></system-err>
+   </testsuite>
+</testsuites>

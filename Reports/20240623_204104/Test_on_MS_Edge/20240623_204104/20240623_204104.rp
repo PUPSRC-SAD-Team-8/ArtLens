@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportCollectionEntity>
+   <description></description>
+   <name>20240623_204104</name>
+   <tag></tag>
+   <displayName>20240623_204104</displayName>
+   <reportItemDescriptions>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_204104/Test_Admin_Page_Accessible/20240623_204105</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Firefox (headless)</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_204104/Test_Admin_Pages_Authentication/20240623_204108</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Firefox (headless)</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_204104/Test_Admin_Login/20240623_204110</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Firefox (headless)</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_204104/Test_Admin_Logout/20240623_204112</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Firefox (headless)</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_204104/Test_Admin_Pages_Authentication/20240623_204417</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Firefox (headless)</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_204104/Test_Admin_Logout/20240623_204449</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Firefox (headless)</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_204104/Test_Admin_Login/20240623_204520</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Firefox (headless)</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+      <ReportItemDescription>
+         <reportLocation>Reports/20240623_204104/Test_Admin_Login/20240623_204655</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Desktop</groupName>
+            <profileName>Local-Bandilla</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Firefox (headless)</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+   </reportItemDescriptions>
+   <testSuiteCollectionId>Test Suites/Test_on_MS_Edge</testSuiteCollectionId>
+</ReportCollectionEntity>

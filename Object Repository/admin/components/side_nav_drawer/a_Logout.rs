@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a_Logout</name>
+   <tag></tag>
+   <elementGuidId>ea17cf79-3cfc-4cf5-ac7b-6f4d95cfd87f</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value></value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//aside[@id='sidebar']/div/ul/li[7]/a</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <smartLocatorCollection>
+      <entry>
+         <key>SMART_LOCATOR</key>
+         <value>internal:role=link[name=&quot;Logout&quot;i]</value>
+      </entry>
+   </smartLocatorCollection>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>ab2878ea-240f-4b5a-b6d0-8ba75baf4449</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>logout.php</value>
+      <webElementGuid>16e7d7d8-a440-4948-b3c3-35cf7a58b8ef</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>sidebar-link mx-2</value>
+      <webElementGuid>7f19c10c-f3a4-4d6c-9833-2fdd879c7cd0</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>
+                
+                Logout
+            </value>
+      <webElementGuid>a9c0ecff-63de-454e-b833-eec8edc24f54</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;sidebar&quot;)/div[@class=&quot;h-100&quot;]/ul[@class=&quot;sidebar-nav&quot;]/li[@class=&quot;sidebar-item&quot;]/a[@class=&quot;sidebar-link mx-2&quot;]</value>
+      <webElementGuid>6e1f7c27-8d24-4010-906c-736c6e6e88cd</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//aside[@id='sidebar']/div/ul/li[7]/a</value>
+      <webElementGuid>54c4d914-ecec-4973-b185-ea32c600f668</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Dashboard'])[1]/preceding::a[3]</value>
+      <webElementGuid>242ab882-a6f4-4add-a95a-d0f659595b60</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Daily Booking'])[1]/preceding::a[3]</value>
+      <webElementGuid>6b70daa9-cf49-485d-8300-3132c215be52</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Logout']/parent::*</value>
+      <webElementGuid>36a22723-0933-4d34-8e0f-3127a9fe8b99</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>//a[contains(@href, 'logout.php')]</value>
+      <webElementGuid>8dc758cf-b47f-4287-9bea-eca7fc1ad8b2</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//li[7]/a</value>
+      <webElementGuid>8c810feb-b310-425e-977e-f453bf291155</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = 'logout.php' and (text() = '
+                
+                Logout
+            ' or . = '
+                
+                Logout
+            ')]</value>
+      <webElementGuid>63b778e3-3a96-4161-b2f8-3bf07448ff0b</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

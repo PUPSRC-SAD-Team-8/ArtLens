@@ -1,0 +1,90 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Test_Admin_Page_Accessible,Firefox 128.0,,,23-06-2024 20:41:31,23-06-2024 20:44:52,3m - 20.511s,PASSED
+,,,,,,,
+Test Cases/admin/account_management/page_accessible,Firefox 128.0,,,23-06-2024 20:41:32,23-06-2024 20:42:24,52.051s,PASSED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:41:33,23-06-2024 20:41:58,25.163s,PASSED
+"AdminUtils.openWebPage(""adminaccount.php"")",Firefox 128.0,,,23-06-2024 20:42:00,23-06-2024 20:42:13,12.658s,PASSED
+"callTestCase(findTestCase(""Common_TestCases/admin_login_all_valid""), [:], STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:42:13,23-06-2024 20:42:23,9.935s,PASSED
+"verifyElementPresent(findTestObject(""Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3""), 0)",Firefox 128.0,,,23-06-2024 20:42:23,23-06-2024 20:42:23,0.244s,PASSED
+"verifyElementVisible(findTestObject(""Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3""), STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:42:23,23-06-2024 20:42:23,0.169s,PASSED
+"click(findTestObject(""Object Repository/admin/components/top_navbar/i_Logout_bi bi-person-circle fs-3 mr-3""))",Firefox 128.0,,,23-06-2024 20:42:23,23-06-2024 20:42:24,0.594s,PASSED
+currentUrl = getUrl(),Firefox 128.0,,,23-06-2024 20:42:24,23-06-2024 20:42:24,0.306s,PASSED
+expectedUrl = $GlobalVariable.appBaseLinkadminaccount.php,Firefox 128.0,,,23-06-2024 20:42:24,23-06-2024 20:42:24,0.004s,PASSED
+"isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false)",Firefox 128.0,,,23-06-2024 20:42:24,23-06-2024 20:42:24,0.008s,PASSED
+if (isUrlCorrect),Firefox 128.0,,,23-06-2024 20:42:24,23-06-2024 20:42:24,0.061s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:42:24,23-06-2024 20:42:24,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/announcement_management/page_accessible,Firefox 128.0,,,23-06-2024 20:42:24,23-06-2024 20:42:49,24.552s,PASSED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:42:25,23-06-2024 20:42:36,11.412s,PASSED
+"AdminUtils.openWebPage(""adminannouncements.php"")",Firefox 128.0,,,23-06-2024 20:42:37,23-06-2024 20:42:40,3.017s,PASSED
+"callTestCase(findTestCase(""Common_TestCases/admin_login_all_valid""), [:], STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:42:40,23-06-2024 20:42:48,8.449s,PASSED
+"verifyElementPresent(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Announcements""), 0)",Firefox 128.0,,,23-06-2024 20:42:48,23-06-2024 20:42:48,0.231s,PASSED
+"verifyElementVisible(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Announcements""), STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:42:48,23-06-2024 20:42:49,0.154s,PASSED
+"click(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Announcements""))",Firefox 128.0,,,23-06-2024 20:42:49,23-06-2024 20:42:49,0.400s,PASSED
+currentUrl = getUrl(),Firefox 128.0,,,23-06-2024 20:42:49,23-06-2024 20:42:49,0.016s,PASSED
+expectedUrl = $GlobalVariable.appBaseLinkadminannouncements.php,Firefox 128.0,,,23-06-2024 20:42:49,23-06-2024 20:42:49,0.004s,PASSED
+"isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false)",Firefox 128.0,,,23-06-2024 20:42:49,23-06-2024 20:42:49,0.006s,PASSED
+if (isUrlCorrect),Firefox 128.0,,,23-06-2024 20:42:49,23-06-2024 20:42:49,0.006s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:42:49,23-06-2024 20:42:49,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/artwork_management/page_accessible,Firefox 128.0,,,23-06-2024 20:42:49,23-06-2024 20:43:17,27.736s,PASSED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:42:49,23-06-2024 20:43:00,10.802s,PASSED
+"AdminUtils.openWebPage(""adminartwork.php"")",Firefox 128.0,,,23-06-2024 20:43:01,23-06-2024 20:43:04,2.686s,PASSED
+"callTestCase(findTestCase(""Common_TestCases/admin_login_all_valid""), [:], STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:43:04,23-06-2024 20:43:16,12.411s,PASSED
+"verifyElementPresent(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Artworks""), 0)",Firefox 128.0,,,23-06-2024 20:43:16,23-06-2024 20:43:16,0.181s,PASSED
+"verifyElementVisible(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Artworks""), STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:43:16,23-06-2024 20:43:16,0.100s,PASSED
+"click(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Artworks""))",Firefox 128.0,,,23-06-2024 20:43:16,23-06-2024 20:43:17,0.414s,PASSED
+currentUrl = getUrl(),Firefox 128.0,,,23-06-2024 20:43:17,23-06-2024 20:43:17,0.016s,PASSED
+expectedUrl = $GlobalVariable.appBaseLinkadminartwork.php,Firefox 128.0,,,23-06-2024 20:43:17,23-06-2024 20:43:17,0.003s,PASSED
+"isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false)",Firefox 128.0,,,23-06-2024 20:43:17,23-06-2024 20:43:17,0.006s,PASSED
+if (isUrlCorrect),Firefox 128.0,,,23-06-2024 20:43:17,23-06-2024 20:43:17,0.006s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:43:17,23-06-2024 20:43:17,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/booking_management/page_accessible,Firefox 128.0,,,23-06-2024 20:43:17,23-06-2024 20:43:40,23.346s,PASSED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:43:17,23-06-2024 20:43:32,15.206s,PASSED
+"AdminUtils.openWebPage(""adminbooking.php"")",Firefox 128.0,,,23-06-2024 20:43:33,23-06-2024 20:43:34,1.479s,PASSED
+"callTestCase(findTestCase(""Common_TestCases/admin_login_all_valid""), [:], STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:43:34,23-06-2024 20:43:39,4.853s,PASSED
+"verifyElementPresent(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Booking""), 0)",Firefox 128.0,,,23-06-2024 20:43:39,23-06-2024 20:43:39,0.183s,PASSED
+"verifyElementVisible(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Booking""), STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:43:39,23-06-2024 20:43:39,0.146s,PASSED
+"click(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Booking""))",Firefox 128.0,,,23-06-2024 20:43:39,23-06-2024 20:43:40,0.626s,PASSED
+currentUrl = getUrl(),Firefox 128.0,,,23-06-2024 20:43:40,23-06-2024 20:43:40,0.013s,PASSED
+expectedUrl = $GlobalVariable.appBaseLinkadminbooking.php,Firefox 128.0,,,23-06-2024 20:43:40,23-06-2024 20:43:40,0.004s,PASSED
+"isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false)",Firefox 128.0,,,23-06-2024 20:43:40,23-06-2024 20:43:40,0.006s,PASSED
+if (isUrlCorrect),Firefox 128.0,,,23-06-2024 20:43:40,23-06-2024 20:43:40,0.006s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:43:40,23-06-2024 20:43:40,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/dashboard/page_accessible,Firefox 128.0,,,23-06-2024 20:43:40,23-06-2024 20:43:54,13.458s,PASSED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:43:40,23-06-2024 20:43:50,10.090s,PASSED
+"AdminUtils.openWebPage(""adminindex.php"")",Firefox 128.0,,,23-06-2024 20:43:51,23-06-2024 20:43:54,2.943s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:43:54,23-06-2024 20:43:54,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/page_acessible,Firefox 128.0,,,23-06-2024 20:43:54,23-06-2024 20:44:06,12.716s,PASSED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:43:54,23-06-2024 20:44:04,10.391s,PASSED
+"AdminUtils.openWebPage(""admin.php"")",Firefox 128.0,,,23-06-2024 20:44:04,23-06-2024 20:44:06,2.216s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:44:06,23-06-2024 20:44:06,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/quiz_management/page_accessible,Firefox 128.0,,,23-06-2024 20:44:06,23-06-2024 20:44:28,21.564s,PASSED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:44:06,23-06-2024 20:44:19,12.531s,PASSED
+"AdminUtils.openWebPage(""adminquiz.php"")",Firefox 128.0,,,23-06-2024 20:44:19,23-06-2024 20:44:21,1.615s,PASSED
+"callTestCase(findTestCase(""Common_TestCases/admin_login_all_valid""), [:], STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:44:21,23-06-2024 20:44:27,6.093s,PASSED
+"verifyElementPresent(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Quiz""), 0)",Firefox 128.0,,,23-06-2024 20:44:27,23-06-2024 20:44:27,0.161s,PASSED
+"verifyElementVisible(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Quiz""), STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:44:27,23-06-2024 20:44:27,0.117s,PASSED
+"click(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Quiz""))",Firefox 128.0,,,23-06-2024 20:44:27,23-06-2024 20:44:28,0.424s,PASSED
+currentUrl = getUrl(),Firefox 128.0,,,23-06-2024 20:44:28,23-06-2024 20:44:28,0.014s,PASSED
+expectedUrl = $GlobalVariable.appBaseLinkadminquiz.php,Firefox 128.0,,,23-06-2024 20:44:28,23-06-2024 20:44:28,0.002s,PASSED
+"isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false)",Firefox 128.0,,,23-06-2024 20:44:28,23-06-2024 20:44:28,0.005s,PASSED
+if (isUrlCorrect),Firefox 128.0,,,23-06-2024 20:44:28,23-06-2024 20:44:28,0.005s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:44:28,23-06-2024 20:44:28,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/visitor_log_management/page_accessible,Firefox 128.0,,,23-06-2024 20:44:28,23-06-2024 20:44:52,23.825s,PASSED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,23-06-2024 20:44:28,23-06-2024 20:44:41,12.902s,PASSED
+"AdminUtils.openWebPage(""adminvisitorlog.php"")",Firefox 128.0,,,23-06-2024 20:44:43,23-06-2024 20:44:45,1.186s,PASSED
+"callTestCase(findTestCase(""Common_TestCases/admin_login_all_valid""), [:], STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:44:45,23-06-2024 20:44:51,5.946s,PASSED
+"verifyElementPresent(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Visitor Log""), 0)",Firefox 128.0,,,23-06-2024 20:44:51,23-06-2024 20:44:51,0.043s,PASSED
+"verifyElementVisible(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Visitor Log""), STOP_ON_FAILURE)",Firefox 128.0,,,23-06-2024 20:44:51,23-06-2024 20:44:51,0.205s,PASSED
+"click(findTestObject(""Object Repository/admin/components/side_nav_drawer/a_Visitor Log""))",Firefox 128.0,,,23-06-2024 20:44:51,23-06-2024 20:44:52,0.860s,PASSED
+currentUrl = getUrl(),Firefox 128.0,,,23-06-2024 20:44:52,23-06-2024 20:44:52,0.012s,PASSED
+expectedUrl = $GlobalVariable.appBaseLinkadminvisitorlog.php,Firefox 128.0,,,23-06-2024 20:44:52,23-06-2024 20:44:52,0.002s,PASSED
+"isUrlCorrect = verifyMatch(currentUrl, expectedUrl, false)",Firefox 128.0,,,23-06-2024 20:44:52,23-06-2024 20:44:52,0.005s,PASSED
+if (isUrlCorrect),Firefox 128.0,,,23-06-2024 20:44:52,23-06-2024 20:44:52,0.005s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,23-06-2024 20:44:52,23-06-2024 20:44:52,0.001s,PASSED

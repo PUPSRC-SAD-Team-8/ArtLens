@@ -1,0 +1,34 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Test_Admin_Login,Firefox 128.0,,,20-06-2024 16:09:47,20-06-2024 16:10:35,47.868s,FAILED
+,,,,,,,
+Test Cases/admin/landing_page/login_blank,Firefox 128.0,,,20-06-2024 16:09:48,20-06-2024 16:09:59,11.740s,PASSED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,20-06-2024 16:09:48,20-06-2024 16:09:51,3.779s,PASSED
+try,Firefox 128.0,,,20-06-2024 16:09:52,20-06-2024 16:09:59,7.574s,PASSED
+Finally,Firefox 128.0,,,20-06-2024 16:09:59,20-06-2024 16:09:59,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,20-06-2024 16:09:59,20-06-2024 16:09:59,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/login_username_blank,Firefox 128.0,,,20-06-2024 16:09:59,20-06-2024 16:10:07,8.027s,PASSED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,20-06-2024 16:09:59,20-06-2024 16:10:03,3.315s,PASSED
+try,Firefox 128.0,,,20-06-2024 16:10:03,20-06-2024 16:10:07,4.532s,PASSED
+Finally,Firefox 128.0,,,20-06-2024 16:10:07,20-06-2024 16:10:07,0.000s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,20-06-2024 16:10:07,20-06-2024 16:10:07,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/login_password_blank,Firefox 128.0,,,20-06-2024 16:10:07,20-06-2024 16:10:16,8.169s,PASSED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,20-06-2024 16:10:07,20-06-2024 16:10:11,3.213s,PASSED
+try,Firefox 128.0,,,20-06-2024 16:10:11,20-06-2024 16:10:16,4.724s,PASSED
+Finally,Firefox 128.0,,,20-06-2024 16:10:16,20-06-2024 16:10:16,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,20-06-2024 16:10:16,20-06-2024 16:10:16,0.001s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/login_all_valid_email_case_incorrect,Firefox 128.0,,,20-06-2024 16:10:16,20-06-2024 16:10:25,9.288s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,20-06-2024 16:10:16,20-06-2024 16:10:19,3.492s,PASSED
+try,Firefox 128.0,,,20-06-2024 16:10:19,20-06-2024 16:10:25,5.347s,FAILED
+catch (Exception e),Firefox 128.0,,,20-06-2024 16:10:25,20-06-2024 16:10:25,0.064s,FAILED
+Finally,Firefox 128.0,,,20-06-2024 16:10:25,20-06-2024 16:10:25,0.001s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,20-06-2024 16:10:25,20-06-2024 16:10:25,0.000s,PASSED
+,,,,,,,
+Test Cases/admin/landing_page/login_all_valid_passwords_case_incorrect,Firefox 128.0,,,20-06-2024 16:10:25,20-06-2024 16:10:35,10.432s,FAILED
+Start listener action : sampleBeforeTestCase,Firefox 128.0,,,20-06-2024 16:10:25,20-06-2024 16:10:29,4.398s,PASSED
+try,Firefox 128.0,,,20-06-2024 16:10:30,20-06-2024 16:10:35,5.505s,FAILED
+catch (Exception e),Firefox 128.0,,,20-06-2024 16:10:35,20-06-2024 16:10:35,0.003s,FAILED
+Finally,Firefox 128.0,,,20-06-2024 16:10:35,20-06-2024 16:10:35,0.000s,PASSED
+Start listener action : sampleAfterTestCase,Firefox 128.0,,,20-06-2024 16:10:35,20-06-2024 16:10:35,0.000s,PASSED

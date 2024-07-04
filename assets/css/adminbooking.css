@@ -1,17 +1,10 @@
-body {
-    overflow-x: scroll;
-}
+
 .clickable-row {
     cursor: pointer !important;
 }
 
 .clickable-row:hover {
     background-color: rgba(0, 0, 0, 0.05);
-}
-
-.table-container {
-    max-height: 300px; /* Adjust the height as needed */
-    overflow-y: auto;
 }
 
 .btn2 {

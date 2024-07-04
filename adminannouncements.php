@@ -83,7 +83,8 @@ if (isset($_SESSION['userid'])) {
 
                 <!--MAIN MAIN MAIN-->
                 <main class="content px-4 py-3">
-                    <div class="accordion" id="accordionExample" style="background-color: white;">
+                <h1 style="color: grey;">Manage Announcement</h1>
+                    <div class="accordion mt-3" id="accordionExample" style="background-color: white;">
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Add Announcement
@@ -92,7 +93,7 @@ if (isset($_SESSION['userid'])) {
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <center>
-                                    <form action="adminannouncements.php" method="post" enctype="multipart/form-data" class="border p-4 shadow rounded" style="min-width: 350px; max-width: 450px;">
+                                    <form action="submit_form.php" method="post" enctype="multipart/form-data" class="border p-4 shadow rounded" style="min-width: 350px; max-width: 450px;">
                                         <div class="mb-3">
                                             <label for="image" class="form-label">Image:</label>
                                             <input type="file" class="form-control" id="image" name="image" accept="image/*" required>

@@ -95,6 +95,7 @@ if (isset($_SESSION['userid'])) {
                                     <th>Total</th>
                                     <th>Nationality</th>
                                     <th>Time in</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -107,7 +108,7 @@ if (isset($_SESSION['userid'])) {
                                 while($row = $result->fetch_assoc()) {
                                     $row_count++;
                                     $row_class = ($row_count % 2 == 0) ? "even-row" : "odd-row";
-                                    echo "<tr class='clickable-row $row_class' data-info='" . $row["visitor_org_cn_no"] . "|" . $row["visitor_org_name"] . "|" . $row["visitor_org_add"] . "|" . ($row["visitor_org_male"] + $row["visitor_org_female"]) . "|" . $row["visitor_org_natl"] . "|" . $row["visitor_org_male"] . "|" . $row["visitor_org_female"] . "|" . $row["visitor_org_gschool"] . "|" . $row["visitor_org_hschool"] . "|" . $row["visitor_org_college"] . "|" . $row["visitor_org_pwd"] . "|" . $row["visitor_org_17blow"] . "|" . $row["visitor_org_1930old"] . "|" . $row["visitor_org_3159old"] . "|" . $row["visitor_org_60old"] . "|"  . $row["entry_timestamp"].  "' style='cursor: pointer;'>";
+                                    echo "<tr class='clickable-row $row_class' data-info='" . $row["visitor_org_cn_no"] . "|" . $row["visitor_org_name"] . "|" . $row["visitor_org_add"] . "|" . $row["visitor_org_60old"] . "|" . $row["visitor_org_natl"] . "|" . $row["visitor_org_male"] . "|" . $row["visitor_org_female"] . "|" . $row["visitor_org_gschool"] . "|" . $row["visitor_org_hschool"] . "|" . $row["visitor_org_college"] . "|" . $row["visitor_org_pwd"] . "|" . $row["visitor_org_17blow"] . "|" . $row["visitor_org_1930old"] . "|" . $row["visitor_org_3159old"] . "|" . $row["visitor_org_60old"] . "|"  . $row["entry_timestamp"].  "' style='cursor: pointer;'>";
                                     echo "<td>" . $row["visitor_org_cn_no"] . "</td>";
                                     echo "<td>" . $row["visitor_org_name"] . "</td>";
                                     echo "<td>" . $row["visitor_org_add"] . "</td>";
@@ -153,9 +154,20 @@ if (isset($_SESSION['userid'])) {
                                     <p>C.N. Bus No.: <span id="organization-modal-cn"></span></p>
                                     <p>Name: <span id="organization-modal-name"></span></p>
                                     <p>Address: <span id="organization-modal-address"></span></p>
-                                    <p>Total: <span id="organization-modal-total"></span></p>
                                     <p>Nationality: <span id="organization-modal-nationality"></span></p>
+                                    <p>Number of Male: <span id="organization-modal-vismale"></span></p>
+                                    <p>Number of Female: <span id="organization-modal-visfemale"></span></p>
+                                    <p>Grade School: <span id="organization-modal-gradeschool"></span></p>
+                                    <p>High School: <span id="organization-modal-highschool"></span></p>
+                                    <p>College/Grad School: <span id="organization-modal-cgschool"></span></p>
+                                    <p>PWD: <span id="organization-modal-pwd"></span></p>
+                                    <p>17 years old below: <span id="organization-modal-17yrsold"></span></p>
+                                    <p>19-30 years old: <span id="organization-modal-19yrsold"></span></p>
+                                    <p>31-59 years old: <span id="organization-modal-31yrsold"></span></p>
+                                    <p>60 years old above: <span id="organization-modal-60yrsold"></span></p>
                                     <p>Time in: <span id="organization-modal-in"></span></p>
+                                    
+
                                 </div>
                             </div>
                         </div>
@@ -237,8 +249,18 @@ if (isset($_SESSION['userid'])) {
                 $('#organization-modal-cn').text(rowData[0]);
                 $('#organization-modal-name').text(rowData[1]);
                 $('#organization-modal-address').text(rowData[2]);
-                $('#organization-modal-total').text(rowData[3]);
+                $('#organization-modal-vismale').text(rowData[5]);
+                $('#organization-modal-visfemale').text(rowData[6]);
                 $('#organization-modal-nationality').text(rowData[4]);
+                $('#organization-modal-gradeschool').text(rowData[7]);
+                $('#organization-modal-highschool').text(rowData[8]);
+                $('#organization-modal-cgschool').text(rowData[9]);
+                $('#organization-modal-pwd').text(rowData[10]);
+                $('#organization-modal-17yrsold').text(rowData[11]);
+                $('#organization-modal-19yrsold').text(rowData[12]);
+                $('#organization-modal-19yrsold').text(rowData[13]);
+                $('#organization-modal-31yrsold').text(rowData[14]);
+                $('#organization-modal-60yrsold').text(rowData[3]);
                 $('#organization-modal-in').text(rowData[15]);
                 $('#organizationModal').modal('show');
             });

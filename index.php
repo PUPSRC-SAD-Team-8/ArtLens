@@ -34,6 +34,10 @@ $row = mysqli_fetch_assoc($schedule);
         .invalid {
             border-color: red;
         }
+        .requiredas:after {
+            content:" *";
+            color: red;
+        }
     </style>
 </head>
 
@@ -86,22 +90,23 @@ $row = mysqli_fetch_assoc($schedule);
     <div class="modal fade" id="modalconfirm" tabindex="-1" aria-labelledby="modalconfirmLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                <center><h5 class="modal-title" id="modalconfirmLabel">Confirmation</h5></center>
-                </div>
-                <div class="modal-body">
-                    <center>
-                    <img src="assets/images/leaving.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
-                    <p>Are you sure you want to leave the museum?</p></center>
-                </div>
-                
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary btn-continue">Continue</button>
-                </div>
+                    <div class="modal-header">
+                        <center><h5 class="modal-title" id="modalconfirmLabel">Confirmation</h5></center>
+                    </div>
+                    <div class="modal-body">
+                        <center>
+                            <img src="assets/images/leaving.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
+                            <p>Are you sure you want to leave the museum?</p>
+                        </center>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-continue">Continue</button>
+                    </div>
             </div>
         </div>
     </div>
+
 
 <!-- Log out button container -->
 <div id="logoutButtonContainer" style="display: none;"></div>
@@ -193,6 +198,7 @@ $row = mysqli_fetch_assoc($schedule);
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="onam" name="onam" type="text" placeholder="Organization Name" required maxlength="50">
                                 <label>Organization Name</label>
+                                <div class="invalid-feedback"></div>
                             </div>
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50" oninput="checkEmail()">
@@ -272,27 +278,27 @@ $row = mysqli_fetch_assoc($schedule);
                                     <option value="Organization">Organization</option>
                                 </select>
                             </div>
-
+                            
                             <!-- Organization Fields -->
-                            <div class="organization">
+                            <div class="organization" style="display: none;" >
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." maxlength="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="busno">C.N. Bus No.</label>
+                                    <label for="busno" class="requiredas">C.N. Bus No.</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="names" name="names" type="text" placeholder="Name" maxlength="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="names">Name</label>
+                                    <label for="names" class="requiredas">Name</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="address" name="address" type="text" placeholder="Address" maxlength="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="address">Address</label>
+                                    <label for="address" class="requiredas">Address</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="nationality" name="nationality" type="text" placeholder="Nationality" maxlength="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="nationality">Nationality</label>
+                                    <label for="nationality" class="requiredas">Nationality</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="row mb-3">
@@ -300,73 +306,83 @@ $row = mysqli_fetch_assoc($schedule);
                                     <div class="col">
                                         <div class="form-floating">
                                             <input class="form-control" id="numma" name="numma" type="number" placeholder="Number of Male" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                            <label for="numma">Male</label>
+                                            <label for="numma" class="requiredas">Male</label>
                                             <small class="text-danger" style="display: none;">This field cannot be blank.</small>
+                                            <div class="invalid-feedback">Value cannot exceed 50.</div>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-floating">
                                             <input class="form-control" id="numfe" name="numfe" type="number" placeholder="Number of Female" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                            <label for="numfe">Female</label>
+                                            <label for="numfe" class="requiredas">Female</label>
                                             <small class="text-danger" style="display: none;">This field cannot be blank.</small>
+                                            <div class="invalid-feedback">Value cannot exceed 50.</div>
                                         </div>
                                     </div>
                                 </div>
                                 <p class="mt-3">Number of Students</p>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="gs" name="gs" type="number" placeholder="Grade School" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="gs">Grade School</label>
+                                    <label for="gs" class="requiredas">Grade School</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
+                                    <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="hs" name="hs" type="number" placeholder="High School" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="hs">High School</label>
+                                    <label for="hs" class="requiredas">High School</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
+                                    <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="cls" name="cls" type="number" placeholder="College/Grad School" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="cls">College/Grad School</label>
+                                    <label for="cls" class="requiredas">College/Grad School</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
+                                    <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <p class="mt-3">PWD</p>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="pwd" name="pwd" type="number" placeholder="PWD" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="pwd">PWD</label>
+                                    <label for="pwd" class="requiredas">PWD</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
+                                    <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <p class="mt-3">Number of Guests Based on Age Bracket</p>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="17below" name="17below" type="number" placeholder="17 years old below" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="17below">17 years old below</label>
+                                    <label for="17below" class="requiredas">17 years old below</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
+                                    <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="1930below" name="1930below" type="number" placeholder="19-30 years old" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="1930below">19-30 years old</label>
+                                    <label for="1930below" class="requiredas">19-30 years old</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
+                                    <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="3159below" name="3159below" type="number" placeholder="31-59 years old" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="3159below">31-59 years old</label>
+                                    <label for="3159below" class="requiredas">31-59 years old</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
+                                    <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="60above" name="60above" type="number" placeholder="60 years old above" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="60above">60 years old above</label>
+                                    <label for="60above" class="requiredas">60 years old above</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
+                                    <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                             </div>
 
                             <!-- Individual Fields -->
-                            <div class="individual" style="display: none;">
+                            <div class="individual">
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="fn" name="fn" type="text" placeholder="First Name" maxlength="50" oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="fn">First Name</label>
+                                    <label for="fn" class="requiredas">First Name</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="ln" name="ln" type="text" placeholder="Last Name" maxlength="50" oninput="validateField(this)" onblur="validateField(this)">
-                                    <label for="ln">Last Name</label>
+                                    <label for="ln" class="requiredas">Last Name</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="form-floating mb-3">
@@ -374,7 +390,7 @@ $row = mysqli_fetch_assoc($schedule);
                                     <label for="mo">MI(Optional)</label>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label d-block">Gender</label>
+                                    <label class="form-label d-block requiredas">Gender</label>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" id="male" name="gen" value="Male" onblur="validateField(this)">
                                         <label class="form-check-label" for="male">Male</label>
@@ -387,12 +403,12 @@ $row = mysqli_fetch_assoc($schedule);
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="email" name="email1" type="email" placeholder="Email" maxlength="50" oninput="validateEmail('email')" onblur="validateEmail('email')">
-                                    <label for="email">Email</label>
+                                    <label for="email" class="requiredas">Email</label>
                                     <small id="emailError" class="text-danger" style="display: none;">Invalid email address.</small>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="mobile1" name="monu1" type="text" placeholder="Mobile Number" maxlength="13" oninput="validateFieldNum(this)" onblur="validateFieldNum(this)">
-                                    <label for="mobile1">Mobile Number</label>
+                                    <label for="mobile1" class="requiredas">Mobile Number</label>
                                     <small id="mobile-error" class="text-danger" style="display: none;">Please enter a valid PH mobile number starting with +63 or 09.</small>
                                 </div>
                             </div>
@@ -427,6 +443,7 @@ $row = mysqli_fetch_assoc($schedule);
         <div class="container mb-3" style="color: var(--bs-secondary-color);">
             <div class="row">
                 <div class="col-md mt-3">
+                    <br>
                     <h6>Museo ni Jose Rizal, Calamba, Laguna</h6>
                     <center>
                         <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
@@ -434,15 +451,16 @@ $row = mysqli_fetch_assoc($schedule);
                     <p class="tetleft"><a href="https://www.google.com/maps/search/?api=1&query=J.+P.+Rizal+St.,+Cor.+F.+Mercado+St.,+Brgy.+6+Poblacion,+Calamba,+Philippines" class="clickft"><i class="bi bi-geo-alt-fill"></i>&emsp;J. P. Rizal St., Cor. F. Mercado St., Brgy. 6 <span style="margin-left: 30px;">Poblacion, Calamba, Philippines</span></a></p>
                 </div>
                 <div class="col-md mt-3">
+                    <br>
                     <h6>Quick Links</h6>
                     <center>
                         <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
                     </center>
-                    <a type="button" href="aboutus.php" class="tetleft clickft">About us</a>
-                    <br>
-                    <a type="button" href="faqs.php" class="tetleft clickft">Frequently asked Questions</a>
+                    <p class="tetleft"><a type="button" href="aboutus.php" class="clickft">About us</a></p>
+                    <p class="tetleft"><a type="button" href="faqs.php" class="clickft">Frequently asked Questions</a></p>
                 </div>
                 <div class="col-md mt-3">
+                    <br>
                     <h6>Contact Us:</h6>
                     <center>
                         <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">

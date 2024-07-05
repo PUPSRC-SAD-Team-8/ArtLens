@@ -76,7 +76,7 @@ if (isset($_SESSION['userid'])) {
 
     <!-- Main Content -->
     <main class="content px-4 py-3">
-    <h2 style="color: grey;">Manage Account</h2>
+    <h1 style="color: grey;">Manage Account</h1>
         <div class="container mt-3" style="background-color: white; background: linear-gradient(to top, white 93%, #4169E1 7%);">
             <div class="row" style="margin-left: 50px; margin-right: 50px; padding-top: 25px; padding-bottom: 35px;">
                 <div class="col-md-12" style="margin-top: 20px;">
@@ -171,21 +171,15 @@ if (isset($_SESSION['userid'])) {
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="sidebar/script.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/adminaccount.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
 
     <script>
-    var initialFormState = {};
-
     function toggleEdit() {
         var inputs = document.querySelectorAll('input');
         var editButton = document.querySelector('.homebtn');
         var saveButton = document.getElementById('saveChangesBtn');
 
-        // Store initial form state
         inputs.forEach(function(input) {
-            initialFormState[input.name] = input.value;
             input.removeAttribute('readonly');
         });
 
@@ -199,9 +193,7 @@ if (isset($_SESSION['userid'])) {
         var editButton = document.querySelector('.homebtn');
         var saveButton = document.getElementById('saveChangesBtn');
 
-        // Revert to initial form state
         inputs.forEach(function(input) {
-            input.value = initialFormState[input.name];
             input.setAttribute('readonly', ''); // Set inputs back to readonly
         });
 
@@ -250,7 +242,6 @@ if (isset($_SESSION['userid'])) {
         });
     });
 </script>
-
 
 </body>
 

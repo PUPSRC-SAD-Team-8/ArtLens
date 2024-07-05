@@ -61,6 +61,13 @@ if (isset($_SESSION['userid'])) {
         .form-control[readonly] {
             background-color: #f0f0f0; /* Read-only background color */
         }
+        
+        .is-invalid {
+            border-color: red;
+        }
+        .invalid-feedback {
+            color: red;
+        }
     </style>
 </head>
 
@@ -69,7 +76,7 @@ if (isset($_SESSION['userid'])) {
 
     <!-- Main Content -->
     <main class="content px-4 py-3">
-    <h1 style="color: grey;">Manage Account</h1>
+    <h2 style="color: grey;">Manage Account</h2>
         <div class="container mt-3" style="background-color: white; background: linear-gradient(to top, white 93%, #4169E1 7%);">
             <div class="row" style="margin-left: 50px; margin-right: 50px; padding-top: 25px; padding-bottom: 35px;">
                 <div class="col-md-12" style="margin-top: 20px;">
@@ -79,46 +86,52 @@ if (isset($_SESSION['userid'])) {
                         </div>
                         <div class="col-md-10">
                             <span>
-                                <h2 style="display: inline-block; vertical-align: middle; margin-top: 20px;">Hello, Admin Juan</h2>
+                                <h2 style="display: inline-block; vertical-align: middle; margin-top: 20px;">Hello, <span><?php echo htmlspecialchars($firstName); ?></span></h2>
                             </span>
                         </div>
                     </div>
                     <h2 class="mt-5" style="font-size: 25px;">Personal Information</h2>
                     <hr style="width: 300px; height: 3px; background-color: #4169E1">
                     <br>
-                    <form id="employeeForm" action="update_user.php" method="POST">
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <label for="firstNameInput" class="form-label">First Name</label>
-                                <input class="form-control" type="text" id="firstNameInput" name="firstName" value="<?php echo htmlspecialchars($firstName); ?>" readonly required>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="lastNameInput" class="form-label">Last Name</label>
-                                <input class="form-control" type="text" id="lastNameInput" name="lastName" value="<?php echo htmlspecialchars($lastName); ?>" readonly required>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="middleInitialInput" class="form-label">M.I.</label>
-                                <input class="form-control" type="text" id="middleInitialInput" name="middleInitial" value="<?php echo htmlspecialchars($middleInitial); ?>" style="width: 100px;" readonly required>
-                            </div>
+                    <form id="employeeForm" action="update_user.php" method="POST" onsubmit="return validateForm()">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="firstNameInput" class="form-label">First Name</label>
+                            <input class="form-control" type="text" id="firstNameInput" name="firstName" value="<?php echo htmlspecialchars($firstName); ?>" readonly required oninput="validateInput('firstNameInput', 'firstNameError')">
+                            <div class="invalid-feedback" id="firstNameError"></div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <label for="employeeIdInput" class="form-label">Employee ID</label>
-                                <input class="form-control" type="text" id="employeeIdInput" name="employee_id" value="<?php echo htmlspecialchars($employeeId); ?>" readonly required>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="emailInput" class="form-label">Email</label>
-                                <input class="form-control" type="email" id="emailInput" name="email" value="<?php echo htmlspecialchars($email); ?>" readonly required>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="mobileNumberInput" class="form-label">Mobile Number</label>
-                                <input class="form-control" type="text" id="mobileNumberInput" name="mobileNumber" value="<?php echo htmlspecialchars($mobileNumber); ?>" readonly required>
-                            </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="lastNameInput" class="form-label">Last Name</label>
+                            <input class="form-control" type="text" id="lastNameInput" name="lastName" value="<?php echo htmlspecialchars($lastName); ?>" readonly required oninput="validateInput('lastNameInput', 'lastNameError')">
+                            <div class="invalid-feedback" id="lastNameError"></div>
                         </div>
-                        <button type="button" class="homebtn float-end" style="border: none;" onclick="toggleEdit()">Edit</button>
-                        <button type="submit" class="homebtn1 float-end" style="border: none; display: none; margin-right: 5px;" id="saveChangesBtn">Save Changes</button>
-                        <input type="hidden" name="userId" value="<?php echo $userId; ?>">
-                    </form>
+                        <div class="col-md-4 mb-3">
+                            <label for="middleInitialInput" class="form-label">M.I.</label>
+                            <input class="form-control" type="text" id="middleInitialInput" name="middleInitial" value="<?php echo htmlspecialchars($middleInitial); ?>" style="width: 100px;" readonly required oninput="validateInput('middleInitialInput', 'middleInitialError')">
+                            <div class="invalid-feedback" id="middleInitialError"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="employeeIdInput" class="form-label">Employee ID</label>
+                            <input class="form-control" type="text" id="employeeIdInput" name="employee_id" value="<?php echo htmlspecialchars($employeeId); ?>" readonly required oninput="validateInput('employeeIdInput', 'employeeIdError')">
+                            <div class="invalid-feedback" id="employeeIdError"></div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input class="form-control" type="email" id="emailInput" name="email" value="<?php echo htmlspecialchars($email); ?>" readonly required oninput="validateInput('emailInput', 'emailError')">
+                            <div class="invalid-feedback" id="emailError"></div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="mobileNumberInput" class="form-label">Mobile Number</label>
+                            <input class="form-control" type="text" id="mobileNumberInput" name="mobileNumber" value="<?php echo htmlspecialchars($mobileNumber); ?>" readonly required oninput="validateInput('mobileNumberInput', 'mobileNumberError')">
+                            <div class="invalid-feedback" id="mobileNumberError"></div>
+                        </div>
+                    </div>
+                    <button type="button" class="homebtn float-end" style="border: none;" onclick="toggleEdit()">Edit</button>
+                    <button type="submit" class="homebtn1 float-end" style="border: none; display: none; margin-right: 5px;" id="saveChangesBtn">Save Changes</button>
+                    <input type="hidden" name="userId" value="<?php echo $userId; ?>">
+                </form>
                 </div>
             </div>
         </div>
@@ -158,77 +171,87 @@ if (isset($_SESSION['userid'])) {
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="sidebar/script.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/adminaccount.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 
     <script>
-        function toggleEdit() {
-            var inputs = document.querySelectorAll('input[readonly]');
-            var editButton = document.querySelector('.homebtn');
-            var saveButton = document.getElementById('saveChangesBtn');
+    var initialFormState = {};
 
-            inputs.forEach(function(input) {
-                input.removeAttribute('readonly');
-            });
+    function toggleEdit() {
+        var inputs = document.querySelectorAll('input');
+        var editButton = document.querySelector('.homebtn');
+        var saveButton = document.getElementById('saveChangesBtn');
 
-            editButton.textContent = 'Cancel'; // Change button text to 'Cancel'
-            editButton.setAttribute('onclick', 'cancelEdit()'); // Change onclick function to cancelEdit()
-            saveButton.style.display = 'inline-block'; // Show Save Changes button
-        }
+        // Store initial form state
+        inputs.forEach(function(input) {
+            initialFormState[input.name] = input.value;
+            input.removeAttribute('readonly');
+        });
 
-        function cancelEdit() {
-            var inputs = document.querySelectorAll('input[readonly]');
-            var editButton = document.querySelector('.homebtn');
-            var saveButton = document.getElementById('saveChangesBtn');
+        editButton.textContent = 'Cancel'; // Change button text to 'Cancel'
+        editButton.setAttribute('onclick', 'cancelEdit()'); // Change onclick function to cancelEdit()
+        saveButton.style.display = 'inline-block'; // Show Save Changes button
+    }
 
-            inputs.forEach(function(input) {
-                input.setAttribute('readonly', ''); // Set inputs back to readonly
-            });
+    function cancelEdit() {
+        var inputs = document.querySelectorAll('input');
+        var editButton = document.querySelector('.homebtn');
+        var saveButton = document.getElementById('saveChangesBtn');
 
-            editButton.textContent = 'Edit'; // Change button text back to 'Edit'
-            editButton.setAttribute('onclick', 'toggleEdit()'); // Change onclick function back to toggleEdit()
-            saveButton.style.display = 'none'; // Hide Save Changes button
-        }
+        // Revert to initial form state
+        inputs.forEach(function(input) {
+            input.value = initialFormState[input.name];
+            input.setAttribute('readonly', ''); // Set inputs back to readonly
+        });
 
-        $(document).ready(function() {
-            $('#employeeForm').on('submit', function(e) {
-                e.preventDefault();
+        editButton.textContent = 'Edit'; // Change button text back to 'Edit'
+        editButton.setAttribute('onclick', 'toggleEdit()'); // Change onclick function back to toggleEdit()
+        saveButton.style.display = 'none'; // Hide Save Changes button
+    }
 
-                $.ajax({
-                    url: 'update_user.php',
-                    type: 'POST',
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                            didOpen: (toast) => {
-                                toast.addEventListener('mouseenter', Swal.stopTimer);
-                                toast.addEventListener('mouseleave', Swal.resumeTimer);
-                            }
-                        });
+    $(document).ready(function() {
+        $('#employeeForm').on('submit', function(e) {
+            e.preventDefault();
 
-                        Toast.fire({
-                            icon: 'success',
-                            title: 'Changes saved successfully'
-                        });
+            $.ajax({
+                url: 'update_user.php',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer);
+                            toast.addEventListener('mouseleave', Swal.resumeTimer);
+                        }
+                    });
 
-                        // Reset form to readonly mode
-                        cancelEdit();
-                    },
-                    error: function() {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!'
-                        });
-                    }
-                });
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Changes saved successfully'
+                    });
+
+                    // Reset form to readonly mode
+                    cancelEdit();
+                },
+                error: function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!'
+                    });
+                }
             });
         });
-    </script>
+    });
+</script>
+
+
 </body>
 
 </html>

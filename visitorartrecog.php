@@ -111,18 +111,51 @@
     <div class="row">
         <div class="col-12 text-center">
             <div id="webcam-container">
-                <button id="flip-camera-btn" class="btn btn-sm"><i class="fas fa-sync-alt"></i> Flip Camera</button>
+                
             </div>
+            <button id="flip-camera-btn" class="btn btn-sm"><i class="fas fa-sync-alt"></i> Flip Camera</button>
             <button id="capture-button" class="btn btn-primary mt-3">Capture</button>
             <div id="label-container"></div>
         </div>
     </div>
 </div>
 
+<!-- Card Modal -->
+<div id="cardModal" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <center><img id="modal-image" class="img-fluid" alt="Artwork Image"></center>
+                <br>
+                <p><b>Artist: </b><span id="modal-artist"></span></p>
+                <p><b>Year: </b><span id="modal-year"></span></p>
+                <p><b>Medium: </b><span id="modal-medium"></span></p>
+                <p><b>Description: </b><span id="modal-description"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="textToSpeechBtn">Text to Speech</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- TensorFlow.js and Teachable Machine -->
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 
-<script type="text/javascript">
+<script>
     const URL = "./my_model/"; // Path to your model files
 
     let model, webcam, labelContainer, maxPredictions;
@@ -137,7 +170,7 @@
 
         // Setup webcam
         const flip = true; // Default to front camera
-        webcam = new tmImage.Webcam(640, 480, flip); // Initial dimensions for desktop
+        webcam = new tmImage.Webcam(640, 480, flip); // Adjust dimensions as needed
         await webcam.setup();
         await webcam.play();
         window.requestAnimationFrame(loop);
@@ -197,49 +230,19 @@
     // Toggle function for flipping camera
     function toggleCamera() {
         webcam.flip(); // Flip the camera (front/back)
+        webcam.start(); // Restart the webcam with the flipped setting
     }
 
     // Automatically initialize when the page loads
-    window.addEventListener('load', init);
-
-    // Add event listener to the capture button
-    document.getElementById('capture-button').addEventListener('click', predict);
-
-    // Add event listener to flip camera button
-    document.getElementById('flip-camera-btn').addEventListener('click', function() {
-        toggleCamera();
+    window.addEventListener('load', function() {
+        init();
+        // Add event listener to the capture button
+        document.getElementById('capture-button').addEventListener('click', predict);
+        // Add event listener to flip camera button
+        document.getElementById('flip-camera-btn').addEventListener('click', function() {
+            toggleCamera();
+        });
     });
 </script>
-
-<!-- Card Modal -->
-<div id="cardModal" class="modal fade">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modal-title"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <center><img id="modal-image" class="img-fluid" alt="Artwork Image"></center>
-                <br>
-                <p><b>Artist: </b><span id="modal-artist"></span></p>
-                <p><b>Year: </b><span id="modal-year"></span></p>
-                <p><b>Medium: </b><span id="modal-medium"></span></p>
-                <p><b>Description: </b><span id="modal-description"></span></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="textToSpeechBtn">Text to Speech</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -30,12 +30,12 @@ if (isset($_SESSION['userid'])) {
         <?php include('sidebar.php'); ?>
         
             <!--MAIN MAIN MAIN-->
-            <main class="content px-3 py-2" style="overflow-x: auto;">
+            <main class="content px-3 py-2">
                 <div class="container">
                     <div class="d-flex justify-content-end mt-3">
                         <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white;">Add Booking</button>
                     </div>
-                    <div style="max-height: 400px;">
+                    <div >
                         <table id="myTable" class="table table-striped table-bordered" style="background-color: #ffffff;">
                             <thead style="background-color: #4169E1; color: white;">
                                 <tr>

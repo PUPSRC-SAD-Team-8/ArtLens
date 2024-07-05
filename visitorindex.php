@@ -30,7 +30,6 @@
         .draggable-modal {
             cursor: move;
         }
-        /* Make the anchor tag behave like a block element */
         .card-link {
             display: block;
             color: inherit; /* Inherit text color from parent */
@@ -43,7 +42,6 @@
             border-radius: 5px;
             text-decoration: none;
         }
-
         .btn1:hover{
             background-color: #4169E1 !important;
             border: 1px solid white !important;
@@ -84,33 +82,31 @@
             ?>
         </div>
     </div>
-
-
-<div class="modal modal-from-bottom draggable-modal" id="artworkModal" tabindex="-1" role="dialog" aria-labelledby="artworkModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 id="ArtworkTitle"></h5>
-                <button type="button" class="btn-close" data-dismiss="modal" id="toggleSpeechBtn1" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <img src="" class="card-img-top image" alt="Artwork Image" id="artworkImage">
-                <br>
-                <br>
-                <button type="button" class="btn btn-primary float-end" id="toggleSpeechBtn"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-volume-up" viewBox="0 0 16 16">
-                <path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
-                <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
-                <path d="M10.025 8a4.5 4.5 0 0 1-1.318 3.182L8 10.475A3.5 3.5 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.5 4.5 0 0 1 10.025 8M7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11"/>
-                </svg></button>
-                <br>
-                <p><b>Artist: </b><span id="artworkArtist"></span></p>
-                <p><b>Year: </b><span id="artworkYear"></span></p>
-                <p><b>Medium: </b><span id="artworkMedium"></span></p>
-                <p><b>Description: </b><span id="artworkDescription"></span></p>
+    <div class="modal modal-from-bottom draggable-modal" id="artworkModal" tabindex="-1" role="dialog" aria-labelledby="artworkModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="ArtworkTitle"></h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" id="toggleSpeechBtn1" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" class="card-img-top image" alt="Artwork Image" id="artworkImage">
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-primary float-end" id="toggleSpeechBtn"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-volume-up" viewBox="0 0 16 16">
+                    <path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+                    <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+                    <path d="M10.025 8a4.5 4.5 0 0 1-1.318 3.182L8 10.475A3.5 3.5 0 0 0 9.025 8c0-.966-.392-1.841-1.025-2.475l.707-.707A4.5 4.5 0 0 1 10.025 8M7 4a.5.5 0 0 0-.812-.39L3.825 5.5H1.5A.5.5 0 0 0 1 6v4a.5.5 0 0 0 .5.5h2.325l2.363 1.89A.5.5 0 0 0 7 12zM4.312 6.39 6 5.04v5.92L4.312 9.61A.5.5 0 0 0 4 9.5H2v-3h2a.5.5 0 0 0 .312-.11"/>
+                    </svg></button>
+                    <br>
+                    <p><b>Artist: </b><span id="artworkArtist"></span></p>
+                    <p><b>Year: </b><span id="artworkYear"></span></p>
+                    <p><b>Medium: </b><span id="artworkMedium"></span></p>
+                    <p><b>Description: </b><span id="artworkDescription"></span></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <div class="d-flex justify-content-end fixed-bottom fixed-end p-3">
     <div class="fixed-button">

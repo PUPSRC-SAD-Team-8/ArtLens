@@ -4,6 +4,17 @@ function getCurrentScript() {
     return basename($_SERVER['SCRIPT_NAME']);
 }
 $current_script = getCurrentScript();
+if (isset($_SESSION['userid'])) {
+    $userId = $_SESSION['userid']; // Replace with actual user ID logic if needed
+
+    // Fetch user data
+    $sql = "SELECT firstName, lastName, middleInitial, employee_id, email, mobileNumber FROM login WHERE userid = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $stmt->bind_result($firstName, $lastName, $middleInitial, $employeeId, $email, $mobileNumber);
+    $stmt->fetch();
+    $stmt->close(); }
 ?>
 
 <div class="menu">
@@ -59,8 +70,9 @@ $current_script = getCurrentScript();
                 <img src="assets/images/profile.png" alt="">
                 <div class="user-info">
                     <div class="name-email">
-                        <span class="name">adminaccount.php</span>
-                        <span class="email">admin12@gmail.com</span>
+                        <div class="name" id="user-name"><?php echo isset($firstName) ? $firstName : ''; ?></div>
+          <span class="email" id="user-email"><?php echo isset($email) ? $email : ''; ?></span>
+        </div>
                     </div>
                     <div class="dropup" style="cursor: pointer;">
                         <ion-icon name="ellipsis-vertical-outline" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
@@ -73,3 +85,5 @@ $current_script = getCurrentScript();
             </div>
         </div>
     </div>
+
+    

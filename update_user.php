@@ -1,33 +1,30 @@
 <?php
-// Database connection settings
+session_start();
 include('connection.php');
 
-// Get the POST data
-$userId = $_POST['userId'];
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
-$middleInitial = $_POST['middleInitial'];
-$employeeId = $_POST['employee_id'];
-$email = $_POST['email'];
-$mobileNumber = $_POST['mobileNumber'];
+if (isset($_POST['userId'])) {
+    $userId = intval($_POST['userId']);
+    $firstName = htmlspecialchars(trim($_POST['firstName']));
+    $lastName = htmlspecialchars(trim($_POST['lastName']));
+    $middleInitial = htmlspecialchars(trim($_POST['middleInitial']));
+    $employeeId = htmlspecialchars(trim($_POST['employee_id']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $mobileNumber = htmlspecialchars(trim($_POST['mobileNumber']));
 
-// Update the user data
-$sql = "UPDATE login SET firstName=?, lastName=?, middleInitial=?, employee_id=?, email=?, mobileNumber=? WHERE userid=?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssi", $firstName, $lastName, $middleInitial, $employeeId, $email, $mobileNumber, $userId);
+    // Update user data in the database
+    $sql = "UPDATE login SET firstName = ?, lastName = ?, middleInitial = ?, employee_id = ?, email = ?, mobileNumber = ? WHERE userid = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssssssi", $firstName, $lastName, $middleInitial, $employeeId, $email, $mobileNumber, $userId);
 
-if ($stmt->execute()) {
-    // Redirect back to adminaccount.php with success message
+    if ($stmt->execute()) {
+        echo json_encode(['success' => true]);
+    } else {
+        echo json_encode(['success' => false, 'error' => $stmt->error]);
+    }
+
     $stmt->close();
     $conn->close();
-    
-    header("Location: adminaccount.php?update_success=1");
-    exit();
 } else {
-    echo "Error updating record: " . $stmt->error;
+    echo json_encode(['success' => false, 'error' => 'Invalid request']);
 }
-
-$stmt->close();
-$conn->close();
 ?>
-

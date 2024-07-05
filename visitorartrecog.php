@@ -316,7 +316,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="textToSpeechBtn">Text to Speech</button>
+                    <!--<button type="button" class="btn btn-primary" id="textToSpeechBtn">Text to Speech</button>-->
                 </div>
             </div>
         </div>

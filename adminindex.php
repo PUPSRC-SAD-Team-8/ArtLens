@@ -143,7 +143,7 @@ if (isset($_SESSION['userid'])) {
                             labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
                             datasets: [{
                                 label: 'Visitors',
-                                data: [50, 100, 150, 200],
+                                data: [4, 0, 0, 0],
                                 backgroundColor: [
                                     '#4169E1'
                                 ],

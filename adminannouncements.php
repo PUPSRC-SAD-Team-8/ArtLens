@@ -83,7 +83,7 @@ if (isset($_SESSION['userid'])) {
 
                 <!--MAIN MAIN MAIN-->
                 <main class="content px-4 py-3">
-                <h2 style="color: grey;">Manage Announcement</h2>
+                <h1 style="color: grey;">Manage Announcement</h1>
                     <div class="accordion mt-3" id="accordionExample" style="background-color: white;">
                         <h2 class="accordion-header">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">

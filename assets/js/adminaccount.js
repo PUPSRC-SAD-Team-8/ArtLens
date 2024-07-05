@@ -48,7 +48,7 @@ function validateInput(inputId, errorId) {
         let mobilePattern = /^(\+63|09)\d{9}$/;
         if (!mobilePattern.test(value) || /\D/.test(value)) {
             isValid = false;
-            message = 'Please enter a valid mobile number starting with +63 or 09 and containing only digits.';
+            message = 'Please enter a valid mobile number starting with +63 or 09';
         }
     } else if (inputId === 'employeeIdInput') {
         let employeeIdPattern = /^\d{3}-\d{3}$/;

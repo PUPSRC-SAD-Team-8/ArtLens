@@ -1,89 +1,113 @@
-
-
 function toggleFields() {
-    var status = document.getElementById('modal-status').value;
-    var organizationFields = document.querySelector('.organization');
-    var individualFields = document.querySelector('.individual');
-    var moInput = document.getElementById('mo'); // Assuming 'mo' is the ID of the input field
+    const status = document.getElementById('modal-status').value;
+    const organizationFields = document.querySelector('.organization');
+    const individualFields = document.querySelector('.individual');
 
     if (status === 'Organization') {
         individualFields.style.display = 'none';
         organizationFields.style.display = 'block';
-
-        // Set required attribute for organization fields
-        organizationFields.querySelectorAll('input, select').forEach(function(field) {
-            field.setAttribute('required', '');
-        });
-
-        // Remove required attribute from individual fields
-        individualFields.querySelectorAll('input, select').forEach(function(field) {
-            field.removeAttribute('required');
-        });
+        updateRequiredAttributes(organizationFields, individualFields);
     } else {
         organizationFields.style.display = 'none';
         individualFields.style.display = 'block';
-
-        // Set required attribute for individual fields
-        individualFields.querySelectorAll('input, select').forEach(function(field) {
-            field.setAttribute('required', '');
-        });
-
-        // Remove required attribute from organization fields
-        organizationFields.querySelectorAll('input, select').forEach(function(field) {
-            field.removeAttribute('required');
-        });
+        updateRequiredAttributes(individualFields, organizationFields);
     }
+}
 
-    // Always remove required attribute from 'mo' input field
-    moInput.removeAttribute('required');
+function updateRequiredAttributes(showFields, hideFields) {
+    showFields.querySelectorAll('input, select').forEach(function(field) {
+        field.setAttribute('required', '');
+    });
+    hideFields.querySelectorAll('input, select').forEach(function(field) {
+        field.removeAttribute('required');
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     toggleFields(); // Initial toggle on page load
+
+    // Optional: Add onchange event listener to 'modal-status' select element
+    const modalStatusSelect = document.getElementById('modal-status');
+    modalStatusSelect.addEventListener('change', toggleFields);
 });
 
-function validateAlphabet(input) {
-    var field = input.value.trim();
+document.addEventListener('DOMContentLoaded', function() {
+    const organizationFields = document.getElementsByClassName('organization');
+    
+    Array.from(organizationFields).forEach(orgField => {
+        const numberFields = orgField.querySelectorAll('input[type="number"]');
+        
+        numberFields.forEach(field => {
+            field.addEventListener('input', function() {
+                validateField(field);
+            });
 
-    // Regular expression to match only letters
-    var alphabetPattern = /^[a-zA-Z]$/;
+            field.addEventListener('blur', function() {
+                validateField(field);
+            });
+        });
+    });
 
-    // Check if the input is empty or doesn't match the letter pattern
-    if (field !== '' && !alphabetPattern.test(field)) {
-        input.value = '';
+    function validateField(field) {
+        const value = parseInt(field.value, 10);
+        const errorMessage = field.parentElement.querySelector('.invalid-feedback');
+        if (field.value === '' || value > 50) {
+            field.classList.add('is-invalid');
+            errorMessage.textContent = value > 50 ? 'Value cannot exceed 50.' : '';
+            errorMessage.style.display = 'block'; // Show the error message
+            field.setCustomValidity('Invalid');
+        } else {
+            field.classList.remove('is-invalid');
+            errorMessage.style.display = 'none'; // Hide the error message
+            field.setCustomValidity('');
+        }
     }
-}
-
-// Attach event listener to validateAlphabet function on input event
-document.getElementById('mo').addEventListener('input', function() {
-    validateAlphabet(this);
 });
 
+  // Function to update required attributes based on form mode
+  function updateRequiredAttributes(showFields, hideFields) {
+    showFields.querySelectorAll('input[required], select[required]').forEach(function(field) {
+        if (!field.closest('.form-floating').classList.contains('optional-field')) {
+            field.setAttribute('required', '');
+        }
+    });
 
-function toggleFields() {
-    const status = document.getElementById('modal-status').value;
-    if (status === 'Individual') {
-        document.querySelector('.individual').style.display = 'block';
-        document.querySelector('.organization').style.display = 'none';
-    } else {
-        document.querySelector('.individual').style.display = 'none';
-        document.querySelector('.organization').style.display = 'block';
+    // Remove required attribute specifically for the "MI (Optional)" field
+    const optionalField = showFields.querySelector('#mo');
+    if (optionalField) {
+        optionalField.removeAttribute('required');
     }
+
+    hideFields.querySelectorAll('input[required], select[required]').forEach(function(field) {
+        field.removeAttribute('required');
+    });
 }
+
 function validateForm() {
     const form = document.getElementById('logForm');
-    const inputs = form.querySelectorAll('input[required]');
+    const status = document.getElementById('modal-status').value;
     let isValid = true;
-    inputs.forEach(input => {
+
+    if (status === 'Individual') {
+        document.querySelectorAll('.organization input, .organization select').forEach(function(field) {
+            field.removeAttribute('required');
+        });
+    } else {
+        document.querySelectorAll('.individual input, .individual select').forEach(function(field) {
+            field.removeAttribute('required');
+        });
+    }
+
+    form.querySelectorAll('input[required]').forEach(input => {
         if (!input.value.trim()) {
             isValid = false;
             showError(input, 'This field cannot be blank.');
-            document.getElementById('logButton').disabled = true;
         } else {
             clearError(input);
-            document.getElementById('logButton').disabled = false;
         }
     });
+
+    document.getElementById('logButton').disabled = !isValid;
     return isValid;
 }
 

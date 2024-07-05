@@ -52,6 +52,8 @@
             opacity: 0;
             pointer-events: none;
             transition: all 0.3s ease;
+            
+
         }
 
         .info_box.activeInfo, .quiz_box.activeQuiz, .result_box.activeResult {
@@ -59,6 +61,7 @@
             z-index: 5;
             pointer-events: auto;
             transform: translate(-50%, -50%) scale(1);
+            
         }
 
         .info_box .info-title {
@@ -71,6 +74,7 @@
             border-radius: 5px 5px 0 0;
             font-size: 20px;
             font-weight: 600;
+            
         }
 
         .info_box .info-list {
@@ -152,108 +156,6 @@
             left: 0px;
             height: 3px;
             background: #007bff;
-        }
-
-        section {
-            padding: 25px 30px 20px 30px;
-            background: #fff;
-        }
-
-        section .que_text {
-            font-size: 25px;
-            font-weight: 600;
-        }
-
-        section .option_list {
-            padding: 20px 0px;
-            display: block;
-        }
-
-        section .option_list .option {
-            background: aliceblue;
-            border: 1px solid #84c5fe;
-            border-radius: 5px;
-            padding: 8px 15px;
-            font-size: 17px;
-            margin-bottom: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        section .option_list .option:last-child {
-            margin-bottom: 0px;
-        }
-
-        section .option_list .option:hover {
-            color: #004085;
-            background: #cce5ff;
-            border: 1px solid #b8daff;
-        }
-
-        section .option_list .option.correct {
-            color: #155724;
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-        }
-
-        section .option_list .option.incorrect {
-            color: #721c24;
-            background: #f8d7da;
-            border: 1px solid #f5c6cb;
-        }
-
-        section .option_list .option.disabled {
-            pointer-events: none;
-        }
-
-        section .option_list .option .icon {
-            height: 26px;
-            width: 26px;
-            border: 2px solid transparent;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 13px;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            line-height: 24px;
-        }
-
-        .option_list .option .icon.tick {
-            color: #23903c;
-            border-color: #23903c;
-            background: #d4edda;
-        }
-
-        .option_list .option .icon.cross {
-            color: #a42834;
-            background: #f8d7da;
-            border-color: #a42834;
-        }
-
-        footer {
-            height: 60px;
-            padding: 0 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid lightgrey;
-        }
-
-        footer .total_que span {
-            display: flex;
-            user-select: none;
-        }
-
-        footer .total_que span p {
-            font-weight: 500;
-            padding: 0 5px;
-        }
-
-        footer .total_que span p:first-child {
-            padding-left: 0px;
         }
 
         footer button {
@@ -380,7 +282,7 @@
 <body>
     <nav class="head navbar navbar-expand-lg navbar-expand-md navbar-dark">
         <div class="container">
-            <h1 class="titleh"><b>ArtLens</b></h1>
+            <h1 style="color: white; font-family: Josefin Sans; margin-top: 15px; font-size: 25px;"><b>ARTLENS</b></h1>
             <a class="btn1" href="visitorindex.php">Back</a>
         </div>
     </nav>
@@ -394,6 +296,7 @@
         </div>
     </div>
     <!-- Info Box -->
+     <div class="container">
     <div class="info_box">
         <div class="info-title"><span>Some Rules of this Quiz</span></div>
         <div class="info-list">
@@ -409,9 +312,9 @@
         </div>
     </div>
     <!-- Quiz Box -->
-    <div class="quiz_box">
+    <div class="quiz_box mt-3" style="z-index: 111111;">
         <header>
-            <div class="title">Awesome Quiz Application</div>
+            <div class="title">ArtLens Quiz</div>
             <div class="timer">
                 <div class="time_left_txt">Time Left</div>
                 <div class="timer_sec">15</div>
@@ -448,6 +351,7 @@
             <button class="quit">Quit Quiz</button>
         </div>
     </div>
+    
     <!-- Inside this JavaScript file I've inserted Questions and Options only -->
     <script src="js1/questions.js"></script>
     <!-- Inside this JavaScript file I've coded all Quiz Codes -->

@@ -142,12 +142,12 @@
 </head>
 
 <body>
-    <nav class="head navbar navbar-expand-lg navbar-expand-md navbar-dark bg-primary">
-        <div class="container">
-            <h1 style="color: white; font-family: 'Arial Grook', sans-serif; "><b>ArtLens</b></h1>
-            <a class="homebtn" href="index.php">Home</a>
-        </div>
-    </nav>
+<nav class="head navbar navbar-expand-lg navbar-expand-md navbar-dark bg-primary">
+    <div class="container">
+        <h1 style="color: white; font-family: Josefin Sans; margin-top: 15px; font-size: 25px;"><b>ARTLENS</b></h1>
+        <a class="homebtn" href="index.php">Home</a>
+    </div>
+</nav>
 
     <div class="container mt-5">
         <div class="row">

@@ -45,73 +45,83 @@ if (isset($_SESSION['userid'])) {
     <main class="content px-5 py-4">
                 <div class="container" >
                 <h1 style="color: grey;">Dashboard</h1>
-                    <div class="box"  style="width: 30%; border-radius: 10px; min-width: 300px;">
-                        <h5 style="margin-left: -100px;">Daily Booking</h5>
-                        <h3 style="margin-left: -200px;"><b>
-                        <?php
-                        require('connection.php');
+                <div class="box" style="width: 30%; border-radius: 10px; min-width: 300px;">
+                    <h5 style="margin-left: -100px;">Daily Booking</h5>
+                    <h3 style="margin-left: -200px;"><b>
+                    <?php
+                    date_default_timezone_set('Asia/Manila'); 
 
-                        $count_query = "SELECT COUNT(*) AS booking_count FROM booking";
-                        $count_result = $conn->query($count_query);
+                    require('connection.php');
 
-                        if ($count_result->num_rows > 0) {
-                            $count_row = $count_result->fetch_assoc();
-                            echo $count_row['booking_count'];
-                        } else {
-                            echo '0';
-                        }
+                    $current_date = date('Y-m-d');
 
-                        $conn->close();
-                        ?>
-                        </b></h3>
-                        <div class="d-flex align-items-center justify-content-end" style="margin-top: -50px; margin-right: 50px;">
-                            <i class="bi bi-book"></i>
-                        </div>
-                    </div>
-                    <div class="box"  style="width: 30%; border-radius: 10px; min-width: 300px;">
-                        <h5 style="margin-left: -100px;">Daily Visitor Log</h5>
-                        <h3 style="margin-left: -200px;"><b>
-                        <?php
-                        require('connection.php');
+                    // Query to count bookings for the current date
+                    $count_query = "SELECT COUNT(*) AS booking_count FROM booking WHERE DATE(sched_datetime) = '$current_date'";
+                    $count_result = $conn->query($count_query);
 
-                        $count_visitor_log_query = "SELECT COUNT(*) AS visitor_count FROM visitor_log";
-                        $count_visitor_log_result = $conn->query($count_visitor_log_query);
-                        $visitor_log_count = 0;
+                    if ($count_result->num_rows > 0) {
+                        $count_row = $count_result->fetch_assoc();
+                        echo $count_row['booking_count'];
+                    } else {
+                        echo '0';
+                    }
 
-                        if ($count_visitor_log_result->num_rows > 0) {
-                            $count_visitor_log_row = $count_visitor_log_result->fetch_assoc();
-                            $visitor_log_count = $count_visitor_log_row['visitor_count'];
-                        }
-
-                        $count_visitor_org_query = "SELECT COUNT(*) AS visitor_count FROM visitor_org";
-                        $count_visitor_org_result = $conn->query($count_visitor_org_query);
-                        $visitor_org_count = 0;
-
-                        if ($count_visitor_org_result->num_rows > 0) {
-                            $count_visitor_org_row = $count_visitor_org_result->fetch_assoc();
-                            $visitor_org_count = $count_visitor_org_row['visitor_count'];
-                        }
-
-                        $total_visitor_count = $visitor_log_count + $visitor_org_count;
-
-                        echo $total_visitor_count;
-
-                        $conn->close();
-                        ?>
-
-                        </b></h3>
-                        <div class="d-flex align-items-center justify-content-end" style="margin-top: -50px; margin-right: 50px;">
-                        <i class="bi bi-people-fill"></i>
-                        </div>
-                    </div>
-                    <div class="box"  style="width: 30%; border-radius: 10px; min-width: 300px;">
-                        <h5 style="margin-left: -100px;">Current Visitor</h5>
-                        <h3 style="margin-left: -200px;"><b>4</b></h3>
-                        <div class="d-flex align-items-center justify-content-end" style="margin-top: -50px; margin-right: 50px;">
-                        <i class="bi bi-people-fill"></i>
-                        </div>
+                    $conn->close();
+                    ?>
+                    </b></h3>
+                    <div class="d-flex align-items-center justify-content-end" style="margin-top: -50px; margin-right: 50px;">
+                        <i class="bi bi-book"></i>
                     </div>
                 </div>
+
+                <div class="box" style="width: 30%; border-radius: 10px; min-width: 300px;">
+                    <h5 style="margin-left: -100px;">Daily Visitor Log</h5>
+                    <h3 style="margin-left: -200px;"><b>
+                    <?php
+                    require('connection.php');
+
+                    // Get current date in YYYY-MM-DD format
+                    $current_date = date('Y-m-d');
+
+                    // Query to count visitor_log entries for the current date
+                    $count_visitor_log_query = "SELECT COUNT(*) AS visitor_count FROM visitor_log WHERE DATE(entry_timestamp) = '$current_date'";
+                    $count_visitor_log_result = $conn->query($count_visitor_log_query);
+                    $visitor_log_count = 0;
+
+                    if ($count_visitor_log_result->num_rows > 0) {
+                        $count_visitor_log_row = $count_visitor_log_result->fetch_assoc();
+                        $visitor_log_count = $count_visitor_log_row['visitor_count'];
+                    }
+
+                    // Query to count visitor_org entries
+                    $count_visitor_org_query = "SELECT COUNT(*) AS visitor_count FROM visitor_org WHERE DATE(entry_timestamp) = '$current_date'";
+                    $count_visitor_org_result = $conn->query($count_visitor_org_query);
+                    $visitor_org_count = 0;
+
+                    if ($count_visitor_org_result->num_rows > 0) {
+                        $count_visitor_org_row = $count_visitor_org_result->fetch_assoc();
+                        $visitor_org_count = $count_visitor_org_row['visitor_count'];
+                    }
+
+                    $total_visitor_count = $visitor_log_count + $visitor_org_count;
+
+                    echo $total_visitor_count;
+
+                    $conn->close();
+                    ?>
+                    </b></h3>
+                    <div class="d-flex align-items-center justify-content-end" style="margin-top: -50px; margin-right: 50px;">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                </div>
+                <div class="box" style="width: 30%; border-radius: 10px; min-width: 300px;">
+                    <h5 style="margin-left: -100px;">Current Visitor</h5>
+                    <h3 style="margin-left: -200px;"><b>4</b></h3> <!-- Replace with actual current visitor count -->
+                    <div class="d-flex align-items-center justify-content-end" style="margin-top: -50px; margin-right: 50px;">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                </div>
+
                 <br>
                 <div class="container" style="background-color: white; padding: 30px;">
                     <div class="mb-3 float-end" style="width: 10%;">

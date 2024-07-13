@@ -119,13 +119,9 @@ document.addEventListener("DOMContentLoaded", function() {
                             document.getElementById('emal').classList.remove('border-red');
                         }, 3000); // Adjust delay as needed
                     } else {
-                        // Handle other responses (optional)
-                        console.error('Error: ' + response);
+                   
                     }
-                } else {
-                    // Handle HTTP errors
-                    console.error('Error: ' + xhr.status);
-                }
+                } 
 
                 // Hide loading spinner after request completes
                 setTimeout(function () {
@@ -135,8 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         };
         xhr.onerror = function () {
-            // Handle AJAX errors
-            console.error('Error: AJAX request failed');
+
 
             // Hide loading spinner on error
             document.getElementById('submitText').style.display = 'inline';
@@ -182,8 +177,6 @@ document.addEventListener("DOMContentLoaded", function() {
                    
                     }
                 } else {
-                    // Handle AJAX errors or HTTP errors
-                    console.error('Error: ' + xhr.status);
                 }
             }
         };

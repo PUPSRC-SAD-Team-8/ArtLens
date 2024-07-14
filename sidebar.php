@@ -71,11 +71,11 @@ if (isset($_SESSION['userid'])) {
                 <div class="user-info">
                     <div class="name-email">
                         <div class="name" id="user-name"><?php echo isset($firstName) ? $firstName : ''; ?></div>
-          <span class="email" id="user-email"><?php echo isset($email) ? $email : ''; ?></span>
-        </div>
+                        <span class="email" id="user-email"><?php echo isset($email) ? $email : ''; ?></span>
+                    </div>
                     </div>
                     <div class="dropup" style="cursor: pointer;">
-                        <ion-icon name="ellipsis-vertical-outline" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
+                        <ion-icon name="ellipsis-vertical-outline" class="mt-3" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <li><a class="dropdown-item" href="adminaccount.php">Manage Account</a></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>

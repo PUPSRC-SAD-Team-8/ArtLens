@@ -44,6 +44,7 @@ if (isset($_SESSION['userid'])) {
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content" style="height: 700px;">
                             <div class="modal-header">
+                                <h2 style="color: grey;">Manage Artworks</h2>
                                 <h5 class="modal-title" id="addArtworkModalLabel">Add Artwork</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>

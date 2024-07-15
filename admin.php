@@ -74,9 +74,7 @@ $row = mysqli_fetch_assoc($schedule);
                 <div class="d-flex justify-content-center mt-5">
                     <button type="submit" name="submit" class="btn3" style="width: 40%;">Login</button>
                 </div>
-
             </form>
-
         </div>
     </div>
 

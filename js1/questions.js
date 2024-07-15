@@ -1,72 +1,57 @@
-// creating an array and passing the number, questions, options, and answers
 let questions = [
-    {
-    numb: 1,
-    question: "Art made by Juan Luna?",
-    answer: "Spoliarium",
-    options: [
-      "Ganesh",
-      "Spoliarium",
-      "The Starry Night",
-      "Blue Star"
-    ]
+  {
+      numb: 1,
+      question: "<center><img src='js1/1.jpg' alt='Image 1' style='height: 10%; width: 40%;'></center>",
+      answer: "Punong Barangay",
+      options: [
+          "Bundok ng Susong Dalaga",
+          "Tampisaw sa Dagat",
+          "Punong Barangay",
+          "Punong Bayan"
+      ]
   },
-    {
-    numb: 2,
-    question: "Art made by Juan Luna?",
-    answer: "Spoliarium",
-    options: [
-      "Ganesh",
-      "Spoliarium",
-      "The Starry Night",
-      "Blue Star"
-    ]
+  {
+      numb: 2,
+      question: "<center><img src='js1/2.jpg' alt='Image 1' style='height: 10%; width: 30%;'></center>",
+      answer: "Bundok Makiling",
+      options: [
+          "Bundok Makilin",
+          "Punong Barangay",
+          "Ang pagsisikap",
+          "Tampisaw sa Dagat"
+      ]
   },
-    {
-    numb: 3,
-    question: "Art made by Juan Luna?",
-    answer: "Spoliarium",
-    options: [
-      "Ganesh",
-      "Spoliarium",
-      "The Starry Night",
-      "Blue Star"
-    ]
+  {
+      numb: 3,
+      question: "<center><img src='js1/3.jpg' alt='Image 1' style='height: 10%; width: 30%;'></center>",
+      answer: "Sayawan sa Videoke",
+      options: [
+          "Bundok Makiling",
+          "Tampisaw sa Dagat",
+          "Punong Barangay",
+          "Sayawan sa Videoke"
+      ]
   },
-    {
-    numb: 4,
-    question: "Art made by Juan Luna?",
-    answer: "Spoliarium",
-    options: [
-      "Ganesh",
-      "Spoliarium",
-      "The Starry Night",
-      "Blue Star"
-    ]
+  {
+      numb: 4,
+      question: "<center><img src='js1/4.jpg' alt='Image 1' style='height: 10%; width: 40%;'></center>",
+      answer: "Munting Kubo sa Bukid ng Looc",
+      options: [
+          "Sayawan sa Videoke",
+          "Punong Barangay",
+          "Munting Kubo sa Bukid ng Looc",
+          "Bundok ng Susong Dalaga"
+      ]
   },
-    {
-    numb: 5,
-    question: "Art made by Juan Luna?",
-    answer: "Spoliarium",
-    options: [
-      "Ganesh",
-      "Spoliarium",
-      "The Starry Night",
-      "Blue Star"
-    ]
-  },
-  // you can uncomment the below codes and make duplicate as more as you want to add question
-  // but remember you need to give the numb value serialize like 1,2,3,5,6,7,8,9.....
-
-  //   {
-  //   numb: 6,
-  //   question: "Your Question is Here",
-  //   answer: "Correct answer of the question is here",
-  //   options: [
-  //     "Option 1",
-  //     "option 2",
-  //     "option 3",
-  //     "option 4"
-  //   ]
-  // },
+  {
+      numb: 5,
+      question: "<center><img src='js1/5.jpg' alt='Image 1' style='height: 10%; width: 40%;'></center>",
+      answer: "Mula sa Tagumpay ng Lahing Filipino Jose Rizal",
+      options: [
+          "Mula sa Tagumpay ng Lahing Filipino Jose Rizal",
+          "Bundok ng Susong Dalaga",
+          "Punong Barangay",
+          "Sayawan sa Videoke"
+      ]
+  }
 ];

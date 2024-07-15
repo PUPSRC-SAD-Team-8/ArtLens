@@ -20,7 +20,29 @@ if (isset($_SESSION['userid'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
+<style>
+    .btn3 {
+width: auto;
+padding: 10px 32px;
+background-color: #4169E1;
+color: white;
+border-radius: 5px;
+text-align: center;
+text-transform: capitalize;
+cursor: pointer;
+text-decoration: none;
+border: solid 1px white;
+margin: 0 auto;
 
+}
+
+.btn3:hover {
+background-color: white;
+color: #4169E1;
+border: solid 1px #4169E1;
+box-shadow: none;
+}
+</style>
     <title>Artlens</title>
 </head>
 
@@ -33,7 +55,10 @@ if (isset($_SESSION['userid'])) {
             <main class="content px-3 py-2">
                 <div class="container">
                     <div class="d-flex justify-content-end mt-3">
-                        <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white;">Add Booking</button>
+                        <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white; margin-right: 10px;">Add Booking</button>
+                        <form method="POST" action="generate_booking_report.php" target="_blank">
+                            <button type="submit" class="btn float-end" name="pdf_creater" value="PDF"  style="background-color: #4169E1; color: white;">Export to File <i class="bi bi-file-earmark-pdf"></i></button>
+                        </form>
                     </div>
                     <div >
                         <table id="myTable" class="table table-striped table-bordered" style="background-color: #ffffff;">
@@ -76,9 +101,6 @@ if (isset($_SESSION['userid'])) {
                         </table>
                         <br>
                         <br><br>
-                        <form method="POST" action="generate_booking_report.php" target="_blank">
-                            <button type="submit" class="btn btn-primary float-end" name="pdf_creater" value="PDF">Export to File <i class="bi bi-file-earmark-pdf"></i></button>
-                        </form>
                     </div>
                 </div>
             
@@ -91,35 +113,59 @@ if (isset($_SESSION['userid'])) {
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form id="infoForm" action="bookingad.php" method="POST">
-                                    <div class="mb-3">
-                                        <label for="nameInput" class="form-label">Organization Name</label>
-                                        <input class="form-control" type="text" id="nameInput" name="onam" required>
+                                <div id="alertMessage" class="alert alert-primary d-none" role="alert">
+                                    Form submitted successfully!
+                                    <button type="button" class="btn-close float-end" aria-label="Close" onclick="dismissAlert()"></button>
+                                </div>
+                                <form id="bookingForm" name="bookingForm" action="booking.php" method="POST" onsubmit="handleSubmit(event)">
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="onam" name="onam" type="text" placeholder="Organization Name" required maxlength="50">
+                                    <label>Organization Name</label>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50" oninput="checkEmail()">
+                                    <label>Email</label>
+                                    <div class="invalid-feedback"></div>
+                                    <div id="emailStatus"></div><!-- Error message container -->
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="monu" name="monu" type="tel" placeholder="Mobile Number" required title="Please enter an 11-digit mobile number." maxlength="13">
+                                    <label>Mobile Number</label>
+                                    <div id="mobileStatus" class="invalid-feedback"></div> <!-- Error message container -->
+                                </div>
+                                <div class="row">
+                                    <label class="form-label d-block">Number by Sex</label>
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="numa" name="numa" type="number" placeholder="Number of Males" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
+                                            <label>Male</label>
+                                            <span id="maleError" class="error-message"></span>
+                                        </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="emailInput" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="emailInput" name="emal" required>
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="nufe" name="nufe" type="number" placeholder="Number of Females" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
+                                            <label>Female</label>
+                                            <span id="femaleError" class="error-message"></span>
+                                        </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="mnumberInput" class="form-label">Mobile Number</label>
-                                        <input type="text" class="form-control" id="mnumberInput" name="monu" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="nummaleInput" class="form-label">Number of Male</label>
-                                        <input type="number" class="form-control" id="nummaleInput" name="numa" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="numfemaleInput" class="form-label">Number of Female</label>
-                                        <input type="number" class="form-control" id="numfemaleInput" name="nufe" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="dateInput" class="form-label">Date and Time</label>
-                                        <input type="datetime-local" class="form-control" id="dateInput" name="dati" required>
-                                    </div>
-                                    <!-- Add a hidden input field for book_status with default value "Pending" -->
-                                    <input type="hidden" name="status" value="Pending">
-                                    <button type="submit" name="submit" class="btn float-end" style="background-color: #4169E1; color: #ffffff;">Submit</button>
-                                </form>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="dati" name="dati" type="datetime-local" placeholder="Date and Time" required>
+                                    <label>Date and Time</label>
+                                    <div id="dateTimeError" class="invalid-feedback" style="display: none; color: #dc3545; font-size: smaller;"></div> <!-- Error message container -->
+                                </div>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button type="submit" name="submit" class="btn3 mt-3" id="bookButton" style="width: 100%;" disabled>
+                                        <span id="submitText">Book</span>
+                                        <span id="loadingSpinner" class="visually-hidden">
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            Loading...
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -185,10 +231,13 @@ if (isset($_SESSION['userid'])) {
                         $('#add-row').click(function () {
                             $('#infoModal').modal('show');
                         });
+                        
+                        
+                        var table = new $('#myTable').DataTable();
 
-                        $('#myTable').DataTable();
-
-                        $('.clickable-row').click(function () {
+                        table.on('draw', function () {
+                            console.log('Redraw occurred at: ' + new Date().getTime());
+                            $('.clickable-row').click(function () {
                             var rowData = $(this).data('info').split('|');
                             console.log(rowData);
                             $('#modal-id').val(rowData[0]);
@@ -201,6 +250,9 @@ if (isset($_SESSION['userid'])) {
                             $('#modal-status').val(rowData[7]);
                             $('#myModal').modal('show');
                         });
+                        });
+
+                        
                     });
                 </script>
              <script>
@@ -240,6 +292,8 @@ if (isset($_SESSION['userid'])) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="assets/js/bookvalidation.js"></script>
+<script src="assets/js/bookvalidationinput.js"></script>
 
 <?php
 } else {

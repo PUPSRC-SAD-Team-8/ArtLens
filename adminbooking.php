@@ -49,6 +49,27 @@ if (isset($_SESSION['userid'])) {
     .dropdown-menu button {
         width: 100%;
     }
+    .inactive-link {
+  padding: 10px 20px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  text-decoration: none;
+  }
+
+  .inactive-link:hover {
+      box-shadow: inset 0 -6px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .inactive-link:active {
+      box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+  }
 </style>
     <title>Artlens</title>
 </head>
@@ -62,63 +83,70 @@ if (isset($_SESSION['userid'])) {
     <br>
     <div class="container">
     <a href="adminbooking.php" class="active-link">On-Going</a>&emsp;
-    <span><a href="adminbookingcomplete.php" style="color: black; text-decoration: none;">Completed</a></span>
+    <span><a href="adminbookingcomplete.php" class="inactive-link">Completed</a></span>
     </div>
-        <div class="container">
-            <div class="d-flex justify-content-end mt-3">
-                <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white; margin-right: 10px;">Add Booking</button>
-                <form method="POST" action="generate_booking_report.php" target="_blank">
-                    <button type="submit" class="btn float-end" name="pdf_creater" value="PDF" style="background-color: #4169E1; color: white;">Export to File <i class="bi bi-file-earmark-pdf"></i></button>
-                </form>
-            </div>
-            <div>
-                <table id="myTable" class="table table-striped table-bordered" style="background-color: #ffffff;">
-                    <thead style="background-color: #4169E1; color: white;">
-                        <tr>
-                            <th>Organization Name</th>
-                            <th>Email</th>
-                            <th>Mobile Number</th>
-                            <th>Total</th>
-                            <th>Date and Time</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        include('connection.php');
-                        $sql = "SELECT * FROM booking";
-                        $result = $conn->query($sql);
+    <div class="container">
+    <div class="d-flex justify-content-end mt-3">
+        <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white; margin-right: 10px;">Add Booking</button>
+        <form method="POST" action="generate_booking_report.php" target="_blank">
+            <button type="submit" class="btn float-end" name="pdf_creater" value="PDF" style="background-color: #4169E1; color: white;">Export to File <i class="bi bi-file-earmark-pdf"></i></button>
+        </form>
+    </div>
+    <div>
+        <table id="myTable" class="table table-striped table-bordered" style="background-color: #ffffff;">
+            <thead style="background-color: #4169E1; color: white;">
+                <tr>
+                    <th>Organization Name</th>
+                    <th>Email</th>
+                    <th>Mobile Number</th>
+                    <th>Total</th>
+                    <th>Date and Time</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include('connection.php');
+                $current_date = date('Y-m-d H:i:s');
 
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                echo "<tr>";
-                                echo "<td>" . $row["organization_name"] . "</td>";
-                                echo "<td>" . $row["contact_email"] . "</td>";
-                                echo "<td>" . $row["contact_number"] . "</td>";
-                                echo "<td>" . ($row["num_male"] + $row["num_female"]) . "</td>";
-                                echo "<td>" . $row["book_datetime"] . "</td>";
-                                echo "<td class='status'>" . $row["book_status"] . "</td>";
-                                echo "<td class='icon-dropdown'>
-                                    <div class='dropdown text-center'>
-                                        <ion-icon name='create-outline' class='edit-icon fs-3' style='cursor: pointer;' data-bs-toggle='dropdown' aria-expanded='false' onclick='toggleDropdown(this)'></ion-icon>
-                                        <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton" . $row["booking_id"] . "'>
-                                            <li><button class='dropdown-item confirm-btn' data-id='" . $row["booking_id"] . "'>Confirm</button></li>
-                                            <li><button class='dropdown-item cancel-btn' data-id='" . $row["booking_id"] . "'>Cancel</button></li>
-                                        </ul>
-                                    </div>
-                                </td>";
-                                echo "</tr>";
-                            }
-                        }
-                        
-                        ?>
-                    </tbody>
-                </table>
-                <br>
-                <br><br>
-            </div>
-        </div>
+                // Update status to Completed for past bookings
+                $update_sql = "UPDATE booking SET book_status='Completed' WHERE book_datetime < '$current_date' AND book_status != 'Completed'";
+                $conn->query($update_sql);
+
+                // Fetch only non-completed bookings
+                $sql = "SELECT * FROM booking WHERE book_status != 'Completed'";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row["organization_name"] . "</td>";
+                        echo "<td>" . $row["contact_email"] . "</td>";
+                        echo "<td>" . $row["contact_number"] . "</td>";
+                        echo "<td>" . ($row["num_male"] + $row["num_female"]) . "</td>";
+                        echo "<td>" . $row["book_datetime"] . "</td>";
+                        echo "<td class='status'>" . $row["book_status"] . "</td>";
+                        echo "<td class='icon-dropdown'>
+                            <div class='dropdown text-center'>
+                                <ion-icon name='create-outline' class='edit-icon fs-3' style='cursor: pointer;' data-bs-toggle='dropdown' aria-expanded='false' onclick='toggleDropdown(this)'></ion-icon>
+                                <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton" . $row["booking_id"] . "'>
+                                    <li><button class='dropdown-item confirm-btn' data-id='" . $row["booking_id"] . "'>Confirm</button></li>
+                                    <li><button class='dropdown-item cancel-btn' data-id='" . $row["booking_id"] . "'>Cancel</button></li>
+                                </ul>
+                            </div>
+                        </td>";
+                        echo "</tr>";
+                    }
+                }
+                ?>
+            </tbody>
+        </table>
+        <br>
+        <br><br>
+    </div>
+</div>
+
 
         <!-- Success Modal -->
         <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">

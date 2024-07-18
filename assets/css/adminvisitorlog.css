@@ -5,3 +5,10 @@
 .clickable-row:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
+.active-link {
+    color: white;
+    background-color: #4169E1;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+  }

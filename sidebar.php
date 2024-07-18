@@ -51,13 +51,13 @@ if (isset($_SESSION['userid'])) {
                     </a>
                 </li>
                 <li>
-                    <a id="<?php echo $current_script == 'adminbooking.php' ? 'inbox' : ''; ?>" href="adminbooking.php">
+                    <a id="<?php echo ($current_script == 'adminbooking.php' || $current_script == 'adminbookingcomplete.php') ? 'inbox' : ''; ?>" href="adminbooking.php">
                         <ion-icon name="book-outline"></ion-icon>
-                        <span>Booking</span>
+                        <span>Bookings</span>
                     </a>
                 </li>
                 <li>
-                    <a id="<?php echo $current_script == 'adminvisitorlog.php' ? 'inbox' : ''; ?>" href="adminvisitorlog.php">
+                    <a id="<?php echo ($current_script == 'adminvisitorlog.php' || $current_script == 'adminvisitororg.php') ? 'inbox' : ''; ?>" href="adminvisitorlog.php">
                         <ion-icon name="walk-outline"></ion-icon>
                         <span>Visitor Log</span>
                     </a>

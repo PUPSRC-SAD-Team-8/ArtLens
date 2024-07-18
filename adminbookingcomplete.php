@@ -49,6 +49,27 @@ if (isset($_SESSION['userid'])) {
     .dropdown-menu button {
         width: 100%;
     }
+    .inactive-link {
+  padding: 10px 20px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  text-decoration: none;
+  }
+
+  .inactive-link:hover {
+      box-shadow: inset 0 -6px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .inactive-link:active {
+      box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+  }
 </style>
     <title>Artlens</title>
 </head>
@@ -61,7 +82,7 @@ if (isset($_SESSION['userid'])) {
     <main class="content px-3 py-2">
     <br>
         <div class="container">
-            <a href="adminbooking.php" style="color: black; text-decoration: none;">On-Going</a>&emsp;
+            <a href="adminbooking.php" class="inactive-link">On-Going</a>&emsp;
             <span><a href="adminbookingcomplete.php" class="active-link" >Completed</a></span>
             </div>
             <br><br>
@@ -76,13 +97,19 @@ if (isset($_SESSION['userid'])) {
                                     <th>Total</th>
                                     <th>Date and Time</th>
                                     <th>Status</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 include('connection.php');
-                                $sql = "SELECT * FROM booking";
+                                $current_date = date('Y-m-d H:i:s');
+
+                                // Update status to Completed for past bookings
+                                $update_sql = "UPDATE booking SET book_status='Completed' WHERE book_datetime < '$current_date' AND book_status != 'Completed'";
+                                $conn->query($update_sql);
+
+                                // Fetch only completed bookings
+                                $sql = "SELECT * FROM booking WHERE book_status='Completed'";
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {
@@ -94,19 +121,9 @@ if (isset($_SESSION['userid'])) {
                                         echo "<td>" . ($row["num_male"] + $row["num_female"]) . "</td>";
                                         echo "<td>" . $row["book_datetime"] . "</td>";
                                         echo "<td class='status'>" . $row["book_status"] . "</td>";
-                                        echo "<td class='icon-dropdown'>
-                                            <div class='dropdown text-center'>
-                                                <ion-icon name='create-outline' class='edit-icon fs-3' style='cursor: pointer;' data-bs-toggle='dropdown' aria-expanded='false' onclick='toggleDropdown(this)'></ion-icon>
-                                                <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton" . $row["booking_id"] . "'>
-                                                    <li><button class='dropdown-item confirm-btn' data-id='" . $row["booking_id"] . "'>Confirm</button></li>
-                                                    <li><button class='dropdown-item cancel-btn' data-id='" . $row["booking_id"] . "'>Cancel</button></li>
-                                                </ul>
-                                            </div>
-                                        </td>";
                                         echo "</tr>";
                                     }
                                 }
-                                
                                 ?>
                             </tbody>
                         </table>

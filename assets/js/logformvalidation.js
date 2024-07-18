@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     modalStatusSelect.addEventListener('change', toggleFields);
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
     const organizationFields = document.getElementsByClassName('organization');
     
     Array.from(organizationFields).forEach(orgField => {
@@ -175,4 +175,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('email').addEventListener('input', () => validateEmail('email'));
     document.getElementById('email').addEventListener('blur', () => validateEmail('email'));
-});
+});*/

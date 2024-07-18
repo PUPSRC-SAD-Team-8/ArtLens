@@ -201,7 +201,7 @@ $row = mysqli_fetch_assoc($schedule);
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50" oninput="checkEmail()">
+                                <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50">
                                 <label>Email</label>
                                 <div class="invalid-feedback"></div>
                                 <div id="emailStatus"></div><!-- Error message container -->
@@ -385,12 +385,12 @@ $row = mysqli_fetch_assoc($schedule);
                                     <label for="ln" class="requiredas">Last Name</label>
                                     <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
-                                <div class="form-floating mb-3">
+                                <div class="form-floating mb-3 optional-field">
                                     <input class="form-control" id="mo" name="mo" type="text" placeholder="MI(Optional)" maxlength="1">
                                     <label for="mo">MI(Optional)</label>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label d-block requiredas">Gender</label>
+                                    <label class="form-label d-block requiredas">Sex</label>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" id="male" name="gen" value="Male" onblur="validateField(this)">
                                         <label class="form-check-label" for="male">Male</label>

@@ -4,7 +4,7 @@
         "bold": "poppins_bold_2d1c4b360c3ac297e98fc2cfd808a2cc"
     },
     "calibri": {
-        "normal": "calibri_normal_11d91114d70bcdf4984a40445218952f",
-        "bold": "C:\\xampp_nw\\htdocs\\ArtLens\\vendor\\dompdf\\dompdf\/lib\/fonts\/calibri_bold_c05dfc03374552035d90309c0a0255b4"
+        "normal": "C:\\xampp\\htdocs\\ArtLens\\vendor\\dompdf\\dompdf\/lib\/fonts\/calibri_normal_11d91114d70bcdf4984a40445218952f",
+        "bold": "calibri_bold_c05dfc03374552035d90309c0a0255b4"
     }
 }

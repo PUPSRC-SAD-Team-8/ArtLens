@@ -36,140 +36,177 @@ margin: 0 auto;
 
 }
 
-.btn3:hover {
-background-color: white;
-color: #4169E1;
-border: solid 1px #4169E1;
-box-shadow: none;
-}
+    .btn3:hover {
+        background-color: white;
+        color: #4169E1;
+        border: solid 1px #4169E1;
+        box-shadow: none;
+    }
+
+    .dropdown-menu {
+        min-width: auto;
+    }
+
+    .dropdown-menu button {
+        width: 100%;
+    }
 </style>
     <title>Artlens</title>
 </head>
 
 <body>
-   
-        <!-- Sidebar -->
-        <?php include('sidebar.php'); ?>
-        
-            <!--MAIN MAIN MAIN-->
-            <main class="content px-3 py-2">
-                <div class="container">
-                    <div class="d-flex justify-content-end mt-3">
-                        <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white; margin-right: 10px;">Add Booking</button>
-                        <form method="POST" action="generate_booking_report.php" target="_blank">
-                            <button type="submit" class="btn float-end" name="pdf_creater" value="PDF"  style="background-color: #4169E1; color: white;">Export to File <i class="bi bi-file-earmark-pdf"></i></button>
+    <!-- Sidebar -->
+    <?php include('sidebar.php'); ?>
+
+    <!-- MAIN MAIN MAIN -->
+    <main class="content px-3 py-2">
+    <br>
+    <div class="container">
+    <a href="adminbooking.php" class="active-link">On-Going</a>&emsp;
+    <span><a href="adminbookingcomplete.php" style="color: black; text-decoration: none;">Completed</a></span>
+    </div>
+        <div class="container">
+            <div class="d-flex justify-content-end mt-3">
+                <button id="add-row" class="btn mb-3" style="background-color: #4169E1; color: white; margin-right: 10px;">Add Booking</button>
+                <form method="POST" action="generate_booking_report.php" target="_blank">
+                    <button type="submit" class="btn float-end" name="pdf_creater" value="PDF" style="background-color: #4169E1; color: white;">Export to File <i class="bi bi-file-earmark-pdf"></i></button>
+                </form>
+            </div>
+            <div>
+                <table id="myTable" class="table table-striped table-bordered" style="background-color: #ffffff;">
+                    <thead style="background-color: #4169E1; color: white;">
+                        <tr>
+                            <th>Organization Name</th>
+                            <th>Email</th>
+                            <th>Mobile Number</th>
+                            <th>Total</th>
+                            <th>Date and Time</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        include('connection.php');
+                        $sql = "SELECT * FROM booking";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $row["organization_name"] . "</td>";
+                                echo "<td>" . $row["contact_email"] . "</td>";
+                                echo "<td>" . $row["contact_number"] . "</td>";
+                                echo "<td>" . ($row["num_male"] + $row["num_female"]) . "</td>";
+                                echo "<td>" . $row["book_datetime"] . "</td>";
+                                echo "<td class='status'>" . $row["book_status"] . "</td>";
+                                echo "<td class='icon-dropdown'>
+                                    <div class='dropdown text-center'>
+                                        <ion-icon name='create-outline' class='edit-icon fs-3' style='cursor: pointer;' data-bs-toggle='dropdown' aria-expanded='false' onclick='toggleDropdown(this)'></ion-icon>
+                                        <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton" . $row["booking_id"] . "'>
+                                            <li><button class='dropdown-item confirm-btn' data-id='" . $row["booking_id"] . "'>Confirm</button></li>
+                                            <li><button class='dropdown-item cancel-btn' data-id='" . $row["booking_id"] . "'>Cancel</button></li>
+                                        </ul>
+                                    </div>
+                                </td>";
+                                echo "</tr>";
+                            }
+                        }
+                        
+                        ?>
+                    </tbody>
+                </table>
+                <br>
+                <br><br>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div id="loadingAndCheck" style="display: none;">
+                            <i id="checkIcon" class="bi bi-check-circle-fill text-success" style="font-size: 7rem; display: none;"></i>
+                        </div>
+                        <p id="successMessage">Booking status updated successfully.</p>
+                        <br>
+                        <button type="button" class="btn btn3 w-100" data-bs-dismiss="modal">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="infoModalLabel">Booking Form</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="alertMessage" class="alert alert-primary d-none" role="alert">
+                            Form submitted successfully!
+                            <button type="button" class="btn-close float-end" aria-label="Close" onclick="dismissAlert()"></button>
+                        </div>
+                        <form id="bookingForm" name="bookingForm" action="booking.php" method="POST" onsubmit="handleSubmit(event)">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="onam" name="onam" type="text" placeholder="Organization Name" required maxlength="50">
+                                <label>Organization Name</label>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50" oninput="checkEmail()">
+                                <label>Email</label>
+                                <div class="invalid-feedback"></div>
+                                <div id="emailStatus"></div><!-- Error message container -->
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="monu" name="monu" type="tel" placeholder="Mobile Number" required title="Please enter an 11-digit mobile number." maxlength="13">
+                                <label>Mobile Number</label>
+                                <div id="mobileStatus" class="invalid-feedback"></div> <!-- Error message container -->
+                            </div>
+                            <div class="row">
+                                <label class="form-label d-block">Number by Sex</label>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="numa" name="numa" type="number" placeholder="Number of Males" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
+                                        <label>Male</label>
+                                        <span id="maleError" class="error-message"></span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="nufe" name="nufe" type="number" placeholder="Number of Females" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
+                                        <label>Female</label>
+                                        <span id="femaleError" class="error-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="dati" name="dati" type="datetime-local" placeholder="Date and Time" required>
+                                <label>Date and Time</label>
+                                <div id="dateTimeError" class="invalid-feedback" style="display: none; color: #dc3545; font-size: smaller;"></div> <!-- Error message container -->
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <button type="submit" name="submit" class="btn3 mt-3" id="bookButton" style="width: 100%;" disabled>
+                                    <span id="submitText">Book</span>
+                                    <span id="loadingSpinner" class="visually-hidden">
+                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                        Loading...
+                                    </span>
+                                </button>
+                            </div>
                         </form>
                     </div>
-                    <div >
-                        <table id="myTable" class="table table-striped table-bordered" style="background-color: #ffffff;">
-                            <thead style="background-color: #4169E1; color: white;">
-                                <tr>
-                                    <th>Organization Name</th>
-                                    <th>Email</th>
-                                    <th>Mobile Number</th>
-                                    <th>Total</th>
-                                    <th>Date and Time</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                            <?php
-                                include('connection.php');
-                                $sql = "SELECT * FROM booking";
-                                $result = $conn->query($sql);
-
-                                if ($result->num_rows > 0) {
-                                    $row_num = 0; // Initialize row number counter
-                                    while($row = $result->fetch_assoc()) {
-                                        $row_num++; // Increment row number for each iteration
-                                        // Determine row class based on row number for alternating colors
-                                        $row_class = ($row_num % 2 == 0) ? "even-row" : "odd-row";
-                                        
-                                        echo "<tr class='clickable-row $row_class' data-info='" . $row["booking_id"] . "|" . $row["organization_name"] . "|" . $row["contact_email"] . "|" . $row["contact_number"] . "|" . $row["num_male"] . "|" . $row["num_female"] . "|" . $row["book_datetime"] . "|" . $row["book_status"] . "'>";
-                                        echo "<td>" . $row["organization_name"] . "</td>";
-                                        echo "<td>" . $row["contact_email"] . "</td>";
-                                        echo "<td>" . $row["contact_number"] . "</td>";
-                                        echo "<td>" . ($row["num_male"] + $row["num_female"]) . "</td>";
-                                        echo "<td>" . $row["book_datetime"] . "</td>";
-                                        echo "<td>" . $row["book_status"] . "</td>"; 
-                                        echo "</tr>";
-                                    }
-                                } 
-                                ?>
-                            </tbody>
-                        </table>
-                        <br>
-                        <br><br>
-                    </div>
                 </div>
-            
-                <!-- Modal -->
-                <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="infoModalLabel">Booking Form</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="alertMessage" class="alert alert-primary d-none" role="alert">
-                                    Form submitted successfully!
-                                    <button type="button" class="btn-close float-end" aria-label="Close" onclick="dismissAlert()"></button>
-                                </div>
-                                <form id="bookingForm" name="bookingForm" action="booking.php" method="POST" onsubmit="handleSubmit(event)">
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="onam" name="onam" type="text" placeholder="Organization Name" required maxlength="50">
-                                    <label>Organization Name</label>
-                                    <div class="invalid-feedback"></div>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50" oninput="checkEmail()">
-                                    <label>Email</label>
-                                    <div class="invalid-feedback"></div>
-                                    <div id="emailStatus"></div><!-- Error message container -->
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="monu" name="monu" type="tel" placeholder="Mobile Number" required title="Please enter an 11-digit mobile number." maxlength="13">
-                                    <label>Mobile Number</label>
-                                    <div id="mobileStatus" class="invalid-feedback"></div> <!-- Error message container -->
-                                </div>
-                                <div class="row">
-                                    <label class="form-label d-block">Number by Sex</label>
-                                    <div class="col">
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="numa" name="numa" type="number" placeholder="Number of Males" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
-                                            <label>Male</label>
-                                            <span id="maleError" class="error-message"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="nufe" name="nufe" type="number" placeholder="Number of Females" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
-                                            <label>Female</label>
-                                            <span id="femaleError" class="error-message"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input class="form-control" id="dati" name="dati" type="datetime-local" placeholder="Date and Time" required>
-                                    <label>Date and Time</label>
-                                    <div id="dateTimeError" class="invalid-feedback" style="display: none; color: #dc3545; font-size: smaller;"></div> <!-- Error message container -->
-                                </div>
-                                <div class="d-flex justify-content-center mt-3">
-                                    <button type="submit" name="submit" class="btn3 mt-3" id="bookButton" style="width: 100%;" disabled>
-                                        <span id="submitText">Book</span>
-                                        <span id="loadingSpinner" class="visually-hidden">
-                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                            Loading...
-                                        </span>
-                                    </button>
-                                </div>
-                            </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
 
 
                 <!-- Modal -->

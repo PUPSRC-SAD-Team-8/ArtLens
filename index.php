@@ -38,6 +38,11 @@ $row = mysqli_fetch_assoc($schedule);
             content:" *";
             color: red;
         }
+      
+        .input-group .form-control,
+        .input-group .btn {
+            height: calc(3.5rem + 2px);
+        }
     </style>
 </head>
 
@@ -108,8 +113,8 @@ $row = mysqli_fetch_assoc($schedule);
     </div>
 
 
-<!-- Log out button container -->
-<div id="logoutButtonContainer" style="display: none;"></div>
+    <!-- Log out button container -->
+    <div id="logoutButtonContainer" style="display: none;"></div>
 
     <br><br><br><br><br>
 
@@ -184,8 +189,8 @@ $row = mysqli_fetch_assoc($schedule);
                         <hr>
 
                         <div id="toggleButtons" class="d-flex justify-content-center mb-3">
-                            <a type="button" class="btn-toggle form" onclick="showForm()">Form</a>
-                            <a type="button" class="btn-toggle status" onclick="showStatus()">Status</a>
+                            <a type="button"  style="border-radius: 5px 0px 0px 5px;" class="btn-toggle form" onclick="showForm()">Form</a>
+                            <a type="button" style="border-radius: 0px 5px 5px 0px;" class="btn-toggle status" onclick="showStatus()">Status</a>
                         </div>
 
                         <!-- Booking Form -->
@@ -195,54 +200,67 @@ $row = mysqli_fetch_assoc($schedule);
                                 <button type="button" class="btn-close float-end" aria-label="Close" onclick="dismissAlert()"></button>
                             </div>
                             <form id="bookingForm" name="bookingForm" action="booking.php" method="POST" onsubmit="handleSubmit(event)">
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="onam" name="onam" type="text" placeholder="Organization Name" required maxlength="50">
-                                <label>Organization Name</label>
-                                <div class="invalid-feedback"></div>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50">
-                                <label>Email</label>
-                                <div class="invalid-feedback"></div>
-                                <div id="emailStatus"></div><!-- Error message container -->
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="monu" name="monu" type="tel" placeholder="Mobile Number" required title="Please enter an 11-digit mobile number." maxlength="13">
-                                <label>Mobile Number</label>
-                                <div id="mobileStatus" class="invalid-feedback"></div> <!-- Error message container -->
-                            </div>
-                            <div class="row">
-                                <label class="form-label d-block">Number by Sex</label>
-                                <div class="col">
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="numa" name="numa" type="number" placeholder="Number of Males" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
-                                        <label>Male</label>
-                                        <span id="maleError" class="error-message"></span>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="onam" name="onam" type="text" placeholder="Organization Name" required maxlength="50">
+                                    <label>Organization Name</label>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50">
+                                    <label>Email</label>
+                                    <div class="invalid-feedback"></div>
+                                    <div id="emailStatus"></div><!-- Error message container -->
+                                </div>
+                                <div class="mb-2">
+                                    <div class="input-group">
+                                        <div class="form-floating flex-grow-1">
+                                            <input class="form-control" id="monu" name="monu" type="tel" placeholder="Mobile Number" required title="Please enter an 11-digit mobile number." maxlength="13">
+                                            <label for="monu">Mobile Number</label>
+                                            <div id="mobileStatus" class="invalid-feedback"></div>
+                                        </div>
+                                        <button type="button" class="btn btn3"id="sendButton">Send</button>
+                                    </div>
+                                    <div id="mobileStatus" class="invalid-feedback"></div> <!-- Error message container -->
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="otp" name="otp" type="text" placeholder="OTP Code" required maxlength="6">
+                                    <label for="otp">OTP Code</label>
+                                    <div id="otpStatus" class="invalid-feedback"></div> <!-- Error message container -->
+                                </div>
+                                <div class="row">
+                                    <label class="form-label d-block">Number by Sex</label>
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="numa" name="numa" type="number" placeholder="Number of Males" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
+                                            <label>Male</label>
+                                            <span id="maleError" class="error-message"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="nufe" name="nufe" type="number" placeholder="Number of Females" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
+                                            <label>Female</label>
+                                            <span id="femaleError" class="error-message"></span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="nufe" name="nufe" type="number" placeholder="Number of Females" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
-                                        <label>Female</label>
-                                        <span id="femaleError" class="error-message"></span>
-                                    </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="dati" name="dati" type="datetime-local" placeholder="Date and Time" required>
+                                    <label>Date and Time</label>
+                                    <div id="dateTimeError" class="invalid-feedback" style="display: none; color: #dc3545; font-size: smaller;"></div> <!-- Error message container -->
                                 </div>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="dati" name="dati" type="datetime-local" placeholder="Date and Time" required>
-                                <label>Date and Time</label>
-                                <div id="dateTimeError" class="invalid-feedback" style="display: none; color: #dc3545; font-size: smaller;"></div> <!-- Error message container -->
-                            </div>
-                            <div class="d-flex justify-content-center mt-3">
-                                <button type="submit" name="submit" class="btn3 mt-3" id="bookButton" style="width: 100%;" disabled>
-                                    <span id="submitText">Book</span>
-                                    <span id="loadingSpinner" class="visually-hidden">
-                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                        Loading...
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button type="submit" name="submit" class="btn3 mt-3" id="bookButton" style="width: 100%;" disabled>
+                                        <span id="submitText">Book</span>
+                                        <span id="loadingSpinner" class="visually-hidden">
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            Loading...
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
+
+
                     </div>
 
                         <!-- Status Content -->

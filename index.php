@@ -34,11 +34,12 @@ $row = mysqli_fetch_assoc($schedule);
         .invalid {
             border-color: red;
         }
+
         .requiredas:after {
-            content:" *";
+            content: " *";
             color: red;
         }
-      
+
         .input-group .form-control,
         .input-group .btn {
             height: calc(3.5rem + 2px);
@@ -95,19 +96,21 @@ $row = mysqli_fetch_assoc($schedule);
     <div class="modal fade" id="modalconfirm" tabindex="-1" aria-labelledby="modalconfirmLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                    <div class="modal-header">
-                        <center><h5 class="modal-title" id="modalconfirmLabel">Confirmation</h5></center>
-                    </div>
-                    <div class="modal-body">
-                        <center>
-                            <img src="assets/images/leaving.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
-                            <p>Are you sure you want to leave the museum?</p>
-                        </center>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary btn-continue">Continue</button>
-                    </div>
+                <div class="modal-header">
+                    <center>
+                        <h5 class="modal-title" id="modalconfirmLabel">Confirmation</h5>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <img src="assets/images/leaving.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
+                        <p>Are you sure you want to leave the museum?</p>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-continue">Continue</button>
+                </div>
             </div>
         </div>
     </div>
@@ -189,7 +192,7 @@ $row = mysqli_fetch_assoc($schedule);
                         <hr>
 
                         <div id="toggleButtons" class="d-flex justify-content-center mb-3">
-                            <a type="button"  style="border-radius: 5px 0px 0px 5px;" class="btn-toggle form" onclick="showForm()">Form</a>
+                            <a type="button" style="border-radius: 5px 0px 0px 5px;" class="btn-toggle form" onclick="showForm()">Form</a>
                             <a type="button" style="border-radius: 0px 5px 5px 0px;" class="btn-toggle status" onclick="showStatus()">Status</a>
                         </div>
 
@@ -200,33 +203,37 @@ $row = mysqli_fetch_assoc($schedule);
                                 <button type="button" class="btn-close float-end" aria-label="Close" onclick="dismissAlert()"></button>
                             </div>
                             <form id="bookingForm" name="bookingForm" action="booking.php" method="POST" onsubmit="handleSubmit(event)">
+
+
+
+                            
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="onam" name="onam" type="text" placeholder="Organization Name" required maxlength="50">
                                     <label>Organization Name</label>
                                     <div class="invalid-feedback"></div>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50">
-                                    <label>Email</label>
-                                    <div class="invalid-feedback"></div>
-                                    <div id="emailStatus"></div><!-- Error message container -->
+                                    <input class="form-control" id="monu" name="monu" type="tel" placeholder="Mobile Number" required title="Please enter an 11-digit mobile number." maxlength="13">
+                                    <label for="monu">Mobile Number</label>
+                                    <div id="mobileStatus" class="invalid-feedback"></div> <!-- Error message container -->
                                 </div>
                                 <div class="mb-2">
                                     <div class="input-group">
                                         <div class="form-floating flex-grow-1">
-                                            <input class="form-control" id="monu" name="monu" type="tel" placeholder="Mobile Number" required title="Please enter an 11-digit mobile number." maxlength="13">
-                                            <label for="monu">Mobile Number</label>
-                                            <div id="mobileStatus" class="invalid-feedback"></div>
+                                            <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50">
+                                            <label for="emal">Email</label>
+                                            <div class="invalid-feedback"></div>
+                                            <div id="emailStatus"></div><!-- Error message container -->
                                         </div>
-                                        <button type="button" class="btn btn3"id="sendButton">Send</button>
+                                        <button type="button" class="btn btn3" id="sendButton">Send</button>
                                     </div>
-                                    <div id="mobileStatus" class="invalid-feedback"></div> <!-- Error message container -->
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="otp" name="otp" type="text" placeholder="OTP Code" required maxlength="6">
                                     <label for="otp">OTP Code</label>
                                     <div id="otpStatus" class="invalid-feedback"></div> <!-- Error message container -->
                                 </div>
+
                                 <div class="row">
                                     <label class="form-label d-block">Number by Sex</label>
                                     <div class="col">
@@ -261,7 +268,7 @@ $row = mysqli_fetch_assoc($schedule);
                             </form>
 
 
-                    </div>
+                        </div>
 
                         <!-- Status Content -->
                         <div id="statusContent" class="hidden" style="max-height: 400px; overflow-y: auto;">
@@ -280,7 +287,7 @@ $row = mysqli_fetch_assoc($schedule);
                         </div>
                     </div>
                 </div>
-                
+
                 <button class="btn kulay mt-1" onclick="document.getElementById('myModal2').style.display='flex'">Visit the Museum</button>
                 <!--Log Form-->
                 <div id="myModal2" class="modal2" tabindex="-1">
@@ -296,9 +303,9 @@ $row = mysqli_fetch_assoc($schedule);
                                     <option value="Organization">Organization</option>
                                 </select>
                             </div>
-                            
+
                             <!-- Organization Fields -->
-                            <div class="organization" style="display: none;" >
+                            <div class="organization" style="display: none;">
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." maxlength="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="busno" class="requiredas">C.N. Bus No.</label>
@@ -420,7 +427,7 @@ $row = mysqli_fetch_assoc($schedule);
                         </form>
                     </div>
                 </div>
-               
+
             </div>
         </div>
     </div>
@@ -445,7 +452,7 @@ $row = mysqli_fetch_assoc($schedule);
             <div class="row">
                 <div class="col-md mt-3">
                     <br>
-                    <h6>Museo ni Jose Rizal, Calamba, Laguna</h6>
+                    <h6>Museo ni Jose Rizal</h6>
                     <center>
                         <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
                     </center>
@@ -458,7 +465,7 @@ $row = mysqli_fetch_assoc($schedule);
                         <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
                     </center>
                     <p class="tetleft"><a type="button" href="aboutus.php" class="clickft">About us</a></p>
-                    <p class="tetleft"><a type="button" href="faqs.php" class="clickft">Frequently asked Questions</a></p>
+                    <p class="tetleft"><a type="button" href="faqs.php" class="clickft">FAQs</a></p>
                 </div>
                 <div class="col-md mt-3">
                     <br>
@@ -548,67 +555,67 @@ $row = mysqli_fetch_assoc($schedule);
 
         // Attach submitForm function to form submission
         document.getElementById("logForm").addEventListener("submit", function(event) {
-            event.preventDefault(); 
-            submitForm(); 
+            event.preventDefault();
+            submitForm();
         });
     </script>
     <script>
-    function showConfirmationModal() {
-        var modal = new bootstrap.Modal(document.getElementById('modalconfirm'));
-        modal.show();
+        function showConfirmationModal() {
+            var modal = new bootstrap.Modal(document.getElementById('modalconfirm'));
+            modal.show();
 
-   
-        document.querySelector('.btn-continue').addEventListener('click', function() {
-      
-            localStorage.removeItem('loggedInDevice');
-       
-            document.getElementById('logoutButtonContainer').style.display = 'none';
-    
-            modal.hide();
-        });
 
-  
-        document.querySelector('.btn-cancel').addEventListener('click', function() {
-            modal.hide();
-        });
-    }
+            document.querySelector('.btn-continue').addEventListener('click', function() {
 
- 
-    function checkLoggedIn() {
+                localStorage.removeItem('loggedInDevice');
 
-        var isLoggedIn = localStorage.getItem('loggedInDevice');
+                document.getElementById('logoutButtonContainer').style.display = 'none';
 
-        if (isLoggedIn) {
-    
-            var logoutButton = '<a class="float-end btn1 adminlogbtn" style="text-decoration: none;" onclick="showConfirmationModal()">Log out</a>';
-            document.getElementById('logoutButtonContainer').innerHTML = logoutButton;
-            document.getElementById('logoutButtonContainer').style.display = 'block';
-        } else {
-       
-            document.getElementById('logoutButtonContainer').style.display = 'none';
+                modal.hide();
+            });
+
+
+            document.querySelector('.btn-cancel').addEventListener('click', function() {
+                modal.hide();
+            });
         }
-    }
 
 
-    window.onload = function() {
-        checkLoggedIn();
-    };
+        function checkLoggedIn() {
 
-  
-    function validateForm() {
+            var isLoggedIn = localStorage.getItem('loggedInDevice');
 
-        var isValid = true;
+            if (isLoggedIn) {
 
-        if (isValid) {
+                var logoutButton = '<a class="float-end btn1 adminlogbtn" style="text-decoration: none;" onclick="showConfirmationModal()">Log out</a>';
+                document.getElementById('logoutButtonContainer').innerHTML = logoutButton;
+                document.getElementById('logoutButtonContainer').style.display = 'block';
+            } else {
 
-            localStorage.setItem('loggedInDevice', true);
+                document.getElementById('logoutButtonContainer').style.display = 'none';
+            }
+        }
 
+
+        window.onload = function() {
             checkLoggedIn();
-        }
+        };
 
-        return isValid; 
-    }
-</script>
+
+        function validateForm() {
+
+            var isValid = true;
+
+            if (isValid) {
+
+                localStorage.setItem('loggedInDevice', true);
+
+                checkLoggedIn();
+            }
+
+            return isValid;
+        }
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -619,32 +626,32 @@ $row = mysqli_fetch_assoc($schedule);
             }, 1500); // 3000 milliseconds = 3 seconds
         });
     </script>
-<script>
-$(document).ready(function() {
-    $('.img-box').click(function() {
-        var overlay = $(this).find('.overlay');
-   
-        if (overlay.hasClass('active')) {
-            overlay.removeClass('active');
-        } else {
-   
-            overlay.addClass('active');
-            $('.overlay').not(overlay).removeClass('active');
-        }
-    });
+    <script>
+        $(document).ready(function() {
+            $('.img-box').click(function() {
+                var overlay = $(this).find('.overlay');
 
-    $('.overlay').click(function(event) {
-        event.stopPropagation(); 
-        $(this).removeClass('active'); 
-    });
+                if (overlay.hasClass('active')) {
+                    overlay.removeClass('active');
+                } else {
 
-    $(document).click(function(event) {
-        if (!$(event.target).closest('.img-box').length && !$(event.target).hasClass('overlay')) {
-            $('.overlay').removeClass('active');
-        }
-    });
-});
-</script>
+                    overlay.addClass('active');
+                    $('.overlay').not(overlay).removeClass('active');
+                }
+            });
+
+            $('.overlay').click(function(event) {
+                event.stopPropagation();
+                $(this).removeClass('active');
+            });
+
+            $(document).click(function(event) {
+                if (!$(event.target).closest('.img-box').length && !$(event.target).hasClass('overlay')) {
+                    $('.overlay').removeClass('active');
+                }
+            });
+        });
+    </script>
 
 </body>
 

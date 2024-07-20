@@ -120,34 +120,4 @@ document.addEventListener('DOMContentLoaded', function () {
     checkFormValidity();
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const input = document.getElementById('dati');
-    const now = new Date().toISOString().slice(0, 16);
-    input.setAttribute('min', now);
 
-    input.addEventListener('change', function() {
-        const selectedDateTime = new Date(input.value);
-        const hours = selectedDateTime.getHours();
-
-        if (hours < 9 || hours > 16) {
-            input.classList.add('input-error', 'border-red');
-            displayErrorMessage("Only times between 9 AM and 4 PM are allowed.");
-            document.getElementById('bookButton').disabled = true;
-        } else {
-            input.classList.remove('input-error', 'border-red');
-            clearErrorMessage();
-        }
-    });
-});
-
-function displayErrorMessage(message) {
-    const errorContainer = document.getElementById('dateTimeError');
-    errorContainer.textContent = message;
-    errorContainer.style.display = 'block';
-}
-
-function clearErrorMessage() {
-    const errorContainer = document.getElementById('dateTimeError');
-    errorContainer.style.display = 'none';
-    errorContainer.textContent = '';
-}

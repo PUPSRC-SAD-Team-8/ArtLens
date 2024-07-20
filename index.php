@@ -54,7 +54,7 @@ $row = mysqli_fetch_assoc($schedule);
     <nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <h1 style="color: white; font-family: Josefin Sans; margin-top: 15px; font-size: 25px;"><b>ARTLENS</b></h1>
-            <div id="logoutButtonContainer" style="display: none;"></div>
+            <div id="logoutButtonContainer" style="display: none; visibility: hidden;"></div>
         </div>
     </nav>
 
@@ -93,7 +93,7 @@ $row = mysqli_fetch_assoc($schedule);
             </div>
         </div>
     </div>
-    <div class="modal fade" id="modalconfirm" tabindex="-1" aria-labelledby="modalconfirmLabel" aria-hidden="true">
+    <!--<div class="modal fade" id="modalconfirm" tabindex="-1" aria-labelledby="modalconfirmLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -113,11 +113,11 @@ $row = mysqli_fetch_assoc($schedule);
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
 
-    <!-- Log out button container -->
-    <div id="logoutButtonContainer" style="display: none;"></div>
+    <!-- Log out button container 
+    <div id="logoutButtonContainer" style="display: none;"></div>-->
 
     <br><br><br><br><br>
 
@@ -202,11 +202,14 @@ $row = mysqli_fetch_assoc($schedule);
                                 Form submitted successfully!
                                 <button type="button" class="btn-close float-end" aria-label="Close" onclick="dismissAlert()"></button>
                             </div>
+                            <?php
+                            // Fetch schedule data from the database
+                            $schedule = mysqli_query($conn, "SELECT * FROM schedule");
+                            $row = mysqli_fetch_assoc($schedule);
+                            $startTime = date("H:i", strtotime($row['start_time']));
+                            $endTime = date("H:i", strtotime($row['end_time']));
+                            ?>
                             <form id="bookingForm" name="bookingForm" action="booking.php" method="POST" onsubmit="handleSubmit(event)">
-
-
-
-                            
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="onam" name="onam" type="text" placeholder="Organization Name" required maxlength="50">
                                     <label>Organization Name</label>
@@ -266,7 +269,7 @@ $row = mysqli_fetch_assoc($schedule);
                                     </button>
                                 </div>
                             </form>
-
+    
 
                         </div>
 
@@ -497,6 +500,73 @@ $row = mysqli_fetch_assoc($schedule);
     <script src="assets/js/logformvalidation.js"></script>
     <script src="assets/js/bookvalidationinput.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Output PHP variables as JavaScript variables
+    const savedStartTime = '<?php echo date("h:i A", strtotime($startTime)); ?>';
+    const savedEndTime = '<?php echo date("h:i A", strtotime($endTime)); ?>';
+
+    const input = document.getElementById('dati');
+    const now = new Date().toISOString().slice(0, 16);
+    input.setAttribute('min', now);
+
+    input.addEventListener('change', function() {
+        const selectedDateTime = new Date(input.value);
+        const selectedTime = formatTime(selectedDateTime);
+
+        // Convert times to minutes since midnight for comparison
+        const savedStartMinutes = convertToMinutes(savedStartTime);
+        const savedEndMinutes = convertToMinutes(savedEndTime);
+        const selectedMinutes = convertToMinutes(selectedTime);
+
+        // Validate against saved schedule times
+        if (selectedMinutes < savedStartMinutes || selectedMinutes > savedEndMinutes) {
+            input.classList.add('input-error', 'border-red');
+            displayErrorMessage(`Booking time must be between ${savedStartTime} and ${savedEndTime}.`);
+            document.getElementById('bookButton').disabled = true;
+        } else if (selectedMinutes < convertToMinutes('9:00 AM') || selectedMinutes > convertToMinutes('4:00 PM')) {
+            // Validate against allowed business hours
+            input.classList.add('input-error', 'border-red');
+            displayErrorMessage("Only times between 9 AM and 4 PM are allowed.");
+            document.getElementById('bookButton').disabled = true;
+        } else {
+            input.classList.remove('input-error', 'border-red');
+            clearErrorMessage();
+            document.getElementById('bookButton').disabled = false;
+        }
+    });
+
+    function formatTime(date) {
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        return hours + ':' + minutes + ' ' + ampm;
+    }
+
+    function convertToMinutes(time) {
+        const [hourMinute, period] = time.split(' ');
+        let [hour, minute] = hourMinute.split(':').map(Number);
+        if (period === 'PM' && hour !== 12) hour += 12;
+        if (period === 'AM' && hour === 12) hour = 0;
+        return hour * 60 + minute;
+    }
+
+    function displayErrorMessage(message) {
+        const errorContainer = document.getElementById('dateTimeError');
+        errorContainer.textContent = message;
+        errorContainer.style.display = 'block';
+    }
+
+    function clearErrorMessage() {
+        const errorContainer = document.getElementById('dateTimeError');
+        errorContainer.textContent = '';
+        errorContainer.style.display = 'none';
+    }
+});
+</script>
 
     <script>
         function validateForm() {
@@ -559,7 +629,7 @@ $row = mysqli_fetch_assoc($schedule);
             submitForm();
         });
     </script>
-    <script>
+   <!-- <script>
         function showConfirmationModal() {
             var modal = new bootstrap.Modal(document.getElementById('modalconfirm'));
             modal.show();
@@ -615,7 +685,7 @@ $row = mysqli_fetch_assoc($schedule);
 
             return isValid;
         }
-    </script>
+    </script>-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 

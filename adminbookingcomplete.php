@@ -3,26 +3,7 @@ session_start();
 include('connection.php');
 
 if (isset($_SESSION['userid'])) {
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $booking_id = $_POST['booking_id'];
-    $status = $_POST['status'];
-
-    $sql = "UPDATE booking SET book_status = ? WHERE booking_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("si", $status, $booking_id);
-
-    if ($stmt->execute()) {
-        echo json_encode(["status" => "success"]);
-    } else {
-        echo json_encode(["status" => "error", "message" => $stmt->error]);
-    }
-
-    $stmt->close();
-    $conn->close();
-}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,35 +20,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
-    <style>
-        .btn3 {
-            width: auto;
-            padding: 10px 32px;
-            background-color: #4169E1;
-            color: white;
-            border-radius: 5px;
-            text-align: center;
-            text-transform: capitalize;
-            cursor: pointer;
-            text-decoration: none;
-            border: solid 1px white;
-            margin: 0 auto;
-        }
+<style>
+    .btn3 {
+        width: auto;
+        padding: 10px 32px;
+        background-color: #4169E1;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+        text-transform: capitalize;
+        cursor: pointer;
+        text-decoration: none;
+        border: solid 1px white;
+        margin: 0 auto;
+    }
 
-        .btn3:hover {
-            background-color: white;
-            color: #4169E1;
-            border: solid 1px #4169E1;
-            box-shadow: none;
-        }
+    .btn3:hover {
+        background-color: white;
+        color: #4169E1;
+        border: solid 1px #4169E1;
+        box-shadow: none;
+    }
 
-        .dropdown-menu {
-            min-width: auto;
-        }
+    .dropdown-menu {
+        min-width: auto;
+    }
 
     .dropdown-menu button {
         width: 100%;
     }
+    .inactive-link {
+  padding: 10px 20px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  text-decoration: none;
+  }
+
+  .inactive-link:hover {
+      box-shadow: inset 0 -6px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .inactive-link:active {
+      box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+  }
 </style>
     <title>Artlens</title>
 </head>
@@ -78,9 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <!-- MAIN MAIN MAIN -->
     <main class="content px-3 py-2">
-        <br>
+    <br>
         <div class="container">
-            <a href="adminbooking.php" style="color: black; text-decoration: none;">On-Going</a>&emsp;
+            <a href="adminbooking.php" class="inactive-link">On-Going</a>&emsp;
             <span><a href="adminbookingcomplete.php" class="active-link" >Completed</a></span>
             </div>
             <br><br>
@@ -95,13 +97,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <th>Total</th>
                                     <th>Date and Time</th>
                                     <th>Status</th>
-                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 include('connection.php');
-                                $sql = "SELECT * FROM booking";
+                                $current_date = date('Y-m-d H:i:s');
+
+                                // Update status to Completed for past bookings
+                                $update_sql = "UPDATE booking SET book_status='Completed' WHERE book_datetime < '$current_date' AND book_status != 'Completed'";
+                                $conn->query($update_sql);
+
+                                // Fetch only completed bookings
+                                $sql = "SELECT * FROM booking WHERE book_status='Completed'";
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {
@@ -113,19 +121,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         echo "<td>" . ($row["num_male"] + $row["num_female"]) . "</td>";
                                         echo "<td>" . $row["book_datetime"] . "</td>";
                                         echo "<td class='status'>" . $row["book_status"] . "</td>";
-                                        echo "<td class='icon-dropdown'>
-                                            <div class='dropdown text-center'>
-                                                <ion-icon name='create-outline' class='edit-icon fs-3' style='cursor: pointer;' data-bs-toggle='dropdown' aria-expanded='false' onclick='toggleDropdown(this)'></ion-icon>
-                                                <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton" . $row["booking_id"] . "'>
-                                                    <li><button class='dropdown-item confirm-btn' data-id='" . $row["booking_id"] . "'>Confirm</button></li>
-                                                    <li><button class='dropdown-item cancel-btn' data-id='" . $row["booking_id"] . "'>Cancel</button></li>
-                                                </ul>
-                                            </div>
-                                        </td>";
                                         echo "</tr>";
                                     }
                                 }
-                                
                                 ?>
                             </tbody>
                         </table>
@@ -146,10 +144,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $('#myTable').DataTable();
             });
         </script>
-
+        
     </main>
 </body>
-
 </html>
 
 <?php

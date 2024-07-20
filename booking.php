@@ -10,6 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $num_female = $_POST["nufe"];
     $num_male = $_POST["numa"];
     $date_time = $_POST["dati"];
+    $user_otp = $_POST["otp"];
+    if ($user_otp != $_SESSION['otp']) {
+        echo "Invalid OTP";
+        http_response_code(400);
+        exit;
+    }
 
     // Extract the date part from the datetime string
     $bookingDateOnly = date('Y-m-d', strtotime($date_time));
@@ -47,6 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close statement for insertion
     $stmt_insert_booking->close();
 
+    unset($_SESSION['otp']);
+
     // Close connection
     $conn->close();
 } else {
@@ -54,4 +62,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     http_response_code(405); // Method Not Allowed
     echo 'Invalid request method';
 }
-?>

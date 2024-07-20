@@ -59,7 +59,7 @@ function checkStatus() {
     xhr.send("contact_email=" + referenceNumber); // Send the reference number as POST data
 }
 // time and date validation
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const input = document.getElementById('dati');
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1); // Set date to tomorrow
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
     input.setAttribute('min', minDateTime);
 
     // Validate time on input change
-    input.addEventListener('input', function() {
+    input.addEventListener('input', function () {
         const selectedDateTime = new Date(this.value);
         const selectedTime = selectedDateTime.getHours() * 100 + selectedDateTime.getMinutes(); // Convert time to 24-hour format HHmm
 
@@ -90,107 +90,109 @@ document.addEventListener("DOMContentLoaded", function() {
 // time and date validation end
 
 //start of booking form date and email validation
-    function handleSubmit(event) {
-        event.preventDefault();
+function handleSubmit(event) {
+    event.preventDefault();
 
-        // Show loading spinner
-        document.getElementById('submitText').style.display = 'none';
-        document.getElementById('loadingSpinner').classList.remove('visually-hidden');
+    // Show loading spinner
+    document.getElementById('submitText').style.display = 'none';
+    document.getElementById('loadingSpinner').classList.remove('visually-hidden');
 
-        // Collect form data
-        var formData = new FormData(document.getElementById('bookingForm'));
+    // Collect form data
+    var formData = new FormData(document.getElementById('bookingForm'));
 
-        // Send form data via AJAX
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'booking.php', true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) { // Check for successful response
-                    var response = xhr.responseText.trim();
-                    if (response === 'success') {
-                        // Show success alert after a short delay (e.g., 3 seconds)
-                        setTimeout(function () {
-                            document.getElementById('alertMessage').classList.remove('d-none');
-                            // Reset form fields
-                            document.getElementById('bookingForm').reset();
-                            // Clear email status and enable submit button
-                            document.getElementById('emailStatus').innerHTML = '';
-                            document.getElementById('emal').classList.remove('input-error');
-                            document.getElementById('emal').classList.remove('border-red');
-                        }, 3000); // Adjust delay as needed
-                    } else {
-                   
-                    }
-                } 
-
-                // Hide loading spinner after request completes
-                setTimeout(function () {
-                    document.getElementById('submitText').style.display = 'inline';
-                    document.getElementById('loadingSpinner').classList.add('visually-hidden');
-                }, 3000); // Adjust delay as needed
-            }
-        };
-        xhr.onerror = function () {
-
-
-            // Hide loading spinner on error
-            document.getElementById('submitText').style.display = 'inline';
-            document.getElementById('loadingSpinner').classList.add('visually-hidden');
-        };
-        xhr.send(formData);
-    }
-
-    // Function to check email and date on input change
-    function checkBookingAvailability() {
-        var email = document.getElementById('emal').value.trim();
-        var datetime = document.getElementById('dati').value.trim();
-
-        if (email === '' || datetime === '') {
-            // Clear email status if email or date field is empty
-            document.getElementById('emailStatus').innerHTML = '';
-            document.getElementById('emal').classList.remove('input-error');
-            document.getElementById('emal').classList.remove('border-red');
-            return;
-        }
-
-        // AJAX request to check if email has a booking on the same day
-        var xhr = new XMLHttpRequest();
-        var formData = new FormData();
-        formData.append('emal', email);
-        formData.append('dati', datetime);
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) { // Check for successful response
-                    var response = xhr.responseText.trim();
-                    if (response === 'exists_same_day') {
-                        // Show error message for existing booking on the same day
-                        document.getElementById('emailStatus').innerHTML = '<p style="color: red; font-size: smaller;">Email already has a booking on the same day.</p>';
-                        document.getElementById('emal').classList.add('input-error');
-                        document.getElementById('emal').classList.add('border-red');
-                      
-                    } else {
-                        // Clear email status and enable submit button if no booking exists
-                   
+    // Send form data via AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'booking.php', true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) { // Check for successful response
+                var response = xhr.responseText.trim();
+                if (response === 'success') {
+                    // Show success alert after a short delay (e.g., 3 seconds)
+                    setTimeout(function () {
+                        document.getElementById('alertMessage').classList.remove('d-none');
+                        // Reset form fields
+                        document.getElementById('bookingForm').reset();
+                        // Clear email status and enable submit button
+                        document.getElementById('emailStatus').innerHTML = '';
                         document.getElementById('emal').classList.remove('input-error');
                         document.getElementById('emal').classList.remove('border-red');
-                   
-                    }
+                    }, 3000); // Adjust delay as needed
                 } else {
+
                 }
             }
-        };
 
-        xhr.open('POST', 'check_booking_availability.php', true); // Replace with the PHP file to check booking availability
-        xhr.send(formData);
+            // Hide loading spinner after request completes
+            setTimeout(function () {
+                document.getElementById('submitText').style.display = 'inline';
+                document.getElementById('loadingSpinner').classList.add('visually-hidden');
+            }, 3000); // Adjust delay as needed
+        } else if (xhr.status === 400) {
+            console.log('bad requet');
+        }
+    };
+    xhr.onerror = function () {
+
+
+        // Hide loading spinner on error
+        document.getElementById('submitText').style.display = 'inline';
+        document.getElementById('loadingSpinner').classList.add('visually-hidden');
+    };
+    xhr.send(formData);
+}
+
+// Function to check email and date on input change
+function checkBookingAvailability() {
+    var email = document.getElementById('emal').value.trim();
+    var datetime = document.getElementById('dati').value.trim();
+
+    if (email === '' || datetime === '') {
+        // Clear email status if email or date field is empty
+        document.getElementById('emailStatus').innerHTML = '';
+        document.getElementById('emal').classList.remove('input-error');
+        document.getElementById('emal').classList.remove('border-red');
+        return;
     }
 
-    // Event listeners for input fields
-    document.getElementById('emal').addEventListener('input', checkBookingAvailability);
-    document.getElementById('dati').addEventListener('change', checkBookingAvailability);
+    // AJAX request to check if email has a booking on the same day
+    var xhr = new XMLHttpRequest();
+    var formData = new FormData();
+    formData.append('emal', email);
+    formData.append('dati', datetime);
 
-    // Event listener for form submission
-    document.getElementById('bookingForm').addEventListener('submit', handleSubmit);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) { // Check for successful response
+                var response = xhr.responseText.trim();
+                if (response === 'exists_same_day') {
+                    // Show error message for existing booking on the same day
+                    document.getElementById('emailStatus').innerHTML = '<p style="color: red; font-size: smaller;">Email already has a booking on the same day.</p>';
+                    document.getElementById('emal').classList.add('input-error');
+                    document.getElementById('emal').classList.add('border-red');
+
+                } else {
+                    // Clear email status and enable submit button if no booking exists
+
+                    document.getElementById('emal').classList.remove('input-error');
+                    document.getElementById('emal').classList.remove('border-red');
+
+                }
+            } else {
+            }
+        }
+    };
+
+    xhr.open('POST', 'check_booking_availability.php', true); // Replace with the PHP file to check booking availability
+    xhr.send(formData);
+}
+
+// Event listeners for input fields
+document.getElementById('emal').addEventListener('input', checkBookingAvailability);
+document.getElementById('dati').addEventListener('change', checkBookingAvailability);
+
+// Event listener for form submission
+document.getElementById('bookingForm').addEventListener('submit', handleSubmit);
 
 //end of booking form
 

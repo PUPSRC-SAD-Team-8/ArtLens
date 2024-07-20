@@ -93,21 +93,37 @@ if (isset($_SESSION['userid'])) {
                         <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <center>
-                                    <form action="submit_form.php" method="post" enctype="multipart/form-data" class="border p-4 shadow rounded" style="min-width: 350px; max-width: 450px;">
-                                        <div class="mb-3">
-                                            <label for="image" class="form-label">Image:</label>
-                                            <input type="file" class="form-control" id="image" name="image" accept=".png, .jpeg, .jpg" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="title" class="form-label">Title:</label>
-                                            <input type="text" class="form-control" id="title" name="title" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="description" class="form-label">Description:</label>
-                                            <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
-                                        </div>
-                                        <button type="submit" class="btn3" style="width: 100%;">Submit</button>
-                                    </form>
+                                <form id="imageForm" action="submit_form.php" method="post" enctype="multipart/form-data" class="border p-4 shadow rounded" style="min-width: 350px; max-width: 450px;" onsubmit="return validateForm()">
+        <div class="mb-3">
+            <label for="image" class="form-label">Image:</label>
+            <input type="file" class="form-control" id="image" name="image" accept=".png, .jpeg, .jpg" required>
+        </div>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn3" style="width: 100%;">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const imageInput = document.getElementById('image');
+            const filePath = imageInput.value;
+            const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Please upload a file with a valid image format (jpg, jpeg, png).');
+                imageInput.value = '';
+                return false;
+            }
+
+            return true;
+        }
+    </script>
                                 </center>
                                 <hr>
                                 <?php
@@ -301,6 +317,33 @@ if (isset($_SESSION['userid'])) {
                     $('#selectedDate').val(selectedDate); // Update hidden input value
                     $('#calendarContainer').hide(); // Hide calendar after selection
                 });
+            });
+
+            document.getElementById('image').addEventListener('change', function(event) {
+            var fileInput = event.target;
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Please upload a file with extensions .jpeg/.jpg/.png only.');
+                fileInput.value = '';
+                return false;
+            }
+            return true;
+            });
+
+
+            document.getElementById('update-image').addEventListener('change', function(event) {
+            var fileInput = event.target;
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+
+            if (filePath && !allowedExtensions.exec(filePath)) {
+                alert('Please upload a file with extensions .jpeg/.jpg/.png only.');
+                fileInput.value = '';
+                return false;
+            }
+            return true;
             });
         </script>
         <script>

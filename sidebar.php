@@ -71,13 +71,8 @@ if (isset($_SESSION['userid'])) {
                 <div class="user-info">
                     <div class="name-email">
                         <div class="name" id="user-name"><?php echo isset($firstName) ? $firstName : ''; ?></div>
-<<<<<<< HEAD
-          <span class="email" id="user-email"><?php echo isset($email) ? $email : ''; ?></span>
-        </div>
-=======
                         <span class="email" id="user-email"><?php echo isset($email) ? $email : ''; ?></span>
                     </div>
->>>>>>> bf109e182e62e2da14d5afd21309dc83ba82b38a
                     </div>
                     <div class="dropup" style="cursor: pointer;">
                         <ion-icon name="ellipsis-vertical-outline" class="mt-3" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>

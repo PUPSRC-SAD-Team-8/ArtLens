@@ -111,52 +111,6 @@ if (isset($_SESSION['userid'])) {
                         </table>
                     </div>
 
-<<<<<<< HEAD
-                    <!-- Second Table -->
-                    <form method="POST" action="generate_visitor_org.php" target="_blank">
-                        <button type="submit" class="btn btn-primary float-end" name="pdf_for_org" value="PDF"  style="background-color: #4169E1; color: white;">Export to File <i class="bi bi-file-earmark-pdf"></i></button>
-                    </form>
-                    <h3 style="margin-top: 2rem; color: grey;">Organization</h3> 
-                    <div class="table-container mt-3">
-                        <table id="myTable1" class="table table-striped table-bordered" style="background-color: #ffffff;">
-                            <thead style="background-color: #4169E1; color: white;">
-                                <tr>
-                                    <th>C.N. Bus No.</th>
-                                    <th>Name</th>
-                                    <th>Address</th>
-                                    <th>Total</th>
-                                    <th>Nationality</th>
-                                    <th>Time in</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            $sql = "SELECT * FROM visitor_org";
-                            $result = $conn->query($sql);
-
-                            if ($result->num_rows > 0) {
-                                $row_count = 0;
-                                while($row = $result->fetch_assoc()) {
-                                    $row_count++;
-                                    $row_class = ($row_count % 2 == 0) ? "even-row" : "odd-row";
-                                    echo "<tr class='clickable-row $row_class' data-info='" . $row["visitor_org_cn_no"] . "|" . $row["visitor_org_name"] . "|" . $row["visitor_org_add"] . "|" . $row["visitor_org_60old"] . "|" . $row["visitor_org_natl"] . "|" . $row["visitor_org_male"] . "|" . $row["visitor_org_female"] . "|" . $row["visitor_org_gschool"] . "|" . $row["visitor_org_hschool"] . "|" . $row["visitor_org_college"] . "|" . $row["visitor_org_pwd"] . "|" . $row["visitor_org_17blow"] . "|" . $row["visitor_org_1930old"] . "|" . $row["visitor_org_3159old"] . "|" . $row["visitor_org_60old"] . "|"  . $row["entry_timestamp"].  "' style='cursor: pointer;'>";
-                                    echo "<td>" . $row["visitor_org_cn_no"] . "</td>";
-                                    echo "<td>" . $row["visitor_org_name"] . "</td>";
-                                    echo "<td>" . $row["visitor_org_add"] . "</td>";
-                                    echo "<td>" . ($row["visitor_org_male"] + $row["visitor_org_female"]) . "</td>";
-                                    echo "<td>" . $row["visitor_org_natl"] . "</td>";
-                                    echo "<td>" . $row["entry_timestamp"] . "</td>";
-                                    echo "</tr>";
-                                }
-                            }
-                            ?>
-                            </tbody>
-                        </table>
-                    </div>
-
-=======
->>>>>>> 7fb7670a34b574c5f0d69dd8029ab300abd0c8af
                     <!-- Modal for Individual Table -->
                     <div class="modal fade" id="individualModal" tabindex="-1" aria-labelledby="individualModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -176,40 +130,6 @@ if (isset($_SESSION['userid'])) {
                         </div>
                     </div>
 
-<<<<<<< HEAD
-                    <!-- Modal for Organization Table -->
-                    <div class="modal fade" id="organizationModal" tabindex="-1" aria-labelledby="organizationModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="organizationModalLabel">Organization Visitor Information</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>C.N. Bus No.: <span id="organization-modal-cn"></span></p>
-                                    <p>Name: <span id="organization-modal-name"></span></p>
-                                    <p>Address: <span id="organization-modal-address"></span></p>
-                                    <p>Nationality: <span id="organization-modal-nationality"></span></p>
-                                    <p>Number of Male: <span id="organization-modal-vismale"></span></p>
-                                    <p>Number of Female: <span id="organization-modal-visfemale"></span></p>
-                                    <p>Grade School: <span id="organization-modal-gradeschool"></span></p>
-                                    <p>High School: <span id="organization-modal-highschool"></span></p>
-                                    <p>College/Grad School: <span id="organization-modal-cgschool"></span></p>
-                                    <p>PWD: <span id="organization-modal-pwd"></span></p>
-                                    <p>17 years old below: <span id="organization-modal-17yrsold"></span></p>
-                                    <p>19-30 years old: <span id="organization-modal-19yrsold"></span></p>
-                                    <p>31-59 years old: <span id="organization-modal-31yrsold"></span></p>
-                                    <p>60 years old above: <span id="organization-modal-60yrsold"></span></p>
-                                    <p>Time in: <span id="organization-modal-in"></span></p>
-                                    
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-=======
->>>>>>> 7fb7670a34b574c5f0d69dd8029ab300abd0c8af
                     <!-- Modal for Add Log Form -->
                     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
                         <div class="modal-dialog">

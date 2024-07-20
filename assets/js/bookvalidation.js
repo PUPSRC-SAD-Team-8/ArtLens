@@ -123,13 +123,19 @@ function handleSubmit(event) {
                 }
             }
 
+
             // Hide loading spinner after request completes
             setTimeout(function () {
                 document.getElementById('submitText').style.display = 'inline';
                 document.getElementById('loadingSpinner').classList.add('visually-hidden');
             }, 3000); // Adjust delay as needed
         } else if (xhr.status === 400) {
-            console.log('bad requet');
+            var response = xhr.responseText.trim();
+
+            if (response.includes('Invalid OTP')) {
+                document.getElementById('otpStatus').textContent = 'Invalid OTP';
+            }
+
         }
     };
     xhr.onerror = function () {

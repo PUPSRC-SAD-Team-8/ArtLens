@@ -7,17 +7,16 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/faqs.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Josefin+Sans" />
 </head>
 <body>
     <nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <h1 style="color: white; font-family: 'Arial Grook', sans-serif;"><b>ArtLens</b></h1>
+            <h1 style="color: white; font-family: Josefin Sans; margin-top: 15px; font-size: 25px;"><b>ARTLENS</b></h1>
+            <a type="button" href="index.php" class="nav-link admin-login-mobile btn1 ">Back</a>
         </div>
     </nav>
     <div class="container" style="margin-top: 100px;">
-    <div class="container-custom">
-    <a type="button" href="index.php" class="btn" style="background-color: #4169E1; color: white;">Back</a>
-  </div>
     <center><h1>ARTLENS: How Can We Help You?</h1>
     <p>Uncover everything you need to know to maximize your museum experience with the ARTLENS FAQs!</p></center>
         <div class="accordion mt-5" id="accordionExample">

@@ -136,38 +136,12 @@ if (isset($_SESSION['userid'])) {
                     document.addEventListener('DOMContentLoaded', function () {
                         const ctx = document.getElementById('visitorChart').getContext('2d');
                         const timePeriodSelect = document.getElementById('timePeriod');
-
                         let visitorChart;
 
-                        const weeklyData = {
-                            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
-                            datasets: [{
-                                label: 'Visitors',
-                                data: [4, 0, 0, 0],
-                                backgroundColor: [
-                                    '#4169E1'
-                                ],
-                                borderColor: [
-                                    '#4169E1'
-                                ],
-                                borderWidth: 1
-                            }]
-                        };
-
-                        const monthlyData = {
-                            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                            datasets: [{
-                                label: 'Visitors',
-                                data: [200, 300, 400, 500, 600, 700],
-                                backgroundColor: [
-                                    '#4169E1'
-                                ],
-                                borderColor: [
-                                    '#4169E1'
-                                ],
-                                borderWidth: 1
-                            }]
-                        };
+                        async function fetchData() {
+                            const response = await fetch('fetch_booking_data.php');
+                            return response.json();
+                        }
 
                         function createChart(data) {
                             if (visitorChart) {
@@ -187,17 +161,45 @@ if (isset($_SESSION['userid'])) {
                             });
                         }
 
-                        timePeriodSelect.addEventListener('change', function () {
-                            const selectedPeriod = timePeriodSelect.value;
-                            if (selectedPeriod === 'weekly') {
-                                createChart(weeklyData);
-                            } else if (selectedPeriod === 'monthly') {
-                                createChart(monthlyData);
+                        function transformData(data, period) {
+                            if (period === 'weekly') {
+                                return {
+                                    labels: data.weekly.map(item => `Week ${item.week}`),
+                                    datasets: [{
+                                        label: 'Visitors',
+                                        data: data.weekly.map(item => item.visitors),
+                                        backgroundColor: '#4169E1',
+                                        borderColor: '#4169E1',
+                                        borderWidth: 1
+                                    }]
+                                };
+                            } else if (period === 'monthly') {
+                                return {
+                                    labels: data.monthly.map(item => item.month),
+                                    datasets: [{
+                                        label: 'Visitors',
+                                        data: data.monthly.map(item => item.visitors),
+                                        backgroundColor: '#4169E1',
+                                        borderColor: '#4169E1',
+                                        borderWidth: 1
+                                    }]
+                                };
                             }
+                        }
+
+                        timePeriodSelect.addEventListener('change', async function () {
+                            const data = await fetchData();
+                            const selectedPeriod = timePeriodSelect.value;
+                            const chartData = transformData(data, selectedPeriod);
+                            createChart(chartData);
                         });
 
                         // Initialize chart with weekly data
-                        createChart(weeklyData);
+                        (async function () {
+                            const data = await fetchData();
+                            const chartData = transformData(data, 'weekly');
+                            createChart(chartData);
+                        })();
                     });
                 </script>
             </main>

@@ -94,44 +94,45 @@ if (isset($_SESSION['userid'])) {
                     <hr style="width: 300px; height: 3px; background-color: #4169E1">
                     <br>
                     <form id="employeeForm" action="update_user.php" method="POST" onsubmit="return validateForm()">
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label for="firstNameInput" class="form-label">First Name</label>
-                            <input class="form-control" type="text" id="firstNameInput" name="firstName" value="<?php echo htmlspecialchars($firstName); ?>" readonly required oninput="validateInput('firstNameInput', 'firstNameError')">
-                            <div class="invalid-feedback" id="firstNameError"></div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="firstNameInput" class="form-label">First Name</label>
+                                <input class="form-control" type="text" id="firstNameInput" name="firstName" value="<?php echo htmlspecialchars($firstName); ?>" readonly required oninput="validateInput('firstNameInput', 'firstNameError')">
+                                <small id="firstNameError" class="form-text text-danger" style="display: none;"></small>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="lastNameInput" class="form-label">Last Name</label>
+                                <input class="form-control" type="text" id="lastNameInput" name="lastName" value="<?php echo htmlspecialchars($lastName); ?>" readonly required oninput="validateInput('lastNameInput', 'lastNameError')">
+                                <small id="lastNameError" class="form-text text-danger" style="display: none;"></small>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="middleInitialInput" class="form-label">M.I.</label>
+                                <input class="form-control" type="text" id="middleInitialInput" name="middleInitial" value="<?php echo htmlspecialchars($middleInitial); ?>" style="width: 100px;" readonly required oninput="validateInput('middleInitialInput', 'middleInitialError')">
+                                <small id="middleInitialError" class="form-text text-danger" style="display: none;"></small>
+                            </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="lastNameInput" class="form-label">Last Name</label>
-                            <input class="form-control" type="text" id="lastNameInput" name="lastName" value="<?php echo htmlspecialchars($lastName); ?>" readonly required oninput="validateInput('lastNameInput', 'lastNameError')">
-                            <div class="invalid-feedback" id="lastNameError"></div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="employeeIdInput" class="form-label">Employee ID</label>
+                                <input class="form-control" type="text" id="employeeIdInput" name="employee_id" value="<?php echo htmlspecialchars($employeeId); ?>" readonly required oninput="validateInput('employeeIdInput', 'employeeIdError')">
+                                <small id="employeeIdError" class="form-text text-danger" style="display: none;"></small>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="emailInput" class="form-label">Email</label>
+                                <input class="form-control" type="email" id="emailInput" name="email" value="<?php echo htmlspecialchars($email); ?>" readonly required oninput="validateInput('emailInput', 'emailError')">
+                                <small id="emailError" class="form-text text-danger" style="display: none;"></small>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="mobileNumberInput" class="form-label">Mobile Number</label>
+                                <input class="form-control" type="text" id="mobileNumberInput" name="mobileNumber" value="<?php echo htmlspecialchars($mobileNumber); ?>" readonly required oninput="validateInput('mobileNumberInput', 'mobileNumberError')">
+                                <small id="mobileNumberError" class="form-text text-danger" style="display: none;"></small>
+                            </div>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="middleInitialInput" class="form-label">M.I.</label>
-                            <input class="form-control" type="text" id="middleInitialInput" name="middleInitial" value="<?php echo htmlspecialchars($middleInitial); ?>" style="width: 100px;" readonly required oninput="validateInput('middleInitialInput', 'middleInitialError')">
-                            <div class="invalid-feedback" id="middleInitialError"></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <label for="employeeIdInput" class="form-label">Employee ID</label>
-                            <input class="form-control" type="text" id="employeeIdInput" name="employee_id" value="<?php echo htmlspecialchars($employeeId); ?>" readonly required oninput="validateInput('employeeIdInput', 'employeeIdError')">
-                            <div class="invalid-feedback" id="employeeIdError"></div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="emailInput" class="form-label">Email</label>
-                            <input class="form-control" type="email" id="emailInput" name="email" value="<?php echo htmlspecialchars($email); ?>" readonly required oninput="validateInput('emailInput', 'emailError')">
-                            <div class="invalid-feedback" id="emailError"></div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="mobileNumberInput" class="form-label">Mobile Number</label>
-                            <input class="form-control" type="text" id="mobileNumberInput" name="mobileNumber" value="<?php echo htmlspecialchars($mobileNumber); ?>" readonly required oninput="validateInput('mobileNumberInput', 'mobileNumberError')">
-                            <div class="invalid-feedback" id="mobileNumberError"></div>
-                        </div>
-                    </div>
-                    <button type="button" class="homebtn float-end" style="border: none;" onclick="toggleEdit()">Edit</button>
-                    <button type="submit" class="homebtn1 float-end" style="border: none; display: none; margin-right: 5px;" id="saveChangesBtn">Save Changes</button>
-                    <input type="hidden" name="userId" value="<?php echo $userId; ?>">
-                </form>
+                        <button type="button" class="homebtn float-end" style="border: none;" onclick="toggleEdit()">Edit</button>
+                        <button type="submit" class="homebtn1 float-end" style="border: none; display: none; margin-right: 5px;" id="saveChangesBtn">Save Changes</button>
+                        <input type="hidden" name="userId" value="<?php echo $userId; ?>">
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -242,6 +243,114 @@ if (isset($_SESSION['userid'])) {
         });
     });
 </script>
+<script>
+function validateInput(id, errorId) {
+    const input = document.getElementById(id);
+    const error = document.getElementById(errorId);
+
+    if (input.value.trim() === "") {
+        error.textContent = "This field is required.";
+        error.style.display = "block";
+        document.getElementById("saveChangesBtn").disabled = true;
+    } else {
+        error.style.display = "none";
+        document.getElementById("saveChangesBtn").disabled = false;
+    }
+}
+
+function validateEmployeeId(id, errorId) {
+    const input = document.getElementById(id);
+    const error = document.getElementById(errorId);
+    const pattern = /^\d{3}-\d{3}$/;
+
+    if (!pattern.test(input.value)) {
+        error.textContent = "Employee ID must be in the format 000-000.";
+        error.style.display = "block";
+        document.getElementById("saveChangesBtn").disabled = true;
+    } else {
+        error.style.display = "none";
+        document.getElementById("saveChangesBtn").disabled = false;
+    }
+}
+
+function validateEmail(id, errorId) {
+    const input = document.getElementById(id);
+    const error = document.getElementById(errorId);
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!pattern.test(input.value)) {
+        error.textContent = "Please enter a valid email address.";
+        error.style.display = "block";
+        document.getElementById("saveChangesBtn").disabled = true;
+    } else {
+        error.style.display = "none";
+        document.getElementById("saveChangesBtn").disabled = false;
+    }
+}
+
+function validateMobileNumber(id, errorId) {
+    const input = document.getElementById(id);
+    const error = document.getElementById(errorId);
+    const validPrefix = '09';
+    const requiredLength = 11;
+
+    // Remove any non-digit characters
+    let value = input.value.replace(/[^\d]/g, '');
+
+    // Limit the input to the required length
+    if (value.length > requiredLength) {
+        value = value.slice(0, requiredLength);
+    }
+
+    input.value = value;
+
+    // Check if the input starts with '09' and has exactly requiredLength digits
+    if (value.length === 0) {
+        error.textContent = "Mobile number is required.";
+        error.style.display = "block";
+        document.getElementById("saveChangesBtn").disabled = true;
+    } else if (!value.startsWith(validPrefix) || value.length !== requiredLength) {
+        error.textContent = `Please provide valid mobile number`;
+        error.style.display = "block";
+        document.getElementById("saveChangesBtn").disabled = true;
+    } else {
+        error.style.display = "none";
+        document.getElementById("saveChangesBtn").disabled = false;
+    }
+}
+
+function validateMiddleInitial(id, errorId) {
+    const input = document.getElementById(id);
+    const error = document.getElementById(errorId);
+
+    // Allow only a single letter and capitalize it
+    input.value = input.value.toUpperCase().slice(0, 1);
+
+    if (input.value.length === 0 || !/^[A-Z]$/.test(input.value)) {
+        error.textContent = "M.I. should be a single letter.";
+        error.style.display = "block";
+        document.getElementById("saveChangesBtn").disabled = true;
+    } else {
+        error.style.display = "none";
+        document.getElementById("saveChangesBtn").disabled = false;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileInput = document.getElementById('mobileNumberInput');
+    const middleInitialInput = document.getElementById('middleInitialInput');
+    const saveChangesBtn = document.getElementById('saveChangesBtn');
+
+    mobileInput.addEventListener('input', function() {
+        validateMobileNumber('mobileNumberInput', 'mobileNumberError');
+    });
+
+    middleInitialInput.addEventListener('input', function() {
+        validateMiddleInitial('middleInitialInput', 'middleInitialError');
+    });
+});
+</script>
+
 
 </body>
 

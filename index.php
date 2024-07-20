@@ -54,7 +54,7 @@ $row = mysqli_fetch_assoc($schedule);
     <nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <h1 style="color: white; font-family: Josefin Sans; margin-top: 15px; font-size: 25px;"><b>ARTLENS</b></h1>
-            <div id="logoutButtonContainer" style="display: none; visibility: hidden;"></div>
+            <div  id="logoutButton" class="adminlogbtn" style="display: none;">Logout</div>
         </div>
     </nav>
 
@@ -254,6 +254,7 @@ $row = mysqli_fetch_assoc($schedule);
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="dati" name="dati" type="datetime-local" placeholder="Date and Time" required>
                                     <label>Date and Time</label>
@@ -629,63 +630,36 @@ document.addEventListener("DOMContentLoaded", function() {
             submitForm();
         });
     </script>
-   <!-- <script>
-        function showConfirmationModal() {
-            var modal = new bootstrap.Modal(document.getElementById('modalconfirm'));
-            modal.show();
 
+        <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const logForm = document.getElementById('logForm');
+        const logoutButton = document.getElementById('logoutButton');
 
-            document.querySelector('.btn-continue').addEventListener('click', function() {
-
-                localStorage.removeItem('loggedInDevice');
-
-                document.getElementById('logoutButtonContainer').style.display = 'none';
-
-                modal.hide();
-            });
-
-
-            document.querySelector('.btn-cancel').addEventListener('click', function() {
-                modal.hide();
-            });
+        // Check if the user is logged in (e.g., by checking a session storage item)
+        // If so, show the logout button
+        if (sessionStorage.getItem('loggedIn') === 'true') {
+            logoutButton.style.display = 'block';
         }
 
-
-        function checkLoggedIn() {
-
-            var isLoggedIn = localStorage.getItem('loggedInDevice');
-
-            if (isLoggedIn) {
-
-                var logoutButton = '<a class="float-end btn1 adminlogbtn" style="text-decoration: none;" onclick="showConfirmationModal()">Log out</a>';
-                document.getElementById('logoutButtonContainer').innerHTML = logoutButton;
-                document.getElementById('logoutButtonContainer').style.display = 'block';
-            } else {
-
-                document.getElementById('logoutButtonContainer').style.display = 'none';
-            }
-        }
-
-
-        window.onload = function() {
-            checkLoggedIn();
+        // Handle form submission
+        logForm.onsubmit = function() {
+            // Show logout button after form submission
+            sessionStorage.setItem('loggedIn', 'true');
+            logoutButton.style.display = 'block';
+            return true; // Continue with form submission
         };
 
+        // Handle logout button click
+        logoutButton.onclick = function() {
+            sessionStorage.removeItem('loggedIn');
+            logoutButton.style.display = 'none';
+            // Optionally, redirect to a logout URL
+            window.location.href = 'index.php';
+        };
+    });
+</script>
 
-        function validateForm() {
-
-            var isValid = true;
-
-            if (isValid) {
-
-                localStorage.setItem('loggedInDevice', true);
-
-                checkLoggedIn();
-            }
-
-            return isValid;
-        }
-    </script>-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -696,6 +670,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 1500); // 3000 milliseconds = 3 seconds
         });
     </script>
+
     <script>
         $(document).ready(function() {
             $('.img-box').click(function() {

@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function checkFormValidity() {
         let allFilled = true;
+
+        // Check if all required fields are filled
         inputs.forEach(input => {
             if (!input.value) {
                 allFilled = false;
@@ -44,31 +46,41 @@ document.addEventListener('DOMContentLoaded', function () {
             mobileStatus.textContent = "";
         }
 
-        // Validate male input
-        const maleValue = parseInt(maleInput.value);
+        // Validate male and female inputs
+        const maleValue = parseInt(maleInput.value) || 0;
+        const femaleValue = parseInt(femaleInput.value) || 0;
+        const total = maleValue + femaleValue;
+
         if (maleValue > 50) {
             allFilled = false;
             maleInput.classList.add('is-invalid');
             maleError.textContent = "Only numbers below 50 are allowed.";
-            emailStatus.style.color = '#dc3545';
-            emailStatus.style.fontSize = 'smaller';
-            submitButton.disabled = !allFilled;
         } else {
             maleInput.classList.remove('is-invalid');
             maleError.textContent = "";
         }
 
-        // Validate female input
-        const femaleValue = parseInt(femaleInput.value);
         if (femaleValue > 50) {
             allFilled = false;
             femaleInput.classList.add('is-invalid');
             femaleError.textContent = "Only numbers below 50 are allowed.";
-            emailStatus.style.color = '#dc3545';
-            emailStatus.style.fontSize = 'smaller';
-            submitButton.disabled = !allFilled;
         } else {
             femaleInput.classList.remove('is-invalid');
+            femaleError.textContent = "";
+        }
+
+        if (total > 50) {
+            allFilled = false;
+            maleInput.classList.add('is-invalid');
+            femaleInput.classList.add('is-invalid');
+            maleError.textContent = `Total cannot exceed 50. Currently, ${femaleValue} female(s) are entered.`;
+            femaleError.textContent = `Total cannot exceed 50. Currently, ${maleValue} male(s) are entered.`;
+            emailStatus.style.color = '#dc3545';
+            emailStatus.style.fontSize = 'smaller';
+        } else {
+            maleInput.classList.remove('is-invalid');
+            femaleInput.classList.remove('is-invalid');
+            maleError.textContent = "";
             femaleError.textContent = "";
         }
 
@@ -119,5 +131,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
     checkFormValidity();
 });
-
-

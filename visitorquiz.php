@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Bootstrap CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Josefin+Sans" />
     <!-- Custom CSS -->
     <style>
         /* Custom CSS styles */
@@ -280,10 +281,10 @@
     </style>
 </head>
 <body>
-    <nav class="head navbar navbar-expand-lg navbar-expand-md navbar-dark">
+<nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <h1 style="color: white; font-family: Josefin Sans; margin-top: 15px; font-size: 25px;"><b>ARTLENS</b></h1>
-            <a class="btn1" href="visitorindex.php">Back</a>
+            <a type="button" href="index.php" class="nav-link admin-login-mobile btn1 ">Back</a>
         </div>
     </nav>
     <div class="blue-container">

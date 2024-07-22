@@ -13,6 +13,9 @@ $schedule = mysqli_query($conn, "SELECT * FROM schedule");
 $row = mysqli_fetch_assoc($schedule);
 
 
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -37,13 +40,10 @@ $row = mysqli_fetch_assoc($schedule);
             border-color: red;
         }
 
-
         .requiredas:after {
-            content: " *";
             content: " *";
             color: red;
         }
-
 
         .input-group .form-control,
         .input-group .btn {
@@ -59,7 +59,7 @@ $row = mysqli_fetch_assoc($schedule);
     <nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <h1 style="color: white; font-family: Josefin Sans; margin-top: 15px; font-size: 25px;"><b>ARTLENS</b></h1>
-            <div id="logoutButtonContainer" style="display: none; visibility: hidden;"></div>
+            <div id="logoutButtonContainer" style="display: none;"></div>
         </div>
     </nav>
 
@@ -98,7 +98,7 @@ $row = mysqli_fetch_assoc($schedule);
             </div>
         </div>
     </div>
-    <!--<div class="modal fade" id="modalconfirm" tabindex="-1" aria-labelledby="modalconfirmLabel" aria-hidden="true">
+    <div class="modal fade" id="modalconfirm" tabindex="-1" aria-labelledby="modalconfirmLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -116,28 +116,13 @@ $row = mysqli_fetch_assoc($schedule);
                     <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-primary btn-continue">Continue</button>
                 </div>
-                <div class="modal-header">
-                    <center>
-                        <h5 class="modal-title" id="modalconfirmLabel">Confirmation</h5>
-                    </center>
-                </div>
-                <div class="modal-body">
-                    <center>
-                        <img src="assets/images/leaving.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
-                        <p>Are you sure you want to leave the museum?</p>
-                    </center>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary btn-continue">Continue</button>
-                </div>
             </div>
         </div>
-    </div>-->
+    </div>
 
 
-    <!-- Log out button container 
-    <div id="logoutButtonContainer" style="display: none;"></div>-->
+    <!-- Log out button container -->
+    <div id="logoutButtonContainer" style="display: none;"></div>
 
     <br><br><br><br><br>
 
@@ -213,7 +198,6 @@ $row = mysqli_fetch_assoc($schedule);
 
                         <div id="toggleButtons" class="d-flex justify-content-center mb-3">
                             <a type="button" style="border-radius: 5px 0px 0px 5px;" class="btn-toggle form" onclick="showForm()">Form</a>
-                            <a type="button" style="border-radius: 5px 0px 0px 5px;" class="btn-toggle form" onclick="showForm()">Form</a>
                             <a type="button" style="border-radius: 0px 5px 5px 0px;" class="btn-toggle status" onclick="showStatus()">Status</a>
                         </div>
 
@@ -223,13 +207,6 @@ $row = mysqli_fetch_assoc($schedule);
                                 Form submitted successfully!
                                 <button type="button" class="btn-close float-end" aria-label="Close" onclick="dismissAlert()"></button>
                             </div>
-                            <?php
-                            // Fetch schedule data from the database
-                            $schedule = mysqli_query($conn, "SELECT * FROM schedule");
-                            $row = mysqli_fetch_assoc($schedule);
-                            $startTime = date("H:i", strtotime($row['start_time']));
-                            $endTime = date("H:i", strtotime($row['end_time']));
-                            ?>
                             <form id="bookingForm" name="bookingForm" action="booking.php" method="POST" onsubmit="handleSubmit(event)">
 
 
@@ -244,17 +221,10 @@ $row = mysqli_fetch_assoc($schedule);
                                     <input class="form-control" id="monu" name="monu" type="tel" placeholder="Mobile Number" required title="Please enter an 11-digit mobile number." maxlength="13">
                                     <label for="monu">Mobile Number</label>
                                     <div id="mobileStatus" class="invalid-feedback"></div> <!-- Error message container -->
-                                    <input class="form-control" id="monu" name="monu" type="tel" placeholder="Mobile Number" required title="Please enter an 11-digit mobile number." maxlength="13">
-                                    <label for="monu">Mobile Number</label>
-                                    <div id="mobileStatus" class="invalid-feedback"></div> <!-- Error message container -->
                                 </div>
                                 <div class="mb-2">
                                     <div class="input-group">
                                         <div class="form-floating flex-grow-1">
-                                            <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50">
-                                            <label for="emal">Email</label>
-                                            <div class="invalid-feedback"></div>
-                                            <div id="emailStatus"></div><!-- Error message container -->
                                             <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50">
                                             <label for="emal">Email</label>
                                             <div class="invalid-feedback"></div>
@@ -318,7 +288,6 @@ $row = mysqli_fetch_assoc($schedule);
                                     <div id="otpStatus" class="invalid-feedback"></div> <!-- Error message container -->
                                 </div>
 
-
                                 <div class="row">
                                     <label class="form-label d-block">Number by Sex</label>
                                     <div class="col">
@@ -354,46 +323,42 @@ $row = mysqli_fetch_assoc($schedule);
 
 
                         </div>
-                    </div>
 
-                    <!-- Status Content -->
-                    <div id="statusContent" class="hidden" style="max-height: 400px; overflow-y: auto;">
-                        <form id="statusForm" action="#" method="POST">
-                            <input class="form-control" id="contact_email" name="contact_email" type="text" placeholder="Search by Email" required>
-                            <div id="imageContainer" style="margin-top: 10px; background-color: #4169E1; border-radius: 10px;">
-                                <!-- Add image with default message -->
-                                <center><img src="assets/images/status.png" alt="No information" id="noInfoImage"></center>
-                                <!-- Container for displaying message -->
-                                <div id="statusMessage" class="mt-3" style="margin: 10px; color: white;"></div>
-                            </div>
-                            <div class="d-flex justify-content-center mt-3">
-                                <button type="button" onclick="checkStatus()" class="btn3" style="width: 100%;">Search Status</button>
-                            </div>
-                        </form>
+                        <!-- Status Content -->
+                        <div id="statusContent" class="hidden" style="max-height: 400px; overflow-y: auto;">
+                            <form id="statusForm" action="#" method="POST">
+                                <input class="form-control" id="contact_email" name="contact_email" type="text" placeholder="Search by Email" required>
+                                <div id="imageContainer" style="margin-top: 10px; background-color: #4169E1; border-radius: 10px;">
+                                    <!-- Add image with default message -->
+                                    <center><img src="assets/images/status.png" alt="No information" id="noInfoImage"></center>
+                                    <!-- Container for displaying message -->
+                                    <div id="statusMessage" class="mt-3" style="margin: 10px; color: white;"></div>
+                                </div>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button type="button" onclick="checkStatus()" class="btn3" style="width: 100%;">Search Status</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+                <button class="btn kulay mt-1" onclick="document.getElementById('myModal2').style.display='flex'">Visit the Museum</button>
+                <!--Log Form-->
+                <div id="myModal2" class="modal2" tabindex="-1">
+                    <div class="modal-content2 p-4">
+                        <span class="close3 float-end mb-3" onclick="document.getElementById('myModal2').style.display='none'">&times;</span>
+                        <h3 class="mt-2">Log Form</h3>
+                        <hr>
+                        <form id="logForm" action="log.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+                            <div class="mb-4">
+                                <label for="modal-status" class="form-label">Type</label>
+                                <select id="modal-status" class="form-select" name="status" onchange="toggleFields()">
+                                    <option value="Individual">Individual</option>
+                                    <option value="Organization">Organization</option>
+                                </select>
+                            </div>
 
-            <button class="btn kulay mt-1" onclick="document.getElementById('myModal2').style.display='flex'">Visit the Museum</button>
-            <!--Log Form-->
-            <div id="myModal2" class="modal2" tabindex="-1">
-                <div class="modal-content2 p-4">
-                    <span class="close3 float-end mb-3" onclick="document.getElementById('myModal2').style.display='none'">&times;</span>
-                    <h3 class="mt-2">Log Form</h3>
-                    <hr>
-                    <form id="logForm" action="log.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
-                        <div class="mb-4">
-                            <label for="modal-status" class="form-label">Type</label>
-                            <select id="modal-status" class="form-select" name="status" onchange="toggleFields()">
-                                <option value="Individual">Individual</option>
-                                <option value="Organization">Organization</option>
-                            </select>
-                        </div>
-
-
-                        <!-- Organization Fields -->
-                        <div class="organization" style="display: none;">
+                            <!-- Organization Fields -->
                             <div class="organization" style="display: none;">
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." maxlength="50" required oninput="validateField(this)" onblur="validateField(this)">
@@ -513,13 +478,12 @@ $row = mysqli_fetch_assoc($schedule);
                             <div class="d-flex justify-content-center mt-3">
                                 <button type="submit" name="submit" class=" btn3 w-100 mt-3" id="logButton" disabled>Submit</button>
                             </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
+
             </div>
-
-
         </div>
-    </div>
     </div>
 
     <br><br><br><br><br><br>
@@ -543,7 +507,6 @@ $row = mysqli_fetch_assoc($schedule);
                 <div class="col-md mt-3">
                     <br>
                     <h6>Museo ni Jose Rizal</h6>
-                    <h6>Museo ni Jose Rizal</h6>
                     <center>
                         <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
                     </center>
@@ -556,7 +519,6 @@ $row = mysqli_fetch_assoc($schedule);
                         <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
                     </center>
                     <p class="tetleft"><a type="button" href="aboutus.php" class="clickft">About us</a></p>
-                    <p class="tetleft"><a type="button" href="faqs.php" class="clickft">FAQs</a></p>
                     <p class="tetleft"><a type="button" href="faqs.php" class="clickft">FAQs</a></p>
                 </div>
                 <div class="col-md mt-3">
@@ -589,73 +551,6 @@ $row = mysqli_fetch_assoc($schedule);
     <script src="assets/js/logformvalidation.js"></script>
     <script src="assets/js/bookvalidationinput.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Output PHP variables as JavaScript variables
-            const savedStartTime = '<?php echo date("h:i A", strtotime($startTime)); ?>';
-            const savedEndTime = '<?php echo date("h:i A", strtotime($endTime)); ?>';
-
-            const input = document.getElementById('dati');
-            const now = new Date().toISOString().slice(0, 16);
-            input.setAttribute('min', now);
-
-            input.addEventListener('change', function() {
-                const selectedDateTime = new Date(input.value);
-                const selectedTime = formatTime(selectedDateTime);
-
-                // Convert times to minutes since midnight for comparison
-                const savedStartMinutes = convertToMinutes(savedStartTime);
-                const savedEndMinutes = convertToMinutes(savedEndTime);
-                const selectedMinutes = convertToMinutes(selectedTime);
-
-                // Validate against saved schedule times
-                if (selectedMinutes < savedStartMinutes || selectedMinutes > savedEndMinutes) {
-                    input.classList.add('input-error', 'border-red');
-                    displayErrorMessage(`Booking time must be between ${savedStartTime} and ${savedEndTime}.`);
-                    document.getElementById('bookButton').disabled = true;
-                } else if (selectedMinutes < convertToMinutes('9:00 AM') || selectedMinutes > convertToMinutes('4:00 PM')) {
-                    // Validate against allowed business hours
-                    input.classList.add('input-error', 'border-red');
-                    displayErrorMessage("Only times between 9 AM and 4 PM are allowed.");
-                    document.getElementById('bookButton').disabled = true;
-                } else {
-                    input.classList.remove('input-error', 'border-red');
-                    clearErrorMessage();
-                    document.getElementById('bookButton').disabled = false;
-                }
-            });
-
-            function formatTime(date) {
-                let hours = date.getHours();
-                let minutes = date.getMinutes();
-                let ampm = hours >= 12 ? 'PM' : 'AM';
-                hours = hours % 12;
-                hours = hours ? hours : 12; // the hour '0' should be '12'
-                minutes = minutes < 10 ? '0' + minutes : minutes;
-                return hours + ':' + minutes + ' ' + ampm;
-            }
-
-            function convertToMinutes(time) {
-                const [hourMinute, period] = time.split(' ');
-                let [hour, minute] = hourMinute.split(':').map(Number);
-                if (period === 'PM' && hour !== 12) hour += 12;
-                if (period === 'AM' && hour === 12) hour = 0;
-                return hour * 60 + minute;
-            }
-
-            function displayErrorMessage(message) {
-                const errorContainer = document.getElementById('dateTimeError');
-                errorContainer.textContent = message;
-                errorContainer.style.display = 'block';
-            }
-
-            function clearErrorMessage() {
-                const errorContainer = document.getElementById('dateTimeError');
-                errorContainer.textContent = '';
-                errorContainer.style.display = 'none';
-            }
-        });
-    </script>
 
     <script>
         function validateForm() {
@@ -716,8 +611,6 @@ $row = mysqli_fetch_assoc($schedule);
         document.getElementById("logForm").addEventListener("submit", function(event) {
             event.preventDefault();
             submitForm();
-            event.preventDefault();
-            submitForm();
         });
     </script>
     <script>
@@ -735,44 +628,17 @@ $row = mysqli_fetch_assoc($schedule);
                 modal.hide();
             });
 
-            document.querySelector('.btn-continue').addEventListener('click', function() {
-
-                localStorage.removeItem('loggedInDevice');
-
-                document.getElementById('logoutButtonContainer').style.display = 'none';
-
-                modal.hide();
-            });
-
 
             document.querySelector('.btn-cancel').addEventListener('click', function() {
                 modal.hide();
             });
         }
 
-        document.querySelector('.btn-cancel').addEventListener('click', function() {
-            modal.hide();
-        });
-        }
-
 
         function checkLoggedIn() {
 
-            function checkLoggedIn() {
+            var isLoggedIn = localStorage.getItem('loggedInDevice');
 
-                var isLoggedIn = localStorage.getItem('loggedInDevice');
-                var isLoggedIn = localStorage.getItem('loggedInDevice');
-
-                if (isLoggedIn) {
-
-                    var logoutButton = '<a class="float-end btn1 adminlogbtn" style="text-decoration: none;" onclick="showConfirmationModal()">Log out</a>';
-                    document.getElementById('logoutButtonContainer').innerHTML = logoutButton;
-                    document.getElementById('logoutButtonContainer').style.display = 'block';
-                } else {
-
-                    document.getElementById('logoutButtonContainer').style.display = 'none';
-                }
-            }
             if (isLoggedIn) {
 
                 var logoutButton = '<a class="float-end btn1 adminlogbtn" style="text-decoration: none;" onclick="showConfirmationModal()">Log out</a>';
@@ -788,31 +654,21 @@ $row = mysqli_fetch_assoc($schedule);
         window.onload = function() {
             checkLoggedIn();
         };
-        window.onload = function() {
-            checkLoggedIn();
-        };
 
 
         function validateForm() {
 
-            function validateForm() {
+            var isValid = true;
 
-                var isValid = true;
-                var isValid = true;
+            if (isValid) {
 
-                if (isValid) {
-                    if (isValid) {
+                localStorage.setItem('loggedInDevice', true);
 
-                        localStorage.setItem('loggedInDevice', true);
-                        localStorage.setItem('loggedInDevice', true);
-
-                        checkLoggedIn();
-                    }
-                    checkLoggedIn();
-                }
-
-                return isValid;
+                checkLoggedIn();
             }
+
+            return isValid;
+        }
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -826,53 +682,29 @@ $row = mysqli_fetch_assoc($schedule);
     </script>
     <script>
         $(document).ready(function() {
-                    $('.img-box').click(function() {
-                        var overlay = $(this).find('.overlay');
+            $('.img-box').click(function() {
+                var overlay = $(this).find('.overlay');
 
-                        if (overlay.hasClass('active')) {
-                            overlay.removeClass('active');
-                        } else {
+                if (overlay.hasClass('active')) {
+                    overlay.removeClass('active');
+                } else {
 
-                            overlay.addClass('active');
-                            $('.overlay').not(overlay).removeClass('active');
-                        }
-                    }); <
-                    script >
-                        $(document).ready(function() {
-                            $('.img-box').click(function() {
-                                var overlay = $(this).find('.overlay');
+                    overlay.addClass('active');
+                    $('.overlay').not(overlay).removeClass('active');
+                }
+            });
 
-                                if (overlay.hasClass('active')) {
-                                    overlay.removeClass('active');
-                                } else {
+            $('.overlay').click(function(event) {
+                event.stopPropagation();
+                $(this).removeClass('active');
+            });
 
-                                    overlay.addClass('active');
-                                    $('.overlay').not(overlay).removeClass('active');
-                                }
-                            });
-
-                            $('.overlay').click(function(event) {
-                                event.stopPropagation();
-                                $(this).removeClass('active');
-                            });
-                            $('.overlay').click(function(event) {
-                                event.stopPropagation();
-                                $(this).removeClass('active');
-                            });
-
-                            $(document).click(function(event) {
-                                if (!$(event.target).closest('.img-box').length && !$(event.target).hasClass('overlay')) {
-                                    $('.overlay').removeClass('active');
-                                }
-                            });
-                        });
-    </script>
-    $(document).click(function(event) {
-    if (!$(event.target).closest('.img-box').length && !$(event.target).hasClass('overlay')) {
-    $('.overlay').removeClass('active');
-    }
-    });
-    });
+            $(document).click(function(event) {
+                if (!$(event.target).closest('.img-box').length && !$(event.target).hasClass('overlay')) {
+                    $('.overlay').removeClass('active');
+                }
+            });
+        });
     </script>
 
 </body>

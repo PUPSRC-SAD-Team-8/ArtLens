@@ -1,10 +1,8 @@
 const config = {
     branches: [
-        { name: 'v1', range: '1.x' },
         // Pre-releases for v1 (continue using 'alpha' from previous tags)
-        { name: 'v1-dev', prerelease: 'alpha' },
-        { name: 'v2', range: '>=2.0.0' },
-        { name: 'v2-dev', prerelease: 'v2.alpha' },
+        'v1', { name: 'v1', prerelease: 'alpha' },
+        'v2', { name: 'v2', prerelease: 'v2.alpha' },
     ],
     // plugins: [
     //     'semantic-release/commit-analyzer',

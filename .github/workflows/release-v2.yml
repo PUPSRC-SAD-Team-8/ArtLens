@@ -1,13 +1,12 @@
-name: Pre-Release
+name: Release v2
 
 on:
   push:
     branches:
-      - v1-dev
-      - v2-dev
+      - v2
 
 jobs:
-  pre-release:
+  release:
     permissions:
       contents: write
       issues: write
@@ -15,7 +14,6 @@ jobs:
       id-token: write
 
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,15 +31,8 @@ jobs:
           npm clean-install
           npm ci
         
-      - name: Semantic Release (Pre-Release)
+      - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          # Optionally, set a pre-release flag or version
-          # for semantic-release to generate a pre-release.
-          # For example, to specify a pre-release version:
-          # NEXT_VERSION: preminor
-        run: |
-          # You may need to customize this command based on your semantic-release config.
-          # Add any necessary flags or options to trigger a pre-release version.
-          npx semantic-release
+        run: npx semantic-release 

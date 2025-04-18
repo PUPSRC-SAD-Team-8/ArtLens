@@ -3,14 +3,14 @@ name: "Check 'main' Pull Requests"
 on:
   pull_request:
    branches:
-      - main
+      - v1
 
 jobs:
   check_branch:
     runs-on: ubuntu-latest
     steps:
       - name: Check branch
-        if: github.base_ref == 'main' && github.head_ref != 'testing'
+        if: github.base_ref == 'v1' && github.head_ref != 'v1-testing'
         run: |
-          echo "ERROR: You can only merge to main from testing."
+          echo "ERROR: You can only merge to v1 main from v1-testing."
           exit 1

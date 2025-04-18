@@ -3,3 +3,4 @@
 # .gitignore.default
 # .gitignore.development
 # release.config.js
+node_modules

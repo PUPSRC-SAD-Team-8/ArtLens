@@ -34,9 +34,15 @@ $row = mysqli_fetch_assoc($schedule);
         .invalid {
             border-color: red;
         }
+
         .requiredas:after {
-            content:" *";
+            content: " *";
             color: red;
+        }
+
+        .input-group .form-control,
+        .input-group .btn {
+            height: calc(3.5rem + 2px);
         }
     </style>
 </head>
@@ -48,7 +54,7 @@ $row = mysqli_fetch_assoc($schedule);
     <nav class="head navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <h1 style="color: white; font-family: Josefin Sans; margin-top: 15px; font-size: 25px;"><b>ARTLENS</b></h1>
-            <div id="logoutButtonContainer" style="display: none;"></div>
+            <div  id="logoutButton" class="adminlogbtn" style="display: none;">Logout</div>
         </div>
     </nav>
 
@@ -87,29 +93,31 @@ $row = mysqli_fetch_assoc($schedule);
             </div>
         </div>
     </div>
-    <div class="modal fade" id="modalconfirm" tabindex="-1" aria-labelledby="modalconfirmLabel" aria-hidden="true">
+    <!--<div class="modal fade" id="modalconfirm" tabindex="-1" aria-labelledby="modalconfirmLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                    <div class="modal-header">
-                        <center><h5 class="modal-title" id="modalconfirmLabel">Confirmation</h5></center>
-                    </div>
-                    <div class="modal-body">
-                        <center>
-                            <img src="assets/images/leaving.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
-                            <p>Are you sure you want to leave the museum?</p>
-                        </center>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary btn-continue">Continue</button>
-                    </div>
+                <div class="modal-header">
+                    <center>
+                        <h5 class="modal-title" id="modalconfirmLabel">Confirmation</h5>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <img src="assets/images/leaving.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
+                        <p>Are you sure you want to leave the museum?</p>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-continue">Continue</button>
+                </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
 
-<!-- Log out button container -->
-<div id="logoutButtonContainer" style="display: none;"></div>
+    <!-- Log out button container 
+    <div id="logoutButtonContainer" style="display: none;"></div>-->
 
     <br><br><br><br><br>
 
@@ -184,8 +192,8 @@ $row = mysqli_fetch_assoc($schedule);
                         <hr>
 
                         <div id="toggleButtons" class="d-flex justify-content-center mb-3">
-                            <a type="button" class="btn-toggle form" onclick="showForm()">Form</a>
-                            <a type="button" class="btn-toggle status" onclick="showStatus()">Status</a>
+                            <a type="button" style="border-radius: 5px 0px 0px 5px;" class="btn-toggle form" onclick="showForm()">Form</a>
+                            <a type="button" style="border-radius: 0px 5px 5px 0px;" class="btn-toggle status" onclick="showStatus()">Status</a>
                         </div>
 
                         <!-- Booking Form -->
@@ -194,56 +202,77 @@ $row = mysqli_fetch_assoc($schedule);
                                 Form submitted successfully!
                                 <button type="button" class="btn-close float-end" aria-label="Close" onclick="dismissAlert()"></button>
                             </div>
+                            <?php
+                            // Fetch schedule data from the database
+                            $schedule = mysqli_query($conn, "SELECT * FROM schedule");
+                            $row = mysqli_fetch_assoc($schedule);
+                            $startTime = date("H:i", strtotime($row['start_time']));
+                            $endTime = date("H:i", strtotime($row['end_time']));
+                            ?>
                             <form id="bookingForm" name="bookingForm" action="booking.php" method="POST" onsubmit="handleSubmit(event)">
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="onam" name="onam" type="text" placeholder="Organization Name" required maxlength="50">
-                                <label>Organization Name</label>
-                                <div class="invalid-feedback"></div>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50" oninput="checkEmail()">
-                                <label>Email</label>
-                                <div class="invalid-feedback"></div>
-                                <div id="emailStatus"></div><!-- Error message container -->
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="monu" name="monu" type="tel" placeholder="Mobile Number" required title="Please enter an 11-digit mobile number." maxlength="13">
-                                <label>Mobile Number</label>
-                                <div id="mobileStatus" class="invalid-feedback"></div> <!-- Error message container -->
-                            </div>
-                            <div class="row">
-                                <label class="form-label d-block">Number by Sex</label>
-                                <div class="col">
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="numa" name="numa" type="number" placeholder="Number of Males" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
-                                        <label>Male</label>
-                                        <span id="maleError" class="error-message"></span>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="onam" name="onam" type="text" placeholder="Organization Name" required maxlength="50">
+                                    <label>Organization Name</label>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="monu" name="monu" type="tel" placeholder="Mobile Number" required title="Please enter an 11-digit mobile number." maxlength="13">
+                                    <label for="monu">Mobile Number</label>
+                                    <div id="mobileStatus" class="invalid-feedback"></div> <!-- Error message container -->
+                                </div>
+                                <div class="mb-2">
+                                    <div class="input-group">
+                                        <div class="form-floating flex-grow-1">
+                                            <input class="form-control" id="emal" name="emal" type="email" placeholder="Email" required maxlength="50">
+                                            <label for="emal">Email</label>
+                                            <div class="invalid-feedback"></div>
+                                            <div id="emailStatus"></div><!-- Error message container -->
+                                        </div>
+                                        <button type="button" class="btn btn3" id="sendButton">Send</button>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="nufe" name="nufe" type="number" placeholder="Number of Females" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
-                                        <label>Female</label>
-                                        <span id="femaleError" class="error-message"></span>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="otp" name="otp" type="text" placeholder="OTP Code" required maxlength="6">
+                                    <label for="otp">OTP Code</label>
+                                    <div id="otpStatus" class="invalid-feedback"></div> <!-- Error message container -->
+                                </div>
+
+                                <div class="row">
+                                    <label class="form-label d-block">Number by Sex</label>
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="numa" name="numa" type="number" placeholder="Number of Males" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
+                                            <label>Male</label>
+                                            <span id="maleError" class="error-message"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="nufe" name="nufe" type="number" placeholder="Number of Females" required min="0" max="50" oninput="this.value = this.value.slice(0, 2)">
+                                            <label>Female</label>
+                                            <span id="femaleError" class="error-message"></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="dati" name="dati" type="datetime-local" placeholder="Date and Time" required>
-                                <label>Date and Time</label>
-                                <div id="dateTimeError" class="invalid-feedback" style="display: none; color: #dc3545; font-size: smaller;"></div> <!-- Error message container -->
-                            </div>
-                            <div class="d-flex justify-content-center mt-3">
-                                <button type="submit" name="submit" class="btn3 mt-3" id="bookButton" style="width: 100%;" disabled>
-                                    <span id="submitText">Book</span>
-                                    <span id="loadingSpinner" class="visually-hidden">
-                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                        Loading...
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                                
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="dati" name="dati" type="datetime-local" placeholder="Date and Time" required>
+                                    <label>Date and Time</label>
+                                    <div id="dateTimeError" class="invalid-feedback" style="display: none; color: #dc3545; font-size: smaller;"></div> <!-- Error message container -->
+                                </div>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button type="submit" name="submit" class="btn3 mt-3" id="bookButton" style="width: 100%;" disabled>
+                                        <span id="submitText">Book</span>
+                                        <span id="loadingSpinner" class="visually-hidden">
+                                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            Loading...
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
+    
+
+                        </div>
 
                         <!-- Status Content -->
                         <div id="statusContent" class="hidden" style="max-height: 400px; overflow-y: auto;">
@@ -262,7 +291,7 @@ $row = mysqli_fetch_assoc($schedule);
                         </div>
                     </div>
                 </div>
-                
+
                 <button class="btn kulay mt-1" onclick="document.getElementById('myModal2').style.display='flex'">Visit the Museum</button>
                 <!--Log Form-->
                 <div id="myModal2" class="modal2" tabindex="-1">
@@ -278,28 +307,24 @@ $row = mysqli_fetch_assoc($schedule);
                                     <option value="Organization">Organization</option>
                                 </select>
                             </div>
-                            
+
                             <!-- Organization Fields -->
-                            <div class="organization" style="display: none;" >
+                            <div class="organization" style="display: none;">
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="busno" name="busno" type="text" placeholder="C.N. Bus No." maxlength="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="busno" class="requiredas">C.N. Bus No.</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="names" name="names" type="text" placeholder="Name" maxlength="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="names" class="requiredas">Name</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="address" name="address" type="text" placeholder="Address" maxlength="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="address" class="requiredas">Address</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="nationality" name="nationality" type="text" placeholder="Nationality" maxlength="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="nationality" class="requiredas">Nationality</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="row mb-3">
                                     <label class="form-label d-block mt-2">Number by Sex</label>
@@ -307,7 +332,6 @@ $row = mysqli_fetch_assoc($schedule);
                                         <div class="form-floating">
                                             <input class="form-control" id="numma" name="numma" type="number" placeholder="Number of Male" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
                                             <label for="numma" class="requiredas">Male</label>
-                                            <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                             <div class="invalid-feedback">Value cannot exceed 50.</div>
                                         </div>
                                     </div>
@@ -315,7 +339,6 @@ $row = mysqli_fetch_assoc($schedule);
                                         <div class="form-floating">
                                             <input class="form-control" id="numfe" name="numfe" type="number" placeholder="Number of Female" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
                                             <label for="numfe" class="requiredas">Female</label>
-                                            <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                             <div class="invalid-feedback">Value cannot exceed 50.</div>
                                         </div>
                                     </div>
@@ -324,51 +347,43 @@ $row = mysqli_fetch_assoc($schedule);
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="gs" name="gs" type="number" placeholder="Grade School" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="gs" class="requiredas">Grade School</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                     <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="hs" name="hs" type="number" placeholder="High School" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="hs" class="requiredas">High School</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                     <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="cls" name="cls" type="number" placeholder="College/Grad School" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="cls" class="requiredas">College/Grad School</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                     <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <p class="mt-3">PWD</p>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="pwd" name="pwd" type="number" placeholder="PWD" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="pwd" class="requiredas">PWD</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                     <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <p class="mt-3">Number of Guests Based on Age Bracket</p>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="17below" name="17below" type="number" placeholder="17 years old below" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="17below" class="requiredas">17 years old below</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                     <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="1930below" name="1930below" type="number" placeholder="19-30 years old" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="1930below" class="requiredas">19-30 years old</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                     <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="3159below" name="3159below" type="number" placeholder="31-59 years old" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="3159below" class="requiredas">31-59 years old</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                     <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="60above" name="60above" type="number" placeholder="60 years old above" min="0" max="50" required oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="60above" class="requiredas">60 years old above</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                     <div class="invalid-feedback">Value cannot exceed 50.</div>
                                 </div>
                             </div>
@@ -378,14 +393,12 @@ $row = mysqli_fetch_assoc($schedule);
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="fn" name="fn" type="text" placeholder="First Name" maxlength="50" oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="fn" class="requiredas">First Name</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="ln" name="ln" type="text" placeholder="Last Name" maxlength="50" oninput="validateField(this)" onblur="validateField(this)">
                                     <label for="ln" class="requiredas">Last Name</label>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
-                                <div class="form-floating mb-3">
+                                <div class="form-floating mb-3 optional-field">
                                     <input class="form-control" id="mo" name="mo" type="text" placeholder="MI(Optional)" maxlength="1">
                                     <label for="mo">MI(Optional)</label>
                                 </div>
@@ -399,27 +412,26 @@ $row = mysqli_fetch_assoc($schedule);
                                         <input class="form-check-input" type="radio" id="female" name="gen" value="Female" onblur="validateField(this)">
                                         <label class="form-check-label" for="female">Female</label>
                                     </div>
-                                    <small class="text-danger" style="display: none;">This field cannot be blank.</small>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="email" name="email1" type="email" placeholder="Email" maxlength="50" oninput="validateEmail('email')" onblur="validateEmail('email')">
                                     <label for="email" class="requiredas">Email</label>
-                                    <small id="emailError" class="text-danger" style="display: none;">Invalid email address.</small>
+                                    <span class="error-message"></span>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="mobile1" name="monu1" type="text" placeholder="Mobile Number" maxlength="13" oninput="validateFieldNum(this)" onblur="validateFieldNum(this)">
                                     <label for="mobile1" class="requiredas">Mobile Number</label>
-                                    <small id="mobile-error" class="text-danger" style="display: none;">Please enter a valid PH mobile number starting with +63 or 09.</small>
+                                    <span class="error-message"></span>
                                 </div>
                             </div>
 
                             <div class="d-flex justify-content-center mt-3">
-                                <button type="submit" name="submit" class=" btn3 w-100 mt-3" id="logButton">Submit</button>
+                                <button type="submit" name="submit" class=" btn3 w-100 mt-3" id="logButton" disabled>Submit</button>
                             </div>
                         </form>
                     </div>
                 </div>
-               
+
             </div>
         </div>
     </div>
@@ -444,7 +456,7 @@ $row = mysqli_fetch_assoc($schedule);
             <div class="row">
                 <div class="col-md mt-3">
                     <br>
-                    <h6>Museo ni Jose Rizal, Calamba, Laguna</h6>
+                    <h6>Museo ni Jose Rizal</h6>
                     <center>
                         <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
                     </center>
@@ -457,7 +469,7 @@ $row = mysqli_fetch_assoc($schedule);
                         <hr style="width: 300px; border:1px solid #4169E1; color: #4169E1;">
                     </center>
                     <p class="tetleft"><a type="button" href="aboutus.php" class="clickft">About us</a></p>
-                    <p class="tetleft"><a type="button" href="faqs.php" class="clickft">Frequently asked Questions</a></p>
+                    <p class="tetleft"><a type="button" href="faqs.php" class="clickft">FAQs</a></p>
                 </div>
                 <div class="col-md mt-3">
                     <br>
@@ -489,6 +501,73 @@ $row = mysqli_fetch_assoc($schedule);
     <script src="assets/js/logformvalidation.js"></script>
     <script src="assets/js/bookvalidationinput.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Output PHP variables as JavaScript variables
+    const savedStartTime = '<?php echo date("h:i A", strtotime($startTime)); ?>';
+    const savedEndTime = '<?php echo date("h:i A", strtotime($endTime)); ?>';
+
+    const input = document.getElementById('dati');
+    const now = new Date().toISOString().slice(0, 16);
+    input.setAttribute('min', now);
+
+    input.addEventListener('change', function() {
+        const selectedDateTime = new Date(input.value);
+        const selectedTime = formatTime(selectedDateTime);
+
+        // Convert times to minutes since midnight for comparison
+        const savedStartMinutes = convertToMinutes(savedStartTime);
+        const savedEndMinutes = convertToMinutes(savedEndTime);
+        const selectedMinutes = convertToMinutes(selectedTime);
+
+        // Validate against saved schedule times
+        if (selectedMinutes < savedStartMinutes || selectedMinutes > savedEndMinutes) {
+            input.classList.add('input-error', 'border-red');
+            displayErrorMessage(`Booking time must be between ${savedStartTime} and ${savedEndTime}.`);
+            document.getElementById('bookButton').disabled = true;
+        } else if (selectedMinutes < convertToMinutes('9:00 AM') || selectedMinutes > convertToMinutes('4:00 PM')) {
+            // Validate against allowed business hours
+            input.classList.add('input-error', 'border-red');
+            displayErrorMessage("Only times between 9 AM and 4 PM are allowed.");
+            document.getElementById('bookButton').disabled = true;
+        } else {
+            input.classList.remove('input-error', 'border-red');
+            clearErrorMessage();
+            document.getElementById('bookButton').disabled = false;
+        }
+    });
+
+    function formatTime(date) {
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        return hours + ':' + minutes + ' ' + ampm;
+    }
+
+    function convertToMinutes(time) {
+        const [hourMinute, period] = time.split(' ');
+        let [hour, minute] = hourMinute.split(':').map(Number);
+        if (period === 'PM' && hour !== 12) hour += 12;
+        if (period === 'AM' && hour === 12) hour = 0;
+        return hour * 60 + minute;
+    }
+
+    function displayErrorMessage(message) {
+        const errorContainer = document.getElementById('dateTimeError');
+        errorContainer.textContent = message;
+        errorContainer.style.display = 'block';
+    }
+
+    function clearErrorMessage() {
+        const errorContainer = document.getElementById('dateTimeError');
+        errorContainer.textContent = '';
+        errorContainer.style.display = 'none';
+    }
+});
+</script>
 
     <script>
         function validateForm() {
@@ -547,67 +626,40 @@ $row = mysqli_fetch_assoc($schedule);
 
         // Attach submitForm function to form submission
         document.getElementById("logForm").addEventListener("submit", function(event) {
-            event.preventDefault(); 
-            submitForm(); 
+            event.preventDefault();
+            submitForm();
         });
     </script>
-    <script>
-    function showConfirmationModal() {
-        var modal = new bootstrap.Modal(document.getElementById('modalconfirm'));
-        modal.show();
 
-   
-        document.querySelector('.btn-continue').addEventListener('click', function() {
-      
-            localStorage.removeItem('loggedInDevice');
-       
-            document.getElementById('logoutButtonContainer').style.display = 'none';
-    
-            modal.hide();
-        });
+        <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const logForm = document.getElementById('logForm');
+        const logoutButton = document.getElementById('logoutButton');
 
-  
-        document.querySelector('.btn-cancel').addEventListener('click', function() {
-            modal.hide();
-        });
-    }
-
- 
-    function checkLoggedIn() {
-
-        var isLoggedIn = localStorage.getItem('loggedInDevice');
-
-        if (isLoggedIn) {
-    
-            var logoutButton = '<a class="float-end btn1 adminlogbtn" style="text-decoration: none;" onclick="showConfirmationModal()">Log out</a>';
-            document.getElementById('logoutButtonContainer').innerHTML = logoutButton;
-            document.getElementById('logoutButtonContainer').style.display = 'block';
-        } else {
-       
-            document.getElementById('logoutButtonContainer').style.display = 'none';
-        }
-    }
-
-
-    window.onload = function() {
-        checkLoggedIn();
-    };
-
-  
-    function validateForm() {
-
-        var isValid = true;
-
-        if (isValid) {
-
-            localStorage.setItem('loggedInDevice', true);
-
-            checkLoggedIn();
+        // Check if the user is logged in (e.g., by checking a session storage item)
+        // If so, show the logout button
+        if (sessionStorage.getItem('loggedIn') === 'true') {
+            logoutButton.style.display = 'block';
         }
 
-        return isValid; 
-    }
+        // Handle form submission
+        logForm.onsubmit = function() {
+            // Show logout button after form submission
+            sessionStorage.setItem('loggedIn', 'true');
+            logoutButton.style.display = 'block';
+            return true; // Continue with form submission
+        };
+
+        // Handle logout button click
+        logoutButton.onclick = function() {
+            sessionStorage.removeItem('loggedIn');
+            logoutButton.style.display = 'none';
+            // Optionally, redirect to a logout URL
+            window.location.href = 'index.php';
+        };
+    });
 </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -618,32 +670,33 @@ $row = mysqli_fetch_assoc($schedule);
             }, 1500); // 3000 milliseconds = 3 seconds
         });
     </script>
-<script>
-$(document).ready(function() {
-    $('.img-box').click(function() {
-        var overlay = $(this).find('.overlay');
-   
-        if (overlay.hasClass('active')) {
-            overlay.removeClass('active');
-        } else {
-   
-            overlay.addClass('active');
-            $('.overlay').not(overlay).removeClass('active');
-        }
-    });
 
-    $('.overlay').click(function(event) {
-        event.stopPropagation(); 
-        $(this).removeClass('active'); 
-    });
+    <script>
+        $(document).ready(function() {
+            $('.img-box').click(function() {
+                var overlay = $(this).find('.overlay');
 
-    $(document).click(function(event) {
-        if (!$(event.target).closest('.img-box').length && !$(event.target).hasClass('overlay')) {
-            $('.overlay').removeClass('active');
-        }
-    });
-});
-</script>
+                if (overlay.hasClass('active')) {
+                    overlay.removeClass('active');
+                } else {
+
+                    overlay.addClass('active');
+                    $('.overlay').not(overlay).removeClass('active');
+                }
+            });
+
+            $('.overlay').click(function(event) {
+                event.stopPropagation();
+                $(this).removeClass('active');
+            });
+
+            $(document).click(function(event) {
+                if (!$(event.target).closest('.img-box').length && !$(event.target).hasClass('overlay')) {
+                    $('.overlay').removeClass('active');
+                }
+            });
+        });
+    </script>
 
 </body>
 

@@ -2,9 +2,13 @@
 session_start();
 include('connection.php');
 
-$errors = array(); // Initialize an array to store error messages
+header('Content-Type: application/json'); // Set the content type to JSON
+
+$response = array('status' => 'error', 'message' => 'An unknown error occurred.');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $errors = array(); // Initialize an array to store error messages
+
     // Handle file upload
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
@@ -13,9 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if image file is a actual image or fake image
     $check = getimagesize($_FILES["image"]["tmp_name"]);
-    if ($check !== false) {
-        $uploadOk = 1;
-    } else {
+    if ($check === false) {
         $errors[] = "File is not an image.";
         $uploadOk = 0;
     }
@@ -26,53 +28,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $uploadOk = 0;
     }
 
-    // Check file size
-    // For now, allow any file size, so the check is commented out
-    /*
-    if ($_FILES["image"]["size"] > 500000) {
-        $errors[] = "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-    */
-
     // Allow certain file formats
-    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif") {
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
         $errors[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
 
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        // Prepare error messages for display in JavaScript
-        echo '<script>';
-        foreach ($errors as $error) {
-            echo 'alert("' . $error . '");';
-        }
-        echo '</script>';
+        $response['message'] = implode(' ', $errors);
     } else {
         // File upload is successful
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             // Insert form data into database
-            $title = $_POST['title'];
-            $description = $_POST['description'];
-            $image_path = $target_file;
+            $title = $conn->real_escape_string($_POST['title']);
+            $description = $conn->real_escape_string($_POST['description']);
+            $image_path = $conn->real_escape_string($target_file);
 
             $sql = "INSERT INTO submissions (image_path, title, description) VALUES ('$image_path', '$title', '$description')";
 
             if ($conn->query($sql) === TRUE) {
-                
-                header("Location: adminannouncements.php");
-                echo '<script>alert("New record created successfully.");</script>';
-                exit();
+                $response['status'] = 'success';
+                $response['message'] = 'New record created successfully.';
             } else {
-                echo '<script>alert("Error: ' . $sql . '\\n' . $conn->error . '");</script>';
+                $response['message'] = 'Error: ' . $conn->error;
             }
         } else {
-            echo '<script>alert("Sorry, there was an error uploading your file.");</script>';
+            $response['message'] = 'Sorry, there was an error uploading your file.';
         }
     }
 }
 
 $conn->close();
+echo json_encode($response); // Return the response as JSON
 ?>

@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function checkFormValidity() {
         let allFilled = true;
+
+        // Check if all required fields are filled
         inputs.forEach(input => {
             if (!input.value) {
                 allFilled = false;
@@ -44,31 +46,41 @@ document.addEventListener('DOMContentLoaded', function () {
             mobileStatus.textContent = "";
         }
 
-        // Validate male input
-        const maleValue = parseInt(maleInput.value);
+        // Validate male and female inputs
+        const maleValue = parseInt(maleInput.value) || 0;
+        const femaleValue = parseInt(femaleInput.value) || 0;
+        const total = maleValue + femaleValue;
+
         if (maleValue > 50) {
             allFilled = false;
             maleInput.classList.add('is-invalid');
             maleError.textContent = "Only numbers below 50 are allowed.";
-            emailStatus.style.color = '#dc3545';
-            emailStatus.style.fontSize = 'smaller';
-            submitButton.disabled = !allFilled;
         } else {
             maleInput.classList.remove('is-invalid');
             maleError.textContent = "";
         }
 
-        // Validate female input
-        const femaleValue = parseInt(femaleInput.value);
         if (femaleValue > 50) {
             allFilled = false;
             femaleInput.classList.add('is-invalid');
             femaleError.textContent = "Only numbers below 50 are allowed.";
-            emailStatus.style.color = '#dc3545';
-            emailStatus.style.fontSize = 'smaller';
-            submitButton.disabled = !allFilled;
         } else {
             femaleInput.classList.remove('is-invalid');
+            femaleError.textContent = "";
+        }
+
+        if (total > 50) {
+            allFilled = false;
+            maleInput.classList.add('is-invalid');
+            femaleInput.classList.add('is-invalid');
+            maleError.textContent = `Total cannot exceed 50. Currently, ${femaleValue} female(s) are entered.`;
+            femaleError.textContent = `Total cannot exceed 50. Currently, ${maleValue} male(s) are entered.`;
+            emailStatus.style.color = '#dc3545';
+            emailStatus.style.fontSize = 'smaller';
+        } else {
+            maleInput.classList.remove('is-invalid');
+            femaleInput.classList.remove('is-invalid');
+            maleError.textContent = "";
             femaleError.textContent = "";
         }
 
@@ -119,35 +131,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
     checkFormValidity();
 });
-
-document.addEventListener("DOMContentLoaded", function() {
-    const input = document.getElementById('dati');
-    const now = new Date().toISOString().slice(0, 16);
-    input.setAttribute('min', now);
-
-    input.addEventListener('change', function() {
-        const selectedDateTime = new Date(input.value);
-        const hours = selectedDateTime.getHours();
-
-        if (hours < 9 || hours > 16) {
-            input.classList.add('input-error', 'border-red');
-            displayErrorMessage("Only times between 9 AM and 4 PM are allowed.");
-            document.getElementById('bookButton').disabled = true;
-        } else {
-            input.classList.remove('input-error', 'border-red');
-            clearErrorMessage();
-        }
-    });
-});
-
-function displayErrorMessage(message) {
-    const errorContainer = document.getElementById('dateTimeError');
-    errorContainer.textContent = message;
-    errorContainer.style.display = 'block';
-}
-
-function clearErrorMessage() {
-    const errorContainer = document.getElementById('dateTimeError');
-    errorContainer.style.display = 'none';
-    errorContainer.textContent = '';
-}

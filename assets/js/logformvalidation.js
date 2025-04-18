@@ -50,29 +50,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function validateField(field) {
         const value = parseInt(field.value, 10);
-        const errorMessage = field.parentElement.querySelector('.invalid-feedback');
-        if (field.value === '' || value > 50) {
+        if (value > 50) {
             field.classList.add('is-invalid');
-            errorMessage.textContent = value > 50 ? 'Value cannot exceed 50.' : '';
-            errorMessage.style.display = 'block'; // Show the error message
             field.setCustomValidity('Invalid');
         } else {
             field.classList.remove('is-invalid');
-            errorMessage.style.display = 'none'; // Hide the error message
             field.setCustomValidity('');
         }
+        checkFormValidity();
     }
 });
 
-  // Function to update required attributes based on form mode
-  function updateRequiredAttributes(showFields, hideFields) {
+function updateRequiredAttributes(showFields, hideFields) {
     showFields.querySelectorAll('input[required], select[required]').forEach(function(field) {
         if (!field.closest('.form-floating').classList.contains('optional-field')) {
             field.setAttribute('required', '');
         }
     });
 
-    // Remove required attribute specifically for the "MI (Optional)" field
     const optionalField = showFields.querySelector('#mo');
     if (optionalField) {
         optionalField.removeAttribute('required');
@@ -99,11 +94,26 @@ function validateForm() {
     }
 
     form.querySelectorAll('input[required]').forEach(input => {
+        // Exclude specific inputs from validation
+        if (input.id !== 'contact_email' && input.name !== 'uname' && input.id !== 'pass') {
+            if (!input.value.trim()) {
+                isValid = false;
+                input.classList.add('is-invalid');
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        }
+    });
+
+    // Validate mobile number and email separately
+    validateFieldNum(document.getElementById('mobile1'));
+    validateEmail('email');
+
+    // Check if there are any inputs without a value
+    const emptyInputs = form.querySelectorAll('input[required]:not(.is-invalid):not([type="hidden"]):not([type="radio"]):not([type="checkbox"]), select[required]:not(.is-invalid)');
+    emptyInputs.forEach(input => {
         if (!input.value.trim()) {
             isValid = false;
-            showError(input, 'This field cannot be blank.');
-        } else {
-            clearError(input);
         }
     });
 
@@ -112,55 +122,61 @@ function validateForm() {
 }
 
 function validateField(input) {
-    if (!input.value.trim()) {
-        showError(input, 'This field cannot be blank.');
-        document.getElementById('logButton').disabled = true;
-    } else {
-        clearError(input);
-        document.getElementById('logButton').disabled = false;
+    // Exclude specific inputs from adding 'is-invalid' class when empty
+    if (input.id !== 'contact_email' && input.name !== 'uname' && input.id !== 'pass') {
+        if (!input.value.trim()) {
+            input.classList.add('is-invalid');
+            document.getElementById('logButton').disabled = true;
+        } else {
+            input.classList.remove('is-invalid');
+            checkFormValidity();
+        }
     }
 }
 
 function validateFieldNum(input) {
     const phRegex = /^(09|\+639)\d{9}$/;
+    const errorElement = input.nextElementSibling.nextElementSibling; // Assuming error message element follows immediately after the input
+
     if (!input.value.trim()) {
-        showError(input, 'This field cannot be blank.');
+        input.classList.add('is-invalid');
+        errorElement.textContent = ''; // Clear previous message if any
         document.getElementById('logButton').disabled = true;
     } else if (!phRegex.test(input.value)) {
-        showError(input, 'Please enter a valid PH mobile number starting with +63 or 09.');
+        input.classList.add('is-invalid');
+        errorElement.textContent = 'Please enter a valid PH mobile number starting with +63 or 09.';
         document.getElementById('logButton').disabled = true;
     } else {
-        clearError(input);
-        document.getElementById('logButton').disabled = false;
+        input.classList.remove('is-invalid');
+        errorElement.textContent = ''; // Clear error message on success
+        checkFormValidity();
     }
 }
 
 function validateEmail(id) {
     const email = document.getElementById(id);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const errorElement = email.nextElementSibling.nextElementSibling; // Assuming error message element follows immediately after the input
+
     if (!email.value.trim()) {
-        showError(email, 'This field cannot be blank.');
+        email.classList.add('is-invalid');
+        errorElement.textContent = ''; // Clear previous message if any
         document.getElementById('logButton').disabled = true;
     } else if (!emailRegex.test(email.value)) {
-        showError(email, 'Invalid email address.');
+        email.classList.add('is-invalid');
+        errorElement.textContent = 'Invalid email address.';
         document.getElementById('logButton').disabled = true;
     } else {
-        clearError(email);
-        document.getElementById('logButton').disabled = false;
+        email.classList.remove('is-invalid');
+        errorElement.textContent = ''; // Clear error message on success
+        checkFormValidity();
     }
 }
 
-function showError(input, message) {
-    input.classList.add('invalid');
-    const errorElement = input.nextElementSibling.nextElementSibling;
-    errorElement.textContent = message;
-    errorElement.style.display = 'block';
-}
-
-function clearError(input) {
-    input.classList.remove('invalid');
-    const errorElement = input.nextElementSibling.nextElementSibling;
-    errorElement.style.display = 'none';
+function checkFormValidity() {
+    const form = document.getElementById('logForm');
+    const isValid = !form.querySelectorAll('.is-invalid').length;
+    document.getElementById('logButton').disabled = !isValid;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -175,4 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('email').addEventListener('input', () => validateEmail('email'));
     document.getElementById('email').addEventListener('blur', () => validateEmail('email'));
+
+    // Initial validation on page load
+    validateForm();
 });

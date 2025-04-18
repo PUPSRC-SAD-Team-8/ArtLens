@@ -15,5 +15,5 @@ jobs:
       - name: Check branch
         if: github.event_name == 'push' && github.ref == 'refs/heads/testing' && (github.actor != 'C-Ivan-Bandilla' && github.actor != 'Hello-Ivan')
         run: |
-          echo "ERROR: You are not authorized to push to the 'testing' branch."
+          echo "ERROR: You are not authorized to push to the 'v1-testing' branch."
           exit 1
